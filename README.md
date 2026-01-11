@@ -30,6 +30,8 @@ pnpm update-rates
 
 Esto ejecuta el ETL que descarga las tasas de los bancos y genera los archivos JSON en `apps/web/public/data/`.
 
+> **Nota:** Itaú bloquea las descargas automatizadas (403 Forbidden). Para actualizar las tasas de Itaú, descarga manualmente el PDF desde https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas y guárdalo en `fixtures/itau/rates.pdf`.
+
 ## Tests
 
 ```bash

@@ -434,6 +434,16 @@ Some banks block automated requests. Try:
 - Downloading manually and using only fixtures for now
 - Checking if the URL has changed
 
+#### Itaú (Known Issue)
+
+Itaú blocks all automated PDF downloads with 403 Forbidden. The parser is implemented but requires manual PDF download:
+
+1. Visit https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas
+2. Download the "Tasas vigentes persona natural" PDF
+3. Save it to `fixtures/itau/rates.pdf`
+
+The parser will work with fixtures but live fetching is not possible.
+
 ### Colombian number formats
 
 Use `parseColombianNumber()` which handles both `12,50` (comma decimal) and `12.50` (dot decimal).

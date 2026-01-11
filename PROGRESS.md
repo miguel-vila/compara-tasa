@@ -1,6 +1,6 @@
 # Progress
 
-> **Status: PARTIALLY FUNCTIONAL** - Bancolombia, Scotiabank Colpatria, BBVA, Caja Social, and AV Villas parsers implemented and tested. 1 PDF parser remaining (Itaú).
+> **Status: FUNCTIONAL** - All 6 bank parsers implemented and tested (Bancolombia, Scotiabank Colpatria, BBVA, Caja Social, AV Villas, Itaú). Note: Itaú requires manual PDF download due to 403 blocking.
 
 ## What's Done
 
@@ -52,12 +52,12 @@
 - [x] **Scotiabank**: Implement PDF parsing with pdfjs-dist (13 tests)
 - [x] **Caja Social**: Implement PDF parsing with pdfjs-dist (13 tests)
 - [x] **AV Villas**: Implement PDF link discovery + parsing (15 tests)
-- [ ] **Itaú**: Implement PDF parsing (blocked: server returns 403 Forbidden)
+- [x] **Itaú**: Implement PDF parsing (13 tests) - Note: requires manual PDF download
 
 ### Testing
 
-- [x] Download HTML/PDF fixtures for each bank (Bancolombia, Scotiabank, BBVA, Caja Social, AV Villas done)
-- [x] Write unit tests for parsers (Bancolombia: 14 tests, Scotiabank: 13 tests, BBVA: 18 tests, Caja Social: 13 tests, AV Villas: 15 tests)
+- [x] Download HTML/PDF fixtures for each bank (all 6 banks done)
+- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13 - Total: 86 tests)
 - [ ] Snapshot tests for extracted offers
 
 ### Deployment
@@ -82,7 +82,7 @@
 5. ~~Implement BBVA PDF parser~~ ✓ (18 tests)
 6. ~~Implement Caja Social PDF parser~~ ✓ (13 tests)
 7. ~~Implement AV Villas PDF parser~~ ✓ (15 tests)
-8. Implement Itaú PDF parser (blocked: need to manually download PDF or find alternative URL)
+8. ~~Implement Itaú PDF parser~~ ✓ (13 tests) - requires manual PDF download
 9. Deploy to Railway
 
 ## Running the Project
@@ -93,4 +93,4 @@ pnpm --filter @mejor-tasa/core build
 pnpm dev
 ```
 
-The frontend will show fake data. Real data requires implementing the parsers.
+Run `pnpm update-rates` to fetch live rates and generate data files for the frontend.
