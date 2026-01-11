@@ -12,12 +12,17 @@ import {
   type Rate,
   type BankParseResult,
 } from "@mejor-tasa/core";
-import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
+import {
+  fetchBancoDeBogotaPdf,
+  sha256,
+  generateOfferId,
+  parseColombianNumber,
+} from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
 // The PDF URL uses a date-based naming scheme (tasas-{month}-{year})
-// We'll use the main landing page as source URL
-const SOURCE_URL = "https://www.bancodebogota.com/documents/d/guest/tasas-diciembre-2025";
+// The actual URL is resolved dynamically by fetchBancoDeBogotaPdf
+const DEFAULT_SOURCE_URL = "https://www.bancodebogota.com/documents/d/guest";
 
 /**
  * Extracts text content from a PDF buffer using pdfjs-dist
@@ -125,7 +130,7 @@ function parseViviendaSection(text: string): ExtractedRate[] {
 
 export class BancoDeBogotaParser implements BankParser {
   bankId = BankId.BANCO_DE_BOGOTA;
-  sourceUrl = SOURCE_URL;
+  sourceUrl = DEFAULT_SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
@@ -137,13 +142,15 @@ export class BancoDeBogotaParser implements BankParser {
     // Fetch PDF (from fixture or live)
     let pdfBuffer: Buffer;
     if (this.config.useFixtures && this.config.fixturesPath) {
+      // Test mode: use fixture file (no URL resolution, no network)
       pdfBuffer = await readFile(this.config.fixturesPath);
     } else {
-      // Banco de Bogotá requires a browser-like user agent
-      const result = await fetchWithRetry(this.sourceUrl, {
+      // Live mode: resolve URL dynamically (tries current month, falls back to previous)
+      const { content, resolvedUrl } = await fetchBancoDeBogotaPdf({
         useBrowserUserAgent: true,
       });
-      pdfBuffer = result.content;
+      this.sourceUrl = resolvedUrl;
+      pdfBuffer = content;
     }
 
     const rawTextHash = sha256(pdfBuffer.toString("base64"));

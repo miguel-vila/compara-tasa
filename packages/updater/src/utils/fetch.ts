@@ -66,3 +66,61 @@ export async function fetchWithRetry(
     }
   );
 }
+
+// Spanish month names for URL construction
+const SPANISH_MONTHS = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+];
+
+const BANCO_DE_BOGOTA_BASE_URL = "https://www.bancodebogota.com/documents/d/guest";
+
+function isHttp404(error: unknown): boolean {
+  return error instanceof Error && error.message.includes("HTTP 404");
+}
+
+/**
+ * Fetches Banco de Bogotá PDF with month-based URL resolution.
+ * Tries current month first, falls back to previous month if 404.
+ */
+export async function fetchBancoDeBogotaPdf(
+  options?: Parameters<typeof fetchWithRetry>[1]
+): Promise<FetchResult & { resolvedUrl: string }> {
+  const now = new Date();
+
+  // Try current month first
+  const currentMonth = SPANISH_MONTHS[now.getMonth()];
+  const currentYear = now.getFullYear();
+  const currentUrl = `${BANCO_DE_BOGOTA_BASE_URL}/tasas-${currentMonth}-${currentYear}`;
+
+  try {
+    const result = await fetchWithRetry(currentUrl, { ...options, retries: 0 });
+    return { ...result, resolvedUrl: currentUrl };
+  } catch (error) {
+    // If 404, try previous month
+    if (isHttp404(error)) {
+      // JavaScript handles month -1 correctly: Jan 2025 - 1 month = Dec 2024
+      const prevDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+      const prevMonth = SPANISH_MONTHS[prevDate.getMonth()];
+      const prevYear = prevDate.getFullYear();
+      const prevUrl = `${BANCO_DE_BOGOTA_BASE_URL}/tasas-${prevMonth}-${prevYear}`;
+
+      console.log(
+        `Banco de Bogotá: current month URL returned 404, trying previous month: ${prevUrl}`
+      );
+      const result = await fetchWithRetry(prevUrl, options);
+      return { ...result, resolvedUrl: prevUrl };
+    }
+    throw error;
+  }
+}
