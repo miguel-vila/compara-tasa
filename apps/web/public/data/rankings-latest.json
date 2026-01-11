@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-11T20:52:15.101Z",
+  "generated_at": "2026-01-11T21:24:59.713Z",
   "scenarios": {
     "best_uvr_vis_hipotecario": {
       "offer_id": "586cae489862fdf7",
@@ -9,10 +9,10 @@
       }
     },
     "best_uvr_no_vis_hipotecario": {
-      "offer_id": "59c2241274df010d",
+      "offer_id": "e9c99af0ce3065f3",
       "metric": {
         "kind": "UVR_SPREAD_EA",
-        "value": 6.45
+        "value": 6.1
       }
     },
     "best_cop_vis_hipotecario": {
