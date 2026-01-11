@@ -1,0 +1,34 @@
+name: Update Rates
+
+on:
+  schedule:
+    - cron: "0 11 * * 1" # Every Monday at 6 AM Colombia (UTC-5)
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @mejor-tasa/core build
+      - run: pnpm --filter @mejor-tasa/updater build
+      - run: pnpm update-rates
+
+      - name: Commit updated rates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apps/web/public/data/
+          git diff --staged --quiet || git commit -m "chore: update rates [skip ci]"
+          git push

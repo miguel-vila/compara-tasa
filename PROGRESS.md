@@ -1,6 +1,6 @@
 # Progress
 
-> **Status: FUNCTIONAL** - All 6 bank parsers implemented and tested (Bancolombia, Scotiabank Colpatria, BBVA, Caja Social, AV Villas, Itaú). Note: Itaú requires manual PDF download due to 403 blocking.
+> **Status: READY TO DEPLOY** - All 6 bank parsers implemented (86 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking.
 
 ## What's Done
 
@@ -62,9 +62,9 @@
 
 ### Deployment
 
-- [ ] Railway configuration
-- [ ] GitHub Actions for scheduled ETL runs
-- [ ] Data storage setup (where to host JSON files)
+- [x] Railway configuration (`railway.json`, `nixpacks.toml`)
+- [x] GitHub Actions for scheduled ETL runs (weekly on Mondays)
+- [x] Data storage setup (JSON files in git, committed by GitHub Actions)
 
 ### Future Banks (Expansion)
 
@@ -98,7 +98,8 @@ Additional Colombian banks that could be added:
 6. ~~Implement Caja Social PDF parser~~ ✓ (13 tests)
 7. ~~Implement AV Villas PDF parser~~ ✓ (15 tests)
 8. ~~Implement Itaú PDF parser~~ ✓ (13 tests) - requires manual PDF download
-9. Deploy to Railway
+9. ~~Deploy to Railway~~ ✓ (railway.json + nixpacks.toml + GitHub Actions)
+10. Connect GitHub repo to Railway and deploy
 
 ## Running the Project
 
