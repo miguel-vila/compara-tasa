@@ -1,8 +1,5 @@
 import * as cheerio from "cheerio";
-import {
-  BankId,
-  type BankParseResult,
-} from "@mejor-tasa/core";
+import { BankId, type BankParseResult } from "@mejor-tasa/core";
 import { fetchWithRetry, sha256 } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
@@ -31,9 +28,7 @@ export class AvvillasParser implements BankParser {
     // - "Créditos Hipotecarios" section (VIS/NO VIS, UVR/COP)
     // - "Créditos Hipotecarios-Digital" section (channel=DIGITAL)
 
-    warnings.push(
-      "AV Villas parser not yet implemented - needs PDF link discovery and parsing"
-    );
+    warnings.push("AV Villas parser not yet implemented - needs PDF link discovery and parsing");
 
     return {
       bank_id: this.bankId,

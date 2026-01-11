@@ -1,7 +1,4 @@
-import {
-  BankId,
-  type BankParseResult,
-} from "@mejor-tasa/core";
+import { BankId, type BankParseResult } from "@mejor-tasa/core";
 import { fetchWithRetry, sha256 } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
@@ -28,9 +25,7 @@ export class BbvaParser implements BankParser {
     // - Leasing Habitacional rates
     // - Payroll benefit: +200bps for non-payroll (VIS), +250bps for non-payroll (NO VIS)
 
-    warnings.push(
-      "BBVA parser not yet implemented - needs PDF text extraction"
-    );
+    warnings.push("BBVA parser not yet implemented - needs PDF text extraction");
 
     return {
       bank_id: this.bankId,

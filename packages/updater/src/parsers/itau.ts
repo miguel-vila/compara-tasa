@@ -1,13 +1,9 @@
-import {
-  BankId,
-  type BankParseResult,
-} from "@mejor-tasa/core";
+import { BankId, type BankParseResult } from "@mejor-tasa/core";
 import { fetchWithRetry, sha256 } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
 // Note: This URL pattern may need updating - check for latest
-const SOURCE_URL =
-  "https://banco.itau.co/documents/d/personas/tasas-vigentes-pn-color-01-dic-2025";
+const SOURCE_URL = "https://banco.itau.co/documents/d/personas/tasas-vigentes-pn-color-01-dic-2025";
 
 export class ItauParser implements BankParser {
   bankId = BankId.ITAU;
@@ -26,9 +22,7 @@ export class ItauParser implements BankParser {
     // Extract from "Crédito hipotecario" and "Leasing habitacional" sections
     // Note: Itaú doesn't always specify VIS/NO VIS explicitly
 
-    warnings.push(
-      "Itaú parser not yet implemented - needs PDF text extraction"
-    );
+    warnings.push("Itaú parser not yet implemented - needs PDF text extraction");
 
     return {
       bank_id: this.bankId,

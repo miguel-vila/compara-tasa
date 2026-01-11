@@ -29,8 +29,7 @@ export async function fetchWithRetry(
         const response = await fetch(url, {
           signal: controller.signal,
           headers: {
-            "User-Agent":
-              "MejorTasa/1.0 (https://github.com/mejor-tasa; mortgage rate aggregator)",
+            "User-Agent": "MejorTasa/1.0 (https://github.com/mejor-tasa; mortgage rate aggregator)",
           },
         });
 
@@ -54,9 +53,7 @@ export async function fetchWithRetry(
     {
       retries,
       onFailedAttempt: (error) => {
-        console.warn(
-          `Fetch attempt ${error.attemptNumber} failed for ${url}: ${error.message}`
-        );
+        console.warn(`Fetch attempt ${error.attemptNumber} failed for ${url}: ${error.message}`);
       },
     }
   );

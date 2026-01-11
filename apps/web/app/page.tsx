@@ -15,8 +15,8 @@ export default function HomePage() {
               Las Mejores Tasas Hipotecarias de Colombia
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Comparamos las tasas publicadas por los principales bancos para
-              ayudarte a encontrar el mejor crédito de vivienda.
+              Comparamos las tasas publicadas por los principales bancos para ayudarte a encontrar
+              el mejor crédito de vivienda.
             </p>
           </div>
         </section>
@@ -42,10 +42,7 @@ function BestRatesSkeleton() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {Array.from({ length: 6 }).map((_, i) => (
-        <div
-          key={i}
-          className="h-48 bg-gray-100 rounded-lg animate-pulse"
-        />
+        <div key={i} className="h-48 bg-gray-100 rounded-lg animate-pulse" />
       ))}
     </div>
   );

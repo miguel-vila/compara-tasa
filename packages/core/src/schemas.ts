@@ -20,27 +20,13 @@ export const BankIdSchema = z.enum([
   BankId.ITAU,
 ]);
 
-export const ProductTypeSchema = z.enum([
-  ProductType.HIPOTECARIO,
-  ProductType.LEASING,
-]);
+export const ProductTypeSchema = z.enum([ProductType.HIPOTECARIO, ProductType.LEASING]);
 
-export const CurrencyIndexSchema = z.enum([
-  CurrencyIndex.COP,
-  CurrencyIndex.UVR,
-]);
+export const CurrencyIndexSchema = z.enum([CurrencyIndex.COP, CurrencyIndex.UVR]);
 
-export const SegmentSchema = z.enum([
-  Segment.VIS,
-  Segment.NO_VIS,
-  Segment.UNKNOWN,
-]);
+export const SegmentSchema = z.enum([Segment.VIS, Segment.NO_VIS, Segment.UNKNOWN]);
 
-export const ChannelSchema = z.enum([
-  Channel.DIGITAL,
-  Channel.BRANCH,
-  Channel.UNSPECIFIED,
-]);
+export const ChannelSchema = z.enum([Channel.DIGITAL, Channel.BRANCH, Channel.UNSPECIFIED]);
 
 export const SourceTypeSchema = z.enum([SourceType.HTML, SourceType.PDF]);
 
@@ -75,10 +61,7 @@ export const UvrSpreadRateSchema = z.object({
   spread_mv_to: z.number().nonnegative().optional(),
 });
 
-export const RateSchema = z.discriminatedUnion("kind", [
-  CopFixedRateSchema,
-  UvrSpreadRateSchema,
-]);
+export const RateSchema = z.discriminatedUnion("kind", [CopFixedRateSchema, UvrSpreadRateSchema]);
 
 // Payroll discount schema
 export const PayrollDiscountSchema = z.object({
@@ -106,7 +89,10 @@ export const OfferSourceSchema = z.object({
   url: z.string().url(),
   source_type: SourceTypeSchema,
   document_label: z.string().optional(),
-  valid_from: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  valid_from: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(),
   retrieved_at: z.string().datetime(),
   extracted_text_fingerprint: z.string().optional(),
   extraction: ExtractionInfoSchema,

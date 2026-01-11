@@ -1,7 +1,4 @@
-import {
-  BankId,
-  type BankParseResult,
-} from "@mejor-tasa/core";
+import { BankId, type BankParseResult } from "@mejor-tasa/core";
 import { fetchWithRetry, sha256 } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
@@ -25,9 +22,7 @@ export class ScotiabankParser implements BankParser {
     // Look for "Hipotecario y leasing habitacional" section
     // Extract VIS/NO VIS rates in UVR and Pesos
 
-    warnings.push(
-      "Scotiabank parser not yet implemented - needs PDF text extraction"
-    );
+    warnings.push("Scotiabank parser not yet implemented - needs PDF text extraction");
 
     return {
       bank_id: this.bankId,

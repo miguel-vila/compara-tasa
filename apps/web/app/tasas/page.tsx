@@ -16,12 +16,10 @@ export default function TasasPage() {
 
       <main className="flex-1 py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Todas las Tasas
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Todas las Tasas</h1>
           <p className="text-gray-600 mb-8">
-            Explora y filtra todas las ofertas de crédito hipotecario y leasing
-            habitacional disponibles.
+            Explora y filtra todas las ofertas de crédito hipotecario y leasing habitacional
+            disponibles.
           </p>
 
           <Suspense fallback={<TableSkeleton />}>

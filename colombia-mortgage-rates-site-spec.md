@@ -23,16 +23,16 @@ Publish a consumer-facing site that consolidates publicly disclosed mortgage (Cr
 
 Show cards/tiles for predefined “best” groupings, computed from the current dataset:
 
-- **Best UVR spreads (Hipotecario)**  
-  - VIS UVR “desde” (lowest spread)  
+- **Best UVR spreads (Hipotecario)**
+  - VIS UVR “desde” (lowest spread)
   - No VIS UVR “desde” (lowest spread)
 
-- **Best COP fixed rates (Hipotecario, pesos)**  
-  - VIS COP “desde” (lowest E.A.)  
+- **Best COP fixed rates (Hipotecario, pesos)**
+  - VIS COP “desde” (lowest E.A.)
   - No VIS COP “desde” (lowest E.A.)
 
-- **Best payroll-deposit benefits**  
-  - Banks that explicitly publish payroll (“nómina”) discounts as basis-point reductions or separate rate tables.  
+- **Best payroll-deposit benefits**
+  - Banks that explicitly publish payroll (“nómina”) discounts as basis-point reductions or separate rate tables.
   - Display as either:
     - Separate “with payroll” scenario rate, or
     - Base rate + rule “-X bps if payroll deposited”.
@@ -68,12 +68,15 @@ A table listing all extracted offers with filters:
   - UVR: “UVR + spread” (E.A. spread, and optional M.V. equivalent if provided)
 
 Sorting:
+
 - Default: lowest “desde” within the current filter context.
 - For UVR: sort by spread ascending.
 - For COP: sort by E.A. ascending.
 
 #### 3) Offer detail page
+
 For each offer:
+
 - Normalized fields (rate, min/max, term, amount, channel, conditions)
 - Source metadata (URL, document title if available, “valid from”, “retrieved at”)
 - Raw excerpt (minimal, non-copyright-infringing snippet) or structured “source lines” mapping (see Technical Architecture)
@@ -82,13 +85,16 @@ For each offer:
   - “Final rate is set at disbursement.”
 
 #### 4) Transparency / methodology page
+
 Explain:
+
 - What “best” means (lowest published “desde” for a defined scenario)
 - UVR vs COP not directly comparable without assumptions
 - Update frequency
 - Data sources and limitations
 
 ### Data quality rules (MVP)
+
 - Always show:
   - `retrieved_at` (ISO timestamp)
   - `source_url`
@@ -98,6 +104,7 @@ Explain:
 - Never infer payroll discounts unless explicitly published.
 
 ### Banks included (scrapeable in this MVP)
+
 - **Bancolombia** (HTML table for rates + explicit payroll discount)
 - **BBVA Colombia** (PDF with mortgage/leasing rate tables and payroll/non-payroll adjustments)
 - **Scotiabank Colpatria** (PDF “Tasas y productos de crédito” with mortgage/leasing rows)
@@ -106,6 +113,7 @@ Explain:
 - **Banco Itaú Colombia** (PDF “Préstamos Persona Natural” with Hipotecario/Leasing sections)
 
 ### Future work (not in MVP)
+
 - Banks with anti-bot/WAF blocks for automated collection (require partnerships, feeds, or manual ingestion):
   - Davivienda
   - Banco de Bogotá
@@ -119,11 +127,13 @@ Explain:
 ## Technical Architecture
 
 ### High-level architecture
+
 **Goal:** Static frontend + thin data-serving layer. Update pipeline runs separately and publishes versioned datasets.
 
 Recommended production layout:
 
-1) **Updater / ETL (Node.js + TypeScript)**
+1. **Updater / ETL (Node.js + TypeScript)**
+
 - Scheduled job (GitHub Actions cron or a server scheduler).
 - Pulls sources (HTML/PDF).
 - Parses and normalizes into `Offer[]`.
@@ -133,22 +143,26 @@ Recommended production layout:
   - Optional: `sources-latest.json` (fetch logs, checksums, parse diagnostics)
 - Writes to object storage (S3-compatible) or commits to a data repo.
 
-2) **Data serving**
-Preferred: **No backend**. Serve JSON directly from CDN/object storage.
+2. **Data serving**
+   Preferred: **No backend**. Serve JSON directly from CDN/object storage.
+
 - URL examples:
   - `/data/offers-latest.json`
   - `/data/rankings-latest.json`
 
 If you still want an “API endpoint”, implement a **thin edge worker** that proxies those objects and adds caching headers (Cloudflare Worker / Vercel Edge Function). Keep it read-only.
 
-3) **Frontend (static site)**
+3. **Frontend (static site)**
+
 - Fetches `rankings-latest.json` + `offers-latest.json` at runtime.
 - Renders:
   - Best-rate cards (from rankings)
   - Table + filters (from offers)
 
 ### Suggested stack (sensible defaults)
+
 #### Frontend
+
 - **Next.js (React) + TypeScript**
   - Static assets + client-side fetch for JSON.
   - If deploying on Vercel, you can still treat it as static + edge caching.
@@ -159,6 +173,7 @@ If you still want an “API endpoint”, implement a **thin edge worker** that p
   - Minimal CSS via `tailwindcss` or `vanilla-extract` (choose one; tailwind is fastest).
 
 #### Data updater / ETL
+
 - Node 20+, TypeScript.
 - HTTP:
   - built-in `fetch` (Node 20) + retries with `p-retry`.
@@ -174,6 +189,7 @@ If you still want an “API endpoint”, implement a **thin edge worker** that p
   - Snapshot tests on extracted offers.
 
 #### Thin API (optional)
+
 - Cloudflare Worker (TypeScript) or Vercel Edge Function:
   - Only serves `/api/offers` and `/api/rankings` by reading from object storage.
   - Adds long-lived cache headers + ETag.
@@ -181,6 +197,7 @@ If you still want an “API endpoint”, implement a **thin edge worker** that p
 ### Data model
 
 #### Core enums
+
 - `BankId`: `"bancolombia" | "bbva" | "scotiabank_colpatria" | "banco_caja_social" | "avvillas" | "itau"`
 - `ProductType`: `"hipotecario" | "leasing"`
 - `CurrencyIndex`: `"COP" | "UVR"`
@@ -188,6 +205,7 @@ If you still want an “API endpoint”, implement a **thin edge worker** that p
 - `Channel`: `"DIGITAL" | "BRANCH" | "UNSPECIFIED"`
 
 #### Normalized rate representation
+
 Store both raw and normalized forms.
 
 ```ts
@@ -196,31 +214,32 @@ type RateBasis = "EA" | "MV";
 type Rate =
   | {
       kind: "COP_FIXED";
-      ea_percent_from: number;      // e.g. 12.0
-      ea_percent_to?: number;       // optional
-      mv_percent_from?: number;     // optional if provided
+      ea_percent_from: number; // e.g. 12.0
+      ea_percent_to?: number; // optional
+      mv_percent_from?: number; // optional if provided
       mv_percent_to?: number;
     }
   | {
       kind: "UVR_SPREAD";
-      spread_ea_from: number;       // e.g. 6.50 means "UVR + 6.50%"
+      spread_ea_from: number; // e.g. 6.50 means "UVR + 6.50%"
       spread_ea_to?: number;
-      spread_mv_from?: number;      // optional if provided
+      spread_mv_from?: number; // optional if provided
       spread_mv_to?: number;
     };
 ```
 
 #### Offer object
+
 ```ts
 type Offer = {
-  id: string;                 // stable hash from key fields + source
+  id: string; // stable hash from key fields + source
   bank_id: BankId;
   bank_name: string;
 
-  product_type: ProductType;  // hipotecario | leasing
+  product_type: ProductType; // hipotecario | leasing
   currency_index: CurrencyIndex; // COP | UVR
-  segment: Segment;           // VIS | NO_VIS | UNKNOWN
-  channel: Channel;           // DIGITAL | BRANCH | UNSPECIFIED
+  segment: Segment; // VIS | NO_VIS | UNKNOWN
+  channel: Channel; // DIGITAL | BRANCH | UNSPECIFIED
 
   // Rate
   rate: Rate;
@@ -235,31 +254,32 @@ type Offer = {
   conditions: {
     payroll_discount?: {
       type: "BPS_OFF" | "PERCENT_OFF";
-      value: number;               // e.g. 100 (bps) or 1.0 (%)
-      applies_to: "RATE";          // future-proof (fees, etc.)
+      value: number; // e.g. 100 (bps) or 1.0 (%)
+      applies_to: "RATE"; // future-proof (fees, etc.)
       note?: string;
     };
-    notes?: string[];             // any important footnotes
+    notes?: string[]; // any important footnotes
   };
 
   // Provenance
   source: {
     url: string;
     source_type: "HTML" | "PDF";
-    document_label?: string;      // e.g. "Tasas y productos de crédito"
-    valid_from?: string;          // ISO date if present (YYYY-MM-DD)
-    retrieved_at: string;         // ISO timestamp
+    document_label?: string; // e.g. "Tasas y productos de crédito"
+    valid_from?: string; // ISO date if present (YYYY-MM-DD)
+    retrieved_at: string; // ISO timestamp
     extracted_text_fingerprint?: string; // hash for diffing
     extraction: {
       method: "CSS_SELECTOR" | "REGEX";
-      locator: string;            // selector or regex identifier
-      excerpt?: string;           // short snippet for debugging (keep small)
+      locator: string; // selector or regex identifier
+      excerpt?: string; // short snippet for debugging (keep small)
     };
   };
 };
 ```
 
 #### Rankings object (precomputed)
+
 ```ts
 type ScenarioKey =
   | "best_uvr_vis_hipotecario"
@@ -271,17 +291,21 @@ type ScenarioKey =
 
 type Rankings = {
   generated_at: string;
-  scenarios: Record<ScenarioKey, {
-    offer_id: string;
-    metric: {
-      kind: "EA_PERCENT" | "UVR_SPREAD_EA";
-      value: number;
-    };
-  }>;
+  scenarios: Record<
+    ScenarioKey,
+    {
+      offer_id: string;
+      metric: {
+        kind: "EA_PERCENT" | "UVR_SPREAD_EA";
+        value: number;
+      };
+    }
+  >;
 };
 ```
 
 ### “Best” computation logic (MVP)
+
 - For COP offers: metric = `rate.ea_percent_from`.
 - For UVR offers: metric = `rate.spread_ea_from`.
 - Scenario filters:
@@ -290,25 +314,32 @@ type Rankings = {
   - Payroll: any offer where `conditions.payroll_discount` exists OR explicit payroll-benefit rate table exists.
 
 ### Storage format and deployment
+
 #### Versioning
+
 Publish every run as immutable:
+
 - `offers-YYYY-MM-DDTHHMMSSZ.json`
 - `rankings-YYYY-MM-DDTHHMMSSZ.json`
 
 Then update pointers:
+
 - `offers-latest.json`
 - `rankings-latest.json`
 
 #### Hosting
+
 - Frontend: static hosting (Vercel / Cloudflare Pages / S3+CloudFront).
 - Data: object storage + CDN. Set:
   - `Cache-Control: public, max-age=300` for `*-latest.json`
   - `Cache-Control: public, max-age=31536000, immutable` for versioned files
 
 ### Update job
+
 Run daily (or weekly) at a fixed time.
 
 Steps:
+
 1. Fetch all sources to `./artifacts/raw/` (store HTTP status, headers, bytes, sha256).
 2. Parse per-bank into intermediate rows.
 3. Normalize to `Offer[]`.
@@ -328,11 +359,13 @@ Steps:
 ---
 
 #### 1) Bancolombia (HTML)
+
 **Primary page (rates embedded as HTML table):**  
-https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda  citeturn4view0
+https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda citeturn4view0
 
 **What to extract**
 From “Tasas y tarifas”:
+
 - UVR rates:
   - VIS: `UVR + 6.50%`
   - No VIS: `UVR + 8.00%`
@@ -343,6 +376,7 @@ From “Tasas y tarifas”:
   - “descuento de 100 puntos básicos (1%)” for customers receiving payroll in Bancolombia (applies from 2025-03-14 per page text). citeturn4view0
 
 **Parsing approach**
+
 - Fetch HTML with standard GET.
 - Use `cheerio` to locate the “Tasas para vivienda en UVR” and “Tasas para vivienda en pesos” sections.
 - Extract the two-row table underneath each section (VIS/No VIS).
@@ -358,10 +392,12 @@ This is likely stable but still DOM-fragile. Protect with tests using saved HTML
 ---
 
 #### 2) BBVA Colombia (PDF)
+
 **Primary PDF (mortgage/leasing tables; payroll benefit and add-on bps for non-payroll):**  
-https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter/tarifas/DO-11-TASAS-VIVIENDA.pdf  citeturn2view0
+https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter/tarifas/DO-11-TASAS-VIVIENDA.pdf citeturn2view0
 
 **What to extract (MVP subset)**
+
 - Crédito Hipotecario:
   - VIS – Pesos: “TASA CON BENEFICIO CON CUENTA DE NÓMINA” with “Tasas desde …” and a note for “Créditos sin Cuenta de Nómina (+200pbs)”. citeturn2view0
   - VIS – UVR: “UVR + …”
@@ -371,6 +407,7 @@ https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter
   - NO VIS – Pesos (and other rows present in the PDF)
 
 **Parsing approach**
+
 - Download PDF bytes.
 - Use `pdfjs-dist` to extract text.
 - Use deterministic regex blocks:
@@ -381,7 +418,7 @@ https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter
     - UVR: `UVR \+ (\d+,\d+)%`
 - Convert commas to dots before parsing floats.
 - Payroll rule extraction:
-  - If PDF states a specific “(+200pbs)” for non-payroll, encode payroll as the *base* and add a derived “no-payroll” variant if you want both scenarios.
+  - If PDF states a specific “(+200pbs)” for non-payroll, encode payroll as the _base_ and add a derived “no-payroll” variant if you want both scenarios.
   - Minimal MVP: store payroll as a condition rule with `BPS_OFF` only if the doc explicitly defines it; otherwise keep separate offers.
 
 **Validity date**
@@ -390,17 +427,20 @@ PDF includes “VIGENTE DESDE …” in text header. Map it to `valid_from` (ISO
 ---
 
 #### 3) Scotiabank Colpatria (PDF)
+
 **Primary PDF (“Tasas y productos crédito”, includes mortgage and leasing rows):**  
-https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf  citeturn2view1
+https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf citeturn2view1
 
 **What to extract**
 Look for the “Hipotecario y leasing habitacional” section. Examples present:
+
 - Crédito hipotecario vivienda en UVR NO VIS: `UVR + 7,60%` … `UVR + 7,80%`
 - Crédito hipotecario vivienda en pesos NO VIS: `12,25%` … `12,45%`
 - VIS rows using “valor comercial hasta 150 SMLV (VIS)” in UVR and pesos
 - Leasing habitacional en pesos: `12,25%` … `12,45%` citeturn2view1
 
 **Parsing approach**
+
 - Extract text with `pdfjs-dist`.
 - Find the block starting with “Hipotecario y leasing habitacional”.
 - Parse each line matching:
@@ -415,17 +455,20 @@ Look for the “Hipotecario y leasing habitacional” section. Examples present:
 ---
 
 #### 4) Banco Caja Social (PDF)
+
 **Primary PDF:**  
-https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf  citeturn6view0
+https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf citeturn6view0
 
 **What to extract**
 From the 1-page disclosure:
+
 - “Vigentes a partir del …” (validity date).
 - VIS and NO VIS rows with:
   - COP E.A. / M.V. “Desde/Hasta”
   - UVR + spread “Desde/Hasta” (and sometimes MV equivalents) citeturn6view0
 
 **Parsing approach**
+
 - Use `pdfjs-dist` text extraction.
 - This PDF’s text is compact; use regex keyed off:
   - `Vigentes a partir del (\d{2}-\w{3}-\d{4})`
@@ -444,25 +487,30 @@ In the current research environment, PDF screenshots failed due to a tool valida
 ---
 
 #### 5) Banco AV Villas (PDF)
+
 **Entry page with stable link to the current “Tasas de Crédito Según Línea y Plazo”:**  
-https://www.avvillas.com.co/credito-hipotecario  citeturn8view0
+https://www.avvillas.com.co/credito-hipotecario citeturn8view0
 
 **Current PDF (as linked on that page):**  
-https://www.avvillas.com.co/documents/37648/10212085/Tasas%2BActivas%2B02%2BEnero%2B2026.pdf/8b05999b-577b-efed-e7e4-12280dd0b9a6?t=1767383069074  citeturn9view0
+https://www.avvillas.com.co/documents/37648/10212085/Tasas%2BActivas%2B02%2BEnero%2B2026.pdf/8b05999b-577b-efed-e7e4-12280dd0b9a6?t=1767383069074 citeturn9view0
 
 **What to extract**
 From page 0, section “Créditos Hipotecarios”:
+
 - UVR spreads for VIS and NO VIS (from/to)
 - COP rates for NO VIS (from/to) in same row group citeturn9view0
 
 From “Créditos Hipotecarios-Digital”:
+
 - COP “Desde” for VIS and NO VIS (single value)
 - Additional UVR and COP ranges under “VIS/NO VIS” citeturn9view0
 
 Optional (MVP+):
+
 - Leasing Habitacional lines exist but are less structured across pages; only implement once you confirm consistent placement.
 
 **Parsing approach**
+
 - Extract text with `pdfjs-dist`.
 - Page 0 contains the key mortgage blocks; parse by locating:
   - “Créditos Hipotecarios”
@@ -477,6 +525,7 @@ Optional (MVP+):
 
 **Stability**
 AV Villas provides a “current” PDF linked from an HTML page. Your updater should:
+
 - Fetch the HTML page.
 - Discover the PDF link dynamically (avoid hardcoding the `t=` query param).
 - Then fetch the PDF.
@@ -484,11 +533,13 @@ AV Villas provides a “current” PDF linked from an HTML page. Your updater sh
 ---
 
 #### 6) Banco Itaú Colombia (PDF)
+
 **Example current disclosure (Dec 2025; treat as latest until a newer doc is found):**  
-https://banco.itau.co/documents/d/personas/tasas-vigentes-pn-color-01-dic-2025  citeturn2view4
+https://banco.itau.co/documents/d/personas/tasas-vigentes-pn-color-01-dic-2025 citeturn2view4
 
 **What to extract**
 From sections:
+
 - “Crédito hipotecario”:
   - Adquisición vivienda nueva y usada: E.A. from/to, MV from/to
   - Compra de cartera, Remodelación (each as separate offers or a single “purpose” dimension)
@@ -497,6 +548,7 @@ From sections:
   - Recolocación citeturn2view4
 
 **Parsing approach**
+
 - Extract text with `pdfjs-dist`.
 - Find headings:
   - “Crédito hipotecario”
@@ -511,6 +563,7 @@ From sections:
 ---
 
 ### Implementation guidance: repo layout
+
 ```
 repo/
   apps/
@@ -530,6 +583,7 @@ repo/
 ```
 
 ### Parsing utilities (recommended)
+
 - Locale number parsing:
   - Replace `.` thousands separators if present.
   - Replace decimal comma `,` with `.`.
@@ -539,6 +593,7 @@ repo/
   - Normalize to `spread_ea_from` (E.A. spread).
 
 ### Reliability guardrails
+
 - Every bank parser must:
   - Return `offers` + `warnings` + `raw_text_hash`.
   - Fail loudly if:
@@ -547,6 +602,7 @@ repo/
 - Maintain fixtures and CI tests to detect bank format changes.
 
 ### Legal / operational notes (engineering-relevant)
+
 - Respect cache headers and reasonable request rates.
 - Store and surface “validity” and “retrieval” timestamps.
 - Keep raw documents in cold storage for audit (optional but recommended).

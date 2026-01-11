@@ -75,10 +75,7 @@ function getOfferMetric(offer: Offer): RankingMetric {
   }
 }
 
-function findBestOffer(
-  offers: Offer[],
-  filter: ScenarioFilter
-): ScenarioRanking | undefined {
+function findBestOffer(offers: Offer[], filter: ScenarioFilter): ScenarioRanking | undefined {
   const matching = offers.filter((o) => matchesFilter(o, filter));
 
   if (matching.length === 0) {

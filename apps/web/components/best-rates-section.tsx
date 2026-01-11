@@ -1,17 +1,9 @@
 import { fetchRankings, fetchOffers } from "@/lib/data";
-import {
-  formatRate,
-  formatDateTime,
-  SCENARIO_LABELS,
-  SCENARIO_DESCRIPTIONS,
-} from "@/lib/format";
+import { formatRate, formatDateTime, SCENARIO_LABELS, SCENARIO_DESCRIPTIONS } from "@/lib/format";
 import { ScenarioKey, type Offer } from "@mejor-tasa/core";
 
 export async function BestRatesSection() {
-  const [rankings, { offers }] = await Promise.all([
-    fetchRankings(),
-    fetchOffers(),
-  ]);
+  const [rankings, { offers }] = await Promise.all([fetchRankings(), fetchOffers()]);
 
   const offerMap = new Map(offers.map((o) => [o.id, o]));
 
@@ -21,8 +13,7 @@ export async function BestRatesSection() {
     return (
       <div className="text-center py-12">
         <p className="text-gray-500">
-          No hay datos disponibles en este momento. Por favor, intenta más
-          tarde.
+          No hay datos disponibles en este momento. Por favor, intenta más tarde.
         </p>
       </div>
     );
@@ -37,25 +28,13 @@ export async function BestRatesSection() {
         const offer = offerMap.get(ranking.offer_id);
         if (!offer) return null;
 
-        return (
-          <BestRateCard
-            key={scenarioKey}
-            scenarioKey={scenarioKey}
-            offer={offer}
-          />
-        );
+        return <BestRateCard key={scenarioKey} scenarioKey={scenarioKey} offer={offer} />;
       })}
     </div>
   );
 }
 
-function BestRateCard({
-  scenarioKey,
-  offer,
-}: {
-  scenarioKey: ScenarioKey;
-  offer: Offer;
-}) {
+function BestRateCard({ scenarioKey, offer }: { scenarioKey: ScenarioKey; offer: Offer }) {
   const isUvr = offer.currency_index === "UVR";
 
   return (
@@ -64,9 +43,7 @@ function BestRateCard({
         <div>
           <span
             className={`inline-block px-2 py-1 text-xs font-medium rounded ${
-              isUvr
-                ? "bg-blue-100 text-blue-700"
-                : "bg-green-100 text-green-700"
+              isUvr ? "bg-blue-100 text-blue-700" : "bg-green-100 text-green-700"
             }`}
           >
             {isUvr ? "UVR" : "Pesos"}
@@ -82,21 +59,13 @@ function BestRateCard({
         )}
       </div>
 
-      <h3 className="text-sm font-medium text-gray-500 mb-1">
-        {SCENARIO_LABELS[scenarioKey]}
-      </h3>
+      <h3 className="text-sm font-medium text-gray-500 mb-1">{SCENARIO_LABELS[scenarioKey]}</h3>
 
-      <p className="text-3xl font-bold text-gray-900 mb-2">
-        {formatRate(offer.rate)}
-      </p>
+      <p className="text-3xl font-bold text-gray-900 mb-2">{formatRate(offer.rate)}</p>
 
-      <p className="text-lg font-medium text-gray-700 mb-4">
-        {offer.bank_name}
-      </p>
+      <p className="text-lg font-medium text-gray-700 mb-4">{offer.bank_name}</p>
 
-      <p className="text-xs text-gray-500 mb-2">
-        {SCENARIO_DESCRIPTIONS[scenarioKey]}
-      </p>
+      <p className="text-xs text-gray-500 mb-2">{SCENARIO_DESCRIPTIONS[scenarioKey]}</p>
 
       {offer.conditions.payroll_discount && (
         <div className="mt-3 p-2 bg-amber-50 rounded text-xs text-amber-700">
@@ -109,9 +78,7 @@ function BestRateCard({
 
       <div className="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400">
         <p>Recuperado: {formatDateTime(offer.source.retrieved_at)}</p>
-        {offer.source.valid_from && (
-          <p>Vigente desde: {offer.source.valid_from}</p>
-        )}
+        {offer.source.valid_from && <p>Vigente desde: {offer.source.valid_from}</p>}
       </div>
     </div>
   );

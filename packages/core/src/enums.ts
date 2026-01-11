@@ -68,8 +68,7 @@ export const ExtractionMethod = {
   REGEX: "REGEX",
 } as const;
 
-export type ExtractionMethod =
-  (typeof ExtractionMethod)[keyof typeof ExtractionMethod];
+export type ExtractionMethod = (typeof ExtractionMethod)[keyof typeof ExtractionMethod];
 
 // Scenario keys for rankings
 export const ScenarioKey = {

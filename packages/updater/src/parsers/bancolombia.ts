@@ -11,7 +11,13 @@ import {
   type Offer,
   type BankParseResult,
 } from "@mejor-tasa/core";
-import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber, parseUvrSpread } from "../utils/index.js";
+import {
+  fetchWithRetry,
+  sha256,
+  generateOfferId,
+  parseColombianNumber,
+  parseUvrSpread,
+} from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
@@ -44,9 +50,7 @@ export class BancolombiaParser implements BankParser {
     // - "Tasas para vivienda en pesos" section (VIS: 12.00% E.A., No VIS: 12.00% E.A.)
     // - Payroll discount: 100 bps off
 
-    warnings.push(
-      "Bancolombia parser not yet implemented - needs HTML fixture analysis"
-    );
+    warnings.push("Bancolombia parser not yet implemented - needs HTML fixture analysis");
 
     return {
       bank_id: this.bankId,

@@ -44,16 +44,10 @@ export const SCENARIO_LABELS: Record<ScenarioKey, string> = {
 };
 
 export const SCENARIO_DESCRIPTIONS: Record<ScenarioKey, string> = {
-  best_uvr_vis_hipotecario:
-    "Crédito hipotecario en UVR para vivienda de interés social",
-  best_uvr_no_vis_hipotecario:
-    "Crédito hipotecario en UVR para vivienda de mayor valor",
-  best_cop_vis_hipotecario:
-    "Crédito hipotecario en pesos para vivienda de interés social",
-  best_cop_no_vis_hipotecario:
-    "Crédito hipotecario en pesos para vivienda de mayor valor",
-  best_payroll_benefit:
-    "Mejor tasa para clientes con nómina en el banco",
-  best_digital_hipotecario:
-    "Mejor tasa disponible por canales digitales",
+  best_uvr_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de interés social",
+  best_uvr_no_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de mayor valor",
+  best_cop_vis_hipotecario: "Crédito hipotecario en pesos para vivienda de interés social",
+  best_cop_no_vis_hipotecario: "Crédito hipotecario en pesos para vivienda de mayor valor",
+  best_payroll_benefit: "Mejor tasa para clientes con nómina en el banco",
+  best_digital_hipotecario: "Mejor tasa disponible por canales digitales",
 };

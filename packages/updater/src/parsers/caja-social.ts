@@ -1,7 +1,4 @@
-import {
-  BankId,
-  type BankParseResult,
-} from "@mejor-tasa/core";
+import { BankId, type BankParseResult } from "@mejor-tasa/core";
 import { fetchWithRetry, sha256 } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
@@ -25,9 +22,7 @@ export class CajaSocialParser implements BankParser {
     // Extract "Vigentes a partir del" date
     // Parse VIS/NO VIS rows with COP and UVR rates
 
-    warnings.push(
-      "Caja Social parser not yet implemented - needs PDF text extraction"
-    );
+    warnings.push("Caja Social parser not yet implemented - needs PDF text extraction");
 
     return {
       bank_id: this.bankId,

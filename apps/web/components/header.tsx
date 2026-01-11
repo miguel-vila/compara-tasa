@@ -28,9 +28,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-primary-600"
-                    : "text-gray-600 hover:text-gray-900"
+                  pathname === item.href ? "text-primary-600" : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 {item.label}
@@ -38,16 +36,8 @@ export function Header() {
             ))}
           </nav>
 
-          <button
-            className="md:hidden p-2 text-gray-600"
-            aria-label="Abrir menú"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+          <button className="md:hidden p-2 text-gray-600" aria-label="Abrir menú">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

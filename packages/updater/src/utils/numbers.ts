@@ -30,8 +30,8 @@ export function parseColombianNumber(value: string): number {
  */
 export function parseUvrSpread(value: string): number {
   const patterns = [
-    /UVR\s*\+\s*([\d,\.]+)%?/i, // "UVR + 6,50%"
-    /([\d,\.]+)%?\s*\+\s*UVR/i, // "6,50% + UVR"
+    /UVR\s*\+\s*([\d,.]+)%?/i, // "UVR + 6,50%"
+    /([\d,.]+)%?\s*\+\s*UVR/i, // "6,50% + UVR"
   ];
 
   for (const pattern of patterns) {
