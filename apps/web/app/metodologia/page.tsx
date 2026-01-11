@@ -29,10 +29,10 @@ export default function MetodologiaPage() {
           <div className="max-w-3xl mx-auto space-y-12">
             {/* Qué significa "mejor tasa" */}
             <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
                 Qué significa &quot;mejor tasa&quot;
               </h2>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-400 mb-4">
                 Cuando mostramos la &quot;mejor&quot; tasa para una categoría, nos referimos a la
                 tasa mínima publicada (<em>desde</em>) por los bancos para ese escenario específico.
                 Esto significa:
@@ -55,7 +55,7 @@ export default function MetodologiaPage() {
 
             {/* UVR vs Pesos */}
             <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
                 UVR vs Pesos: No son comparables directamente
               </h2>
               <div className="bg-accent-50 border border-accent-200 rounded-lg p-5">
@@ -73,7 +73,7 @@ export default function MetodologiaPage() {
 
             {/* VIS vs No VIS */}
             <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">VIS vs No VIS</h2>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">VIS vs No VIS</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
                   <span className="inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded mb-3">
@@ -100,7 +100,7 @@ export default function MetodologiaPage() {
 
             {/* Frecuencia de actualización */}
             <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
                 Frecuencia de actualización
               </h2>
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
@@ -130,7 +130,7 @@ export default function MetodologiaPage() {
 
             {/* Limitaciones importantes */}
             <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
                 Limitaciones importantes
               </h2>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-5">
@@ -181,13 +181,13 @@ export default function MetodologiaPage() {
             </div>
 
             {/* Contacto */}
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">Contacto</h2>
+            {/* <div>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">Contacto</h2>
               <p className="text-gray-600">
                 Si encuentras información incorrecta o deseas reportar un problema, por favor
                 contáctanos.
               </p>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

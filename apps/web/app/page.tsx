@@ -27,7 +27,7 @@ export default function HomePage() {
 
         <section className="py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+            <h2 className="text-2xl font-semibold text-gray-300 mb-8">
               Mejores Tasas por Categoría
             </h2>
             <Suspense fallback={<BestRatesSkeleton />}>
