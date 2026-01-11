@@ -8,6 +8,11 @@ export type FetchResult = {
   statusCode: number;
 };
 
+const DEFAULT_USER_AGENT =
+  "MejorTasa/1.0 (https://github.com/mejor-tasa; mortgage rate aggregator)";
+const BROWSER_USER_AGENT =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+
 /**
  * Fetches a URL with retries and returns the response with metadata
  */
@@ -16,9 +21,11 @@ export async function fetchWithRetry(
   options: {
     retries?: number;
     timeoutMs?: number;
+    headers?: Record<string, string>;
+    useBrowserUserAgent?: boolean;
   } = {}
 ): Promise<FetchResult> {
-  const { retries = 3, timeoutMs = 30000 } = options;
+  const { retries = 3, timeoutMs = 30000, headers = {}, useBrowserUserAgent = false } = options;
 
   return pRetry(
     async () => {
@@ -29,7 +36,8 @@ export async function fetchWithRetry(
         const response = await fetch(url, {
           signal: controller.signal,
           headers: {
-            "User-Agent": "MejorTasa/1.0 (https://github.com/mejor-tasa; mortgage rate aggregator)",
+            "User-Agent": useBrowserUserAgent ? BROWSER_USER_AGENT : DEFAULT_USER_AGENT,
+            ...headers,
           },
         });
 
