@@ -98,51 +98,6 @@ export default function MetodologiaPage() {
               </div>
             </div>
 
-            {/* Fuentes de información */}
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-500 mb-4">Fuentes de información</h2>
-              <p className="text-gray-600 mb-4">
-                Recopilamos información directamente de los documentos públicos de tasas y tarifas
-                de cada banco:
-              </p>
-              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="text-left px-4 py-3 font-medium text-gray-500">Banco</th>
-                      <th className="text-left px-4 py-3 font-medium text-gray-500">Fuente</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">Bancolombia</td>
-                      <td className="px-4 py-3 text-gray-600">Página web (HTML)</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">BBVA Colombia</td>
-                      <td className="px-4 py-3 text-gray-600">PDF de tasas de vivienda</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">Scotiabank Colpatria</td>
-                      <td className="px-4 py-3 text-gray-600">PDF de tasas y productos</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">Banco Caja Social</td>
-                      <td className="px-4 py-3 text-gray-600">PDF de tasas de crédito vivienda</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">Banco AV Villas</td>
-                      <td className="px-4 py-3 text-gray-600">PDF de tasas activas</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-gray-500">Banco Itaú</td>
-                      <td className="px-4 py-3 text-gray-600">PDF de tasas vigentes</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
             {/* Frecuencia de actualización */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-500 mb-4">
