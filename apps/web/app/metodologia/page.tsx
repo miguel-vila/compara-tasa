@@ -16,7 +16,7 @@ export default function MetodologiaPage() {
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-primary-50 to-white py-12 px-4">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Metodología y Transparencia</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Metodología</h1>
             <p className="text-lg text-gray-600">
               Conoce cómo recopilamos, procesamos y presentamos la información de tasas hipotecarias
               en Colombia.
