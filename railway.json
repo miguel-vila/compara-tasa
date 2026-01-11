@@ -5,7 +5,7 @@
   },
   "deploy": {
     "startCommand": "node apps/web/.next/standalone/apps/web/server.js",
-    "healthcheckPath": "/",
+    "healthcheckPath": "/api/health",
     "healthcheckTimeout": 30
   }
 }
