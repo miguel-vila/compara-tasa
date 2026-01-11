@@ -23,9 +23,10 @@ MejorTasa is a Colombia mortgage rates aggregator that scrapes publicly disclose
 ## Commands
 
 ```bash
-# Install dependencies
+# Install dependencies and build
 pnpm install
-pnpm --filter @mejor-tasa/core build  # Required before other packages
+pnpm --filter @mejor-tasa/core build     # Required before other packages
+pnpm --filter @mejor-tasa/updater build  # Required before running update-rates
 
 # Development
 pnpm dev                              # Run Next.js dev server (localhost:3000)
