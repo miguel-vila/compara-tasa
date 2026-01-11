@@ -1,6 +1,6 @@
 # Progress
 
-> **Status: READY TO DEPLOY** - All 10 bank parsers implemented (143 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking. Banco de Bogotá and Banco de Occidente require browser user-agent.
+> **Status: READY TO DEPLOY** - All 11 bank parsers implemented (159 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking. Banco de Bogotá, Banco de Occidente, and Davivienda require browser user-agent.
 
 ## What's Done
 
@@ -21,7 +21,7 @@
 - [x] Project setup with vitest
 - [x] Utility functions (number parsing, fetch with retry, hashing)
 - [x] Rankings computation logic
-- [x] Parser stubs for all 10 banks:
+- [x] Parser stubs for all 11 banks:
   - Bancolombia (HTML)
   - BBVA (PDF)
   - Scotiabank Colpatria (PDF)
@@ -32,6 +32,7 @@
   - Banco Popular (HTML)
   - Banco de Bogotá (PDF)
   - Banco de Occidente (PDF)
+  - Davivienda (PDF)
 
 ### `apps/web`
 
@@ -63,8 +64,8 @@
 
 ### Testing
 
-- [x] Download HTML/PDF fixtures for each bank (all 10 banks done)
-- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13, FNA: 16, Banco Popular: 14, Banco de Bogotá: 13, Banco de Occidente: 14 - Total: 143 tests)
+- [x] Download HTML/PDF fixtures for each bank (all 11 banks done)
+- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13, FNA: 16, Banco Popular: 14, Banco de Bogotá: 13, Banco de Occidente: 14, Davivienda: 16 - Total: 159 tests)
 - [ ] Snapshot tests for extracted offers
 
 ### Deployment
@@ -80,7 +81,7 @@ Additional Colombian banks that could be added:
 **High Priority (PDF disclosures available):**
 
 - [x] **Banco de Bogotá** (Grupo Aval) - [Tasas y Tarifas](https://www.bancodebogota.com/tasas-y-tarifas/tasas-2025) - Implemented! (13 tests) Requires browser user-agent
-- [ ] **Davivienda** - [Tasas y Tarifas](https://www.davivienda.com/tasas-y-tarifas) - Major bank, PDFs updated frequently (blocked by Incapsula)
+- [x] **Davivienda** - [Tasas y Tarifas](https://www.davivienda.com/tasas-y-tarifas) - Implemented! (16 tests) Requires browser user-agent. Direct PDF links bypass Incapsula protection.
 
 **Medium Priority (HTML scraping or investigation needed):**
 

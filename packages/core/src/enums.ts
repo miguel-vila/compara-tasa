@@ -10,6 +10,7 @@ export const BankId = {
   BANCO_POPULAR: "banco_popular",
   BANCO_DE_BOGOTA: "banco_de_bogota",
   BANCO_DE_OCCIDENTE: "banco_de_occidente",
+  DAVIVIENDA: "davivienda",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -26,6 +27,7 @@ export const BankNames: Record<BankId, string> = {
   banco_popular: "Banco Popular",
   banco_de_bogota: "Banco de Bogotá",
   banco_de_occidente: "Banco de Occidente",
+  davivienda: "Davivienda",
 };
 
 // Product types
