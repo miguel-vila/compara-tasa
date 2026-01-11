@@ -1,6 +1,6 @@
 # Progress
 
-> **Status: READY TO DEPLOY** - All 6 bank parsers implemented (86 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking.
+> **Status: READY TO DEPLOY** - All 7 bank parsers implemented (102 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking.
 
 ## What's Done
 
@@ -21,13 +21,14 @@
 - [x] Project setup with vitest
 - [x] Utility functions (number parsing, fetch with retry, hashing)
 - [x] Rankings computation logic
-- [x] Parser stubs for all 6 banks:
+- [x] Parser stubs for all 7 banks:
   - Bancolombia (HTML)
   - BBVA (PDF)
   - Scotiabank Colpatria (PDF)
   - Banco Caja Social (PDF)
   - AV Villas (PDF)
   - Itaú (PDF)
+  - FNA (HTML)
 
 ### `apps/web`
 
@@ -53,11 +54,12 @@
 - [x] **Caja Social**: Implement PDF parsing with pdfjs-dist (13 tests)
 - [x] **AV Villas**: Implement PDF link discovery + parsing (15 tests)
 - [x] **Itaú**: Implement PDF parsing (13 tests) - Note: requires manual PDF download
+- [x] **FNA**: Implement HTML parsing with cheerio (16 tests) - Government entity, best rates
 
 ### Testing
 
-- [x] Download HTML/PDF fixtures for each bank (all 6 banks done)
-- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13 - Total: 86 tests)
+- [x] Download HTML/PDF fixtures for each bank (all 7 banks done)
+- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13, FNA: 16 - Total: 102 tests)
 - [ ] Snapshot tests for extracted offers
 
 ### Deployment
@@ -78,7 +80,6 @@ Additional Colombian banks that could be added:
 
 **Medium Priority (HTML scraping or investigation needed):**
 
-- [ ] **Fondo Nacional del Ahorro (FNA)** - [HTML](https://www.fna.gov.co/sobre-el-fna/tasas) - Government entity, best rates (from 9% E.A.), no PDF
 - [ ] **Banco de Occidente** (Grupo Aval) - [Website](https://www.bancodeoccidente.com.co/creditos/hipotecario) - Competitive rates (~9.80% E.A.)
 
 ### Frontend Polish

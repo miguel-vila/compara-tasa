@@ -11,8 +11,9 @@ import {
 } from "@mejor-tasa/core";
 
 function createMockOffer(overrides: Partial<Offer> & { id: string }): Offer {
+  const { id, ...rest } = overrides;
   return {
-    id: overrides.id,
+    id,
     bank_id: BankId.BANCOLOMBIA,
     bank_name: "Bancolombia",
     product_type: ProductType.HIPOTECARIO,
@@ -27,7 +28,7 @@ function createMockOffer(overrides: Partial<Offer> & { id: string }): Offer {
       retrieved_at: new Date().toISOString(),
       extraction: { method: "CSS_SELECTOR", locator: ".rate" },
     },
-    ...overrides,
+    ...rest,
   };
 }
 
