@@ -165,9 +165,6 @@ export default function MetodologiaPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-500">
-                    Las tasas se actualizan <strong>diariamente</strong> de forma automática.
-                  </p>
                   <p className="text-sm text-gray-500 mt-1">
                     Cada oferta muestra la fecha de &quot;Recuperado el&quot; que indica cuándo se
                     capturó la información.
