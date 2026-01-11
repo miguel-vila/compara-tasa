@@ -81,7 +81,7 @@ Additional Colombian banks that could be added:
 **High Priority (PDF disclosures available):**
 
 - [x] **Banco de Bogotá** (Grupo Aval) - [Tasas y Tarifas](https://www.bancodebogota.com/tasas-y-tarifas/tasas-2025) - Implemented! (13 tests) Requires browser user-agent
-- [x] **Davivienda** - [Tasas y Tarifas](https://www.davivienda.com/tasas-y-tarifas) - Implemented! (16 tests) Requires browser user-agent. Direct PDF links bypass Incapsula protection.
+- [x] **Davivienda** - [Tasas y Tarifas](https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda) - Implemented! (16 tests) Requires browser user-agent. Uses stable `/documents/d/guest/` URL that bypasses Incapsula.
 
 **Medium Priority (HTML scraping or investigation needed):**
 

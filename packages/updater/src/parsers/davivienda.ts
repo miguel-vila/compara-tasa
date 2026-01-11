@@ -15,10 +15,8 @@ import {
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
-// The PDF URL uses a date-based naming scheme
-// Pattern: TASAS+TARIFAS+DAVIVIENDA+DD+MM+YYYY.pdf
-const DEFAULT_SOURCE_URL =
-  "https://www.davivienda.com/wps/wcm/connect/personas/5f45e48c-8e91-49f2-b85e-71c14b09512b";
+// Stable URL that always points to the latest rates PDF
+const SOURCE_URL = "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda";
 
 /**
  * Extracts text content from a PDF buffer using pdfjs-dist
@@ -138,20 +136,9 @@ function parseViviendaSection(pageTexts: string[]): ExtractedRate[] {
   return rates;
 }
 
-/**
- * Constructs a Davivienda PDF URL for a given date
- * Format: TASAS+TARIFAS+DAVIVIENDA+DD+MM+YYYY.pdf
- */
-function constructPdfUrl(date: Date): string {
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-  return `${DEFAULT_SOURCE_URL}/TASAS+TARIFAS+DAVIVIENDA+${day}+${month}+${year}.pdf?MOD=AJPERES`;
-}
-
 export class DaviviendaParser implements BankParser {
   bankId = BankId.DAVIVIENDA;
-  sourceUrl = DEFAULT_SOURCE_URL;
+  sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
@@ -165,39 +152,11 @@ export class DaviviendaParser implements BankParser {
     if (this.config.useFixtures && this.config.fixturesPath) {
       pdfBuffer = await readFile(this.config.fixturesPath);
     } else {
-      // Try to fetch the latest PDF
-      // Davivienda updates their PDF periodically with date-based URLs
-      // We'll try a few recent dates
-      const now = new Date();
-      let fetchedContent: Buffer | null = null;
-      let resolvedUrl = "";
-
-      // Try current date and go back up to 30 days
-      for (let daysBack = 0; daysBack <= 30; daysBack++) {
-        const tryDate = new Date(now);
-        tryDate.setDate(tryDate.getDate() - daysBack);
-        const url = constructPdfUrl(tryDate);
-
-        try {
-          const result = await fetchWithRetry(url, {
-            useBrowserUserAgent: true,
-            retries: 0,
-          });
-          fetchedContent = result.content;
-          resolvedUrl = url;
-          break;
-        } catch {
-          // Try next date
-        }
-      }
-
-      if (!fetchedContent) {
-        warnings.push("Could not fetch Davivienda PDF - all date URLs failed");
-        return { bank_id: this.bankId, offers, warnings, raw_text_hash: "" };
-      }
-
-      pdfBuffer = fetchedContent;
-      this.sourceUrl = resolvedUrl;
+      // Fetch from stable URL that always points to the latest rates PDF
+      const result = await fetchWithRetry(SOURCE_URL, {
+        useBrowserUserAgent: true,
+      });
+      pdfBuffer = result.content;
     }
 
     const rawTextHash = sha256(pdfBuffer.toString("base64"));
