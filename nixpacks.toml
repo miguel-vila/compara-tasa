@@ -11,7 +11,8 @@ cmds = [
 cmds = [
   "pnpm --filter @mejor-tasa/core build",
   "pnpm --filter @mejor-tasa/web build",
-  "cp -r apps/web/public apps/web/.next/standalone/apps/web/"
+  "cp -r apps/web/public apps/web/.next/standalone/apps/web/",
+  "cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/"
 ]
 
 [start]
