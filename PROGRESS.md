@@ -105,7 +105,7 @@ Additional Colombian banks that could be added:
 7. ~~Implement AV Villas PDF parser~~ ✓ (15 tests)
 8. ~~Implement Itaú PDF parser~~ ✓ (13 tests) - requires manual PDF download
 9. ~~Deploy to Railway~~ ✓ (railway.json + nixpacks.toml + GitHub Actions)
-10. Connect GitHub repo to Railway and deploy
+10. ~~Connect GitHub repo to Railway and deploy~~ ✓
 
 ## Running the Project
 
