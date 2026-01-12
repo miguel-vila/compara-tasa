@@ -166,13 +166,7 @@ export class ScotiabankParser implements BankParser {
 
     // Extract text from PDF
     const pdfData = new Uint8Array(pdfBuffer);
-    let pageTexts: string[];
-    try {
-      pageTexts = await extractPdfText(pdfData);
-    } catch (error) {
-      warnings.push(`Failed to extract PDF text: ${error}`);
-      return { bank_id: this.bankId, offers, warnings, raw_text_hash: rawTextHash };
-    }
+    const pageTexts = await extractPdfText(pdfData);
 
     // Combine all pages for searching
     const fullText = pageTexts.join(" ");
