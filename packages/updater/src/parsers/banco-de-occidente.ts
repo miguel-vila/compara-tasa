@@ -11,8 +11,13 @@ import {
   type Offer,
   type BankParseResult,
 } from "@mejor-tasa/core";
-import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
+import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
+import { chromium } from "playwright-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+
+// Apply stealth plugin to avoid bot detection
+chromium.use(StealthPlugin());
 
 const SOURCE_URL =
   "https://www.bancodeoccidente.com.co/banco-de-occidente/documentos/tasas-tarifas/para-personas/tasas/tasas-personas.pdf";
@@ -33,6 +38,72 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
   }
 
   return pages;
+}
+
+const MAIN_PAGE_URL = "https://www.bancodeoccidente.com.co/";
+
+/**
+ * Fetches a PDF using Playwright with stealth plugin to bypass CloudFront bot protection.
+ * Visits the main page first to establish a valid session before navigating to the PDF.
+ * Handles both inline PDFs and download-triggered PDFs.
+ */
+async function fetchPdfWithPlaywright(url: string): Promise<Buffer> {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const context = await browser.newContext({
+      viewport: { width: 1920, height: 1080 },
+      locale: "es-CO",
+      acceptDownloads: true,
+    });
+    const page = await context.newPage();
+
+    // First visit the main page to establish session/cookies
+    const mainResponse = await page.goto(MAIN_PAGE_URL, {
+      waitUntil: "networkidle",
+      timeout: 30000,
+    });
+
+    if (!mainResponse?.ok()) {
+      throw new Error(`Failed to load main page: HTTP ${mainResponse?.status()}`);
+    }
+
+    // Brief wait before navigating to PDF
+    await page.waitForTimeout(1000);
+
+    // Set up download handler before navigation
+    const downloadPromise = page.waitForEvent("download", { timeout: 30000 }).catch(() => null);
+
+    // Navigate to the PDF URL - this may trigger a download
+    const [response, download] = await Promise.all([
+      page.goto(url, { waitUntil: "commit", timeout: 30000 }).catch(() => null),
+      downloadPromise,
+    ]);
+
+    // If a download was triggered, read from the download
+    if (download) {
+      const path = await download.path();
+      if (!path) {
+        throw new Error("Download failed - no path available");
+      }
+      const { readFile } = await import("fs/promises");
+      const buffer = await readFile(path);
+      return buffer;
+    }
+
+    // Otherwise, read from the response
+    if (!response) {
+      throw new Error("No response received");
+    }
+
+    if (!response.ok()) {
+      throw new Error(`HTTP ${response.status()}: ${response.statusText()}`);
+    }
+
+    const buffer = await response.body();
+    return buffer;
+  } finally {
+    await browser.close();
+  }
 }
 
 type ExtractedRate = {
@@ -163,19 +234,13 @@ export class BancoDeOccidenteParser implements BankParser {
     const offers: Offer[] = [];
     const retrievedAt = new Date().toISOString();
 
-    // Fetch PDF (from fixture or live)
+    // Fetch PDF (from fixture or live via Playwright)
     let pdfBuffer: Buffer;
     if (this.config.useFixtures && this.config.fixturesPath) {
       pdfBuffer = await readFile(this.config.fixturesPath);
     } else {
-      // Use browser user-agent to avoid 403 blocks
-      const result = await fetchWithRetry(this.sourceUrl, {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        },
-      });
-      pdfBuffer = result.content;
+      // Use Playwright to bypass bot protection
+      pdfBuffer = await fetchPdfWithPlaywright(this.sourceUrl);
     }
 
     const rawTextHash = sha256(pdfBuffer.toString("base64"));

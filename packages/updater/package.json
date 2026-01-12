@@ -18,7 +18,10 @@
     "@mejor-tasa/core": "workspace:*",
     "cheerio": "^1.0.0",
     "p-retry": "^6.2.1",
-    "pdfjs-dist": "^4.9.155"
+    "pdfjs-dist": "^4.9.155",
+    "playwright": "^1.57.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
