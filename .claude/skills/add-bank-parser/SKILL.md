@@ -27,6 +27,7 @@ This skill guides you through adding a new bank parser to extract mortgage rates
 - Parser interface: `packages/updater/src/parsers/types.ts`
 - HTML example: `packages/updater/src/parsers/bancolombia.ts`
 - PDF example: `packages/updater/src/parsers/scotiabank.ts`
+- CloudFront WAF example: `packages/updater/src/parsers/banco-de-occidente.ts`
 - Utilities: `packages/updater/src/utils/numbers.ts`
 
 ## Commands
@@ -56,3 +57,4 @@ Read `content.md` in this skill folder for:
 - Rate type examples
 - Utility function reference
 - Common issues and solutions
+- **CloudFront WAF bypass** using Playwright + stealth plugin

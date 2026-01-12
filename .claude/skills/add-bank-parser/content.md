@@ -452,11 +452,12 @@ Update the status line and test counts as appropriate.
 - [ ] Fixture downloaded to `fixtures/{bank_id}/` (using browser user-agent)
 - [ ] Parser implemented in `packages/updater/src/parsers/{bank_id}.ts`
 - [ ] Parser uses `useBrowserUserAgent: true` if needed
+- [ ] If 403 persists, check for CloudFront WAF and use Playwright + stealth plugin
 - [ ] Parser registered in `packages/updater/src/parsers/index.ts`
 - [ ] Tests written in `packages/updater/src/parsers/{bank_id}.test.ts`
 - [ ] All tests pass: `pnpm --filter @mejor-tasa/updater test -- --run`
 - [ ] Type check passes: `pnpm typecheck`
-- [ ] PROGRESS.md updated (note if browser user-agent required)
+- [ ] PROGRESS.md updated (note if browser user-agent or Playwright required)
 
 ---
 
@@ -496,13 +497,92 @@ Use web search to find direct document URLs that bypass the protected pages.
 
 If all else fails, download fixtures manually and document this limitation.
 
+#### 4. CloudFront WAF Protection (Advanced)
+
+Some banks use AWS CloudFront with WAF rules that block all automated requests, even with browser user-agents. Signs of CloudFront blocking:
+
+- 403 response with HTML body mentioning "CloudFront"
+- Error message: "Request blocked. We can't connect to the server..."
+- Request ID starting with random characters
+
+**Solution: Use `playwright-extra` with stealth plugin**
+
+```typescript
+import { chromium } from "playwright-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+
+// Apply stealth plugin ONCE at module level
+chromium.use(StealthPlugin());
+
+async function fetchPdfWithPlaywright(url: string, mainPageUrl: string): Promise<Buffer> {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const context = await browser.newContext({
+      viewport: { width: 1920, height: 1080 },
+      locale: "es-CO",
+      acceptDownloads: true,
+    });
+    const page = await context.newPage();
+
+    // IMPORTANT: Visit main page first to establish session/cookies
+    const mainResponse = await page.goto(mainPageUrl, {
+      waitUntil: "networkidle",
+      timeout: 30000,
+    });
+    if (!mainResponse?.ok()) {
+      throw new Error(`Failed to load main page: HTTP ${mainResponse?.status()}`);
+    }
+
+    // Brief wait before navigating to PDF
+    await page.waitForTimeout(1000);
+
+    // Handle both inline PDFs and download-triggered PDFs
+    const downloadPromise = page.waitForEvent("download", { timeout: 30000 }).catch(() => null);
+    const [response, download] = await Promise.all([
+      page.goto(url, { waitUntil: "commit", timeout: 30000 }).catch(() => null),
+      downloadPromise,
+    ]);
+
+    // If download triggered, read from temp file
+    if (download) {
+      const path = await download.path();
+      if (!path) throw new Error("Download failed");
+      const { readFile } = await import("fs/promises");
+      return await readFile(path);
+    }
+
+    // Otherwise read from response
+    if (!response?.ok()) {
+      throw new Error(`HTTP ${response?.status()}: ${response?.statusText()}`);
+    }
+    return await response.body();
+  } finally {
+    await browser.close();
+  }
+}
+```
+
+**Key points:**
+
+- The stealth plugin patches browser fingerprinting detection
+- Must visit main page first to get valid session cookies
+- Some banks trigger downloads instead of inline PDF display - handle both cases
+- Use `headless: true` for CI/automated runs
+
+**Dependencies to add:**
+
+```bash
+pnpm --filter @mejor-tasa/updater add playwright playwright-extra puppeteer-extra-plugin-stealth
+npx playwright install chromium
+```
+
 #### Known Banks Requiring Workarounds
 
 | Bank               | Issue                         | Solution                                           |
 | ------------------ | ----------------------------- | -------------------------------------------------- |
 | Itaú               | 403 on all automated requests | Manual PDF download only                           |
-| Banco de Bogotá    | Default user-agent blocked    | `useBrowserUserAgent: true`                        |
-| Banco de Occidente | Default user-agent blocked    | `useBrowserUserAgent: true`                        |
+| Banco de Bogotá    | CloudFront WAF                | Playwright + stealth plugin                        |
+| Banco de Occidente | CloudFront WAF + download     | Playwright + stealth plugin + download handling    |
 | Davivienda         | Incapsula on landing page     | Use `/documents/d/guest/` URL + browser user-agent |
 
 ### Colombian number formats
