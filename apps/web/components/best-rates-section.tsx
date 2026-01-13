@@ -271,11 +271,6 @@ function RankingRow({
       {/* Bank Info */}
       <div className="flex-1 min-w-0">
         <p className="text-white font-medium text-sm truncate">{offer.bank_name}</p>
-        <p className="text-slate-400 text-xs truncate">
-          {offer.segment !== "UNKNOWN" && (offer.segment === "VIS" ? "VIS" : "No VIS")}
-          {offer.channel === "DIGITAL" && " • Digital"}
-          {offer.conditions.payroll_discount && " • Con nómina"}
-        </p>
       </div>
 
       {/* Rate */}
