@@ -95,15 +95,18 @@ Additional Colombian banks that could be added:
 **Low Priority (May require additional work):**
 
 - [x] **Bancoomeva** - [Tasas de Crédito](https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/) - Implemented! (17 tests) Monthly PDF documents with dynamic file IDs. Cooperative bank with two rate tiers: regular clients (VIS COP: 13.89%, NO_VIS COP: 14.3%) and Coomeva members (VIS COP: 12.82%, NO_VIS COP: 13.22%).
-- [ ] **Banco GNB Sudameris** - [Documentos de Tasas](https://www.gnbsudameris.com.co/ws/documentos?d=TASAS) - Low rates for libre inversión (16.40% E.A.). Need to verify if they offer mortgage products.
-- [ ] **Banco Serfinanza** - [Tasas](https://bancoserfinanza.com/servicio-al-cliente/tasas/) - Has bot protection (Radware verification). May require manual download.
-- [ ] **Mibanco** - NO_VIS ~15.94% E.A. according to Superfinanciera data. Need to find disclosure URL.
-- [ ] **Banco Unión** - NO_VIS ~17.6% E.A. Need to find disclosure URL.
-- [ ] **Banco Pichincha Colombia** - [Tasas vigentes PDF](https://www.bancopichincha.com.co/documents/158126/259294/Tasas+vigentes.pdf) - Need to verify if they offer mortgage products in Colombia (main mortgage products are in Ecuador).
+
+**Banks with bot protection or inaccessible rates (cannot be automated):**
+
+- **Banco Serfinanza** - [Tasas](https://bancoserfinanza.com/servicio-al-cliente/tasas/) - Has bot protection (Radware verification). Rates page blocked by security challenge.
+- **Mibanco** - NO_VIS ~15.94% E.A. according to Superfinanciera data. PDF URLs are dated and expire (e.g., `20250108115752000000_TASAS_colocacion_enero_08_2025_Mibanco.pdf`). Would require dynamic URL discovery like Bancoomeva.
+- **Banco Unión** - NO_VIS ~17.6% E.A. Offers mortgages but has Radware bot protection. Tarifas PDF only contains insurance fees, not interest rates. No public rates PDF found.
 
 **Banks NOT offering mortgages in Colombia:**
 
 - **Banco Falabella Colombia** - Only offers credit cards, savings accounts, and CDTs. Mortgage products only available in Chile.
+- **Banco GNB Sudameris** - Only offers credit cards, consumer loans (libre inversión), payroll loans (libranzas), and deposit products. No mortgage products (crédito de vivienda) available. Their tarifas PDF confirms no mortgage section.
+- **Banco Pichincha Colombia** - Only offers consumer credit (libre inversión, libranza), credit cards, and deposit products in Colombia. Mortgage products (crédito de vivienda VIS/VIP) are only available in Ecuador.
 
 ### Frontend Polish
 
