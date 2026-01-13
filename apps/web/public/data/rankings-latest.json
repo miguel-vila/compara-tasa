@@ -1,17 +1,9 @@
 {
-  "generated_at": "2026-01-13T03:05:20.410Z",
+  "generated_at": "2026-01-13T03:44:23.517Z",
   "scenarios": {
     "best_uvr_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "586cae489862fdf7",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 4.5
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "963168bc752fb938",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -19,11 +11,19 @@
         }
       },
       {
-        "position": 3,
+        "position": 2,
         "offer_id": "8a4d1d552a393963",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 5.15
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "787d350b7e8ea403",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 6.6
         }
       }
     ],
@@ -56,26 +56,26 @@
     "best_cop_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "e5ce7c0191900770",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 9.5
-        }
-      },
-      {
-        "position": 2,
-        "offer_id": "a10ace3269c6c0c5",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 9.77
-        }
-      },
-      {
-        "position": 3,
         "offer_id": "c4db82ad16847726",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 10
+        }
+      },
+      {
+        "position": 2,
+        "offer_id": "07fd59c57fd2c3c1",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 10.7
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "e75a476f2fd6ceed",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 12.15
         }
       }
     ],
@@ -90,22 +90,22 @@
       },
       {
         "position": 2,
-        "offer_id": "fdfa853bbb98bbcf",
+        "offer_id": "1ddf1a9c9b72cd0a",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11.98
+          "value": 12.25
         }
       },
       {
         "position": 3,
-        "offer_id": "0083c10892a5f163",
+        "offer_id": "97f24aa882e57372",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 12
+          "value": 12.4
         }
       }
     ],
-    "best_payroll_benefit": [
+    "best_uvr_vis_payroll": [
       {
         "position": 1,
         "offer_id": "586cae489862fdf7",
@@ -128,6 +128,84 @@
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.5
+        }
+      }
+    ],
+    "best_uvr_no_vis_payroll": [
+      {
+        "position": 1,
+        "offer_id": "3960ed121b456817",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 7.4
+        }
+      },
+      {
+        "position": 2,
+        "offer_id": "008876188be57f15",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 7.5
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "b821b1bce2b6732d",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 8
+        }
+      }
+    ],
+    "best_cop_vis_payroll": [
+      {
+        "position": 1,
+        "offer_id": "e5ce7c0191900770",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 9.5
+        }
+      },
+      {
+        "position": 2,
+        "offer_id": "a10ace3269c6c0c5",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 9.77
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "38e27706d37a20cf",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 12
+        }
+      }
+    ],
+    "best_cop_no_vis_payroll": [
+      {
+        "position": 1,
+        "offer_id": "fdfa853bbb98bbcf",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 11.98
+        }
+      },
+      {
+        "position": 2,
+        "offer_id": "0083c10892a5f163",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 12
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "6ac01a063d37c5f6",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 12
         }
       }
     ],

@@ -20,29 +20,57 @@ type ScenarioFilter = {
 };
 
 const SCENARIO_FILTERS: Record<ScenarioKey, ScenarioFilter> = {
+  // Base scenarios - explicitly exclude payroll offers
   [ScenarioKey.BEST_UVR_VIS_HIPOTECARIO]: {
     product_type: ProductType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.VIS,
+    hasPayrollDiscount: false,
   },
   [ScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO]: {
     product_type: ProductType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.NO_VIS,
+    hasPayrollDiscount: false,
   },
   [ScenarioKey.BEST_COP_VIS_HIPOTECARIO]: {
     product_type: ProductType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.VIS,
+    hasPayrollDiscount: false,
   },
   [ScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO]: {
     product_type: ProductType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.NO_VIS,
+    hasPayrollDiscount: false,
   },
-  [ScenarioKey.BEST_PAYROLL_BENEFIT]: {
+  // Payroll scenarios - only offers with payroll discount
+  [ScenarioKey.BEST_UVR_VIS_PAYROLL]: {
+    product_type: ProductType.HIPOTECARIO,
+    currency_index: CurrencyIndex.UVR,
+    segment: Segment.VIS,
     hasPayrollDiscount: true,
   },
+  [ScenarioKey.BEST_UVR_NO_VIS_PAYROLL]: {
+    product_type: ProductType.HIPOTECARIO,
+    currency_index: CurrencyIndex.UVR,
+    segment: Segment.NO_VIS,
+    hasPayrollDiscount: true,
+  },
+  [ScenarioKey.BEST_COP_VIS_PAYROLL]: {
+    product_type: ProductType.HIPOTECARIO,
+    currency_index: CurrencyIndex.COP,
+    segment: Segment.VIS,
+    hasPayrollDiscount: true,
+  },
+  [ScenarioKey.BEST_COP_NO_VIS_PAYROLL]: {
+    product_type: ProductType.HIPOTECARIO,
+    currency_index: CurrencyIndex.COP,
+    segment: Segment.NO_VIS,
+    hasPayrollDiscount: true,
+  },
+  // Other scenarios
   [ScenarioKey.BEST_DIGITAL_HIPOTECARIO]: {
     product_type: ProductType.HIPOTECARIO,
     channel: Channel.DIGITAL,
@@ -62,8 +90,12 @@ function matchesFilter(offer: Offer, filter: ScenarioFilter): boolean {
   if (filter.channel && offer.channel !== filter.channel) {
     return false;
   }
-  if (filter.hasPayrollDiscount && !offer.conditions.payroll_discount) {
-    return false;
+  // Handle payroll filter: true = must have payroll, false = must NOT have payroll
+  if (filter.hasPayrollDiscount !== undefined) {
+    const hasPayroll = !!offer.conditions.payroll_discount;
+    if (filter.hasPayrollDiscount !== hasPayroll) {
+      return false;
+    }
   }
   return true;
 }

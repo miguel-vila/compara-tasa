@@ -190,16 +190,20 @@ describe("computeRankings", () => {
     });
   });
 
-  describe("BEST_PAYROLL_BENEFIT", () => {
-    it("should return top offers sorted by lowest rate among those with payroll discount", () => {
+  describe("Payroll scenarios", () => {
+    it("should return top offers sorted by lowest rate among those with payroll discount for COP VIS", () => {
       const offers: Offer[] = [
         createMockOffer({
           id: "no-payroll",
+          currency_index: CurrencyIndex.COP,
+          segment: Segment.VIS,
           rate: { kind: "COP_FIXED", ea_percent_from: 10.0 },
           conditions: {},
         }),
         createMockOffer({
           id: "with-payroll-high",
+          currency_index: CurrencyIndex.COP,
+          segment: Segment.VIS,
           rate: { kind: "COP_FIXED", ea_percent_from: 12.0 },
           conditions: {
             payroll_discount: { type: "PERCENT_OFF", value: 1.0, applies_to: "RATE" },
@@ -207,6 +211,8 @@ describe("computeRankings", () => {
         }),
         createMockOffer({
           id: "with-payroll-low",
+          currency_index: CurrencyIndex.COP,
+          segment: Segment.VIS,
           rate: { kind: "COP_FIXED", ea_percent_from: 11.0 },
           conditions: {
             payroll_discount: { type: "PERCENT_OFF", value: 1.0, applies_to: "RATE" },
@@ -216,9 +222,15 @@ describe("computeRankings", () => {
 
       const rankings = computeRankings(offers);
 
-      expect(rankings.scenarios[ScenarioKey.BEST_PAYROLL_BENEFIT]).toEqual([
+      // Payroll offers appear in payroll scenario
+      expect(rankings.scenarios[ScenarioKey.BEST_COP_VIS_PAYROLL]).toEqual([
         { position: 1, offer_id: "with-payroll-low", metric: { kind: "EA_PERCENT", value: 11.0 } },
         { position: 2, offer_id: "with-payroll-high", metric: { kind: "EA_PERCENT", value: 12.0 } },
+      ]);
+
+      // Non-payroll offers appear in base scenario
+      expect(rankings.scenarios[ScenarioKey.BEST_COP_VIS_HIPOTECARIO]).toEqual([
+        { position: 1, offer_id: "no-payroll", metric: { kind: "EA_PERCENT", value: 10.0 } },
       ]);
     });
 
@@ -226,17 +238,53 @@ describe("computeRankings", () => {
       const offers: Offer[] = [
         createMockOffer({
           id: "no-payroll-1",
+          currency_index: CurrencyIndex.COP,
+          segment: Segment.VIS,
           conditions: {},
         }),
         createMockOffer({
           id: "no-payroll-2",
+          currency_index: CurrencyIndex.COP,
+          segment: Segment.VIS,
           conditions: {},
         }),
       ];
 
       const rankings = computeRankings(offers);
 
-      expect(rankings.scenarios[ScenarioKey.BEST_PAYROLL_BENEFIT]).toBeUndefined();
+      expect(rankings.scenarios[ScenarioKey.BEST_COP_VIS_PAYROLL]).toBeUndefined();
+    });
+
+    it("should separate payroll and non-payroll offers in UVR scenarios", () => {
+      const offers: Offer[] = [
+        createMockOffer({
+          id: "uvr-no-payroll",
+          currency_index: CurrencyIndex.UVR,
+          segment: Segment.VIS,
+          rate: { kind: "UVR_SPREAD", spread_ea_from: 7.0 },
+          conditions: {},
+        }),
+        createMockOffer({
+          id: "uvr-with-payroll",
+          currency_index: CurrencyIndex.UVR,
+          segment: Segment.VIS,
+          rate: { kind: "UVR_SPREAD", spread_ea_from: 6.0 },
+          conditions: {
+            payroll_discount: { type: "BPS_OFF", value: 100, applies_to: "RATE" },
+          },
+        }),
+      ];
+
+      const rankings = computeRankings(offers);
+
+      // Non-payroll in base scenario
+      expect(rankings.scenarios[ScenarioKey.BEST_UVR_VIS_HIPOTECARIO]?.[0]?.offer_id).toBe(
+        "uvr-no-payroll"
+      );
+      // Payroll in payroll scenario
+      expect(rankings.scenarios[ScenarioKey.BEST_UVR_VIS_PAYROLL]?.[0]?.offer_id).toBe(
+        "uvr-with-payroll"
+      );
     });
   });
 
@@ -363,35 +411,35 @@ describe("computeRankings", () => {
 
     it("should populate multiple scenarios from a comprehensive offer set", () => {
       const offers: Offer[] = [
-        // Best for COP VIS
+        // Best for COP VIS (no payroll)
         createMockOffer({
           id: "cop-vis",
           currency_index: CurrencyIndex.COP,
           segment: Segment.VIS,
           rate: { kind: "COP_FIXED", ea_percent_from: 12.0 },
         }),
-        // Best for COP NO_VIS
+        // Best for COP NO_VIS (no payroll)
         createMockOffer({
           id: "cop-no-vis",
           currency_index: CurrencyIndex.COP,
           segment: Segment.NO_VIS,
           rate: { kind: "COP_FIXED", ea_percent_from: 11.5 },
         }),
-        // Best for UVR VIS
+        // Best for UVR VIS (no payroll)
         createMockOffer({
           id: "uvr-vis",
           currency_index: CurrencyIndex.UVR,
           segment: Segment.VIS,
           rate: { kind: "UVR_SPREAD", spread_ea_from: 6.5 },
         }),
-        // Best for UVR NO_VIS
+        // Best for UVR NO_VIS (no payroll)
         createMockOffer({
           id: "uvr-no-vis",
           currency_index: CurrencyIndex.UVR,
           segment: Segment.NO_VIS,
           rate: { kind: "UVR_SPREAD", spread_ea_from: 8.0 },
         }),
-        // Best for DIGITAL (UVR so it doesn't interfere with COP scenarios)
+        // Best for DIGITAL (UVR VIS, no payroll)
         createMockOffer({
           id: "digital",
           channel: Channel.DIGITAL,
@@ -399,9 +447,9 @@ describe("computeRankings", () => {
           segment: Segment.VIS,
           rate: { kind: "UVR_SPREAD", spread_ea_from: 5.0 },
         }),
-        // Best for PAYROLL (UVR so it doesn't interfere with COP scenarios)
+        // Best for UVR VIS PAYROLL scenario
         createMockOffer({
-          id: "payroll",
+          id: "payroll-uvr-vis",
           currency_index: CurrencyIndex.UVR,
           segment: Segment.VIS,
           rate: { kind: "UVR_SPREAD", spread_ea_from: 5.5 },
@@ -429,7 +477,10 @@ describe("computeRankings", () => {
       expect(rankings.scenarios[ScenarioKey.BEST_DIGITAL_HIPOTECARIO]?.[0]?.offer_id).toBe(
         "digital"
       );
-      expect(rankings.scenarios[ScenarioKey.BEST_PAYROLL_BENEFIT]?.[0]?.offer_id).toBe("payroll");
+      // Payroll UVR VIS scenario
+      expect(rankings.scenarios[ScenarioKey.BEST_UVR_VIS_PAYROLL]?.[0]?.offer_id).toBe(
+        "payroll-uvr-vis"
+      );
     });
 
     it("should limit to top 3 offers even when more match", () => {

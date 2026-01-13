@@ -35,19 +35,31 @@ export function formatDateTime(isoString: string): string {
 }
 
 export const SCENARIO_LABELS: Record<ScenarioKey, string> = {
+  // Base scenarios (without payroll)
   best_uvr_vis_hipotecario: "Mejor UVR - VIS",
   best_uvr_no_vis_hipotecario: "Mejor UVR - No VIS",
   best_cop_vis_hipotecario: "Mejor Pesos - VIS",
   best_cop_no_vis_hipotecario: "Mejor Pesos - No VIS",
-  best_payroll_benefit: "Mejor con Nómina",
+  // Payroll scenarios
+  best_uvr_vis_payroll: "Mejor UVR - VIS (Nómina)",
+  best_uvr_no_vis_payroll: "Mejor UVR - No VIS (Nómina)",
+  best_cop_vis_payroll: "Mejor Pesos - VIS (Nómina)",
+  best_cop_no_vis_payroll: "Mejor Pesos - No VIS (Nómina)",
+  // Other
   best_digital_hipotecario: "Mejor Canal Digital",
 };
 
 export const SCENARIO_DESCRIPTIONS: Record<ScenarioKey, string> = {
+  // Base scenarios (without payroll)
   best_uvr_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de interés social",
   best_uvr_no_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de mayor valor",
   best_cop_vis_hipotecario: "Crédito hipotecario en pesos para vivienda de interés social",
   best_cop_no_vis_hipotecario: "Crédito hipotecario en pesos para vivienda de mayor valor",
-  best_payroll_benefit: "Mejor tasa para clientes con nómina en el banco",
+  // Payroll scenarios
+  best_uvr_vis_payroll: "Crédito en UVR para VIS con descuento por nómina",
+  best_uvr_no_vis_payroll: "Crédito en UVR para No VIS con descuento por nómina",
+  best_cop_vis_payroll: "Crédito en pesos para VIS con descuento por nómina",
+  best_cop_no_vis_payroll: "Crédito en pesos para No VIS con descuento por nómina",
+  // Other
   best_digital_hipotecario: "Mejor tasa disponible por canales digitales",
 };

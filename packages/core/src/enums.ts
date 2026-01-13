@@ -86,11 +86,17 @@ export type ExtractionMethod = (typeof ExtractionMethod)[keyof typeof Extraction
 
 // Scenario keys for rankings
 export const ScenarioKey = {
+  // Base scenarios (without payroll - accessible to all)
   BEST_UVR_VIS_HIPOTECARIO: "best_uvr_vis_hipotecario",
   BEST_UVR_NO_VIS_HIPOTECARIO: "best_uvr_no_vis_hipotecario",
   BEST_COP_VIS_HIPOTECARIO: "best_cop_vis_hipotecario",
   BEST_COP_NO_VIS_HIPOTECARIO: "best_cop_no_vis_hipotecario",
-  BEST_PAYROLL_BENEFIT: "best_payroll_benefit",
+  // Payroll scenarios (requires payroll enrollment)
+  BEST_UVR_VIS_PAYROLL: "best_uvr_vis_payroll",
+  BEST_UVR_NO_VIS_PAYROLL: "best_uvr_no_vis_payroll",
+  BEST_COP_VIS_PAYROLL: "best_cop_vis_payroll",
+  BEST_COP_NO_VIS_PAYROLL: "best_cop_no_vis_payroll",
+  // Other scenarios
   BEST_DIGITAL_HIPOTECARIO: "best_digital_hipotecario",
 } as const;
 
