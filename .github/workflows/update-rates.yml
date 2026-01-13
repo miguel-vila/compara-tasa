@@ -23,9 +23,9 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @mejor-tasa/core build
-      - run: pnpm --filter @mejor-tasa/updater build
-      - run: pnpm --filter @mejor-tasa/updater exec playwright install --with-deps
+      - run: pnpm --filter @compara-tasa/core build
+      - run: pnpm --filter @compara-tasa/updater build
+      - run: pnpm --filter @compara-tasa/updater exec playwright install --with-deps
       - run: pnpm update-rates
 
       - name: Commit updated rates

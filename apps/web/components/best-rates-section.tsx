@@ -1,6 +1,6 @@
 import { fetchRankings, fetchOffers } from "@/lib/data";
 import { formatRate, formatDateTime, SCENARIO_LABELS, SCENARIO_DESCRIPTIONS } from "@/lib/format";
-import { ScenarioKey, type Offer } from "@mejor-tasa/core";
+import { ScenarioKey, type Offer } from "@compara-tasa/core";
 
 export async function BestRatesSection() {
   const [rankings, { offers }] = await Promise.all([fetchRankings(), fetchOffers()]);

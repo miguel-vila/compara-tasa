@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { ScotiabankParser } from "./scotiabank.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@mejor-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/scotiabank_colpatria/rates.pdf");
 

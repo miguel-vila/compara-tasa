@@ -18,7 +18,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold text-gray-900">
-              Mejor<span className="text-primary-600">Tasa</span>
+              Compara<span className="text-primary-600">Tasa</span>
             </span>
           </Link>
 

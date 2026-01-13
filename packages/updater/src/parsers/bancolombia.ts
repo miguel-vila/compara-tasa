@@ -12,7 +12,7 @@ import {
   type Offer,
   type Rate,
   type BankParseResult,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 import {
   fetchWithRetry,
   sha256,

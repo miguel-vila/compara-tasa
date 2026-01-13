@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">MejorTasa</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">ComparaTasa</h3>
             <p className="text-sm text-gray-600">
               Comparador de tasas de crédito hipotecario en Colombia. Información pública recopilada
               de los bancos.
@@ -40,7 +40,7 @@ export function Footer() {
 
         <div className="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
           <p>
-            © {new Date().getFullYear()} MejorTasa. La información proviene de fuentes públicas de
+            © {new Date().getFullYear()} ComparaTasa. La información proviene de fuentes públicas de
             cada entidad financiera.
           </p>
         </div>

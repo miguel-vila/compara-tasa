@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata = {
-  title: "Metodología | Mejor Tasa",
+  title: "Metodología | Compara Tasa",
   description:
     "Conoce cómo recopilamos y presentamos la información de tasas hipotecarias en Colombia.",
 };

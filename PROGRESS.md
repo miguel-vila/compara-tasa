@@ -127,7 +127,7 @@ Additional Colombian banks that could be added:
 
 ```bash
 pnpm install
-pnpm --filter @mejor-tasa/core build
+pnpm --filter @compara-tasa/core build
 pnpm dev
 ```
 

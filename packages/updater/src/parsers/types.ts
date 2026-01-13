@@ -1,4 +1,4 @@
-import type { BankId, BankParseResult } from "@mejor-tasa/core";
+import type { BankId, BankParseResult } from "@compara-tasa/core";
 
 /**
  * Interface for bank-specific parsers

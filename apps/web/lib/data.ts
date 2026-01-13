@@ -5,7 +5,7 @@ import {
   RankingsSchema,
   type OffersDataset,
   type Rankings,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 
 // Read from public/data for server components
 const DATA_DIR = join(process.cwd(), "public/data");

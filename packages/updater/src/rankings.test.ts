@@ -8,7 +8,7 @@ import {
   ProductType,
   ScenarioKey,
   type Offer,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 
 function createMockOffer(overrides: Partial<Offer> & { id: string }): Offer {
   const { id, ...rest } = overrides;

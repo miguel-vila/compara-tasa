@@ -1,4 +1,4 @@
-# MejorTasa
+# ComparaTasa
 
 Comparador de tasas de crédito hipotecario en Colombia.
 
@@ -11,7 +11,7 @@ Comparador de tasas de crédito hipotecario en Colombia.
 
 ```bash
 pnpm install
-pnpm --filter @mejor-tasa/core build
+pnpm --filter @compara-tasa/core build
 ```
 
 ## Desarrollo

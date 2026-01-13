@@ -34,16 +34,16 @@ This skill guides you through adding a new bank parser to extract mortgage rates
 
 ```bash
 # Run tests for a specific parser
-pnpm --filter @mejor-tasa/updater test -- --run {bank_id}
+pnpm --filter @compara-tasa/updater test -- --run {bank_id}
 
 # Run all tests
-pnpm --filter @mejor-tasa/updater test -- --run
+pnpm --filter @compara-tasa/updater test -- --run
 
 # Type check
 pnpm typecheck
 
 # Run the updater
-pnpm --filter @mejor-tasa/updater build && pnpm update-rates
+pnpm --filter @compara-tasa/updater build && pnpm update-rates
 ```
 
 ## Detailed Instructions

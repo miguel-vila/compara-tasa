@@ -1,17 +1,17 @@
 {
-  "name": "mejor-tasa",
+  "name": "compara-tasa",
   "version": "0.1.0",
   "private": true,
   "description": "Colombia Mortgage Rates Aggregator - consolidates publicly disclosed mortgage rates",
   "scripts": {
-    "dev": "pnpm --filter @mejor-tasa/web dev",
-    "build": "pnpm --filter @mejor-tasa/core build && pnpm --filter @mejor-tasa/web build && cp -r apps/web/public apps/web/.next/standalone/apps/web/ && cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/",
+    "dev": "pnpm --filter @compara-tasa/web dev",
+    "build": "pnpm --filter @compara-tasa/core build && pnpm --filter @compara-tasa/web build && cp -r apps/web/public apps/web/.next/standalone/apps/web/ && cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "pnpm -r test",
-    "update-rates": "pnpm --filter @mejor-tasa/updater run update",
+    "update-rates": "pnpm --filter @compara-tasa/updater run update",
     "typecheck": "pnpm -r typecheck",
     "prepare": "husky"
   },

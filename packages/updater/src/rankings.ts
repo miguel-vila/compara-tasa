@@ -8,7 +8,7 @@ import {
   type Rankings,
   type ScenarioRanking,
   type RankingMetric,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 
 type ScenarioFilter = {
   product_type?: ProductType;

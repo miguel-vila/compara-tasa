@@ -18,15 +18,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MejorTasa is a Colombia mortgage rates aggregator that scrapes publicly disclosed rates from Colombian banks and presents them on a consumer-facing comparison site. The system consists of an ETL pipeline that extracts rates from HTML/PDF sources and a Next.js frontend for displaying them.
+ComparaTasa is a Colombia mortgage rates aggregator that scrapes publicly disclosed rates from Colombian banks and presents them on a consumer-facing comparison site. The system consists of an ETL pipeline that extracts rates from HTML/PDF sources and a Next.js frontend for displaying them.
 
 ## Commands
 
 ```bash
 # Install dependencies and build
 pnpm install
-pnpm --filter @mejor-tasa/core build     # Required before other packages
-pnpm --filter @mejor-tasa/updater build  # Required before running update-rates
+pnpm --filter @compara-tasa/core build     # Required before other packages
+pnpm --filter @compara-tasa/updater build  # Required before running update-rates
                                          # Also rebuild after any changes to updater code
 
 # Development
@@ -37,7 +37,7 @@ pnpm update-rates                     # Scrapes banks and generates apps/web/pub
 
 # Testing
 pnpm test                             # Run all tests
-pnpm --filter @mejor-tasa/updater test:watch  # Watch mode for updater tests
+pnpm --filter @compara-tasa/updater test:watch  # Watch mode for updater tests
 
 # Code quality
 pnpm lint                             # ESLint
@@ -50,7 +50,7 @@ pnpm typecheck                        # TypeScript across all packages
 
 This is a pnpm monorepo with three packages:
 
-### `packages/core` (@mejor-tasa/core)
+### `packages/core` (@compara-tasa/core)
 
 Shared TypeScript types and Zod schemas. Must be built first as other packages depend on it.
 
@@ -60,7 +60,7 @@ Key exports:
 - **Types**: `Offer`, `Rate` (union of `CopFixedRate` | `UvrSpreadRate`), `Rankings`, `OffersDataset`, `BankParseResult`
 - **Schemas**: Zod validators for all types (e.g., `OfferSchema`, `RankingsSchema`)
 
-### `packages/updater` (@mejor-tasa/updater)
+### `packages/updater` (@compara-tasa/updater)
 
 ETL pipeline that scrapes bank rate disclosures and produces JSON datasets.
 
@@ -73,7 +73,7 @@ Key patterns:
 - Uses `pdfjs-dist` for PDF text extraction (all other banks)
 - Outputs JSON files to `apps/web/public/data/` directory
 
-### `apps/web` (@mejor-tasa/web)
+### `apps/web` (@compara-tasa/web)
 
 Next.js 15 frontend with React 19, TailwindCSS, and TanStack React Table.
 

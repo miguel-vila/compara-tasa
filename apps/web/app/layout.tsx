@@ -7,9 +7,9 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const siteUrl = "https://mejortasa.co";
-const siteName = "Mejor Tasa";
-const title = "Mejor Tasa | Tasas de Crédito Hipotecario en Colombia";
+const siteUrl = "https://comparatasa.co";
+const siteName = "Compara Tasa";
+const title = "Compara Tasa | Tasas de Crédito Hipotecario en Colombia";
 const description =
   "Compara las mejores tasas de crédito hipotecario y leasing habitacional en Colombia. Información actualizada de Bancolombia, BBVA, Scotiabank, y más.";
 
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mejor Tasa - Compara tasas hipotecarias en Colombia",
+        alt: "Compara Tasa - Compara tasas hipotecarias en Colombia",
       },
     ],
   },

@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
-import type { Rate, ScenarioKey } from "@mejor-tasa/core";
+import type { Rate, ScenarioKey } from "@compara-tasa/core";
 
 export function formatRate(rate: Rate): string {
   if (rate.kind === "COP_FIXED") {

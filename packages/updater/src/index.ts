@@ -7,7 +7,7 @@ import {
   type Offer,
   type OffersDataset,
   type Rankings,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 import { createAllParsers } from "./parsers/index.js";
 import { computeRankings } from "./rankings.js";
 

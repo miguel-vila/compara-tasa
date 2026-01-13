@@ -1,5 +1,5 @@
 {
-  "name": "@mejor-tasa/web",
+  "name": "@compara-tasa/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mejor-tasa/core": "workspace:*",
+    "@compara-tasa/core": "workspace:*",
     "@tanstack/react-table": "^8.20.6",
     "date-fns": "^4.1.0",
     "next": "^15.1.3",

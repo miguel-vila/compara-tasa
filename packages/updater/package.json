@@ -1,5 +1,5 @@
 {
-  "name": "@mejor-tasa/updater",
+  "name": "@compara-tasa/updater",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,7 +15,7 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "@mejor-tasa/core": "workspace:*",
+    "@compara-tasa/core": "workspace:*",
     "cheerio": "^1.0.0",
     "p-retry": "^6.2.1",
     "pdfjs-dist": "^4.9.155",

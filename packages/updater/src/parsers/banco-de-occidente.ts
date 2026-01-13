@@ -10,7 +10,7 @@ import {
   ExtractionMethod,
   type Offer,
   type BankParseResult,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 import { chromium } from "playwright-extra";

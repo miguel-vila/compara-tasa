@@ -11,7 +11,7 @@ import {
   type SortingState,
   type ColumnFiltersState,
 } from "@tanstack/react-table";
-import { type Offer, ProductType, CurrencyIndex, Segment } from "@mejor-tasa/core";
+import { type Offer, ProductType, CurrencyIndex, Segment } from "@compara-tasa/core";
 import { formatRate, formatDateTime } from "@/lib/format";
 
 export function RatesTable() {

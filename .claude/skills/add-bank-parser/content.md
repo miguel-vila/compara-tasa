@@ -1,6 +1,6 @@
 # Skill: Add a New Bank Parser
 
-This skill guides you through adding a new bank parser to the MejorTasa rate aggregator.
+This skill guides you through adding a new bank parser to the ComparaTasa rate aggregator.
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ import {
   type Offer,
   type Rate,
   type BankParseResult,
-} from "@mejor-tasa/core";
+} from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
@@ -337,7 +337,7 @@ packages/updater/src/parsers/{bank_id}.test.ts
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { MyBankParser } from "./my-bank.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@mejor-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/{bank_id}/rates.pdf");
 
@@ -429,7 +429,7 @@ describe("MyBankParser", () => {
 ### Run Tests
 
 ```bash
-pnpm --filter @mejor-tasa/updater test -- --run {bank_id}
+pnpm --filter @compara-tasa/updater test -- --run {bank_id}
 ```
 
 ---
@@ -455,7 +455,7 @@ Update the status line and test counts as appropriate.
 - [ ] If 403 persists, check for CloudFront WAF and use Playwright + stealth plugin
 - [ ] Parser registered in `packages/updater/src/parsers/index.ts`
 - [ ] Tests written in `packages/updater/src/parsers/{bank_id}.test.ts`
-- [ ] All tests pass: `pnpm --filter @mejor-tasa/updater test -- --run`
+- [ ] All tests pass: `pnpm --filter @compara-tasa/updater test -- --run`
 - [ ] Type check passes: `pnpm typecheck`
 - [ ] PROGRESS.md updated (note if browser user-agent or Playwright required)
 
@@ -478,7 +478,7 @@ Pass `useBrowserUserAgent: true` to `fetchWithRetry`:
 
 ```typescript
 const result = await fetchWithRetry(SOURCE_URL, {
-  useBrowserUserAgent: true, // Uses Chrome user-agent instead of "MejorTasa/1.0"
+  useBrowserUserAgent: true, // Uses Chrome user-agent instead of "ComparaTasa/1.0"
 });
 ```
 
@@ -572,7 +572,7 @@ async function fetchPdfWithPlaywright(url: string, mainPageUrl: string): Promise
 **Dependencies to add:**
 
 ```bash
-pnpm --filter @mejor-tasa/updater add playwright playwright-extra puppeteer-extra-plugin-stealth
+pnpm --filter @compara-tasa/updater add playwright playwright-extra puppeteer-extra-plugin-stealth
 npx playwright install chromium
 ```
 

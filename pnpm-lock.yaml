@@ -38,7 +38,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@mejor-tasa/core':
+      '@compara-tasa/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@tanstack/react-table':
@@ -94,7 +94,7 @@ importers:
 
   packages/updater:
     dependencies:
-      '@mejor-tasa/core':
+      '@compara-tasa/core':
         specifier: workspace:*
         version: link:../core
       cheerio:
