@@ -5,7 +5,8 @@
   "description": "Colombia Mortgage Rates Aggregator - consolidates publicly disclosed mortgage rates",
   "scripts": {
     "dev": "pnpm --filter @compara-tasa/web dev",
-    "build": "pnpm --filter @compara-tasa/core build && pnpm --filter @compara-tasa/web build && cp -r apps/web/public apps/web/.next/standalone/apps/web/ && cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/",
+    "build": "pnpm -r build",
+    "build:standalone": "pnpm -r build && cp -r apps/web/public apps/web/.next/standalone/apps/web/ && cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",

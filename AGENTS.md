@@ -25,9 +25,8 @@ ComparaTasa is a Colombia mortgage rates aggregator that scrapes publicly disclo
 ```bash
 # Install dependencies and build
 pnpm install
-pnpm --filter @compara-tasa/core build     # Required before other packages
-pnpm --filter @compara-tasa/updater build  # Required before running update-rates
-                                         # Also rebuild after any changes to updater code
+pnpm build                                # Build all packages (core, updater, web)
+pnpm build:standalone                     # Build all + copy assets for Next.js standalone output
 
 # Development
 pnpm dev                              # Run Next.js dev server (localhost:3000)

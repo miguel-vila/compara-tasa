@@ -41,7 +41,8 @@ pnpm test
 ## Build para producción
 
 ```bash
-pnpm build
+pnpm build              # Construye todos los paquetes
+pnpm build:standalone   # Build + copia assets para Next.js standalone
 ```
 
 ## Estructura
