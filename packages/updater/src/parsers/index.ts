@@ -11,6 +11,7 @@ export { BancoDeBogotaParser } from "./banco-de-bogota.js";
 export { BancoDeOccidenteParser } from "./banco-de-occidente.js";
 export { DaviviendaParser } from "./davivienda.js";
 export { BancoAgrarioParser } from "./banco-agrario.js";
+export { BancomevaParser } from "./bancoomeva.js";
 
 import { BancolombiaParser } from "./bancolombia.js";
 import { BbvaParser } from "./bbva.js";
@@ -24,6 +25,7 @@ import { BancoDeBogotaParser } from "./banco-de-bogota.js";
 import { BancoDeOccidenteParser } from "./banco-de-occidente.js";
 import { DaviviendaParser } from "./davivienda.js";
 import { BancoAgrarioParser } from "./banco-agrario.js";
+import { BancomevaParser } from "./bancoomeva.js";
 import type { BankParser, ParserConfig } from "./types.js";
 
 /**
@@ -43,5 +45,6 @@ export function createAllParsers(config: ParserConfig = {}): BankParser[] {
     new BancoDeOccidenteParser(config),
     new DaviviendaParser(config),
     new BancoAgrarioParser(config),
+    new BancomevaParser(config),
   ];
 }

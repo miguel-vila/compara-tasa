@@ -1,6 +1,6 @@
 # Progress
 
-> **Status: READY TO DEPLOY** - All 12 bank parsers implemented (187 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking. Banco de Bogotá, Banco de Occidente, and Davivienda require browser user-agent. Banco Agrario uses date-based PDF URLs (may need periodic updates).
+> **Status: READY TO DEPLOY** - All 13 bank parsers implemented (204 tests). Railway + GitHub Actions configured. Note: Itaú requires manual PDF download due to 403 blocking. Banco de Bogotá, Banco de Occidente, and Davivienda require browser user-agent. Banco Agrario uses date-based PDF URLs (may need periodic updates). Bancoomeva uses monthly PDF file IDs.
 
 ## What's Done
 
@@ -21,7 +21,7 @@
 - [x] Project setup with vitest
 - [x] Utility functions (number parsing, fetch with retry, hashing)
 - [x] Rankings computation logic
-- [x] Parser stubs for all 12 banks:
+- [x] Parser stubs for all 13 banks:
   - Bancolombia (HTML)
   - BBVA (PDF)
   - Scotiabank Colpatria (PDF)
@@ -34,6 +34,7 @@
   - Banco de Occidente (PDF)
   - Davivienda (PDF)
   - Banco Agrario (PDF)
+  - Bancoomeva (PDF)
 
 ### `apps/web`
 
@@ -63,11 +64,12 @@
 - [x] **Banco Popular**: Implement HTML parsing with cheerio (14 tests) - COP rates only, no VIS/NO_VIS segmentation
 - [x] **Banco de Bogotá**: Implement PDF parsing (13 tests) - Grupo Aval, requires browser user-agent
 - [x] **Banco Agrario**: Implement PDF parsing (13 tests) - Government bank, date-based PDF URLs
+- [x] **Bancoomeva**: Implement PDF parsing (17 tests) - Cooperative bank with two rate tiers (clients and members)
 
 ### Testing
 
-- [x] Download HTML/PDF fixtures for each bank (all 12 banks done)
-- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13, FNA: 16, Banco Popular: 14, Banco de Bogotá: 13, Banco de Occidente: 14, Davivienda: 16, Banco Agrario: 13 - Total: 187 tests including utilities)
+- [x] Download HTML/PDF fixtures for each bank (all 13 banks done)
+- [x] Write unit tests for parsers (Bancolombia: 14, Scotiabank: 13, BBVA: 18, Caja Social: 13, AV Villas: 15, Itaú: 13, FNA: 16, Banco Popular: 14, Banco de Bogotá: 13, Banco de Occidente: 14, Davivienda: 16, Banco Agrario: 13, Bancoomeva: 17 - Total: 204 tests including utilities)
 - [ ] Snapshot tests for extracted offers
 
 ### Deployment
@@ -92,7 +94,7 @@ Additional Colombian banks that could be added:
 
 **Low Priority (May require additional work):**
 
-- [ ] **Bancoomeva** - [Tasas de Crédito](https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/) - Monthly PDF documents available. VIS ~14.5%, NO_VIS ~16.5%. Cooperative bank with UVR and COP options.
+- [x] **Bancoomeva** - [Tasas de Crédito](https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/) - Implemented! (17 tests) Monthly PDF documents with dynamic file IDs. Cooperative bank with two rate tiers: regular clients (VIS COP: 13.89%, NO_VIS COP: 14.3%) and Coomeva members (VIS COP: 12.82%, NO_VIS COP: 13.22%).
 - [ ] **Banco GNB Sudameris** - [Documentos de Tasas](https://www.gnbsudameris.com.co/ws/documentos?d=TASAS) - Low rates for libre inversión (16.40% E.A.). Need to verify if they offer mortgage products.
 - [ ] **Banco Serfinanza** - [Tasas](https://bancoserfinanza.com/servicio-al-cliente/tasas/) - Has bot protection (Radware verification). May require manual download.
 - [ ] **Mibanco** - NO_VIS ~15.94% E.A. according to Superfinanciera data. Need to find disclosure URL.

@@ -12,6 +12,7 @@ export const BankId = {
   BANCO_DE_OCCIDENTE: "banco_de_occidente",
   DAVIVIENDA: "davivienda",
   BANCO_AGRARIO: "banco_agrario",
+  BANCOOMEVA: "bancoomeva",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -30,6 +31,7 @@ export const BankNames: Record<BankId, string> = {
   banco_de_occidente: "Banco de Occidente",
   davivienda: "Davivienda",
   banco_agrario: "Banco Agrario",
+  bancoomeva: "Bancoomeva",
 };
 
 // Product types
