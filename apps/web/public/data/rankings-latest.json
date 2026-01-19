@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-13T03:44:23.517Z",
+  "generated_at": "2026-01-19T14:13:51.841Z",
   "scenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -116,10 +116,10 @@
       },
       {
         "position": 2,
-        "offer_id": "edc37685dcbff92a",
+        "offer_id": "a4d1b69326638fdd",
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 5.52
+          "value": 6.16
         }
       },
       {
@@ -134,14 +134,6 @@
     "best_uvr_no_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "3960ed121b456817",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 7.4
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "008876188be57f15",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -149,7 +141,7 @@
         }
       },
       {
-        "position": 3,
+        "position": 2,
         "offer_id": "b821b1bce2b6732d",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -168,10 +160,10 @@
       },
       {
         "position": 2,
-        "offer_id": "a10ace3269c6c0c5",
+        "offer_id": "2176a229c5587a44",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 9.77
+          "value": 11.48
         }
       },
       {
@@ -186,14 +178,6 @@
     "best_cop_no_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "fdfa853bbb98bbcf",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 11.98
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "0083c10892a5f163",
         "metric": {
           "kind": "EA_PERCENT",
@@ -201,11 +185,19 @@
         }
       },
       {
-        "position": 3,
+        "position": 2,
         "offer_id": "6ac01a063d37c5f6",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12
+        }
+      },
+      {
+        "position": 3,
+        "offer_id": "e4d5739b1d7a332a",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 13.6
         }
       }
     ],
