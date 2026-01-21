@@ -126,7 +126,11 @@ function parseViviendaSection(pageText: string, isAssociates: boolean): Extracte
  * Finds the latest PDF file ID from the rates page
  */
 async function findLatestPdfUrl(): Promise<string> {
-  const response = await fetchWithRetry(RATES_PAGE_URL, { useBrowserUserAgent: true });
+  // Bancoomeva's server has an incomplete SSL certificate chain, so we skip verification
+  const response = await fetchWithRetry(RATES_PAGE_URL, {
+    useBrowserUserAgent: true,
+    skipSslVerification: true,
+  });
   const html = response.content.toString("utf-8");
 
   // Find the first idFile link (most recent)
@@ -156,7 +160,11 @@ export class BancomevaParser implements BankMortgageParser {
     } else {
       // Find and fetch the latest PDF
       const pdfUrl = await findLatestPdfUrl();
-      const result = await fetchWithRetry(pdfUrl, { useBrowserUserAgent: true });
+      // Bancoomeva's server has an incomplete SSL certificate chain, so we skip verification
+      const result = await fetchWithRetry(pdfUrl, {
+        useBrowserUserAgent: true,
+        skipSslVerification: true,
+      });
       pdfBuffer = result.content;
     }
 

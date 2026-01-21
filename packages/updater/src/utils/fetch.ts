@@ -23,48 +23,73 @@ export async function fetchWithRetry(
     timeoutMs?: number;
     headers?: Record<string, string>;
     useBrowserUserAgent?: boolean;
+    /** Skip SSL certificate verification (use only for sites with known cert chain issues) */
+    skipSslVerification?: boolean;
   } = {}
 ): Promise<FetchResult> {
-  const { retries = 3, timeoutMs = 30000, headers = {}, useBrowserUserAgent = false } = options;
+  const {
+    retries = 3,
+    timeoutMs = 30000,
+    headers = {},
+    useBrowserUserAgent = false,
+    skipSslVerification = false,
+  } = options;
 
-  return pRetry(
-    async () => {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  // Temporarily disable SSL verification if requested
+  const originalTlsSetting = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+  if (skipSslVerification) {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+  }
 
-      try {
-        const response = await fetch(url, {
-          signal: controller.signal,
-          headers: {
-            "User-Agent": useBrowserUserAgent ? BROWSER_USER_AGENT : DEFAULT_USER_AGENT,
-            ...headers,
-          },
-        });
+  try {
+    return await pRetry(
+      async () => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        try {
+          const response = await fetch(url, {
+            signal: controller.signal,
+            headers: {
+              "User-Agent": useBrowserUserAgent ? BROWSER_USER_AGENT : DEFAULT_USER_AGENT,
+              ...headers,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+
+          const content = Buffer.from(await response.arrayBuffer());
+
+          return {
+            content,
+            contentType: response.headers.get("content-type") || "unknown",
+            lastModified: response.headers.get("last-modified") || undefined,
+            etag: response.headers.get("etag") || undefined,
+            statusCode: response.status,
+          };
+        } finally {
+          clearTimeout(timeoutId);
         }
-
-        const content = Buffer.from(await response.arrayBuffer());
-
-        return {
-          content,
-          contentType: response.headers.get("content-type") || "unknown",
-          lastModified: response.headers.get("last-modified") || undefined,
-          etag: response.headers.get("etag") || undefined,
-          statusCode: response.status,
-        };
-      } finally {
-        clearTimeout(timeoutId);
-      }
-    },
-    {
-      retries,
-      onFailedAttempt: (error) => {
-        console.warn(`Fetch attempt ${error.attemptNumber} failed for ${url}: ${error.message}`);
       },
+      {
+        retries,
+        onFailedAttempt: (error) => {
+          console.warn(`Fetch attempt ${error.attemptNumber} failed for ${url}: ${error.message}`);
+        },
+      }
+    );
+  } finally {
+    // Restore original SSL setting
+    if (skipSslVerification) {
+      if (originalTlsSetting === undefined) {
+        delete process.env.NODE_TLS_REJECT_UNAUTHORIZED;
+      } else {
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = originalTlsSetting;
+      }
     }
-  );
+  }
 }
 
 // Spanish month names for URL construction
