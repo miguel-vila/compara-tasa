@@ -2,17 +2,17 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
-  type BankParseResult,
+  type MortgageOffer,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 import { chromium } from "playwright-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
@@ -107,7 +107,7 @@ async function fetchPdfWithPlaywright(url: string): Promise<Buffer> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   eaFrom: number;
   eaTo?: number;
   excerpt: string;
@@ -158,7 +158,7 @@ function parseViviendaSection(text: string): ExtractedRate[] {
 
       if (hipotecarioFrom !== null && hipotecarioTo !== null) {
         rates.push({
-          productType: ProductType.HIPOTECARIO,
+          productType: MortgageType.HIPOTECARIO,
           eaFrom: hipotecarioFrom,
           eaTo: hipotecarioTo,
           excerpt: `Crédito Hipotecario: ${allRates[0][1]} - ${allRates[1][1]}`,
@@ -167,7 +167,7 @@ function parseViviendaSection(text: string): ExtractedRate[] {
 
       if (leasingFrom !== null && leasingTo !== null) {
         rates.push({
-          productType: ProductType.LEASING,
+          productType: MortgageType.LEASING,
           eaFrom: leasingFrom,
           eaTo: leasingTo,
           excerpt: `Leasing Habitacional: ${allRates[2][1]} - ${allRates[3][1]}`,
@@ -189,7 +189,7 @@ function parseViviendaSection(text: string): ExtractedRate[] {
 
     if (hipotecarioFrom !== null && hipotecarioTo !== null) {
       rates.push({
-        productType: ProductType.HIPOTECARIO,
+        productType: MortgageType.HIPOTECARIO,
         eaFrom: hipotecarioFrom,
         eaTo: hipotecarioTo,
         excerpt: `Crédito Hipotecario: ${allRates[0][1]} - ${allRates[1][1]}`,
@@ -198,7 +198,7 @@ function parseViviendaSection(text: string): ExtractedRate[] {
 
     if (leasingFrom !== null && leasingTo !== null) {
       rates.push({
-        productType: ProductType.LEASING,
+        productType: MortgageType.LEASING,
         eaFrom: leasingFrom,
         eaTo: leasingTo,
         excerpt: `Leasing Habitacional: ${allRates[2][1]} - ${allRates[3][1]}`,
@@ -223,15 +223,15 @@ function parseRateWithSpaces(rateStr: string): number | null {
   }
 }
 
-export class BancoDeOccidenteParser implements BankParser {
+export class BancoDeOccidenteParser implements BankMortgageParser {
   bankId = BankId.BANCO_DE_OCCIDENTE;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live via Playwright)
@@ -268,7 +268,7 @@ export class BancoDeOccidenteParser implements BankParser {
 
     // Create offers from extracted rates
     for (const extracted of extractedRates) {
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

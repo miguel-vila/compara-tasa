@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
-import type { Rate, ScenarioKey } from "@compara-tasa/core";
+import type { Rate, MortgageScenarioKey } from "@compara-tasa/core";
 
 export function formatRate(rate: Rate): string {
   if (rate.kind === "COP_FIXED") {
@@ -34,7 +34,7 @@ export function formatDateTime(isoString: string): string {
   }
 }
 
-export const SCENARIO_LABELS: Record<ScenarioKey, string> = {
+export const MORTGAGE_SCENARIO_LABELS: Record<MortgageScenarioKey, string> = {
   // Base scenarios (without payroll)
   best_uvr_vis_hipotecario: "Mejor UVR - VIS",
   best_uvr_no_vis_hipotecario: "Mejor UVR - No VIS",
@@ -49,7 +49,7 @@ export const SCENARIO_LABELS: Record<ScenarioKey, string> = {
   best_digital_hipotecario: "Mejor Canal Digital",
 };
 
-export const SCENARIO_DESCRIPTIONS: Record<ScenarioKey, string> = {
+export const MORTGAGE_SCENARIO_DESCRIPTIONS: Record<MortgageScenarioKey, string> = {
   // Base scenarios (without payroll)
   best_uvr_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de interés social",
   best_uvr_no_vis_hipotecario: "Crédito hipotecario en UVR para vivienda de mayor valor",

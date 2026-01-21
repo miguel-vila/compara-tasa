@@ -1,24 +1,24 @@
 import { z } from "zod";
 import {
   BankId,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  ScenarioKey,
+  MortgageScenarioKey,
 } from "./enums.js";
 
 // Enum schemas - derived automatically from const objects using z.nativeEnum()
 export const BankIdSchema = z.nativeEnum(BankId);
-export const ProductTypeSchema = z.nativeEnum(ProductType);
+export const MortgageTypeSchema = z.nativeEnum(MortgageType);
 export const CurrencyIndexSchema = z.nativeEnum(CurrencyIndex);
 export const SegmentSchema = z.nativeEnum(Segment);
 export const ChannelSchema = z.nativeEnum(Channel);
 export const SourceTypeSchema = z.nativeEnum(SourceType);
 export const ExtractionMethodSchema = z.nativeEnum(ExtractionMethod);
-export const ScenarioKeySchema = z.nativeEnum(ScenarioKey);
+export const MortgageScenarioKeySchema = z.nativeEnum(MortgageScenarioKey);
 
 // Rate schemas
 export const CopFixedRateSchema = z.object({
@@ -74,12 +74,12 @@ export const OfferSourceSchema = z.object({
   extraction: ExtractionInfoSchema,
 });
 
-// Main Offer schema
-export const OfferSchema = z.object({
+// Main MortgageOffer schema
+export const MortgageOfferSchema = z.object({
   id: z.string(),
   bank_id: BankIdSchema,
   bank_name: z.string(),
-  product_type: ProductTypeSchema,
+  product_type: MortgageTypeSchema,
   currency_index: CurrencyIndexSchema,
   segment: SegmentSchema,
   channel: ChannelSchema,
@@ -111,19 +111,19 @@ export const ScenarioRankingSchema = z.array(RankedEntrySchema).max(3);
 // Rankings schema
 export const RankingsSchema = z.object({
   generated_at: z.string().datetime(),
-  scenarios: z.record(ScenarioKeySchema, ScenarioRankingSchema.optional()),
+  mortgageScenarios: z.record(MortgageScenarioKeySchema, ScenarioRankingSchema.optional()),
 });
 
-// Dataset schema
-export const OffersDatasetSchema = z.object({
+// Mortgage dataset schema
+export const MortgageOffersDatasetSchema = z.object({
   generated_at: z.string().datetime(),
-  offers: z.array(OfferSchema),
+  offers: z.array(MortgageOfferSchema),
 });
 
-// Bank parse result schema
-export const BankParseResultSchema = z.object({
+// Bank mortgage parse result schema
+export const BankMortgageParseResultSchema = z.object({
   bank_id: BankIdSchema,
-  offers: z.array(OfferSchema),
+  offers: z.array(MortgageOfferSchema),
   warnings: z.array(z.string()),
   raw_text_hash: z.string(),
 });

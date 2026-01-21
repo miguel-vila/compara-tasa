@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf";
@@ -47,7 +47,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -66,35 +66,35 @@ function parseHipotecarioSection(text: string): ExtractedRate[] {
     {
       pattern:
         /CREDITO\s+HIPOTECARIO\s+VIVIENDA\s+EN\s+UVR\s+NO\s+VIS[^\d]+(UVR\s*\+\s*\d+[,.]\d*\s*%)\s+(UVR\s*\+\s*\d+[,.]\d*\s*%)/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
     },
     {
       pattern:
         /CREDITO\s+HIPOTECARIO\s+VIVIENDA\s+EN\s+PESOS\s+NO\s+VIS[^\d]+(\d+[,.]\d*\s*%)\s+(\d+[,.]\d*\s*%)/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
     },
     {
       pattern:
         /CREDITO\s+HIPOTECARIO\s+VIVIENDA\s+EN\s+UVR\s+CON\s+VALOR\s+COMERCIAL\s+HASTA\s+150\s+SMLV\s*\(?\s*VIS\s*\)?\**[^\d]+(UVR\s*\+\s*\d+[,.]\d*\s*%)\s+(UVR\s*\+\s*\d+[,.]\d*\s*%)/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
     },
     {
       pattern:
         /CREDITO\s+HIPOTECARIO\s+VIVIENDA\s+EN\s+PESOS\s+CON\s+VALOR\s+COMERCIAL\s+HASTA\s+150\s+SMLV\s*\(?\s*VIS\s*\)?\**[^\d]+(\d+[,.]\d*\s*%)\s+(\d+[,.]\d*\s*%)/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
     },
     {
       pattern:
         /CREDITOS\s+LEASING\s+HABITACIONAL\s+EN\s+PESOS[^\d]+(\d+[,.]\d*\s*%)\s+(\d+[,.]\d*\s*%)/i,
-      productType: ProductType.LEASING,
+      productType: MortgageType.LEASING,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.UNKNOWN, // No explicit VIS/NO_VIS for leasing
     },
@@ -142,15 +142,15 @@ function parseHipotecarioSection(text: string): ExtractedRate[] {
   return rates;
 }
 
-export class ScotiabankParser implements BankParser {
+export class ScotiabankParser implements BankMortgageParser {
   bankId = BankId.SCOTIABANK_COLPATRIA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -203,7 +203,7 @@ export class ScotiabankParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

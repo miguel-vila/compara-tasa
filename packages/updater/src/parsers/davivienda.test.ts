@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { DaviviendaParser } from "./davivienda.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/davivienda/rates.pdf");
 
@@ -41,7 +41,7 @@ describe("DaviviendaParser", () => {
     it("should extract VIS UVR rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -56,7 +56,7 @@ describe("DaviviendaParser", () => {
     it("should extract NO_VIS UVR rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -73,7 +73,7 @@ describe("DaviviendaParser", () => {
     it("should extract VIS COP rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -88,7 +88,7 @@ describe("DaviviendaParser", () => {
     it("should extract NO_VIS COP rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -105,7 +105,7 @@ describe("DaviviendaParser", () => {
     it("should extract VIS UVR leasing rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -120,7 +120,7 @@ describe("DaviviendaParser", () => {
     it("should extract NO_VIS UVR leasing rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -137,7 +137,7 @@ describe("DaviviendaParser", () => {
     it("should extract VIS COP leasing rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -152,7 +152,7 @@ describe("DaviviendaParser", () => {
     it("should extract NO_VIS COP leasing rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );

@@ -1,29 +1,29 @@
 import { Suspense } from "react";
-import { RatesTable } from "@/components/rates-table";
+import { MortgageRatesTable } from "@/components/mortgage-rates-table";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata = {
-  title: "Todas las Tasas | Compara Tasa",
+  title: "Tasas Hipotecarias | Compara Tasa",
   description:
     "Tabla completa de tasas de crédito hipotecario y leasing habitacional en Colombia. Filtra por banco, tipo de crédito, denominación y más.",
 };
 
-export default function TasasPage() {
+export default function HipotecarioPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
       <main className="flex-1 py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-300 mb-2">Todas las Tasas</h1>
+          <h1 className="text-3xl font-bold text-gray-300 mb-2">Tasas Hipotecarias</h1>
           <p className="text-gray-400 mb-8">
             Explora y filtra todas las ofertas de crédito hipotecario y leasing habitacional
             disponibles.
           </p>
 
           <Suspense fallback={<TableSkeleton />}>
-            <RatesTable />
+            <MortgageRatesTable />
           </Suspense>
         </div>
       </main>

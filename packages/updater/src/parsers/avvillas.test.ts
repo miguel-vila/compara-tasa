@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { AvvillasParser } from "./avvillas.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/avvillas/rates.pdf");
 
@@ -43,7 +43,7 @@ describe("AvvillasParser", () => {
     it("should extract VIS UVR rate from 8.90% to 10.05%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -59,7 +59,7 @@ describe("AvvillasParser", () => {
     it("should extract NO_VIS UVR rate from 9.05% to 9.85%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -75,7 +75,7 @@ describe("AvvillasParser", () => {
     it("should extract NO_VIS COP rate from 15.00% to 15.75%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -92,7 +92,7 @@ describe("AvvillasParser", () => {
   describe("Leasing Habitacional offers", () => {
     it("should extract leasing UVR rate of 9.30%", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.LEASING && o.currency_index === CurrencyIndex.UVR
+        (o) => o.product_type === MortgageType.LEASING && o.currency_index === CurrencyIndex.UVR
       );
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("UVR_SPREAD");
@@ -108,7 +108,7 @@ describe("AvvillasParser", () => {
     it("should extract Digital VIS COP rate of 12.20%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS &&
           o.channel === Channel.DIGITAL
@@ -124,7 +124,7 @@ describe("AvvillasParser", () => {
     it("should extract Digital NO_VIS COP rate of 12.40%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.DIGITAL
@@ -140,7 +140,7 @@ describe("AvvillasParser", () => {
     it("should extract Digital VIS UVR rate from 7.50% to 8.50%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS &&
           o.channel === Channel.DIGITAL
@@ -156,7 +156,7 @@ describe("AvvillasParser", () => {
     it("should extract Digital NO_VIS UVR rate from 7.50% to 8.50%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.DIGITAL

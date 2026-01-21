@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancoDeOccidenteParser } from "./banco-de-occidente.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/banco_de_occidente/rates.pdf");
 
@@ -38,7 +38,7 @@ describe("BancoDeOccidenteParser", () => {
 
   describe("Hipotecario offer", () => {
     it("should extract Crédito Hipotecario rate range (11.62% - 16.51%)", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.HIPOTECARIO);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.HIPOTECARIO);
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
       if (offer!.rate.kind === "COP_FIXED") {
@@ -48,14 +48,14 @@ describe("BancoDeOccidenteParser", () => {
     });
 
     it("should have COP currency index", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.HIPOTECARIO);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.HIPOTECARIO);
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
     });
   });
 
   describe("Leasing offer", () => {
     it("should extract Leasing Habitacional rate range (11.25% - 16.00%)", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.LEASING);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.LEASING);
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
       if (offer!.rate.kind === "COP_FIXED") {
@@ -65,7 +65,7 @@ describe("BancoDeOccidenteParser", () => {
     });
 
     it("should have COP currency index", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.LEASING);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.LEASING);
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
     });
   });

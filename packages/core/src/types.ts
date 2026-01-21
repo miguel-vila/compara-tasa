@@ -1,12 +1,12 @@
 import type {
   BankId,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  ScenarioKey,
+  MortgageScenarioKey,
 } from "./enums.js";
 
 // Rate representations
@@ -60,13 +60,13 @@ export type OfferSource = {
   extraction: ExtractionInfo;
 };
 
-// Main Offer type
-export type Offer = {
+// Main MortgageOffer type
+export type MortgageOffer = {
   id: string; // stable hash from key fields + source
   bank_id: BankId;
   bank_name: string;
 
-  product_type: ProductType;
+  product_type: MortgageType;
   currency_index: CurrencyIndex;
   segment: Segment;
   channel: Channel;
@@ -101,19 +101,19 @@ export type ScenarioRanking = RankedEntry[];
 // Rankings object (precomputed)
 export type Rankings = {
   generated_at: string; // ISO timestamp
-  scenarios: Partial<Record<ScenarioKey, ScenarioRanking>>;
+  mortgageScenarios: Partial<Record<MortgageScenarioKey, ScenarioRanking>>;
 };
 
-// Dataset wrapper for offers
-export type OffersDataset = {
+// Dataset wrapper for mortgage offers
+export type MortgageOffersDataset = {
   generated_at: string;
-  offers: Offer[];
+  offers: MortgageOffer[];
 };
 
-// Parse result from a bank scraper
-export type BankParseResult = {
+// Parse result from a bank mortgage scraper
+export type BankMortgageParseResult = {
   bank_id: BankId;
-  offers: Offer[];
+  offers: MortgageOffer[];
   warnings: string[];
   raw_text_hash: string;
 };

@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter/tarifas/DO-11-TASAS-VIVIENDA.pdf";
@@ -37,7 +37,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -74,7 +74,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (visCopmatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visCopmatch[1]),
@@ -92,7 +92,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (visUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visUvrMatch[1]),
@@ -110,7 +110,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (noVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisCopMatch[1]),
@@ -128,7 +128,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (noVisUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisUvrMatch[1]),
@@ -146,7 +146,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (leasingNoVisMatch) {
     rates.push({
-      productType: ProductType.LEASING,
+      productType: MortgageType.LEASING,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(leasingNoVisMatch[1]),
@@ -169,7 +169,7 @@ function parseRates(text: string): ExtractedRate[] {
     );
     if (leasingVisMatch) {
       rates.push({
-        productType: ProductType.LEASING,
+        productType: MortgageType.LEASING,
         currencyIndex: CurrencyIndex.COP,
         segment: Segment.VIS,
         rateFrom: parseColombianNumber(leasingVisMatch[1]),
@@ -183,15 +183,15 @@ function parseRates(text: string): ExtractedRate[] {
   return rates;
 }
 
-export class BbvaParser implements BankParser {
+export class BbvaParser implements BankMortgageParser {
   bankId = BankId.BBVA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -244,7 +244,7 @@ export class BbvaParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

@@ -1,4 +1,4 @@
-export type { BankParser, ParserConfig } from "./types.js";
+export type { BankMortgageParser, ParserConfig } from "./types.js";
 export { BancolombiaParser } from "./bancolombia.js";
 export { BbvaParser } from "./bbva.js";
 export { ScotiabankParser } from "./scotiabank.js";
@@ -26,12 +26,12 @@ import { BancoDeOccidenteParser } from "./banco-de-occidente.js";
 import { DaviviendaParser } from "./davivienda.js";
 import { BancoAgrarioParser } from "./banco-agrario.js";
 import { BancomevaParser } from "./bancoomeva.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 /**
- * Creates all bank parsers with the given configuration
+ * Creates all bank mortgage parsers with the given configuration
  */
-export function createAllParsers(config: ParserConfig = {}): BankParser[] {
+export function createAllParsers(config: ParserConfig = {}): BankMortgageParser[] {
   return [
     new BancolombiaParser(config),
     new BbvaParser(config),

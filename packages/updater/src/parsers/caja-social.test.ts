@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { CajaSocialParser } from "./caja-social.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/banco_caja_social/rates.pdf");
 
@@ -40,7 +40,7 @@ describe("CajaSocialParser", () => {
     it("should extract VIS COP rate from 10.00% to 14.85%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -57,7 +57,7 @@ describe("CajaSocialParser", () => {
     it("should extract VIS UVR rate from 5.15% to 8.10%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -76,7 +76,7 @@ describe("CajaSocialParser", () => {
     it("should extract NO_VIS COP rate from 10.00% to 16.10%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -93,7 +93,7 @@ describe("CajaSocialParser", () => {
     it("should extract NO_VIS UVR rate from 6.45% to 9.20%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -118,7 +118,7 @@ describe("CajaSocialParser", () => {
     });
 
     it("should set product_type to hipotecario", () => {
-      expect(result.offers.every((o) => o.product_type === ProductType.HIPOTECARIO)).toBe(true);
+      expect(result.offers.every((o) => o.product_type === MortgageType.HIPOTECARIO)).toBe(true);
     });
 
     it("should have valid source metadata", () => {

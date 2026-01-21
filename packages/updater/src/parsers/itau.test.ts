@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { ItauParser } from "./itau.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/itau/rates.pdf");
 
@@ -39,7 +39,7 @@ describe("ItauParser", () => {
   describe("Hipotecario offer", () => {
     it("should extract COP rate from 13.14% to 13.46%", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.HIPOTECARIO && o.currency_index === CurrencyIndex.COP
+        (o) => o.product_type === MortgageType.HIPOTECARIO && o.currency_index === CurrencyIndex.COP
       );
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
@@ -51,7 +51,7 @@ describe("ItauParser", () => {
 
     it("should have UNKNOWN segment (Itaú doesn't specify VIS/NO_VIS)", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.HIPOTECARIO && o.currency_index === CurrencyIndex.COP
+        (o) => o.product_type === MortgageType.HIPOTECARIO && o.currency_index === CurrencyIndex.COP
       );
       expect(offer).toBeDefined();
       expect(offer!.segment).toBe(Segment.UNKNOWN);
@@ -61,7 +61,7 @@ describe("ItauParser", () => {
   describe("Leasing offer", () => {
     it("should extract COP rate from 13.14% to 13.46%", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.LEASING && o.currency_index === CurrencyIndex.COP
+        (o) => o.product_type === MortgageType.LEASING && o.currency_index === CurrencyIndex.COP
       );
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
@@ -73,7 +73,7 @@ describe("ItauParser", () => {
 
     it("should have UNKNOWN segment", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.LEASING && o.currency_index === CurrencyIndex.COP
+        (o) => o.product_type === MortgageType.LEASING && o.currency_index === CurrencyIndex.COP
       );
       expect(offer).toBeDefined();
       expect(offer!.segment).toBe(Segment.UNKNOWN);

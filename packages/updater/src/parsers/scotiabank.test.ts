@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { ScotiabankParser } from "./scotiabank.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/scotiabank_colpatria/rates.pdf");
 
@@ -41,7 +41,7 @@ describe("ScotiabankParser", () => {
     it("should extract VIS UVR rate as 6.60%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -56,7 +56,7 @@ describe("ScotiabankParser", () => {
     it("should extract NO_VIS UVR rate as 7.60%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -73,7 +73,7 @@ describe("ScotiabankParser", () => {
     it("should extract VIS COP rate as 12.15%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -88,7 +88,7 @@ describe("ScotiabankParser", () => {
     it("should extract NO_VIS COP rate as 12.25%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -103,7 +103,7 @@ describe("ScotiabankParser", () => {
 
   describe("Leasing offer", () => {
     it("should extract leasing COP rate as 12.25%", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.LEASING);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.LEASING);
       expect(offer).toBeDefined();
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
       expect(offer!.segment).toBe(Segment.UNKNOWN); // Leasing doesn't specify VIS/NO_VIS

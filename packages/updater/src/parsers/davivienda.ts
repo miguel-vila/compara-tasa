@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 // Stable URL that always points to the latest rates PDF
 const SOURCE_URL = "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda";
@@ -37,7 +37,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -98,13 +98,13 @@ function parseViviendaSection(pageTexts: string[]): ExtractedRate[] {
   // [3] NO_VIS Leasing Nueva
   const rateConfigs: Array<{
     matchIndex: number;
-    productType: ProductType;
+    productType: MortgageType;
     segment: Segment;
   }> = [
-    { matchIndex: 0, productType: ProductType.HIPOTECARIO, segment: Segment.VIS },
-    { matchIndex: 1, productType: ProductType.HIPOTECARIO, segment: Segment.NO_VIS },
-    { matchIndex: 2, productType: ProductType.LEASING, segment: Segment.VIS },
-    { matchIndex: 3, productType: ProductType.LEASING, segment: Segment.NO_VIS },
+    { matchIndex: 0, productType: MortgageType.HIPOTECARIO, segment: Segment.VIS },
+    { matchIndex: 1, productType: MortgageType.HIPOTECARIO, segment: Segment.NO_VIS },
+    { matchIndex: 2, productType: MortgageType.LEASING, segment: Segment.VIS },
+    { matchIndex: 3, productType: MortgageType.LEASING, segment: Segment.NO_VIS },
   ];
 
   for (const config of rateConfigs) {
@@ -136,15 +136,15 @@ function parseViviendaSection(pageTexts: string[]): ExtractedRate[] {
   return rates;
 }
 
-export class DaviviendaParser implements BankParser {
+export class DaviviendaParser implements BankMortgageParser {
   bankId = BankId.DAVIVIENDA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -201,7 +201,7 @@ export class DaviviendaParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

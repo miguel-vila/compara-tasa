@@ -1,16 +1,16 @@
-import type { BankId, BankParseResult } from "@compara-tasa/core";
+import type { BankId, BankMortgageParseResult } from "@compara-tasa/core";
 
 /**
- * Interface for bank-specific parsers
+ * Interface for bank-specific mortgage parsers
  */
-export interface BankParser {
+export interface BankMortgageParser {
   bankId: BankId;
   sourceUrl: string;
 
   /**
-   * Fetches and parses offers from the bank's rate disclosure
+   * Fetches and parses mortgage offers from the bank's rate disclosure
    */
-  parse(): Promise<BankParseResult>;
+  parse(): Promise<BankMortgageParseResult>;
 }
 
 /**

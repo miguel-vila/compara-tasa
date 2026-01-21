@@ -8,8 +8,8 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-3">ComparaTasa</h3>
             <p className="text-sm text-gray-600">
-              Comparador de tasas de crédito hipotecario en Colombia. Información pública recopilada
-              de los bancos.
+              Comparador de tasas bancarias en Colombia. Información pública recopilada de los
+              bancos.
             </p>
           </div>
 
@@ -17,8 +17,8 @@ export function Footer() {
             <h3 className="font-semibold text-gray-900 mb-3">Enlaces</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/tasas" className="text-gray-600 hover:text-gray-900">
-                  Todas las Tasas
+                <Link href="/hipotecario" className="text-gray-600 hover:text-gray-900">
+                  Tasas Hipotecarias
                 </Link>
               </li>
               <li>

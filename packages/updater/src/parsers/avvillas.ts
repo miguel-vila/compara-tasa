@@ -3,18 +3,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const LANDING_URL = "https://www.avvillas.com.co/credito-hipotecario";
 
@@ -37,7 +37,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   channel: Channel;
@@ -74,7 +74,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (visUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       channel: Channel.UNSPECIFIED,
@@ -90,7 +90,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (noVisUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       channel: Channel.UNSPECIFIED,
@@ -106,7 +106,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (noVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       channel: Channel.UNSPECIFIED,
@@ -124,7 +124,7 @@ function parseRates(text: string): ExtractedRate[] {
   if (leasingUvrMatch) {
     // Leasing applies to both VIS and NO_VIS
     rates.push({
-      productType: ProductType.LEASING,
+      productType: MortgageType.LEASING,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.UNKNOWN,
       channel: Channel.UNSPECIFIED,
@@ -141,7 +141,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (digitalVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
       channel: Channel.DIGITAL,
@@ -156,7 +156,7 @@ function parseRates(text: string): ExtractedRate[] {
   );
   if (digitalNoVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       channel: Channel.DIGITAL,
@@ -172,7 +172,7 @@ function parseRates(text: string): ExtractedRate[] {
   if (digitalUvrMatch) {
     // Digital UVR applies to both VIS and NO_VIS - create offers for both
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       channel: Channel.DIGITAL,
@@ -181,7 +181,7 @@ function parseRates(text: string): ExtractedRate[] {
       description: "Créditos Hipotecarios-Digital VIS UVR",
     });
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       channel: Channel.DIGITAL,
@@ -218,15 +218,15 @@ function discoverPdfUrl(html: string): string | null {
   return pdfUrl;
 }
 
-export class AvvillasParser implements BankParser {
+export class AvvillasParser implements BankMortgageParser {
   bankId = BankId.AVVILLAS;
   sourceUrl = LANDING_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     let pdfBuffer: Buffer;
@@ -299,7 +299,7 @@ export class AvvillasParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

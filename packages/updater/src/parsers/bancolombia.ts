@@ -3,15 +3,15 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import {
   fetchWithRetry,
@@ -20,7 +20,7 @@ import {
   parseUvrSpread,
   parseEaPercent,
 } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda";
@@ -37,15 +37,15 @@ type RateRow = {
   mvValue: string;
 };
 
-export class BancolombiaParser implements BankParser {
+export class BancolombiaParser implements BankMortgageParser {
   bankId = BankId.BANCOLOMBIA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch HTML (from fixture or live)
@@ -145,10 +145,10 @@ export class BancolombiaParser implements BankParser {
         }
 
         // Create the offer
-        const offer: Offer = {
+        const offer: MortgageOffer = {
           id: generateOfferId({
             bank_id: this.bankId,
-            product_type: ProductType.HIPOTECARIO,
+            product_type: MortgageType.HIPOTECARIO,
             currency_index: currencyIndex,
             segment,
             channel: Channel.UNSPECIFIED,
@@ -156,7 +156,7 @@ export class BancolombiaParser implements BankParser {
           }),
           bank_id: this.bankId,
           bank_name: BankNames[this.bankId],
-          product_type: ProductType.HIPOTECARIO,
+          product_type: MortgageType.HIPOTECARIO,
           currency_index: currencyIndex,
           segment,
           channel: Channel.UNSPECIFIED,

@@ -9,17 +9,18 @@ const inter = Inter({
 
 const siteUrl = "https://comparatasa.co";
 const siteName = "Compara Tasa";
-const title = "Compara Tasa | Tasas de Crédito Hipotecario en Colombia";
+const title = "Compara Tasa | Compara Tasas Bancarias en Colombia";
 const description =
-  "Compara las mejores tasas de crédito hipotecario y leasing habitacional en Colombia. Información actualizada de Bancolombia, BBVA, Scotiabank, y más.";
+  "Compara las mejores tasas bancarias en Colombia: crédito hipotecario, leasing habitacional y cuentas de ahorro. Información actualizada de Bancolombia, BBVA, Scotiabank, y más.";
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
+    "tasas bancarias",
     "crédito hipotecario",
     "leasing habitacional",
-    "tasas hipotecarias",
+    "cuentas de ahorro",
     "Colombia",
     "vivienda",
     "UVR",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Compara Tasa - Compara tasas hipotecarias en Colombia",
+        alt: "Compara Tasa - Compara tasas bancarias en Colombia",
       },
     ],
   },

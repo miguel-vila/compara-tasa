@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancomevaParser } from "./bancoomeva.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/bancoomeva/rates.pdf");
 
@@ -40,7 +40,7 @@ describe("BancomevaParser", () => {
     it("should extract NO_VIS COP rate as 14.3%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -55,7 +55,7 @@ describe("BancomevaParser", () => {
     it("should extract NO_VIS UVR rate as 8.3%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -70,7 +70,7 @@ describe("BancomevaParser", () => {
     it("should extract VIS COP rate as 13.89%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -85,7 +85,7 @@ describe("BancomevaParser", () => {
     it("should extract VIS UVR rate as 8.55%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS &&
           o.channel === Channel.UNSPECIFIED
@@ -102,7 +102,7 @@ describe("BancomevaParser", () => {
     it("should extract NO_VIS COP rate as 13.22%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.BRANCH
@@ -117,7 +117,7 @@ describe("BancomevaParser", () => {
     it("should extract NO_VIS UVR rate as 7.3%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS &&
           o.channel === Channel.BRANCH
@@ -132,7 +132,7 @@ describe("BancomevaParser", () => {
     it("should extract VIS COP rate as 12.82%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS &&
           o.channel === Channel.BRANCH
@@ -147,7 +147,7 @@ describe("BancomevaParser", () => {
     it("should extract VIS UVR rate as 7.55%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS &&
           o.channel === Channel.BRANCH
@@ -175,7 +175,7 @@ describe("BancomevaParser", () => {
     });
 
     it("should set product_type to hipotecario", () => {
-      expect(result.offers.every((o) => o.product_type === ProductType.HIPOTECARIO)).toBe(true);
+      expect(result.offers.every((o) => o.product_type === MortgageType.HIPOTECARIO)).toBe(true);
     });
 
     it("should have valid source metadata", () => {

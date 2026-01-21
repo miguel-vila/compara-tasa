@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancoAgrarioParser } from "./banco-agrario.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/banco_agrario/rates.pdf");
 
@@ -40,7 +40,7 @@ describe("BancoAgrarioParser", () => {
     it("should extract VIS UVR rate as 5.10%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -54,7 +54,7 @@ describe("BancoAgrarioParser", () => {
     it("should extract NO_VIS UVR rate as 6.10%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -70,7 +70,7 @@ describe("BancoAgrarioParser", () => {
     it("should extract VIS COP rate as 10.70%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -84,7 +84,7 @@ describe("BancoAgrarioParser", () => {
     it("should extract NO_VIS COP rate as 12.50%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );

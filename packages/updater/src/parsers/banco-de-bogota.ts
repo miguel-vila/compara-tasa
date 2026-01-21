@@ -2,15 +2,15 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import {
   fetchBancoDeBogotaPdf,
@@ -18,7 +18,7 @@ import {
   generateOfferId,
   parseColombianNumber,
 } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 // The PDF URL uses a date-based naming scheme (tasas-{month}-{year})
 // The actual URL is resolved dynamically by fetchBancoDeBogotaPdf
@@ -43,7 +43,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -68,42 +68,42 @@ function parseViviendaSection(text: string): ExtractedRate[] {
   // Format: "PRODUCT_NAME plazo% rate% rate%"
   const productPatterns: Array<{
     pattern: RegExp;
-    productType: ProductType;
+    productType: MortgageType;
     currencyIndex: CurrencyIndex;
     segment: Segment;
   }> = [
     {
       // CRÉDITO NO VIS   240   17.41%   17.41%
       pattern: /CR[ÉE]DITO\s+NO\s+VIS\s+\d+\s+(\d+[,.]\d+)\s*%/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
     },
     {
       // CRÉDITO VIS O VIP   360   15.71%   15.71%
       pattern: /CR[ÉE]DITO\s+VIS\s+O\s+VIP\s+\d+\s+(\d+[,.]\d+)\s*%/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
     },
     {
       // LEASING HABITACIONAL   240   17.41%   17.41%
       pattern: /LEASING\s+HABITACIONAL\s+\d+\s+(\d+[,.]\d+)\s*%/i,
-      productType: ProductType.LEASING,
+      productType: MortgageType.LEASING,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.UNKNOWN,
     },
     {
       // CRÉDITO DIRECTO UVR NO VIS   360   12.30%   12.30%
       pattern: /CR[ÉE]DITO\s+DIRECTO\s+UVR\s+NO\s+VIS\s+\d+\s+(\d+[,.]\d+)\s*%/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
     },
     {
       // CRÉDITO DIRECTO UVR VIS   360   10.60%   10.60%
       pattern: /CR[ÉE]DITO\s+DIRECTO\s+UVR\s+VIS\s+\d+\s+(\d+[,.]\d+)\s*%/i,
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
     },
@@ -128,15 +128,15 @@ function parseViviendaSection(text: string): ExtractedRate[] {
   return rates;
 }
 
-export class BancoDeBogotaParser implements BankParser {
+export class BancoDeBogotaParser implements BankMortgageParser {
   bankId = BankId.BANCO_DE_BOGOTA;
   sourceUrl = DEFAULT_SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -197,7 +197,7 @@ export class BancoDeBogotaParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

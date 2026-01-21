@@ -3,18 +3,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL = "https://www.fna.gov.co/sobre-el-fna/tasas";
 
@@ -31,19 +31,19 @@ type ParsedRate = {
 type TableInfo = {
   fundingSource: "CESANTIAS" | "AVC";
   currencyIndex: CurrencyIndex;
-  productType: ProductType;
+  productType: MortgageType;
   rates: ParsedRate[];
 };
 
-export class FnaParser implements BankParser {
+export class FnaParser implements BankMortgageParser {
   bankId = BankId.FNA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch HTML (from fixture or live)
@@ -89,7 +89,7 @@ export class FnaParser implements BankParser {
 
         const fundingSourceLabel = table.fundingSource === "CESANTIAS" ? "Cesantías" : "AVC";
 
-        const offer: Offer = {
+        const offer: MortgageOffer = {
           id: generateOfferId({
             bank_id: this.bankId,
             product_type: table.productType,
@@ -185,11 +185,11 @@ export class FnaParser implements BankParser {
       }
 
       // Determine product type by looking at parent section
-      let productType: ProductType = ProductType.HIPOTECARIO;
+      let productType: MortgageType = MortgageType.HIPOTECARIO;
       const parentSection = table.parents(".contenedor-tasas").first();
       const sectionHeader = parentSection.prevAll("h2").first().text().trim();
       if (sectionHeader.includes("Leasing")) {
-        productType = ProductType.LEASING;
+        productType = MortgageType.LEASING;
       }
 
       // Parse rates from rows
@@ -249,10 +249,10 @@ export class FnaParser implements BankParser {
     return tables;
   }
 
-  private deduplicateOffers(offers: Offer[]): Offer[] {
+  private deduplicateOffers(offers: MortgageOffer[]): MortgageOffer[] {
     // Group by product_type, currency_index, segment
     // Keep the offer with the best (lowest) rate
-    const groups = new Map<string, Offer>();
+    const groups = new Map<string, MortgageOffer>();
 
     for (const offer of offers) {
       const key = `${offer.product_type}-${offer.currency_index}-${offer.segment}`;

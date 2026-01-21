@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { FnaParser } from "./fna.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/fna/rates-page.html");
 
@@ -41,7 +41,7 @@ describe("FnaParser", () => {
     it("should extract VIS UVR rate as 4.50% (Cesantías, best rate)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -55,7 +55,7 @@ describe("FnaParser", () => {
     it("should extract NO_VIS UVR rate as 7.50% (Cesantías, 4+ SMLV)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -71,7 +71,7 @@ describe("FnaParser", () => {
     it("should extract VIS COP rate as 9.50% (Cesantías, 0-2 SMLV)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -85,7 +85,7 @@ describe("FnaParser", () => {
     it("should extract NO_VIS COP rate as 12.00% (Cesantías, 4+ SMLV)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -101,7 +101,7 @@ describe("FnaParser", () => {
     it("should extract Leasing VIS COP rate as 9.00% (Cesantías, 0-2 SMLV)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -115,7 +115,7 @@ describe("FnaParser", () => {
     it("should extract Leasing NO_VIS COP rate as 11.50% (Cesantías, 4+ SMLV)", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.LEASING &&
+          o.product_type === MortgageType.LEASING &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -166,7 +166,7 @@ describe("FnaParser", () => {
       // Hipotecario UVR VIS should be 4.50 (Cesantías) not 7.00 (AVC)
       const uvrVis = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );

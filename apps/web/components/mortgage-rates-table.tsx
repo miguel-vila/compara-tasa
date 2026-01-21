@@ -11,11 +11,11 @@ import {
   type SortingState,
   type ColumnFiltersState,
 } from "@tanstack/react-table";
-import { type Offer, ProductType, CurrencyIndex, Segment } from "@compara-tasa/core";
+import { type MortgageOffer, MortgageType, CurrencyIndex, Segment } from "@compara-tasa/core";
 import { formatRate, formatDateTime } from "@/lib/format";
 
-export function RatesTable() {
-  const [offers, setOffers] = useState<Offer[]>([]);
+export function MortgageRatesTable() {
+  const [offers, setOffers] = useState<MortgageOffer[]>([]);
   const [loading, setLoading] = useState(true);
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -33,7 +33,7 @@ export function RatesTable() {
       });
   }, []);
 
-  const columns = useMemo<ColumnDef<Offer>[]>(
+  const columns = useMemo<ColumnDef<MortgageOffer>[]>(
     () => [
       {
         accessorKey: "bank_name",
@@ -77,7 +77,9 @@ export function RatesTable() {
         accessorKey: "rate",
         header: "Tasa",
         cell: (info) => (
-          <span className="font-mono text-sm">{formatRate(info.getValue() as Offer["rate"])}</span>
+          <span className="font-mono text-sm">
+            {formatRate(info.getValue() as MortgageOffer["rate"])}
+          </span>
         ),
         sortingFn: (rowA, rowB) => {
           const rateA = rowA.original.rate;
@@ -122,7 +124,7 @@ export function RatesTable() {
         id: "source_url",
         header: "Fuente",
         cell: (info) => {
-          const source = info.getValue() as Offer["source"];
+          const source = info.getValue() as MortgageOffer["source"];
           return (
             <a
               href={source.url}
@@ -169,8 +171,8 @@ export function RatesTable() {
           }
         >
           <option value="">Todos los tipos</option>
-          <option value={ProductType.HIPOTECARIO}>Hipotecario</option>
-          <option value={ProductType.LEASING}>Leasing</option>
+          <option value={MortgageType.HIPOTECARIO}>Hipotecario</option>
+          <option value={MortgageType.LEASING}>Leasing</option>
         </select>
 
         <select

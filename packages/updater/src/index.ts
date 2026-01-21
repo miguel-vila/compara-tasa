@@ -2,10 +2,10 @@ import { writeFile, mkdir } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import {
-  OffersDatasetSchema,
+  MortgageOffersDatasetSchema,
   RankingsSchema,
-  type Offer,
-  type OffersDataset,
+  type MortgageOffer,
+  type MortgageOffersDataset,
   type Rankings,
 } from "@compara-tasa/core";
 import { createAllParsers } from "./parsers/index.js";
@@ -26,7 +26,7 @@ async function main(): Promise<void> {
   console.log("Starting rate update...\n");
 
   const parsers = createAllParsers();
-  const allOffers: Offer[] = [];
+  const allOffers: MortgageOffer[] = [];
   const allErrors: string[] = [];
 
   for (const parser of parsers) {
@@ -60,13 +60,13 @@ async function main(): Promise<void> {
 
   // Build dataset
   const now = new Date().toISOString();
-  const dataset: OffersDataset = {
+  const dataset: MortgageOffersDataset = {
     generated_at: now,
     offers: allOffers,
   };
 
   // Validate dataset
-  const datasetResult = OffersDatasetSchema.safeParse(dataset);
+  const datasetResult = MortgageOffersDatasetSchema.safeParse(dataset);
   if (!datasetResult.success) {
     console.error("Dataset validation failed:", datasetResult.error);
     process.exit(1);
@@ -112,7 +112,7 @@ async function main(): Promise<void> {
   }
 
   console.log(`\nRankings computed:`);
-  for (const [scenario, ranking] of Object.entries(rankings.scenarios)) {
+  for (const [scenario, ranking] of Object.entries(rankings.mortgageScenarios)) {
     if (ranking && ranking.length > 0) {
       const top = ranking[0];
       console.log(

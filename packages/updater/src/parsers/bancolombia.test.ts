@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancolombiaParser } from "./bancolombia.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/bancolombia/rates-page.html");
 
@@ -83,7 +83,7 @@ describe("BancolombiaParser", () => {
 
   describe("common offer properties", () => {
     it("should set product_type to hipotecario", () => {
-      expect(result.offers.every((o) => o.product_type === ProductType.HIPOTECARIO)).toBe(true);
+      expect(result.offers.every((o) => o.product_type === MortgageType.HIPOTECARIO)).toBe(true);
     });
 
     it("should set channel to UNSPECIFIED", () => {

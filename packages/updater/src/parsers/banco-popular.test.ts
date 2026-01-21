@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancoPopularParser } from "./banco-popular.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/banco_popular/tasas.html");
 
@@ -35,7 +35,7 @@ describe("BancoPopularParser", () => {
 
   describe("Hipotecario offer", () => {
     it("should extract Crédito Hipotecario rate as 17.05%", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.HIPOTECARIO);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.HIPOTECARIO);
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
       if (offer!.rate.kind === "COP_FIXED") {
@@ -45,14 +45,14 @@ describe("BancoPopularParser", () => {
     });
 
     it("should have COP currency index", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.HIPOTECARIO);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.HIPOTECARIO);
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
     });
   });
 
   describe("Leasing offer", () => {
     it("should extract Leasing Habitacional rate as 16.55%", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.LEASING);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.LEASING);
       expect(offer).toBeDefined();
       expect(offer!.rate.kind).toBe("COP_FIXED");
       if (offer!.rate.kind === "COP_FIXED") {
@@ -62,7 +62,7 @@ describe("BancoPopularParser", () => {
     });
 
     it("should have COP currency index", () => {
-      const offer = result.offers.find((o) => o.product_type === ProductType.LEASING);
+      const offer = result.offers.find((o) => o.product_type === MortgageType.LEASING);
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
     });
   });

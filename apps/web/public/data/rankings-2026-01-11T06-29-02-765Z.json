@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-01-11T06:29:02.767Z",
-  "scenarios": {
+  "mortgageScenarios": {
     "best_uvr_vis_hipotecario": {
       "offer_id": "edc37685dcbff92a",
       "metric": {

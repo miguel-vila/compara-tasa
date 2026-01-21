@@ -1,28 +1,28 @@
 import { fetchRankings, fetchOffers } from "@/lib/data";
-import { formatRate, SCENARIO_LABELS, SCENARIO_DESCRIPTIONS } from "@/lib/format";
+import { formatRate, MORTGAGE_SCENARIO_LABELS, MORTGAGE_SCENARIO_DESCRIPTIONS } from "@/lib/format";
 import {
   BankUrls,
-  ScenarioKey,
+  MortgageScenarioKey,
   type BankId,
-  type Offer,
+  type MortgageOffer,
   type RankedEntry,
   type ScenarioRanking,
 } from "@compara-tasa/core";
 
 // Group scenarios by type
-const STANDARD_SCENARIOS: ScenarioKey[] = [
-  ScenarioKey.BEST_UVR_VIS_HIPOTECARIO,
-  ScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO,
-  ScenarioKey.BEST_COP_VIS_HIPOTECARIO,
-  ScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO,
-  ScenarioKey.BEST_DIGITAL_HIPOTECARIO,
+const STANDARD_SCENARIOS: MortgageScenarioKey[] = [
+  MortgageScenarioKey.BEST_UVR_VIS_HIPOTECARIO,
+  MortgageScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO,
+  MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO,
+  MortgageScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO,
+  MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO,
 ];
 
-const PAYROLL_SCENARIOS: ScenarioKey[] = [
-  ScenarioKey.BEST_UVR_VIS_PAYROLL,
-  ScenarioKey.BEST_UVR_NO_VIS_PAYROLL,
-  ScenarioKey.BEST_COP_VIS_PAYROLL,
-  ScenarioKey.BEST_COP_NO_VIS_PAYROLL,
+const PAYROLL_SCENARIOS: MortgageScenarioKey[] = [
+  MortgageScenarioKey.BEST_UVR_VIS_PAYROLL,
+  MortgageScenarioKey.BEST_UVR_NO_VIS_PAYROLL,
+  MortgageScenarioKey.BEST_COP_VIS_PAYROLL,
+  MortgageScenarioKey.BEST_COP_NO_VIS_PAYROLL,
 ];
 
 type ThemeConfig = {
@@ -52,12 +52,12 @@ const PAYROLL_THEME: ThemeConfig = {
   dividerGradient: "from-violet-500 to-purple-600/0",
 };
 
-export async function BestRatesSection() {
+export async function BestMortgageRatesSection() {
   const [rankings, { offers }] = await Promise.all([fetchRankings(), fetchOffers()]);
 
   const offerMap = new Map(offers.map((o) => [o.id, o]));
 
-  if (Object.keys(rankings.scenarios).length === 0) {
+  if (Object.keys(rankings.mortgageScenarios).length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-gray-500">
@@ -69,10 +69,10 @@ export async function BestRatesSection() {
 
   // Check which scenarios have data
   const hasStandardData = STANDARD_SCENARIOS.some(
-    (key) => rankings.scenarios[key] && rankings.scenarios[key]!.length > 0
+    (key) => rankings.mortgageScenarios[key] && rankings.mortgageScenarios[key]!.length > 0
   );
   const hasPayrollData = PAYROLL_SCENARIOS.some(
-    (key) => rankings.scenarios[key] && rankings.scenarios[key]!.length > 0
+    (key) => rankings.mortgageScenarios[key] && rankings.mortgageScenarios[key]!.length > 0
   );
 
   return (
@@ -98,7 +98,7 @@ export async function BestRatesSection() {
             </svg>
           }
           scenarios={STANDARD_SCENARIOS}
-          rankings={rankings.scenarios}
+          rankings={rankings.mortgageScenarios}
           offerMap={offerMap}
           theme={STANDARD_THEME}
         />
@@ -111,7 +111,7 @@ export async function BestRatesSection() {
           subtitle="Requiere tener tu nómina en el banco para acceder a estas tasas"
           icon={<span className="text-lg">💼</span>}
           scenarios={PAYROLL_SCENARIOS}
-          rankings={rankings.scenarios}
+          rankings={rankings.mortgageScenarios}
           offerMap={offerMap}
           theme={PAYROLL_THEME}
         />
@@ -132,9 +132,9 @@ function RatesSection({
   title: string;
   subtitle: string;
   icon: React.ReactNode;
-  scenarios: ScenarioKey[];
-  rankings: Partial<Record<ScenarioKey, ScenarioRanking>>;
-  offerMap: Map<string, Offer>;
+  scenarios: MortgageScenarioKey[];
+  rankings: Partial<Record<MortgageScenarioKey, ScenarioRanking>>;
+  offerMap: Map<string, MortgageOffer>;
   theme: ThemeConfig;
 }) {
   return (
@@ -180,13 +180,13 @@ function CompactRankingCard({
   offerMap,
   theme,
 }: {
-  scenarioKey: ScenarioKey;
+  scenarioKey: MortgageScenarioKey;
   ranking: RankedEntry[];
-  offerMap: Map<string, Offer>;
+  offerMap: Map<string, MortgageOffer>;
   theme: ThemeConfig;
 }) {
   // Determine icon based on scenario
-  const getScenarioIcon = (key: ScenarioKey) => {
+  const getScenarioIcon = (key: MortgageScenarioKey) => {
     if (key.includes("uvr")) return "📈";
     if (key.includes("cop")) return "💵";
     if (key.includes("digital")) return "📱";
@@ -206,7 +206,9 @@ function CompactRankingCard({
           <p className={`text-[10px] uppercase tracking-wider ${theme.accentText} font-medium`}>
             Mejor Tasa
           </p>
-          <h3 className="text-white font-semibold truncate">{SCENARIO_LABELS[scenarioKey]}</h3>
+          <h3 className="text-white font-semibold truncate">
+            {MORTGAGE_SCENARIO_LABELS[scenarioKey]}
+          </h3>
         </div>
       </div>
 
@@ -230,7 +232,7 @@ function CompactRankingCard({
 
       {/* Footer */}
       <div className="px-4 py-2 border-t border-slate-700">
-        <p className="text-[11px] text-slate-500">{SCENARIO_DESCRIPTIONS[scenarioKey]}</p>
+        <p className="text-[11px] text-slate-500">{MORTGAGE_SCENARIO_DESCRIPTIONS[scenarioKey]}</p>
       </div>
     </div>
   );
@@ -243,7 +245,7 @@ function RankingRow({
   theme,
 }: {
   entry: RankedEntry;
-  offer: Offer;
+  offer: MortgageOffer;
   isFirst: boolean;
   theme: ThemeConfig;
 }) {

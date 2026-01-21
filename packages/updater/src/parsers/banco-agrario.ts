@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 // Banco Agrario publishes rates at this base URL
 // The actual PDF URL changes weekly, so we need to discover it from the main page
@@ -24,7 +24,7 @@ const SOURCE_PDF_URL =
   "https://www.bancoagrario.gov.co/system/files/2026-01/alcance_1_tasas_colocaciones_del_05_al_11_de_enero_2026_0.pdf";
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -63,7 +63,7 @@ function parseHousingRates(text: string): ExtractedRate[] {
   const visUvrMatch = text.match(visUvrPattern);
   if (visUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visUvrMatch[1]),
@@ -76,7 +76,7 @@ function parseHousingRates(text: string): ExtractedRate[] {
   const visCopMatch = text.match(visCopPattern);
   if (visCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visCopMatch[1]),
@@ -90,7 +90,7 @@ function parseHousingRates(text: string): ExtractedRate[] {
   const noVisUvrMatch = text.match(noVisUvrPattern);
   if (noVisUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisUvrMatch[1]),
@@ -103,7 +103,7 @@ function parseHousingRates(text: string): ExtractedRate[] {
   const noVisCopMatch = text.match(noVisCopPattern);
   if (noVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisCopMatch[1]),
@@ -126,14 +126,14 @@ function parseHousingRates(text: string): ExtractedRate[] {
     // If the leasing VIS rate is different from hipotecario VIS rate, add leasing offers
     const hipotecarioVisCop = rates.find(
       (r) =>
-        r.productType === ProductType.HIPOTECARIO &&
+        r.productType === MortgageType.HIPOTECARIO &&
         r.currencyIndex === CurrencyIndex.COP &&
         r.segment === Segment.VIS
     );
 
     if (hipotecarioVisCop && Math.abs(hipotecarioVisCop.rateFrom - leasingVisCop) > 0.5) {
       rates.push({
-        productType: ProductType.LEASING,
+        productType: MortgageType.LEASING,
         currencyIndex: CurrencyIndex.COP,
         segment: Segment.VIS,
         rateFrom: leasingVisCop,
@@ -141,7 +141,7 @@ function parseHousingRates(text: string): ExtractedRate[] {
       });
 
       rates.push({
-        productType: ProductType.LEASING,
+        productType: MortgageType.LEASING,
         currencyIndex: CurrencyIndex.COP,
         segment: Segment.NO_VIS,
         rateFrom: leasingNoVisCop,
@@ -153,15 +153,15 @@ function parseHousingRates(text: string): ExtractedRate[] {
   return rates;
 }
 
-export class BancoAgrarioParser implements BankParser {
+export class BancoAgrarioParser implements BankMortgageParser {
   bankId = BankId.BANCO_AGRARIO;
   sourceUrl = SOURCE_PAGE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -216,7 +216,7 @@ export class BancoAgrarioParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

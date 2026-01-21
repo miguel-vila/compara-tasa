@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Inicio" },
-  { href: "/tasas", label: "Todas las Tasas" },
+  { href: "/hipotecario", label: "Tasas Hipotecarias" },
   { href: "/metodologia", label: "Metodología" },
 ];
 

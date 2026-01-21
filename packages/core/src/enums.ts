@@ -56,13 +56,13 @@ export const BankUrls: Record<BankId, string> = {
   bancoomeva: "https://vivienda.coomeva.com.co/",
 };
 
-// Product types
-export const ProductType = {
+// Mortgage product types
+export const MortgageType = {
   HIPOTECARIO: "hipotecario",
   LEASING: "leasing",
 } as const;
 
-export type ProductType = (typeof ProductType)[keyof typeof ProductType];
+export type MortgageType = (typeof MortgageType)[keyof typeof MortgageType];
 
 // Currency/index type
 export const CurrencyIndex = {
@@ -106,8 +106,8 @@ export const ExtractionMethod = {
 
 export type ExtractionMethod = (typeof ExtractionMethod)[keyof typeof ExtractionMethod];
 
-// Scenario keys for rankings
-export const ScenarioKey = {
+// Mortgage scenario keys for rankings
+export const MortgageScenarioKey = {
   // Base scenarios (without payroll - accessible to all)
   BEST_UVR_VIS_HIPOTECARIO: "best_uvr_vis_hipotecario",
   BEST_UVR_NO_VIS_HIPOTECARIO: "best_uvr_no_vis_hipotecario",
@@ -122,4 +122,4 @@ export const ScenarioKey = {
   BEST_DIGITAL_HIPOTECARIO: "best_digital_hipotecario",
 } as const;
 
-export type ScenarioKey = (typeof ScenarioKey)[keyof typeof ScenarioKey];
+export type MortgageScenarioKey = (typeof MortgageScenarioKey)[keyof typeof MortgageScenarioKey];

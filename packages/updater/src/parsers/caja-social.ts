@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf";
@@ -37,7 +37,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -79,7 +79,7 @@ function parseRates(text: string): ExtractedRate[] {
   if (visMatch) {
     // VIS COP (PESOS)
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visMatch[1]),
@@ -91,7 +91,7 @@ function parseRates(text: string): ExtractedRate[] {
 
     // VIS UVR
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visMatch[3]),
@@ -107,7 +107,7 @@ function parseRates(text: string): ExtractedRate[] {
   if (noVisMatch) {
     // NO VIS COP (PESOS)
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisMatch[1]),
@@ -119,7 +119,7 @@ function parseRates(text: string): ExtractedRate[] {
 
     // NO VIS UVR
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisMatch[3]),
@@ -133,15 +133,15 @@ function parseRates(text: string): ExtractedRate[] {
   return rates;
 }
 
-export class CajaSocialParser implements BankParser {
+export class CajaSocialParser implements BankMortgageParser {
   bankId = BankId.BANCO_CAJA_SOCIAL;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -198,7 +198,7 @@ export class CajaSocialParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

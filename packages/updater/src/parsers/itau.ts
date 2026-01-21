@@ -5,18 +5,18 @@ import { fileURLToPath } from "url";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 // Note: Direct PDF URLs return 403. This is the landing page with the link.
 // The actual PDF must be downloaded manually for fixtures.
@@ -45,7 +45,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -89,7 +89,7 @@ function parseRates(fullText: string): ExtractedRate[] {
     const rateFrom = parseColombianNumber(hipotecarioMatch[1].replace(/\s/g, ""));
     const rateTo = parseColombianNumber(hipotecarioMatch[2].replace(/\s/g, ""));
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.UNKNOWN,
       rateFrom,
@@ -111,7 +111,7 @@ function parseRates(fullText: string): ExtractedRate[] {
       const rateFrom = parseColombianNumber(leasingMatch[1].replace(/\s/g, ""));
       const rateTo = parseColombianNumber(leasingMatch[2].replace(/\s/g, ""));
       rates.push({
-        productType: ProductType.LEASING,
+        productType: MortgageType.LEASING,
         currencyIndex: CurrencyIndex.COP,
         segment: Segment.UNKNOWN,
         rateFrom,
@@ -124,15 +124,15 @@ function parseRates(fullText: string): ExtractedRate[] {
   return rates;
 }
 
-export class ItauParser implements BankParser {
+export class ItauParser implements BankMortgageParser {
   bankId = BankId.ITAU;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Itaú blocks automated PDF downloads (403 Forbidden).
@@ -187,7 +187,7 @@ export class ItauParser implements BankParser {
         mv_percent_to: extracted.rateMonthlyTo,
       };
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

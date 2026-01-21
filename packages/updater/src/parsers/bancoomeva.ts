@@ -2,18 +2,18 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 // The source URL uses a file ID that changes monthly. We use the rates page URL
 // as the canonical source, but fetch the latest PDF dynamically.
@@ -39,7 +39,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 }
 
 type ExtractedRate = {
-  productType: ProductType;
+  productType: MortgageType;
   currencyIndex: CurrencyIndex;
   segment: Segment;
   rateFrom: number;
@@ -66,7 +66,7 @@ function parseViviendaSection(pageText: string, isAssociates: boolean): Extracte
   const noVisCopMatch = pageText.match(noVisCopPattern);
   if (noVisCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisCopMatch[1]),
@@ -80,7 +80,7 @@ function parseViviendaSection(pageText: string, isAssociates: boolean): Extracte
   const noVisUvrMatch = pageText.match(noVisUvrPattern);
   if (noVisUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.NO_VIS,
       rateFrom: parseColombianNumber(noVisUvrMatch[1]),
@@ -96,7 +96,7 @@ function parseViviendaSection(pageText: string, isAssociates: boolean): Extracte
   const visCopMatch = pageText.match(visCopPattern);
   if (visCopMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.COP,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visCopMatch[1]),
@@ -110,7 +110,7 @@ function parseViviendaSection(pageText: string, isAssociates: boolean): Extracte
   const visUvrMatch = pageText.match(visUvrPattern);
   if (visUvrMatch) {
     rates.push({
-      productType: ProductType.HIPOTECARIO,
+      productType: MortgageType.HIPOTECARIO,
       currencyIndex: CurrencyIndex.UVR,
       segment: Segment.VIS,
       rateFrom: parseColombianNumber(visUvrMatch[1]),
@@ -138,15 +138,15 @@ async function findLatestPdfUrl(): Promise<string> {
   return `https://www.bancoomeva.com.co/descargar.php?idFile=${match[1]}`;
 }
 
-export class BancomevaParser implements BankParser {
+export class BancomevaParser implements BankMortgageParser {
   bankId = BankId.BANCOOMEVA;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch PDF (from fixture or live)
@@ -204,7 +204,7 @@ export class BancomevaParser implements BankParser {
         };
       }
 
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: extracted.productType,

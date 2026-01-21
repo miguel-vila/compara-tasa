@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BbvaParser } from "./bbva.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/bbva/rates.pdf");
 
@@ -40,7 +40,7 @@ describe("BbvaParser", () => {
     it("should extract VIS COP rate as 9.77%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -55,7 +55,7 @@ describe("BbvaParser", () => {
     it("should have VIS COP payroll discount of 200bps", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );
@@ -67,7 +67,7 @@ describe("BbvaParser", () => {
     it("should extract VIS UVR rate as 5.52%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -82,7 +82,7 @@ describe("BbvaParser", () => {
     it("should have VIS UVR payroll discount of 200bps", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -96,7 +96,7 @@ describe("BbvaParser", () => {
     it("should extract NO_VIS COP rate as 11.98%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -111,7 +111,7 @@ describe("BbvaParser", () => {
     it("should have NO_VIS COP payroll discount of 250bps", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.NO_VIS
       );
@@ -123,7 +123,7 @@ describe("BbvaParser", () => {
     it("should extract NO_VIS UVR rate as 7.40%", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -138,7 +138,7 @@ describe("BbvaParser", () => {
     it("should have NO_VIS UVR payroll discount of 150bps", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.NO_VIS
       );
@@ -151,7 +151,7 @@ describe("BbvaParser", () => {
   describe("Leasing offers", () => {
     it("should extract Leasing NO_VIS COP rate as 10.19%", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.LEASING && o.segment === Segment.NO_VIS
+        (o) => o.product_type === MortgageType.LEASING && o.segment === Segment.NO_VIS
       );
       expect(offer).toBeDefined();
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);
@@ -164,7 +164,7 @@ describe("BbvaParser", () => {
 
     it("should extract Leasing VIS COP rate as 10.79%", () => {
       const offer = result.offers.find(
-        (o) => o.product_type === ProductType.LEASING && o.segment === Segment.VIS
+        (o) => o.product_type === MortgageType.LEASING && o.segment === Segment.VIS
       );
       expect(offer).toBeDefined();
       expect(offer!.currency_index).toBe(CurrencyIndex.COP);

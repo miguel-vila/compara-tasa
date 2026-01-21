@@ -3,17 +3,17 @@ import { readFile } from "fs/promises";
 import {
   BankId,
   BankNames,
-  ProductType,
+  MortgageType,
   CurrencyIndex,
   Segment,
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
-  type BankParseResult,
+  type MortgageOffer,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, ParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas";
@@ -23,15 +23,15 @@ const SELECTORS = {
   rateTable: "table.simple-table",
 } as const;
 
-export class BancoPopularParser implements BankParser {
+export class BancoPopularParser implements BankMortgageParser {
   bankId = BankId.BANCO_POPULAR;
   sourceUrl = SOURCE_URL;
 
   constructor(private config: ParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch HTML (from fixture or live)
@@ -76,11 +76,11 @@ export class BancoPopularParser implements BankParser {
       const rate20yr = $(cells[2]).text().trim();
 
       // Determine product type from description
-      let productType: ProductType;
+      let productType: MortgageType;
       if (productName.toLowerCase().includes("leasing")) {
-        productType = ProductType.LEASING;
+        productType = MortgageType.LEASING;
       } else if (productName.toLowerCase().includes("hipotecario")) {
-        productType = ProductType.HIPOTECARIO;
+        productType = MortgageType.HIPOTECARIO;
       } else {
         warnings.push(`Unknown product type: ${productName}`);
         return;
@@ -109,7 +109,7 @@ export class BancoPopularParser implements BankParser {
       // Create the offer
       // Note: Banco Popular doesn't differentiate VIS/NO_VIS segments
       // Using UNKNOWN segment since no segmentation is provided
-      const offer: Offer = {
+      const offer: MortgageOffer = {
         id: generateOfferId({
           bank_id: this.bankId,
           product_type: productType,

@@ -1,83 +1,83 @@
 import {
-  ScenarioKey,
+  MortgageScenarioKey,
   CurrencyIndex,
   Segment,
-  ProductType,
+  MortgageType,
   Channel,
-  type Offer,
+  type MortgageOffer,
   type Rankings,
   type ScenarioRanking,
   type RankedEntry,
   type RankingMetric,
 } from "@compara-tasa/core";
 
-type ScenarioFilter = {
-  product_type?: ProductType;
+type MortgageScenarioFilter = {
+  product_type?: MortgageType;
   currency_index?: CurrencyIndex;
   segment?: Segment;
   channel?: Channel;
   hasPayrollDiscount?: boolean;
 };
 
-const SCENARIO_FILTERS: Record<ScenarioKey, ScenarioFilter> = {
+const MORTGAGE_SCENARIO_FILTERS: Record<MortgageScenarioKey, MortgageScenarioFilter> = {
   // Base scenarios - explicitly exclude payroll offers
-  [ScenarioKey.BEST_UVR_VIS_HIPOTECARIO]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_UVR_VIS_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.VIS,
     hasPayrollDiscount: false,
   },
-  [ScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.NO_VIS,
     hasPayrollDiscount: false,
   },
-  [ScenarioKey.BEST_COP_VIS_HIPOTECARIO]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.VIS,
     hasPayrollDiscount: false,
   },
-  [ScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.NO_VIS,
     hasPayrollDiscount: false,
   },
   // Payroll scenarios - only offers with payroll discount
-  [ScenarioKey.BEST_UVR_VIS_PAYROLL]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_UVR_VIS_PAYROLL]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.VIS,
     hasPayrollDiscount: true,
   },
-  [ScenarioKey.BEST_UVR_NO_VIS_PAYROLL]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_UVR_NO_VIS_PAYROLL]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.UVR,
     segment: Segment.NO_VIS,
     hasPayrollDiscount: true,
   },
-  [ScenarioKey.BEST_COP_VIS_PAYROLL]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_COP_VIS_PAYROLL]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.VIS,
     hasPayrollDiscount: true,
   },
-  [ScenarioKey.BEST_COP_NO_VIS_PAYROLL]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_COP_NO_VIS_PAYROLL]: {
+    product_type: MortgageType.HIPOTECARIO,
     currency_index: CurrencyIndex.COP,
     segment: Segment.NO_VIS,
     hasPayrollDiscount: true,
   },
   // Other scenarios
-  [ScenarioKey.BEST_DIGITAL_HIPOTECARIO]: {
-    product_type: ProductType.HIPOTECARIO,
+  [MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
     channel: Channel.DIGITAL,
   },
 };
 
-function matchesFilter(offer: Offer, filter: ScenarioFilter): boolean {
+function matchesFilter(offer: MortgageOffer, filter: MortgageScenarioFilter): boolean {
   if (filter.product_type && offer.product_type !== filter.product_type) {
     return false;
   }
@@ -100,7 +100,7 @@ function matchesFilter(offer: Offer, filter: ScenarioFilter): boolean {
   return true;
 }
 
-function getOfferMetric(offer: Offer): RankingMetric {
+function getOfferMetric(offer: MortgageOffer): RankingMetric {
   if (offer.rate.kind === "COP_FIXED") {
     return { kind: "EA_PERCENT", value: offer.rate.ea_percent_from };
   } else {
@@ -108,7 +108,7 @@ function getOfferMetric(offer: Offer): RankingMetric {
   }
 }
 
-function findTopOffers(offers: Offer[], filter: ScenarioFilter): ScenarioRanking {
+function findTopOffers(offers: MortgageOffer[], filter: MortgageScenarioFilter): ScenarioRanking {
   const matching = offers.filter((o) => matchesFilter(o, filter));
 
   if (matching.length === 0) {
@@ -133,20 +133,20 @@ function findTopOffers(offers: Offer[], filter: ScenarioFilter): ScenarioRanking
 }
 
 /**
- * Computes rankings for all scenarios based on the offers
+ * Computes rankings for all mortgage scenarios based on the offers
  */
-export function computeRankings(offers: Offer[]): Rankings {
-  const scenarios: Partial<Record<ScenarioKey, ScenarioRanking>> = {};
+export function computeRankings(offers: MortgageOffer[]): Rankings {
+  const mortgageScenarios: Partial<Record<MortgageScenarioKey, ScenarioRanking>> = {};
 
-  for (const [key, filter] of Object.entries(SCENARIO_FILTERS)) {
+  for (const [key, filter] of Object.entries(MORTGAGE_SCENARIO_FILTERS)) {
     const topOffers = findTopOffers(offers, filter);
     if (topOffers.length > 0) {
-      scenarios[key as ScenarioKey] = topOffers;
+      mortgageScenarios[key as MortgageScenarioKey] = topOffers;
     }
   }
 
   return {
     generated_at: new Date().toISOString(),
-    scenarios,
+    mortgageScenarios,
   };
 }
