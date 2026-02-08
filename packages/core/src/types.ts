@@ -129,8 +129,32 @@ export type SavingsRate = {
   ea_percent: number; // Annual effective rate percentage (e.g., 10.0 = 10% E.A.)
 };
 
-// Simplified source info for savings (reuses OfferSource structure)
-export type SavingsSource = OfferSource;
+// ============================================
+// Savings Source Types (discriminated union)
+// ============================================
+
+// For automated scraping (HTML/PDF)
+export type ScrappedSavingsSource = {
+  kind: "scrapped";
+  retrieved_at: string; // ISO timestamp - when we scraped
+  url: string;
+  source_type: "HTML" | "PDF";
+  document_label?: string;
+  valid_from?: string; // ISO date from document
+  extracted_text_fingerprint?: string;
+  extraction: ExtractionInfo;
+};
+
+// For manual/self-reported entries
+export type ManualSavingsSource = {
+  kind: "manual";
+  retrieved_at: string; // ISO timestamp - when we read the manual file
+  observed_date: string; // ISO date - when user observed the rate
+  reporter_note?: string; // e.g., "Checked Cajitas in Nu app"
+  reference_url?: string; // optional link to app store / bank site
+};
+
+export type SavingsSource = ScrappedSavingsSource | ManualSavingsSource;
 
 // Main SavingsOffer type
 export type SavingsOffer = {

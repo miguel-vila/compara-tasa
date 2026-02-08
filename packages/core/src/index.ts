@@ -39,6 +39,8 @@ export type {
   BankMortgageParseResult,
   // Savings types
   SavingsRate,
+  ScrappedSavingsSource,
+  ManualSavingsSource,
   SavingsSource,
   SavingsOffer,
   SavingsOffersDataset,
@@ -77,6 +79,9 @@ export {
   BankMortgageParseResultSchema,
   // Savings schemas
   SavingsRateSchema,
+  ScrappedSavingsSourceSchema,
+  ManualSavingsSourceSchema,
+  SavingsSourceSchema,
   SavingsOfferSchema,
   SavingsOffersDatasetSchema,
   BankSavingsParseResultSchema,

@@ -97,6 +97,18 @@ export function SavingsRatesTable() {
         header: "Fuente",
         cell: (info) => {
           const source = info.getValue();
+          if (source.kind === "manual") {
+            return (
+              <div className="flex flex-col gap-1">
+                <span className="px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-700">
+                  Reportado
+                </span>
+                <span className="text-xs text-gray-500">
+                  {new Date(source.observed_date).toLocaleDateString("es-CO")}
+                </span>
+              </div>
+            );
+          }
           return (
             <a
               href={source.url}

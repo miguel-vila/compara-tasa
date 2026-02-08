@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { UalaParser } from "./uala.js";
-import { BankId, SavingsAccountType } from "@compara-tasa/core";
+import { BankId, SavingsAccountType, type ScrappedSavingsSource } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../../fixtures/uala/savings-page.html");
 
@@ -54,10 +54,12 @@ describe("UalaParser", () => {
   describe("common offer properties", () => {
     it("should have valid source metadata", () => {
       const offer = result.offers[0];
-      expect(offer.source.source_type).toBe("HTML");
-      expect(offer.source.url).toContain("uala.com.co");
-      expect(offer.source.retrieved_at).toBeTruthy();
-      expect(offer.source.extraction.method).toBe("REGEX");
+      expect(offer.source.kind).toBe("scrapped");
+      const source = offer.source as ScrappedSavingsSource;
+      expect(source.source_type).toBe("HTML");
+      expect(source.url).toContain("uala.com.co");
+      expect(source.retrieved_at).toBeTruthy();
+      expect(source.extraction.method).toBe("REGEX");
     });
 
     it("should generate a valid stable ID", () => {

@@ -3,10 +3,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { fetchPibankPdf, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -146,8 +146,9 @@ export class PibankParser implements BankSavingsParser {
       rate: { ea_percent: eaPercent },
       min_amount_cop: 1,
       source: {
+        kind: "scrapped",
         url: sourceUrl,
-        source_type: SourceType.PDF,
+        source_type: "PDF",
         document_label: "Tasas y Tarifario",
         retrieved_at: retrievedAt,
         extracted_text_fingerprint: rawTextHash,
@@ -156,7 +157,7 @@ export class PibankParser implements BankSavingsParser {
           locator: "pibank_cuenta_pibank",
           excerpt: `Cuenta Pibank: ${eaPercent}% E.A.`,
         },
-      },
+      } satisfies ScrappedSavingsSource,
     };
 
     offers.push(offer);

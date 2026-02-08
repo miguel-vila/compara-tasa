@@ -3,10 +3,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -185,8 +185,9 @@ export class CajaSocialParser implements BankSavingsParser {
           min_amount_cop: tier.min_amount,
           max_amount_cop: tier.max_amount,
           source: {
+            kind: "scrapped",
             url: this.sourceUrl,
-            source_type: SourceType.PDF,
+            source_type: "PDF",
             document_label: "Tasas Cuenta Alcancía",
             retrieved_at: retrievedAt,
             extracted_text_fingerprint: rawTextHash,
@@ -195,7 +196,7 @@ export class CajaSocialParser implements BankSavingsParser {
               locator: `caja_social_${account.name.toLowerCase().replace(/\s+/g, "_").replace(/[()]/g, "")}`,
               excerpt: `${account.name}: ${tier.ea_percent}% E.A.`,
             },
-          },
+          } satisfies ScrappedSavingsSource,
         };
 
         offers.push(offer);

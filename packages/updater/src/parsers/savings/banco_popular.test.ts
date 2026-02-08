@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { BancoPopularParser } from "./banco_popular.js";
-import { BankId, SavingsAccountType } from "@compara-tasa/core";
+import { BankId, SavingsAccountType, type ScrappedSavingsSource } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../../fixtures/banco_popular/savings-page.html");
 
@@ -112,9 +112,11 @@ describe("BancoPopularParser", () => {
 
     it("should have valid source metadata", () => {
       for (const offer of result.offers) {
-        expect(offer.source.source_type).toBe("HTML");
-        expect(offer.source.url).toContain("bancopopular.com.co");
-        expect(offer.source.retrieved_at).toBeTruthy();
+        expect(offer.source.kind).toBe("scrapped");
+        const source = offer.source as ScrappedSavingsSource;
+        expect(source.source_type).toBe("HTML");
+        expect(source.url).toContain("bancopopular.com.co");
+        expect(source.retrieved_at).toBeTruthy();
       }
     });
 

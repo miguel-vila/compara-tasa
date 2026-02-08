@@ -4,10 +4,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -158,8 +158,9 @@ export class Ban100Parser implements BankSavingsParser {
           min_amount_cop: tier.min_amount,
           max_amount_cop: tier.max_amount,
           source: {
+            kind: "scrapped",
             url: this.sourceUrl,
-            source_type: SourceType.HTML,
+            source_type: "HTML",
             document_label: "Cuenta de Ahorro",
             retrieved_at: retrievedAt,
             extracted_text_fingerprint: rawTextHash,
@@ -168,7 +169,7 @@ export class Ban100Parser implements BankSavingsParser {
               locator: "table:first tbody tr",
               excerpt: `${firstCell}: ${lastCell}`,
             },
-          },
+          } satisfies ScrappedSavingsSource,
         };
 
         offers.push(offer);
@@ -229,8 +230,9 @@ export class Ban100Parser implements BankSavingsParser {
           rate: { ea_percent: eaPercent },
           min_amount_cop: 1,
           source: {
+            kind: "scrapped",
             url: this.sourceUrl,
-            source_type: SourceType.HTML,
+            source_type: "HTML",
             document_label: "Cuenta de Ahorro",
             retrieved_at: retrievedAt,
             extracted_text_fingerprint: rawTextHash,
@@ -239,7 +241,7 @@ export class Ban100Parser implements BankSavingsParser {
               locator: "table:nth-of-type(2) tbody tr",
               excerpt: `${firstCell}: ${lastCell}`,
             },
-          },
+          } satisfies ScrappedSavingsSource,
         };
 
         offers.push(offer);

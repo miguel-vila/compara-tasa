@@ -3,10 +3,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import {
   fetchWithRetry,
@@ -369,8 +369,9 @@ export class BbvaSavingsParser implements BankSavingsParser {
           min_amount_cop: tier.min_amount,
           max_amount_cop: tier.max_amount,
           source: {
+            kind: "scrapped",
             url: this.sourceUrl,
-            source_type: SourceType.PDF,
+            source_type: "PDF",
             document_label: "Tasas de interés cuentas de ahorro",
             retrieved_at: retrievedAt,
             extracted_text_fingerprint: rawTextHash,
@@ -379,7 +380,7 @@ export class BbvaSavingsParser implements BankSavingsParser {
               locator: `bbva_${account.name.toLowerCase().replace(/\s+/g, "_")}`,
               excerpt: `${account.name}: ${tier.ea_percent}% E.A.`,
             },
-          },
+          } satisfies ScrappedSavingsSource,
         };
 
         offers.push(offer);

@@ -4,10 +4,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -161,8 +161,9 @@ export class BancoPopularParser implements BankSavingsParser {
           min_amount_cop: tier.min_amount,
           max_amount_cop: tier.max_amount,
           source: {
+            kind: "scrapped",
             url: this.sourceUrl,
-            source_type: SourceType.HTML,
+            source_type: "HTML",
             document_label: "Tasas de Captación y Colocación",
             retrieved_at: retrievedAt,
             extracted_text_fingerprint: rawTextHash,
@@ -171,7 +172,7 @@ export class BancoPopularParser implements BankSavingsParser {
               locator: `article table.simple-table`,
               excerpt: `${account.name}: ${tier.ea_percent}% E.A.`,
             },
-          },
+          } satisfies ScrappedSavingsSource,
         };
 
         offers.push(offer);

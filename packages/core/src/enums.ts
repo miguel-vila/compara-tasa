@@ -20,6 +20,7 @@ export const BankId = {
   PIBANK: "pibank",
   UALA: "uala",
   BANCAMIA: "bancamia",
+  NU: "nu",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -45,6 +46,7 @@ export const BankNames: Record<BankId, string> = {
   pibank: "Pibank",
   uala: "Ualá",
   bancamia: "Bancamía",
+  nu: "Nu Colombia",
 };
 
 // Bank mortgage information URLs (partial - only for banks with mortgage products)
@@ -202,6 +204,7 @@ export const BankTypeClassification: Record<string, SavingsBankType> = {
   bbva: SavingsBankType.TRADITIONAL,
   banco_caja_social: SavingsBankType.TRADITIONAL,
   bancamia: SavingsBankType.TRADITIONAL,
+  nu: SavingsBankType.NEOBANK,
 };
 
 // Savings scenario keys for rankings

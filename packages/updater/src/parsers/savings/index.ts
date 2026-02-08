@@ -6,6 +6,7 @@ export { BancoPopularParser } from "./banco_popular.js";
 export { BbvaSavingsParser } from "./bbva.js";
 export { CajaSocialParser } from "./caja_social.js";
 export { LuloParser } from "./lulo.js";
+export { ManualParser, createManualParsers } from "./manual.js";
 export { PibankParser } from "./pibank.js";
 export { RappiPayParser } from "./rappipay.js";
 export { UalaParser } from "./uala.js";

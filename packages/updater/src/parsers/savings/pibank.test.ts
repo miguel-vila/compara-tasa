@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { PibankParser } from "./pibank.js";
-import { BankId, SavingsAccountType } from "@compara-tasa/core";
+import { BankId, SavingsAccountType, type ScrappedSavingsSource } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../../fixtures/pibank/savings-page.pdf");
 
@@ -63,11 +63,13 @@ describe("PibankParser", () => {
 
     it("should have valid source metadata", () => {
       for (const offer of result.offers) {
-        expect(offer.source.source_type).toBe("PDF");
-        expect(offer.source.url).toContain("pibank.co");
-        expect(offer.source.retrieved_at).toBeTruthy();
-        expect(offer.source.extraction.method).toBe("REGEX");
-        expect(offer.source.document_label).toBe("Tasas y Tarifario");
+        expect(offer.source.kind).toBe("scrapped");
+        const source = offer.source as ScrappedSavingsSource;
+        expect(source.source_type).toBe("PDF");
+        expect(source.url).toContain("pibank.co");
+        expect(source.retrieved_at).toBeTruthy();
+        expect(source.extraction.method).toBe("REGEX");
+        expect(source.document_label).toBe("Tasas y Tarifario");
       }
     });
 

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { RappiPayParser } from "./rappipay.js";
-import { BankId, SavingsAccountType } from "@compara-tasa/core";
+import { BankId, SavingsAccountType, type ScrappedSavingsSource } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../../fixtures/rappipay/savings-page.html");
 
@@ -78,10 +78,12 @@ describe("RappiPayParser", () => {
 
     it("should have valid source metadata", () => {
       for (const offer of result.offers) {
-        expect(offer.source.source_type).toBe("HTML");
-        expect(offer.source.url).toContain("rappipay.co");
-        expect(offer.source.retrieved_at).toBeTruthy();
-        expect(offer.source.extraction.method).toBe("CSS_SELECTOR");
+        expect(offer.source.kind).toBe("scrapped");
+        const source = offer.source as ScrappedSavingsSource;
+        expect(source.source_type).toBe("HTML");
+        expect(source.url).toContain("rappipay.co");
+        expect(source.retrieved_at).toBeTruthy();
+        expect(source.extraction.method).toBe("CSS_SELECTOR");
       }
     });
 

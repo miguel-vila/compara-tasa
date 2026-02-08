@@ -7,11 +7,12 @@ import {
   type SavingsOffer,
   type SavingsOffersDataset,
 } from "@compara-tasa/core";
-import { createAllSavingsParsers } from "./parsers/savings/index.js";
+import { createAllSavingsParsers, createManualParsers } from "./parsers/savings/index.js";
 import { computeSavingsRankings } from "./savingsRankings.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../../../apps/web/public/data");
+const MANUAL_DIR = join(__dirname, "../../../manual");
 
 async function ensureDir(dir: string): Promise<void> {
   await mkdir(dir, { recursive: true });
@@ -24,7 +25,14 @@ async function writeJson(path: string, data: unknown): Promise<void> {
 async function main(): Promise<void> {
   console.log("Starting savings rate update...\n");
 
-  const parsers = createAllSavingsParsers();
+  // Combine automated parsers with manual parsers
+  const automatedParsers = createAllSavingsParsers();
+  const manualParsers = await createManualParsers(MANUAL_DIR);
+  const parsers = [...automatedParsers, ...manualParsers];
+
+  console.log(
+    `Found ${automatedParsers.length} automated parsers and ${manualParsers.length} manual parsers\n`
+  );
   const allOffers: SavingsOffer[] = [];
   const allErrors: string[] = [];
 

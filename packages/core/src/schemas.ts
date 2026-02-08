@@ -137,10 +137,43 @@ export const BankMortgageParseResultSchema = z.object({
 // Savings Account Schemas
 // ============================================
 
-// Savings rate schema
+// Savings rate schema (with sanity check: 0-30% range)
 export const SavingsRateSchema = z.object({
-  ea_percent: z.number().positive(),
+  ea_percent: z.number().positive().max(30, "Rate seems too high - possible typo"),
 });
+
+// ============================================
+// Savings Source Schemas (discriminated union)
+// ============================================
+
+// For automated scraping (HTML/PDF)
+export const ScrappedSavingsSourceSchema = z.object({
+  kind: z.literal("scrapped"),
+  retrieved_at: z.string().datetime(),
+  url: z.string().url(),
+  source_type: z.enum(["HTML", "PDF"]),
+  document_label: z.string().optional(),
+  valid_from: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(),
+  extracted_text_fingerprint: z.string().optional(),
+  extraction: ExtractionInfoSchema,
+});
+
+// For manual/self-reported entries
+export const ManualSavingsSourceSchema = z.object({
+  kind: z.literal("manual"),
+  retrieved_at: z.string().datetime(),
+  observed_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  reporter_note: z.string().optional(),
+  reference_url: z.string().url().optional(),
+});
+
+export const SavingsSourceSchema = z.discriminatedUnion("kind", [
+  ScrappedSavingsSourceSchema,
+  ManualSavingsSourceSchema,
+]);
 
 // Savings offer schema
 export const SavingsOfferSchema = z.object({
@@ -152,7 +185,7 @@ export const SavingsOfferSchema = z.object({
   rate: SavingsRateSchema,
   min_amount_cop: z.number().nonnegative().optional(),
   max_amount_cop: z.number().positive().optional(),
-  source: OfferSourceSchema,
+  source: SavingsSourceSchema,
 });
 
 // Savings dataset schema

@@ -1,0 +1,13 @@
+{
+  "bank_id": "nu",
+  "offers": [
+    {
+      "account_name": "Cajitas",
+      "account_type": "high_yield",
+      "ea_percent": 8.75,
+      "observed_date": "2026-02-08",
+      "reporter_note": "Checked in Nu app - Cajitas feature",
+      "reference_url": "https://nu.com.co/"
+    }
+  ]
+}

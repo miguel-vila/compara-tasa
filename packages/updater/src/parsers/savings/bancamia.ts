@@ -3,10 +3,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -147,8 +147,9 @@ export class BancamiaParser implements BankSavingsParser {
         min_amount_cop: tier.minAmount,
         max_amount_cop: tier.maxAmount,
         source: {
+          kind: "scrapped",
           url: this.sourceUrl,
-          source_type: SourceType.PDF,
+          source_type: "PDF",
           document_label: "Tasas y Tarifas de Ahorro",
           retrieved_at: retrievedAt,
           extracted_text_fingerprint: rawTextHash,
@@ -157,7 +158,7 @@ export class BancamiaParser implements BankSavingsParser {
             locator: "bancamia_rentaplus_tier",
             excerpt: `RentaPlus tier ${i + 1}: ${extractedRate}% E.A.`,
           },
-        },
+        } satisfies ScrappedSavingsSource,
       };
 
       offers.push(offer);

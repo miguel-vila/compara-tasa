@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T17:05:54.124Z",
+  "generated_at": "2026-02-08T17:22:32.784Z",
   "scenarios": {
     "best_rate_under_10m": [
       {
@@ -12,18 +12,18 @@
       },
       {
         "position": 2,
-        "offer_id": "6eaa51ea6d1ed501",
+        "offer_id": "7f43950306e44993",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11
+          "value": 11.5
         }
       },
       {
         "position": 3,
-        "offer_id": "306a37384405ecb0",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       }
     ],
@@ -38,18 +38,18 @@
       },
       {
         "position": 2,
-        "offer_id": "6eaa51ea6d1ed501",
+        "offer_id": "7f43950306e44993",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11
+          "value": 11.5
         }
       },
       {
         "position": 3,
-        "offer_id": "a74c471cac26e598",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10.5
+          "value": 11
         }
       }
     ],
@@ -64,18 +64,18 @@
       },
       {
         "position": 2,
-        "offer_id": "6eaa51ea6d1ed501",
+        "offer_id": "7f43950306e44993",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11
+          "value": 11.5
         }
       },
       {
         "position": 3,
-        "offer_id": "a74c471cac26e598",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10.5
+          "value": 11
         }
       }
     ],
@@ -90,18 +90,18 @@
       },
       {
         "position": 2,
-        "offer_id": "6eaa51ea6d1ed501",
+        "offer_id": "7f43950306e44993",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11
+          "value": 11.5
         }
       },
       {
         "position": 3,
-        "offer_id": "376a27306a1e91ea",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       }
     ],

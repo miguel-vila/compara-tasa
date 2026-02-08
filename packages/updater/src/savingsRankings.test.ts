@@ -20,6 +20,7 @@ function createTestOffer(
     min_amount_cop: minAmount,
     max_amount_cop: maxAmount,
     source: {
+      kind: "scrapped",
       url: "https://test.com",
       source_type: "HTML",
       retrieved_at: new Date().toISOString(),

@@ -4,10 +4,10 @@ import {
   BankId,
   BankNames,
   SavingsAccountType,
-  SourceType,
   ExtractionMethod,
   type SavingsOffer,
   type BankSavingsParseResult,
+  type ScrappedSavingsSource,
 } from "@compara-tasa/core";
 import { sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
@@ -198,8 +198,9 @@ export class LuloParser implements BankSavingsParser {
         rate: { ea_percent: extracted.eaPercent },
         min_amount_cop: 1,
         source: {
+          kind: "scrapped",
           url: this.sourceUrl,
-          source_type: SourceType.HTML,
+          source_type: "HTML",
           document_label: "Características de los bolsillos",
           retrieved_at: retrievedAt,
           extracted_text_fingerprint: rawTextHash,
@@ -208,7 +209,7 @@ export class LuloParser implements BankSavingsParser {
             locator: ".article-body",
             excerpt: extracted.excerpt,
           },
-        },
+        } satisfies ScrappedSavingsSource,
       };
 
       offers.push(offer);

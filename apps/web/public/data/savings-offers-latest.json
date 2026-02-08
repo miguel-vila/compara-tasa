@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T17:05:54.120Z",
+  "generated_at": "2026-02-08T17:22:32.781Z",
   "offers": [
     {
       "id": "d09a3b303633a5be",
@@ -13,10 +13,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 499999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -37,10 +38,11 @@
       "min_amount_cop": 500000,
       "max_amount_cop": 5000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -61,10 +63,11 @@
       "min_amount_cop": 5000001,
       "max_amount_cop": 20000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -85,10 +88,11 @@
       "min_amount_cop": 20000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -109,10 +113,11 @@
       "min_amount_cop": 50000001,
       "max_amount_cop": 100000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -133,10 +138,11 @@
       "min_amount_cop": 100000001,
       "max_amount_cop": 250000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -157,10 +163,11 @@
       "min_amount_cop": 250000001,
       "max_amount_cop": 500000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -180,10 +187,11 @@
       },
       "min_amount_cop": 500000002,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -204,10 +212,11 @@
       "min_amount_cop": 0,
       "max_amount_cop": 5000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -228,10 +237,11 @@
       "min_amount_cop": 5000001,
       "max_amount_cop": 20000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -252,10 +262,11 @@
       "min_amount_cop": 20000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -276,10 +287,11 @@
       "min_amount_cop": 50000001,
       "max_amount_cop": 100000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -300,10 +312,11 @@
       "min_amount_cop": 100000001,
       "max_amount_cop": 250000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -324,10 +337,11 @@
       "min_amount_cop": 250000001,
       "max_amount_cop": 500000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -347,10 +361,11 @@
       },
       "min_amount_cop": 500000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -371,10 +386,11 @@
       "min_amount_cop": 0,
       "max_amount_cop": 5000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -395,10 +411,11 @@
       "min_amount_cop": 5000001,
       "max_amount_cop": 20000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -419,10 +436,11 @@
       "min_amount_cop": 20000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -443,10 +461,11 @@
       "min_amount_cop": 50000001,
       "max_amount_cop": 100000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -466,10 +485,11 @@
       },
       "min_amount_cop": 100000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
         "source_type": "PDF",
         "document_label": "Tasas Cuentas de Ahorro y Bolsillos",
-        "retrieved_at": "2026-02-08T17:05:48.798Z",
+        "retrieved_at": "2026-02-08T17:22:26.770Z",
         "extracted_text_fingerprint": "be4a5ddc409f1f5961dedba85dfe2da3a7fe30306891a73803be9a8d998e174c",
         "extraction": {
           "method": "REGEX",
@@ -490,10 +510,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 10000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.091Z",
+        "retrieved_at": "2026-02-08T17:22:27.088Z",
         "extracted_text_fingerprint": "da201203a5623eea1d0177eb482596443f9b45f1890f64434c9331af53a70c50",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -514,10 +535,11 @@
       "min_amount_cop": 10000001,
       "max_amount_cop": 30000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.091Z",
+        "retrieved_at": "2026-02-08T17:22:27.088Z",
         "extracted_text_fingerprint": "da201203a5623eea1d0177eb482596443f9b45f1890f64434c9331af53a70c50",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -537,10 +559,11 @@
       },
       "min_amount_cop": 30000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.091Z",
+        "retrieved_at": "2026-02-08T17:22:27.088Z",
         "extracted_text_fingerprint": "da201203a5623eea1d0177eb482596443f9b45f1890f64434c9331af53a70c50",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -560,10 +583,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.091Z",
+        "retrieved_at": "2026-02-08T17:22:27.088Z",
         "extracted_text_fingerprint": "da201203a5623eea1d0177eb482596443f9b45f1890f64434c9331af53a70c50",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -584,10 +608,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 499999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -608,10 +633,11 @@
       "min_amount_cop": 500001,
       "max_amount_cop": 999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -632,10 +658,11 @@
       "min_amount_cop": 1000000,
       "max_amount_cop": 1999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -656,10 +683,11 @@
       "min_amount_cop": 2000000,
       "max_amount_cop": 4999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -680,10 +708,11 @@
       "min_amount_cop": 5000000,
       "max_amount_cop": 9999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -703,10 +732,11 @@
       },
       "min_amount_cop": 10000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas de Ahorro",
-        "retrieved_at": "2026-02-08T17:05:49.638Z",
+        "retrieved_at": "2026-02-08T17:22:27.693Z",
         "extracted_text_fingerprint": "a97a95a0012a9b3d0408becef66bf679dc7bb8bdda7b8c73e495800fa1e492d6",
         "extraction": {
           "method": "REGEX",
@@ -727,10 +757,11 @@
       "min_amount_cop": 0,
       "max_amount_cop": 10000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -751,10 +782,11 @@
       "min_amount_cop": 10000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -775,10 +807,11 @@
       "min_amount_cop": 50000001,
       "max_amount_cop": 150000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -798,10 +831,11 @@
       },
       "min_amount_cop": 150000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -822,10 +856,11 @@
       "min_amount_cop": 0,
       "max_amount_cop": 10000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -845,10 +880,11 @@
       },
       "min_amount_cop": 10000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas de Captación y Colocación",
-        "retrieved_at": "2026-02-08T17:05:50.639Z",
+        "retrieved_at": "2026-02-08T17:22:28.706Z",
         "extracted_text_fingerprint": "80e9edba152b416675ebc7080337680c3b6b6c2921c4bdb344efb086e55a4a3b",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -869,10 +905,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 4999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -893,10 +930,11 @@
       "min_amount_cop": 5000000,
       "max_amount_cop": 49999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -917,10 +955,11 @@
       "min_amount_cop": 50000000,
       "max_amount_cop": 199999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -941,10 +980,11 @@
       "min_amount_cop": 200000000,
       "max_amount_cop": 299999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -965,10 +1005,11 @@
       "min_amount_cop": 300000000,
       "max_amount_cop": 499000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -989,10 +1030,11 @@
       "min_amount_cop": 500000000,
       "max_amount_cop": 999999999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1012,10 +1054,11 @@
       },
       "min_amount_cop": 1000000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1035,10 +1078,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1058,10 +1102,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1081,10 +1126,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1105,10 +1151,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 500000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1129,10 +1176,11 @@
       "min_amount_cop": 500001,
       "max_amount_cop": 1000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1153,10 +1201,11 @@
       "min_amount_cop": 1000001,
       "max_amount_cop": 10000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1177,10 +1226,11 @@
       "min_amount_cop": 10000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1200,10 +1250,11 @@
       },
       "min_amount_cop": 50000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1224,10 +1275,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 499999,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1248,10 +1300,11 @@
       "min_amount_cop": 500000,
       "max_amount_cop": 5000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1272,10 +1325,11 @@
       "min_amount_cop": 5000001,
       "max_amount_cop": 20000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1296,10 +1350,11 @@
       "min_amount_cop": 20000001,
       "max_amount_cop": 50000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1320,10 +1375,11 @@
       "min_amount_cop": 50000001,
       "max_amount_cop": 200000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1343,10 +1399,11 @@
       },
       "min_amount_cop": 200000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1366,10 +1423,11 @@
       },
       "min_amount_cop": 5000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T17:05:50.789Z",
+        "retrieved_at": "2026-02-08T17:22:28.853Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -1390,10 +1448,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 40000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Cuenta Alcancía",
-        "retrieved_at": "2026-02-08T17:05:50.869Z",
+        "retrieved_at": "2026-02-08T17:22:28.933Z",
         "extracted_text_fingerprint": "f81a84fc9a93b75e10ffecb40747a81337a7e7d8e72bf7e9a5f01e01be700031",
         "extraction": {
           "method": "REGEX",
@@ -1413,10 +1472,11 @@
       },
       "min_amount_cop": 40000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Cuenta Alcancía",
-        "retrieved_at": "2026-02-08T17:05:50.869Z",
+        "retrieved_at": "2026-02-08T17:22:28.933Z",
         "extracted_text_fingerprint": "f81a84fc9a93b75e10ffecb40747a81337a7e7d8e72bf7e9a5f01e01be700031",
         "extraction": {
           "method": "REGEX",
@@ -1437,10 +1497,11 @@
       "min_amount_cop": 1,
       "max_amount_cop": 40000000,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Cuenta Alcancía",
-        "retrieved_at": "2026-02-08T17:05:50.869Z",
+        "retrieved_at": "2026-02-08T17:22:28.933Z",
         "extracted_text_fingerprint": "f81a84fc9a93b75e10ffecb40747a81337a7e7d8e72bf7e9a5f01e01be700031",
         "extraction": {
           "method": "REGEX",
@@ -1460,10 +1521,11 @@
       },
       "min_amount_cop": 40000001,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Cuenta Alcancía",
-        "retrieved_at": "2026-02-08T17:05:50.869Z",
+        "retrieved_at": "2026-02-08T17:22:28.933Z",
         "extracted_text_fingerprint": "f81a84fc9a93b75e10ffecb40747a81337a7e7d8e72bf7e9a5f01e01be700031",
         "extraction": {
           "method": "REGEX",
@@ -1483,10 +1545,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
         "source_type": "HTML",
         "document_label": "Características de los bolsillos",
-        "retrieved_at": "2026-02-08T17:05:51.008Z",
+        "retrieved_at": "2026-02-08T17:22:29.211Z",
         "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
         "extraction": {
           "method": "REGEX",
@@ -1506,10 +1569,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
         "source_type": "HTML",
         "document_label": "Características de los bolsillos",
-        "retrieved_at": "2026-02-08T17:05:51.008Z",
+        "retrieved_at": "2026-02-08T17:22:29.211Z",
         "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
         "extraction": {
           "method": "REGEX",
@@ -1529,10 +1593,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
         "source_type": "HTML",
         "document_label": "Características de los bolsillos",
-        "retrieved_at": "2026-02-08T17:05:51.008Z",
+        "retrieved_at": "2026-02-08T17:22:29.211Z",
         "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
         "extraction": {
           "method": "REGEX",
@@ -1552,10 +1617,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
         "source_type": "HTML",
         "document_label": "Características de los bolsillos",
-        "retrieved_at": "2026-02-08T17:05:51.008Z",
+        "retrieved_at": "2026-02-08T17:22:29.211Z",
         "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
         "extraction": {
           "method": "REGEX",
@@ -1575,10 +1641,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.pibank.co/uploads/2026/01/Tasas022026.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifario",
-        "retrieved_at": "2026-02-08T17:05:53.351Z",
+        "retrieved_at": "2026-02-08T17:22:31.945Z",
         "extracted_text_fingerprint": "4527fdf29e1476a0d4a1296ba7b65b368ae9af232c7d8fadd8a655ab70c88038",
         "extraction": {
           "method": "REGEX",
@@ -1598,10 +1665,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.rappipay.co/tasas-y-tarifas/",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas",
-        "retrieved_at": "2026-02-08T17:05:53.445Z",
+        "retrieved_at": "2026-02-08T17:22:32.112Z",
         "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -1621,10 +1689,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.rappipay.co/tasas-y-tarifas/",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas",
-        "retrieved_at": "2026-02-08T17:05:53.445Z",
+        "retrieved_at": "2026-02-08T17:22:32.112Z",
         "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -1644,10 +1713,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.rappipay.co/tasas-y-tarifas/",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas",
-        "retrieved_at": "2026-02-08T17:05:53.445Z",
+        "retrieved_at": "2026-02-08T17:22:32.112Z",
         "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -1667,10 +1737,11 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.rappipay.co/tasas-y-tarifas/",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas",
-        "retrieved_at": "2026-02-08T17:05:53.445Z",
+        "retrieved_at": "2026-02-08T17:22:32.112Z",
         "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -1690,16 +1761,35 @@
       },
       "min_amount_cop": 1,
       "source": {
+        "kind": "scrapped",
         "url": "https://www.uala.com.co/prensa",
         "source_type": "HTML",
         "document_label": "Comunicados de Prensa",
-        "retrieved_at": "2026-02-08T17:05:53.754Z",
-        "extracted_text_fingerprint": "5cdd40a887f2d65e08d9a27cc0ce3bce36ed4445651a395e434265e230814f32",
+        "retrieved_at": "2026-02-08T17:22:32.442Z",
+        "extracted_text_fingerprint": "43871656d3889236a6fb705ba1af6178719e988db744852edfd83c53bb0d478c",
         "extraction": {
           "method": "REGEX",
           "locator": "prensa page content",
           "excerpt": "rendimiento de sus depósitos en 13% E.A."
         }
+      }
+    },
+    {
+      "id": "7f43950306e44993",
+      "bank_id": "nu",
+      "bank_name": "Nu Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cajitas",
+      "rate": {
+        "ea_percent": 11.5
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "kind": "manual",
+        "retrieved_at": "2026-02-08T17:22:32.780Z",
+        "observed_date": "2026-02-08",
+        "reporter_note": "Checked in Nu app - Cajitas feature",
+        "reference_url": "https://nu.com.co/"
       }
     }
   ]

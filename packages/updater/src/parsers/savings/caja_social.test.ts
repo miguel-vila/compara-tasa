@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { CajaSocialParser } from "./caja_social.js";
-import { BankId, SavingsAccountType } from "@compara-tasa/core";
+import { BankId, SavingsAccountType, type ScrappedSavingsSource } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(
   __dirname,
@@ -85,10 +85,12 @@ describe("CajaSocialParser", () => {
 
     it("should have valid source metadata", () => {
       for (const offer of result.offers) {
-        expect(offer.source.source_type).toBe("PDF");
-        expect(offer.source.url).toContain("bancocajasocial.com");
-        expect(offer.source.retrieved_at).toBeTruthy();
-        expect(offer.source.document_label).toBe("Tasas Cuenta Alcancía");
+        expect(offer.source.kind).toBe("scrapped");
+        const source = offer.source as ScrappedSavingsSource;
+        expect(source.source_type).toBe("PDF");
+        expect(source.url).toContain("bancocajasocial.com");
+        expect(source.retrieved_at).toBeTruthy();
+        expect(source.document_label).toBe("Tasas Cuenta Alcancía");
       }
     });
 
