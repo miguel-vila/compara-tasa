@@ -19,6 +19,7 @@ export const BankId = {
   RAPPIPAY: "rappipay",
   PIBANK: "pibank",
   UALA: "uala",
+  BANCAMIA: "bancamia",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -43,6 +44,7 @@ export const BankNames: Record<BankId, string> = {
   rappipay: "RappiPay",
   pibank: "Pibank",
   uala: "Ualá",
+  bancamia: "Bancamía",
 };
 
 // Bank mortgage information URLs (partial - only for banks with mortgage products)
@@ -78,6 +80,8 @@ export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   rappipay: "https://www.rappipay.co/tasas-y-tarifas/",
   pibank: "https://www.pibank.co/uploads/2025/12/Tasas012026.pdf",
   uala: "https://www.uala.com.co/prensa",
+  bancamia:
+    "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
 };
 
 // Mortgage product types

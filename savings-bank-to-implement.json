@@ -27,9 +27,8 @@
   },
   {
     "bank_name": "Bancamía (RentaPlus)",
-    "implemented": false,
-    "rate_info": "Up to 10.5% E.A. (tiered: 5% for 0-2.5M, 8% for 2.5M-10M, 10% for 10M+)",
-    "notes": "Has PDF rates at bancamia.com.co/tasas-y-tarifas/ but site uses bot protection (ShieldSquare/PerimeterX). May need alternative scraping approach."
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   },
   {
     "bank_name": "Banco Caja Social (Alcancía Digital)",

@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 5 Banks
+## Status: MVP + 6 Banks
 
-The savings account support is functional with six banks (Ban100, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
+The savings account support is functional with seven banks (Ban100, Bancamía, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
 
 ## Completed Tasks
 
@@ -36,6 +36,7 @@ The savings account support is functional with six banks (Ban100, BBVA, Lulo Ban
 - [x] **RappiPay**: Implement HTML parsing (12 tests)
 - [x] **Pibank**: Implement PDF parsing (11 tests)
 - [x] **Ualá**: Implement HTML parsing from press releases (11 tests)
+- [x] **Bancamía**: Implement PDF parsing for RentaPlus (15 tests)
 
 ### Phase 3: Frontend
 
@@ -192,6 +193,31 @@ pnpm --filter @compara-tasa/updater dev:savings
 - Daily interest payments (since September 2024)
 - Funds are protected by Fogafín deposit insurance
 - Rate information is embedded as JSON in the page (news entries)
+
+## Bancamía Implementation Details
+
+**Source URL:** https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf
+
+**Scraping Method:** PDF parsing with pdfjs-dist
+
+**Accounts Parsed:**
+
+1. **RentaPlus** (High Yield) - 6 tiered rates:
+   - $1 - $499,999: 5.00% E.A.
+   - $500,001 - $999,999: 6.00% E.A.
+   - $1,000,000 - $1,999,999: 7.00% E.A.
+   - $2,000,000 - $4,999,999: 8.00% E.A.
+   - $5,000,000 - $9,999,999: 10.00% E.A.
+   - $10,000,000+: 10.50% E.A.
+
+**Notes:**
+
+- Bancamía is a microfinance bank that launched RentaPlus in August 2024
+- The PDF is published on their WordPress site and accessible via direct URL
+- The main website (bancamia.com.co/tasas-y-tarifas/) uses ShieldSquare/PerimeterX bot protection, but the PDF files are directly downloadable via wp-content/uploads
+- RentaPlus is their flagship high-yield savings product, competing with digital banks
+- Rate tiers incentivize larger deposits with progressively better rates
+- PDF also contains other savings products (Ahorramía, Soñando Juntos, etc.) with lower rates
 
 ## Next Banks to Add
 
