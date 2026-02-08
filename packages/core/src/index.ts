@@ -3,6 +3,8 @@ export {
   BankId,
   BankNames,
   BankUrls,
+  BankMortgageUrls,
+  BankSavingsUrls,
   MortgageType,
   CurrencyIndex,
   Segment,
@@ -10,6 +12,7 @@ export {
   SourceType,
   ExtractionMethod,
   MortgageScenarioKey,
+  SavingsAccountType,
 } from "./enums.js";
 
 // Types
@@ -28,6 +31,12 @@ export type {
   Rankings,
   MortgageOffersDataset,
   BankMortgageParseResult,
+  // Savings types
+  SavingsRate,
+  SavingsSource,
+  SavingsOffer,
+  SavingsOffersDataset,
+  BankSavingsParseResult,
 } from "./types.js";
 
 // Zod Schemas
@@ -40,6 +49,7 @@ export {
   SourceTypeSchema,
   ExtractionMethodSchema,
   MortgageScenarioKeySchema,
+  SavingsAccountTypeSchema,
   CopFixedRateSchema,
   UvrSpreadRateSchema,
   RateSchema,
@@ -54,4 +64,9 @@ export {
   RankingsSchema,
   MortgageOffersDatasetSchema,
   BankMortgageParseResultSchema,
+  // Savings schemas
+  SavingsRateSchema,
+  SavingsOfferSchema,
+  SavingsOffersDatasetSchema,
+  BankSavingsParseResultSchema,
 } from "./schemas.js";

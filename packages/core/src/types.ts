@@ -7,6 +7,7 @@ import type {
   SourceType,
   ExtractionMethod,
   MortgageScenarioKey,
+  SavingsAccountType,
 } from "./enums.js";
 
 // Rate representations
@@ -114,6 +115,50 @@ export type MortgageOffersDataset = {
 export type BankMortgageParseResult = {
   bank_id: BankId;
   offers: MortgageOffer[];
+  warnings: string[];
+  raw_text_hash: string;
+};
+
+// ============================================
+// Savings Account Types
+// ============================================
+
+// Simple rate for savings accounts (E.A.)
+export type SavingsRate = {
+  ea_percent: number; // Annual effective rate percentage (e.g., 10.0 = 10% E.A.)
+};
+
+// Simplified source info for savings (reuses OfferSource structure)
+export type SavingsSource = OfferSource;
+
+// Main SavingsOffer type
+export type SavingsOffer = {
+  id: string; // stable hash from key fields
+  bank_id: BankId;
+  bank_name: string;
+
+  account_type: SavingsAccountType;
+  account_name: string; // e.g., "Cuenta de Ahorro 100pre"
+
+  rate: SavingsRate;
+
+  // Amount tier constraints (for tiered rates)
+  min_amount_cop?: number; // Minimum balance for this rate tier
+  max_amount_cop?: number; // Maximum balance for this rate tier (undefined = unlimited)
+
+  source: SavingsSource;
+};
+
+// Dataset wrapper for savings offers
+export type SavingsOffersDataset = {
+  generated_at: string;
+  offers: SavingsOffer[];
+};
+
+// Parse result from a bank savings scraper
+export type BankSavingsParseResult = {
+  bank_id: BankId;
+  offers: SavingsOffer[];
   warnings: string[];
   raw_text_hash: string;
 };

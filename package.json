@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "test": "pnpm -r test",
     "update-rates": "pnpm --filter @compara-tasa/updater run update",
+    "update-savings": "pnpm --filter @compara-tasa/updater run update-savings",
     "typecheck": "pnpm -r typecheck",
     "prepare": "husky"
   },

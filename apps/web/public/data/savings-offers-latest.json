@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-01-21T05:28:14.900Z",
+  "offers": [
+    {
+      "id": "1148421d91e28d09",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "rate": {
+        "ea_percent": 6.5
+      },
+      "min_amount_cop": 1,
+      "max_amount_cop": 10000000,
+      "source": {
+        "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
+        "source_type": "HTML",
+        "document_label": "Cuenta de Ahorro",
+        "retrieved_at": "2026-01-21T05:28:13.104Z",
+        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": "table:first tbody tr",
+          "excerpt": "$1 - $10.000.000: 6,50% E.A."
+        }
+      }
+    },
+    {
+      "id": "75f42d2146224fdb",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "rate": {
+        "ea_percent": 9.5
+      },
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 30000000,
+      "source": {
+        "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
+        "source_type": "HTML",
+        "document_label": "Cuenta de Ahorro",
+        "retrieved_at": "2026-01-21T05:28:13.104Z",
+        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": "table:first tbody tr",
+          "excerpt": "$10.000.001 -$30.000.000: 9,50% E.A."
+        }
+      }
+    },
+    {
+      "id": "376a27306a1e91ea",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "rate": {
+        "ea_percent": 10
+      },
+      "min_amount_cop": 30000001,
+      "source": {
+        "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
+        "source_type": "HTML",
+        "document_label": "Cuenta de Ahorro",
+        "retrieved_at": "2026-01-21T05:28:13.104Z",
+        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": "table:first tbody tr",
+          "excerpt": "+ $30.000.001 en adelante: 10,00% E.A."
+        }
+      }
+    },
+    {
+      "id": "df1be89d2922572e",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "standard",
+      "account_name": "Cuenta de Ahorro Clásica",
+      "rate": {
+        "ea_percent": 6
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
+        "source_type": "HTML",
+        "document_label": "Cuenta de Ahorro",
+        "retrieved_at": "2026-01-21T05:28:13.104Z",
+        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": "table:nth-of-type(2) tbody tr",
+          "excerpt": "Aplica para todos los montos desde $ 1: 6,00% E.A."
+        }
+      }
+    }
+  ]
+}

@@ -3,8 +3,10 @@ import { join } from "path";
 import {
   MortgageOffersDatasetSchema,
   RankingsSchema,
+  SavingsOffersDatasetSchema,
   type MortgageOffersDataset,
   type Rankings,
+  type SavingsOffersDataset,
 } from "@compara-tasa/core";
 
 // Read from public/data for server components
@@ -36,6 +38,21 @@ export async function fetchRankings(): Promise<Rankings> {
     return {
       generated_at: new Date().toISOString(),
       mortgageScenarios: {},
+    };
+  }
+}
+
+export async function fetchSavingsOffers(): Promise<SavingsOffersDataset> {
+  try {
+    const filePath = join(DATA_DIR, "savings-offers-latest.json");
+    const content = await readFile(filePath, "utf-8");
+    const data = JSON.parse(content);
+    return SavingsOffersDatasetSchema.parse(data);
+  } catch (error) {
+    console.error("Error fetching savings offers:", error);
+    return {
+      generated_at: new Date().toISOString(),
+      offers: [],
     };
   }
 }

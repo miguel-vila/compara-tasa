@@ -13,6 +13,8 @@ export const BankId = {
   DAVIVIENDA: "davivienda",
   BANCO_AGRARIO: "banco_agrario",
   BANCOOMEVA: "bancoomeva",
+  // Savings-focused banks
+  BAN100: "ban100",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -32,10 +34,11 @@ export const BankNames: Record<BankId, string> = {
   davivienda: "Davivienda",
   banco_agrario: "Banco Agrario",
   bancoomeva: "Bancoomeva",
+  ban100: "Ban100",
 };
 
-// Bank mortgage information URLs
-export const BankUrls: Record<BankId, string> = {
+// Bank mortgage information URLs (partial - only for banks with mortgage products)
+export const BankMortgageUrls: Partial<Record<BankId, string>> = {
   bancolombia:
     "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda",
   bbva: "https://www.bbva.com.co/personas/productos/prestamos/vivienda/hipotecario.html",
@@ -54,6 +57,14 @@ export const BankUrls: Record<BankId, string> = {
   banco_agrario:
     "https://www.bancoagrario.gov.co/personas/asalariado-independiente-pensionado/credito-hipotecario",
   bancoomeva: "https://vivienda.coomeva.com.co/",
+};
+
+// Legacy alias for backwards compatibility
+export const BankUrls = BankMortgageUrls;
+
+// Bank savings account information URLs (partial - only for banks with savings products)
+export const BankSavingsUrls: Partial<Record<BankId, string>> = {
+  ban100: "https://www.ban100.com.co/productos/cuenta-de-ahorro",
 };
 
 // Mortgage product types
@@ -123,3 +134,12 @@ export const MortgageScenarioKey = {
 } as const;
 
 export type MortgageScenarioKey = (typeof MortgageScenarioKey)[keyof typeof MortgageScenarioKey];
+
+// Savings account types
+export const SavingsAccountType = {
+  STANDARD: "standard", // Traditional savings account
+  HIGH_YIELD: "high_yield", // High-interest digital savings
+  DIGITAL: "digital", // Digital-only savings account
+} as const;
+
+export type SavingsAccountType = (typeof SavingsAccountType)[keyof typeof SavingsAccountType];

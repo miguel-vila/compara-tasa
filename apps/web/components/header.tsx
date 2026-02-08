@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "/", label: "Inicio" },
   { href: "/hipotecario", label: "Tasas Hipotecarias" },
+  { href: "/ahorros", label: "Cuentas de Ahorro" },
   { href: "/metodologia", label: "Metodología" },
 ];
 

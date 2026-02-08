@@ -8,6 +8,7 @@ import {
   SourceType,
   ExtractionMethod,
   MortgageScenarioKey,
+  SavingsAccountType,
 } from "./enums.js";
 
 // Enum schemas - derived automatically from const objects using z.nativeEnum()
@@ -19,6 +20,7 @@ export const ChannelSchema = z.nativeEnum(Channel);
 export const SourceTypeSchema = z.nativeEnum(SourceType);
 export const ExtractionMethodSchema = z.nativeEnum(ExtractionMethod);
 export const MortgageScenarioKeySchema = z.nativeEnum(MortgageScenarioKey);
+export const SavingsAccountTypeSchema = z.nativeEnum(SavingsAccountType);
 
 // Rate schemas
 export const CopFixedRateSchema = z.object({
@@ -124,6 +126,42 @@ export const MortgageOffersDatasetSchema = z.object({
 export const BankMortgageParseResultSchema = z.object({
   bank_id: BankIdSchema,
   offers: z.array(MortgageOfferSchema),
+  warnings: z.array(z.string()),
+  raw_text_hash: z.string(),
+});
+
+// ============================================
+// Savings Account Schemas
+// ============================================
+
+// Savings rate schema
+export const SavingsRateSchema = z.object({
+  ea_percent: z.number().positive(),
+});
+
+// Savings offer schema
+export const SavingsOfferSchema = z.object({
+  id: z.string(),
+  bank_id: BankIdSchema,
+  bank_name: z.string(),
+  account_type: SavingsAccountTypeSchema,
+  account_name: z.string(),
+  rate: SavingsRateSchema,
+  min_amount_cop: z.number().positive().optional(),
+  max_amount_cop: z.number().positive().optional(),
+  source: OfferSourceSchema,
+});
+
+// Savings dataset schema
+export const SavingsOffersDatasetSchema = z.object({
+  generated_at: z.string().datetime(),
+  offers: z.array(SavingsOfferSchema),
+});
+
+// Bank savings parse result schema
+export const BankSavingsParseResultSchema = z.object({
+  bank_id: BankIdSchema,
+  offers: z.array(SavingsOfferSchema),
   warnings: z.array(z.string()),
   raw_text_hash: z.string(),
 });

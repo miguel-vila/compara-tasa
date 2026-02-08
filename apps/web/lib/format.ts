@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
-import type { Rate, MortgageScenarioKey } from "@compara-tasa/core";
+import type { Rate, MortgageScenarioKey, SavingsRate } from "@compara-tasa/core";
 
 export function formatRate(rate: Rate): string {
   if (rate.kind === "COP_FIXED") {
@@ -63,3 +63,24 @@ export const MORTGAGE_SCENARIO_DESCRIPTIONS: Record<MortgageScenarioKey, string>
   // Other
   best_digital_hipotecario: "Mejor tasa disponible por canales digitales",
 };
+
+// Savings account formatting
+export function formatSavingsRate(rate: SavingsRate): string {
+  return `${rate.ea_percent.toFixed(2)}% E.A.`;
+}
+
+export function formatCopAmount(amount: number): string {
+  return new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+export function formatAmountRange(min?: number, max?: number): string {
+  if (!min && !max) return "—";
+  if (min && !max) return `Desde ${formatCopAmount(min)}`;
+  if (!min && max) return `Hasta ${formatCopAmount(max)}`;
+  return `${formatCopAmount(min!)} - ${formatCopAmount(max!)}`;
+}
