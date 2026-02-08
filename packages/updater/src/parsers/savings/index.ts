@@ -9,7 +9,6 @@ export { LuloParser } from "./lulo.js";
 export { ManualParser, createManualParsers } from "./manual.js";
 export { PibankParser } from "./pibank.js";
 export { RappiPayParser } from "./rappipay.js";
-export { UalaParser } from "./uala.js";
 
 import { AvvillasParser } from "./avvillas.js";
 import { Ban100Parser } from "./ban100.js";
@@ -20,7 +19,6 @@ import { CajaSocialParser } from "./caja_social.js";
 import { LuloParser } from "./lulo.js";
 import { PibankParser } from "./pibank.js";
 import { RappiPayParser } from "./rappipay.js";
-import { UalaParser } from "./uala.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
 
 /**
@@ -37,6 +35,5 @@ export function createAllSavingsParsers(config: SavingsParserConfig = {}): BankS
     new LuloParser(config),
     new PibankParser(config),
     new RappiPayParser(config),
-    new UalaParser(config),
   ];
 }

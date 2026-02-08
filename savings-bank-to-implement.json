@@ -22,8 +22,10 @@
   },
   {
     "bank_name": "Ualá",
-    "implemented": true,
-    "implemented_date": "2026-02-08"
+    "implemented": false,
+    "blocked": true,
+    "rate_info": "~9.5% E.A. (as of Oct 2025, down from 13% in Feb 2024)",
+    "blocked_reason": "Press releases page (/prensa) stopped publishing rate updates after Feb 2024. Current rate (9.5% E.A.) is only announced via Twitter/X and in-app. No reliable scrapeable source available."
   },
   {
     "bank_name": "Bancamía (RentaPlus)",
