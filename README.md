@@ -1,6 +1,6 @@
 # ComparaTasa
 
-Comparador de tasas de crédito hipotecario en Colombia.
+Comparador de tasas de crédito hipotecario y de ahorro en Colombia.
 
 ## Requisitos
 
