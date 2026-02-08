@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-21T05:28:14.900Z",
+  "generated_at": "2026-02-08T05:08:11.780Z",
   "offers": [
     {
       "id": "1148421d91e28d09",
@@ -16,8 +16,8 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-01-21T05:28:13.104Z",
-        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table:first tbody tr",
@@ -40,8 +40,8 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-01-21T05:28:13.104Z",
-        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table:first tbody tr",
@@ -63,8 +63,8 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-01-21T05:28:13.104Z",
-        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table:first tbody tr",
@@ -86,12 +86,533 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-01-21T05:28:13.104Z",
-        "extracted_text_fingerprint": "d02d67ae5d4aba33f498f245ecf01dc9b93408fe334b10b33c3659004f5b3178",
+        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table:nth-of-type(2) tbody tr",
           "excerpt": "Aplica para todos los montos desde $ 1: 6,00% E.A."
+        }
+      }
+    },
+    {
+      "id": "f9edbe844b1d891c",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 0.01
+      },
+      "min_amount_cop": 1,
+      "max_amount_cop": 4999999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 0.01% E.A."
+        }
+      }
+    },
+    {
+      "id": "5657335a49dc8d36",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 3
+      },
+      "min_amount_cop": 5000000,
+      "max_amount_cop": 49999999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 3% E.A."
+        }
+      }
+    },
+    {
+      "id": "2d56140c0a6af05c",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 7.25
+      },
+      "min_amount_cop": 50000000,
+      "max_amount_cop": 199999999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 7.25% E.A."
+        }
+      }
+    },
+    {
+      "id": "df08a87d845efe1c",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 7.75
+      },
+      "min_amount_cop": 200000000,
+      "max_amount_cop": 299999999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 7.75% E.A."
+        }
+      }
+    },
+    {
+      "id": "11330187a08f8e7a",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 8.25
+      },
+      "min_amount_cop": 300000000,
+      "max_amount_cop": 499000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 8.25% E.A."
+        }
+      }
+    },
+    {
+      "id": "dc3e3a06b5c3ecf3",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 8.75
+      },
+      "min_amount_cop": 500000000,
+      "max_amount_cop": 999999999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 8.75% E.A."
+        }
+      }
+    },
+    {
+      "id": "3634276642e9b8bb",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "rate": {
+        "ea_percent": 9.25
+      },
+      "min_amount_cop": 1000000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_especial_premium",
+          "excerpt": "Cuenta Especial Premium: 9.25% E.A."
+        }
+      }
+    },
+    {
+      "id": "193264ad48f5d0cb",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "digital",
+      "account_name": "Cuenta de Nómina y Digital",
+      "rate": {
+        "ea_percent": 0.01
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_de_nómina_y_digital",
+          "excerpt": "Cuenta de Nómina y Digital: 0.01% E.A."
+        }
+      }
+    },
+    {
+      "id": "d0f465a26ce234d5",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "digital",
+      "account_name": "Cuenta Blue",
+      "rate": {
+        "ea_percent": 0.01
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_blue",
+          "excerpt": "Cuenta Blue: 0.01% E.A."
+        }
+      }
+    },
+    {
+      "id": "ac8985b07aa0c5ef",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Blue Kids",
+      "rate": {
+        "ea_percent": 0.8
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_blue_kids",
+          "excerpt": "Cuenta Blue Kids: 0.8% E.A."
+        }
+      }
+    },
+    {
+      "id": "4761b9219ad34f2a",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "rate": {
+        "ea_percent": 0.12
+      },
+      "min_amount_cop": 1,
+      "max_amount_cop": 500000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_hogar",
+          "excerpt": "Cuenta Hogar: 0.12% E.A."
+        }
+      }
+    },
+    {
+      "id": "c15380bd41ad1b97",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "rate": {
+        "ea_percent": 0.5
+      },
+      "min_amount_cop": 500001,
+      "max_amount_cop": 1000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_hogar",
+          "excerpt": "Cuenta Hogar: 0.5% E.A."
+        }
+      }
+    },
+    {
+      "id": "db48474fb209ae2c",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "rate": {
+        "ea_percent": 1
+      },
+      "min_amount_cop": 1000001,
+      "max_amount_cop": 10000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_hogar",
+          "excerpt": "Cuenta Hogar: 1% E.A."
+        }
+      }
+    },
+    {
+      "id": "37f3ec5e04d5c1ea",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "rate": {
+        "ea_percent": 1.5
+      },
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 50000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_hogar",
+          "excerpt": "Cuenta Hogar: 1.5% E.A."
+        }
+      }
+    },
+    {
+      "id": "d8c6a3a7ac43b50e",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "rate": {
+        "ea_percent": 1.6
+      },
+      "min_amount_cop": 50000001,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_cuenta_hogar",
+          "excerpt": "Cuenta Hogar: 1.6% E.A."
+        }
+      }
+    },
+    {
+      "id": "eb8ce7a5e2f905e0",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 1.4
+      },
+      "min_amount_cop": 1,
+      "max_amount_cop": 499999,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 1.4% E.A."
+        }
+      }
+    },
+    {
+      "id": "5863e7599a20eb5a",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 1.6
+      },
+      "min_amount_cop": 500000,
+      "max_amount_cop": 5000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 1.6% E.A."
+        }
+      }
+    },
+    {
+      "id": "51104f41b029eb6c",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 2
+      },
+      "min_amount_cop": 5000001,
+      "max_amount_cop": 20000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 2% E.A."
+        }
+      }
+    },
+    {
+      "id": "b513589882b549db",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 2.2
+      },
+      "min_amount_cop": 20000001,
+      "max_amount_cop": 50000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 2.2% E.A."
+        }
+      }
+    },
+    {
+      "id": "1d2e51ed93c2f851",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 2.5
+      },
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 200000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 2.5% E.A."
+        }
+      }
+    },
+    {
+      "id": "3c91b795d2fe0523",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "rate": {
+        "ea_percent": 3
+      },
+      "min_amount_cop": 200000001,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_afc_(ahorro_para_fomento_de_la_construcción)",
+          "excerpt": "AFC (Ahorro para Fomento de la Construcción): 3% E.A."
+        }
+      }
+    },
+    {
+      "id": "a9e2978165f3958a",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Ahorro Fijo",
+      "rate": {
+        "ea_percent": 10
+      },
+      "min_amount_cop": 5000000,
+      "source": {
+        "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+        "source_type": "PDF",
+        "document_label": "Tasas de interés cuentas de ahorro",
+        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
+        "extraction": {
+          "method": "REGEX",
+          "locator": "bbva_ahorro_fijo",
+          "excerpt": "Ahorro Fijo: 10% E.A."
         }
       }
     }

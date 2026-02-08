@@ -65,6 +65,7 @@ export const BankUrls = BankMortgageUrls;
 // Bank savings account information URLs (partial - only for banks with savings products)
 export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   ban100: "https://www.ban100.com.co/productos/cuenta-de-ahorro",
+  bbva: "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
 };
 
 // Mortgage product types

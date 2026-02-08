@@ -6,12 +6,12 @@ This skill guides you through adding a new bank parser to extract savings accoun
 
 - The bank must be listed in the `BankId` enum in `packages/core/src/enums.ts`
 - The bank must have a URL in `BankSavingsUrls` map in `packages/core/src/enums.ts`
-- You need the bank's public savings rate disclosure URL (usually HTML)
+- You need the bank's public savings rate disclosure URL (HTML or PDF)
 
 ## Steps Overview
 
 1. Download a fixture file for testing
-2. Analyze the HTML structure
+2. Analyze the source structure (HTML or PDF)
 3. Implement the parser
 4. Register the parser
 5. Write tests
@@ -26,12 +26,13 @@ Fixtures are saved copies of bank rate pages used for testing.
 ### Location
 
 ```
-fixtures/{bank_id}/savings-page.html
+fixtures/{bank_id}/savings-page.html   # For HTML sources
+fixtures/{bank_id}/savings-page.pdf    # For PDF sources
 ```
 
-Where `{bank_id}` matches the enum value in lowercase (e.g., `ban100`, `lulo_bank`).
+Where `{bank_id}` matches the enum value in lowercase (e.g., `ban100`, `bbva`).
 
-### Download Command
+### Download Command (HTML)
 
 ```bash
 mkdir -p fixtures/{bank_id}
@@ -39,11 +40,21 @@ curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHT
   -o fixtures/{bank_id}/savings-page.html "https://example.com/savings-rates"
 ```
 
+### Download Command (PDF)
+
+```bash
+mkdir -p fixtures/{bank_id}
+curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+  -o fixtures/{bank_id}/savings-page.pdf "https://example.com/savings-rates.pdf"
+```
+
 **Note:** Always use a browser user-agent. Many banks block default curl/wget requests.
 
 ---
 
-## Step 2: Analyze the HTML Structure
+## Step 2: Analyze the Source Structure
+
+### For HTML Sources
 
 Use browser dev tools to identify:
 
@@ -51,6 +62,37 @@ Use browser dev tools to identify:
 - Section headers that identify account types
 - Rate value patterns (look for "% E.A." or "% EA")
 - Amount tiers (min/max amounts for different rates)
+
+### For PDF Sources
+
+**Important:** PDF text extraction produces different output than what you see visually. Always extract and examine the actual text before writing regex patterns.
+
+To debug PDF text structure, run this in the updater package:
+
+```bash
+cd packages/updater && node --input-type=module -e "
+import fs from 'fs';
+const pdfjs = await import('pdfjs-dist');
+
+const pdfBuffer = fs.readFileSync('../../fixtures/{bank_id}/savings-page.pdf');
+const pdf = await pdfjs.getDocument({ data: new Uint8Array(pdfBuffer) }).promise;
+
+for (let i = 1; i <= pdf.numPages; i++) {
+  const page = await pdf.getPage(i);
+  const content = await page.getTextContent();
+  const text = content.items.map(item => 'str' in item ? item.str : '').join(' ');
+  console.log('=== PAGE ' + i + ' ===');
+  console.log(text);
+}
+"
+```
+
+**PDF text quirks to watch for:**
+
+- Amounts may have unexpected formatting (e.g., BBVA uses `-$ 1- -$ 4.999.999-` with dashes)
+- Tables become space-separated text, losing column alignment
+- Sections may span multiple pages - combine page text before parsing
+- Headers and footers may appear inline with content
 
 ### Common Patterns
 
@@ -78,7 +120,7 @@ Tasa de interés: 6.00% E.A.
 packages/updater/src/parsers/savings/{bank_id}.ts
 ```
 
-### Parser Template
+### HTML Parser Template
 
 ```typescript
 import * as cheerio from "cheerio";
@@ -141,6 +183,98 @@ export class MyBankParser implements BankSavingsParser {
 }
 ```
 
+### PDF Parser Template
+
+```typescript
+import { readFile } from "fs/promises";
+import {
+  BankId,
+  BankNames,
+  SavingsAccountType,
+  SourceType,
+  ExtractionMethod,
+  type SavingsOffer,
+  type BankSavingsParseResult,
+} from "@compara-tasa/core";
+import {
+  fetchWithRetry,
+  sha256,
+  generateSavingsOfferId,
+  parseColombianNumber,
+} from "../../utils/index.js";
+import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
+
+const SOURCE_URL = "https://example.com/savings-rates.pdf";
+
+/**
+ * Extracts text content from a PDF buffer using pdfjs-dist
+ */
+async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
+  const pdfjs = await import("pdfjs-dist");
+  const pdf = await pdfjs.getDocument({ data: pdfBuffer }).promise;
+
+  const pages: string[] = [];
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    const text = content.items.map((item) => ("str" in item ? item.str : "")).join(" ");
+    pages.push(text);
+  }
+
+  return pages;
+}
+
+export class MyBankParser implements BankSavingsParser {
+  bankId = BankId.MY_BANK;
+  sourceUrl = SOURCE_URL;
+
+  constructor(private config: SavingsParserConfig = {}) {}
+
+  async parse(): Promise<BankSavingsParseResult> {
+    const warnings: string[] = [];
+    const offers: SavingsOffer[] = [];
+    const retrievedAt = new Date().toISOString();
+
+    // Fetch PDF (from fixture or live)
+    let pdfBuffer: Buffer;
+    if (this.config.useFixtures && this.config.fixturesPath) {
+      pdfBuffer = await readFile(this.config.fixturesPath);
+    } else {
+      const result = await fetchWithRetry(this.sourceUrl);
+      pdfBuffer = result.content;
+    }
+
+    const rawTextHash = sha256(pdfBuffer.toString("base64"));
+
+    // Extract text from PDF
+    const pdfData = new Uint8Array(pdfBuffer);
+    const pageTexts = await extractPdfText(pdfData);
+    const fullText = pageTexts.join(" "); // Combine pages for cross-page sections
+
+    // Verify document header
+    if (!/EXPECTED_HEADER_TEXT/i.test(fullText)) {
+      throw new Error("Could not find expected header - PDF structure may have changed");
+    }
+
+    // === PARSING LOGIC HERE ===
+    // Use regex to extract sections and rates from fullText
+    // Example: const sectionMatch = fullText.match(/Account\s+Name[\s\S]*?NEXT_SECTION/i);
+
+    // Validate we got expected offers
+    if (offers.length === 0) {
+      throw new Error("No offers extracted - PDF structure may have changed");
+    }
+
+    return {
+      bank_id: this.bankId,
+      offers,
+      warnings,
+      raw_text_hash: rawTextHash,
+    };
+  }
+}
+```
+
 ### Creating a Savings Offer
 
 ```typescript
@@ -191,6 +325,7 @@ import {
   sha256, // Hash content for fingerprinting
   generateSavingsOfferId, // Generate stable offer ID
   fetchWithRetry, // Fetch with retry logic
+  parseColombianNumber, // Parse "12,50" -> 12.5 or "12.50" -> 12.5
 } from "../../utils/index.js";
 ```
 
@@ -334,7 +469,8 @@ Add the new bank to the completed tasks:
 
 - [ ] Bank added to `BankId` enum (if new)
 - [ ] Bank URL added to `BankSavingsUrls` map
-- [ ] Fixture downloaded to `fixtures/{bank_id}/savings-page.html`
+- [ ] Fixture downloaded to `fixtures/{bank_id}/savings-page.html` or `.pdf`
+- [ ] (PDF only) Debug PDF text to understand actual format before writing regex
 - [ ] Parser implemented in `packages/updater/src/parsers/savings/{bank_id}.ts`
 - [ ] Parser registered in `packages/updater/src/parsers/savings/index.ts`
 - [ ] Tests written in `packages/updater/src/parsers/savings/{bank_id}.test.ts`
@@ -344,13 +480,26 @@ Add the new bank to the completed tasks:
 
 ---
 
-## Reference Implementation
+## Reference Implementations
+
+### HTML Parsing (Ban100)
 
 See `packages/updater/src/parsers/savings/ban100.ts` for a complete example that handles:
 
 - Multiple account types (high-yield and standard)
 - Tiered rates based on balance amounts
 - Colombian number format parsing
+- cheerio CSS selectors
+
+### PDF Parsing (BBVA)
+
+See `packages/updater/src/parsers/savings/bbva.ts` for a complete example that handles:
+
+- PDF text extraction with pdfjs-dist
+- Multiple account types (7 different products)
+- Complex tiered rate structures (up to 7 tiers)
+- Cross-page section parsing
+- PDF-specific text format quirks (e.g., `-$ 1- -$ 4.999.999-`)
 
 ---
 
