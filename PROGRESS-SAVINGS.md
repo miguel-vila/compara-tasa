@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 2 Banks
+## Status: MVP + 4 Banks
 
-The savings account support is functional with three banks (Ban100, BBVA, and Lulo Bank).
+The savings account support is functional with five banks (Ban100, BBVA, Lulo Bank, RappiPay, and Pibank).
 
 ## Completed Tasks
 
@@ -34,6 +34,7 @@ The savings account support is functional with three banks (Ban100, BBVA, and Lu
 - [x] **BBVA**: Implement PDF parsing (20 tests)
 - [x] **Lulo Bank**: Implement Playwright + HTML parsing (12 tests)
 - [x] **RappiPay**: Implement HTML parsing (12 tests)
+- [x] **Pibank**: Implement PDF parsing (11 tests)
 
 ### Phase 3: Frontend
 
@@ -154,14 +155,30 @@ pnpm --filter @compara-tasa/updater dev:savings
 - Bóvedas (fixed-term vaults at 9.25%-10% E.A.) are excluded as they function like CDTs, not savings accounts
 - Page has nested tabs: outer (Personas/Empresas) and inner (monthly tariffs)
 
+## Pibank Implementation Details
+
+**Source URL:** https://www.pibank.co/uploads/2025/12/Tasas012026.pdf
+
+**Scraping Method:** PDF parsing with pdfjs-dist
+
+**Accounts Parsed:**
+
+1. **Cuenta Pibank** (High Yield) - 1 rate:
+   - All amounts from $1: 11% E.A.
+
+**Notes:**
+
+- Pibank (Banco Pichincha Colombia) offers a single savings account with no tiers
+- Interests are calculated on daily balance and credited the first day of the following month
+- PDF also contains CDT and credit rates, but only the savings account rate is extracted
+- PDF text extraction quirk: rate appears as "1 1 %" with spaces between digits
+
 ## Next Banks to Add
 
 Priority list from `savings-support.md`:
 
 | Priority | Bank        | Scrapability         | URL             |
 | -------- | ----------- | -------------------- | --------------- |
-| High     | RappiPay    | Medium (SPA)         | rappipay.co     |
-| Medium   | Pibank      | Medium (SPA)         | pibank.co       |
 | Low      | Bancolombia | Poor (requires auth) | bancolombia.com |
 
 ## Blocked Banks (Not Implementable)
@@ -189,4 +206,4 @@ Priority list from `savings-support.md`:
 
 - [ ] Add savings-specific ranking scenarios (best overall rate, best for amount X)
 - [x] Integrate savings stats on homepage (split stats section + savings preview section)
-- [ ] Add more banks (Pibank)
+- [x] Add more banks (Pibank)

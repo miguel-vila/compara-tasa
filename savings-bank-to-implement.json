@@ -17,6 +17,7 @@
   },
   {
     "bank_name": "Pibank",
-    "implemented": false
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   }
 ]
