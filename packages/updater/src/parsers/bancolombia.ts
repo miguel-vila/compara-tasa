@@ -31,12 +31,6 @@ const SELECTORS = {
   ratesTables: ".contenido-tabla-detalles-tasas-tarifas table",
 } as const;
 
-type RateRow = {
-  segment: Segment;
-  eaValue: string;
-  mvValue: string;
-};
-
 export class BancolombiaParser implements BankMortgageParser {
   bankId = BankId.BANCOLOMBIA;
   sourceUrl = SOURCE_URL;

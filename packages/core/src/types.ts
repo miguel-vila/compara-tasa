@@ -8,6 +8,7 @@ import type {
   ExtractionMethod,
   MortgageScenarioKey,
   SavingsAccountType,
+  SavingsScenarioKey,
 } from "./enums.js";
 
 // Rate representations
@@ -161,4 +162,30 @@ export type BankSavingsParseResult = {
   offers: SavingsOffer[];
   warnings: string[];
   raw_text_hash: string;
+};
+
+// ============================================
+// Savings Rankings Types
+// ============================================
+
+// Savings ranking metric (always E.A. percentage - higher is better)
+export type SavingsRankingMetric = {
+  kind: "EA_PERCENT";
+  value: number;
+};
+
+// Savings ranked entry
+export type SavingsRankedEntry = {
+  position: number;
+  offer_id: string;
+  metric: SavingsRankingMetric;
+};
+
+// Savings scenario ranking - array of top ranked entries
+export type SavingsScenarioRanking = SavingsRankedEntry[];
+
+// Savings rankings object (precomputed)
+export type SavingsRankings = {
+  generated_at: string; // ISO timestamp
+  scenarios: Partial<Record<SavingsScenarioKey, SavingsScenarioRanking>>;
 };

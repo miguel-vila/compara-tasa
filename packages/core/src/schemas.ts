@@ -9,6 +9,9 @@ import {
   ExtractionMethod,
   MortgageScenarioKey,
   SavingsAccountType,
+  SavingsScenarioKey,
+  SavingsBalanceTier,
+  SavingsBankType,
 } from "./enums.js";
 
 // Enum schemas - derived automatically from const objects using z.nativeEnum()
@@ -164,4 +167,35 @@ export const BankSavingsParseResultSchema = z.object({
   offers: z.array(SavingsOfferSchema),
   warnings: z.array(z.string()),
   raw_text_hash: z.string(),
+});
+
+// ============================================
+// Savings Rankings Schemas
+// ============================================
+
+// New enum schemas for savings segmentation
+export const SavingsScenarioKeySchema = z.nativeEnum(SavingsScenarioKey);
+export const SavingsBalanceTierSchema = z.nativeEnum(SavingsBalanceTier);
+export const SavingsBankTypeSchema = z.nativeEnum(SavingsBankType);
+
+// Savings ranking metric schema (always E.A. percent - higher is better)
+export const SavingsRankingMetricSchema = z.object({
+  kind: z.literal("EA_PERCENT"),
+  value: z.number(),
+});
+
+// Savings ranked entry schema
+export const SavingsRankedEntrySchema = z.object({
+  position: z.number().int().min(1).max(3),
+  offer_id: z.string(),
+  metric: SavingsRankingMetricSchema,
+});
+
+// Savings scenario ranking schema
+export const SavingsScenarioRankingSchema = z.array(SavingsRankedEntrySchema).max(3);
+
+// Savings rankings schema
+export const SavingsRankingsSchema = z.object({
+  generated_at: z.string().datetime(),
+  scenarios: z.record(SavingsScenarioKeySchema, SavingsScenarioRankingSchema.optional()),
 });

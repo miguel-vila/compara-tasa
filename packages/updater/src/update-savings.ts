@@ -3,10 +3,12 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import {
   SavingsOffersDatasetSchema,
+  SavingsRankingsSchema,
   type SavingsOffer,
   type SavingsOffersDataset,
 } from "@compara-tasa/core";
 import { createAllSavingsParsers } from "./parsers/savings/index.js";
+import { computeSavingsRankings } from "./savingsRankings.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../../../apps/web/public/data");
@@ -69,15 +71,29 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
+  // Compute rankings
+  console.log("\nComputing savings rankings...");
+  const rankings = computeSavingsRankings(allOffers);
+
+  // Validate rankings
+  const rankingsResult = SavingsRankingsSchema.safeParse(rankings);
+  if (!rankingsResult.success) {
+    console.error("Rankings validation failed:", rankingsResult.error);
+    process.exit(1);
+  }
+
   // Write outputs
   await ensureDir(DATA_DIR);
 
   const offersLatestPath = join(DATA_DIR, "savings-offers-latest.json");
+  const rankingsLatestPath = join(DATA_DIR, "savings-rankings-latest.json");
 
   await writeJson(offersLatestPath, dataset);
+  await writeJson(rankingsLatestPath, rankings);
 
   console.log(`\nOutputs written to ${DATA_DIR}:`);
   console.log(`  - savings-offers-latest.json`);
+  console.log(`  - savings-rankings-latest.json`);
 
   // Summary
   console.log("\n--- Summary ---");
@@ -99,6 +115,22 @@ async function main(): Promise<void> {
     console.log(
       `  ${offer.rate.ea_percent.toFixed(2)}% E.A. - ${offer.bank_name} (${offer.account_name})`
     );
+  }
+
+  // Print rankings summary
+  console.log("\n--- Rankings by Scenario ---");
+  const offerById = new Map(allOffers.map((o) => [o.id, o]));
+  for (const [scenario, ranking] of Object.entries(rankings.scenarios)) {
+    if (!ranking || ranking.length === 0) continue;
+    console.log(`\n${scenario}:`);
+    for (const entry of ranking) {
+      const offer = offerById.get(entry.offer_id);
+      if (offer) {
+        console.log(
+          `  #${entry.position}: ${entry.metric.value.toFixed(2)}% E.A. - ${offer.bank_name} (${offer.account_name})`
+        );
+      }
+    }
   }
 }
 

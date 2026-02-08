@@ -12,7 +12,6 @@ export function parseColombianNumber(value: string): number {
   let cleaned = value.trim().replace(/%/g, "").replace(/\s/g, "");
 
   const hasComma = cleaned.includes(",");
-  const hasDot = cleaned.includes(".");
 
   if (hasComma) {
     // Colombian format: dot is thousands separator, comma is decimal

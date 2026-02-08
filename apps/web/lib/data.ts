@@ -4,9 +4,11 @@ import {
   MortgageOffersDatasetSchema,
   RankingsSchema,
   SavingsOffersDatasetSchema,
+  SavingsRankingsSchema,
   type MortgageOffersDataset,
   type Rankings,
   type SavingsOffersDataset,
+  type SavingsRankings,
 } from "@compara-tasa/core";
 
 // Read from public/data for server components
@@ -53,6 +55,21 @@ export async function fetchSavingsOffers(): Promise<SavingsOffersDataset> {
     return {
       generated_at: new Date().toISOString(),
       offers: [],
+    };
+  }
+}
+
+export async function fetchSavingsRankings(): Promise<SavingsRankings> {
+  try {
+    const filePath = join(DATA_DIR, "savings-rankings-latest.json");
+    const content = await readFile(filePath, "utf-8");
+    const data = JSON.parse(content);
+    return SavingsRankingsSchema.parse(data);
+  } catch (error) {
+    console.error("Error fetching savings rankings:", error);
+    return {
+      generated_at: new Date().toISOString(),
+      scenarios: {},
     };
   }
 }

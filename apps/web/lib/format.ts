@@ -1,6 +1,11 @@
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
-import type { Rate, MortgageScenarioKey, SavingsRate } from "@compara-tasa/core";
+import type {
+  Rate,
+  MortgageScenarioKey,
+  SavingsRate,
+  SavingsScenarioKey,
+} from "@compara-tasa/core";
 
 export function formatRate(rate: Rate): string {
   if (rate.kind === "COP_FIXED") {
@@ -84,3 +89,28 @@ export function formatAmountRange(min?: number, max?: number): string {
   if (!min && max) return `Hasta ${formatCopAmount(max)}`;
   return `${formatCopAmount(min!)} - ${formatCopAmount(max!)}`;
 }
+
+// Savings scenario labels and descriptions
+export const SAVINGS_SCENARIO_LABELS: Record<SavingsScenarioKey, string> = {
+  best_rate_under_10m: "Hasta $10M",
+  best_rate_10m_to_50m: "$10M - $50M",
+  best_rate_over_50m: "Más de $50M",
+  best_neobank: "Bancos Digitales",
+  best_traditional: "Bancos Tradicionales",
+};
+
+export const SAVINGS_SCENARIO_DESCRIPTIONS: Record<SavingsScenarioKey, string> = {
+  best_rate_under_10m: "Mejor tasa para ahorros menores a $10 millones",
+  best_rate_10m_to_50m: "Mejor tasa para ahorros entre $10M y $50M",
+  best_rate_over_50m: "Mejor tasa para ahorros superiores a $50 millones",
+  best_neobank: "Mejor tasa entre bancos 100% digitales",
+  best_traditional: "Mejor tasa entre bancos tradicionales",
+};
+
+export const SAVINGS_SCENARIO_ICONS: Record<SavingsScenarioKey, string> = {
+  best_rate_under_10m: "💰",
+  best_rate_10m_to_50m: "💵",
+  best_rate_over_50m: "🏦",
+  best_neobank: "📱",
+  best_traditional: "🏛️",
+};

@@ -13,6 +13,12 @@ export {
   ExtractionMethod,
   MortgageScenarioKey,
   SavingsAccountType,
+  // Savings segmentation enums
+  SavingsBalanceTier,
+  SAVINGS_BALANCE_THRESHOLDS,
+  SavingsBankType,
+  BankTypeClassification,
+  SavingsScenarioKey,
 } from "./enums.js";
 
 // Types
@@ -37,6 +43,11 @@ export type {
   SavingsOffer,
   SavingsOffersDataset,
   BankSavingsParseResult,
+  // Savings rankings types
+  SavingsRankingMetric,
+  SavingsRankedEntry,
+  SavingsScenarioRanking,
+  SavingsRankings,
 } from "./types.js";
 
 // Zod Schemas
@@ -69,4 +80,12 @@ export {
   SavingsOfferSchema,
   SavingsOffersDatasetSchema,
   BankSavingsParseResultSchema,
+  // Savings rankings schemas
+  SavingsScenarioKeySchema,
+  SavingsBalanceTierSchema,
+  SavingsBankTypeSchema,
+  SavingsRankingMetricSchema,
+  SavingsRankedEntrySchema,
+  SavingsScenarioRankingSchema,
+  SavingsRankingsSchema,
 } from "./schemas.js";

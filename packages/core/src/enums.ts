@@ -162,3 +162,51 @@ export const SavingsAccountType = {
 } as const;
 
 export type SavingsAccountType = (typeof SavingsAccountType)[keyof typeof SavingsAccountType];
+
+// Savings balance tiers for segmentation
+export const SavingsBalanceTier = {
+  UNDER_10M: "under_10m", // < 10M COP
+  FROM_10M_TO_50M: "10m_to_50m", // 10M - 50M COP
+  OVER_50M: "over_50m", // > 50M COP
+} as const;
+
+export type SavingsBalanceTier = (typeof SavingsBalanceTier)[keyof typeof SavingsBalanceTier];
+
+// Balance tier thresholds in COP
+export const SAVINGS_BALANCE_THRESHOLDS = {
+  TIER_1_MAX: 10_000_000, // 10M COP
+  TIER_2_MAX: 50_000_000, // 50M COP
+} as const;
+
+// Bank type classification for savings
+export const SavingsBankType = {
+  NEOBANK: "neobank", // Digital-only banks (Ban100, Lulo, Ualá, Pibank, RappiPay)
+  TRADITIONAL: "traditional", // Traditional banks with digital offerings (BBVA, Caja Social, Bancamía)
+} as const;
+
+export type SavingsBankType = (typeof SavingsBankType)[keyof typeof SavingsBankType];
+
+// Map bank IDs to their type
+export const BankTypeClassification: Record<string, SavingsBankType> = {
+  ban100: SavingsBankType.NEOBANK,
+  lulo: SavingsBankType.NEOBANK,
+  rappipay: SavingsBankType.NEOBANK,
+  pibank: SavingsBankType.NEOBANK,
+  uala: SavingsBankType.NEOBANK,
+  bbva: SavingsBankType.TRADITIONAL,
+  banco_caja_social: SavingsBankType.TRADITIONAL,
+  bancamia: SavingsBankType.TRADITIONAL,
+};
+
+// Savings scenario keys for rankings
+export const SavingsScenarioKey = {
+  // By balance tier (best rate accessible at each tier)
+  BEST_RATE_UNDER_10M: "best_rate_under_10m",
+  BEST_RATE_10M_TO_50M: "best_rate_10m_to_50m",
+  BEST_RATE_OVER_50M: "best_rate_over_50m",
+  // By bank type
+  BEST_NEOBANK: "best_neobank",
+  BEST_TRADITIONAL: "best_traditional",
+} as const;
+
+export type SavingsScenarioKey = (typeof SavingsScenarioKey)[keyof typeof SavingsScenarioKey];
