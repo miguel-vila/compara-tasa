@@ -1,113 +1,129 @@
 {
-  "generated_at": "2026-02-08T16:03:34.175Z",
+  "generated_at": "2026-02-08T17:00:52.630Z",
   "scenarios": {
     "best_rate_under_10m": [
       {
         "position": 1,
-        "offer_id": "a9e2978165f3958a",
+        "offer_id": "ad0607a9653e05f2",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 13
         }
       },
       {
         "position": 2,
-        "offer_id": "11693522babf3a62",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       },
       {
         "position": 3,
-        "offer_id": "31c365dcb1142153",
+        "offer_id": "306a37384405ecb0",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 9
+          "value": 10
         }
       }
     ],
     "best_rate_10m_to_50m": [
       {
         "position": 1,
-        "offer_id": "a9e2978165f3958a",
+        "offer_id": "ad0607a9653e05f2",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 13
         }
       },
       {
         "position": 2,
-        "offer_id": "11693522babf3a62",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       },
       {
         "position": 3,
-        "offer_id": "75f42d2146224fdb",
+        "offer_id": "a74c471cac26e598",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 9.5
+          "value": 10.5
         }
       }
     ],
     "best_rate_over_50m": [
       {
         "position": 1,
-        "offer_id": "376a27306a1e91ea",
+        "offer_id": "ad0607a9653e05f2",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 13
         }
       },
       {
         "position": 2,
-        "offer_id": "a9e2978165f3958a",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       },
       {
         "position": 3,
-        "offer_id": "11693522babf3a62",
+        "offer_id": "a74c471cac26e598",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 10.5
         }
       }
     ],
     "best_neobank": [
       {
         "position": 1,
-        "offer_id": "376a27306a1e91ea",
+        "offer_id": "ad0607a9653e05f2",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 13
         }
       },
       {
         "position": 2,
-        "offer_id": "11693522babf3a62",
+        "offer_id": "6eaa51ea6d1ed501",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 10
+          "value": 11
         }
       },
       {
         "position": 3,
-        "offer_id": "31c365dcb1142153",
+        "offer_id": "376a27306a1e91ea",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 9
+          "value": 10
         }
       }
     ],
     "best_traditional": [
       {
         "position": 1,
+        "offer_id": "71eb3f07b4fdd966",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 10.5
+        }
+      },
+      {
+        "position": 2,
+        "offer_id": "a74c471cac26e598",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 10.5
+        }
+      },
+      {
+        "position": 3,
         "offer_id": "a9e2978165f3958a",
         "metric": {
           "kind": "EA_PERCENT",

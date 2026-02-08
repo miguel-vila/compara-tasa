@@ -61,6 +61,9 @@
   },
   {
     "bank_name": "Mi Banco",
-    "implemented": false
+    "implemented": false,
+    "blocked": true,
+    "rate_info": "Max 6.10% E.A. for Mi Cuenta Ahorro Para Crecer (requires $5M+ balance)",
+    "blocked_reason": "PDF rates document (https://documentos.mibanco.com.co/archivos/Tasas_06_FebreroV1.pdf) is image-based with no extractable text. Would require OCR to parse. Rates are also relatively low compared to neobanks (max 6.10% vs 10-13% from others)."
   }
 ]

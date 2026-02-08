@@ -150,7 +150,7 @@ export const SavingsOfferSchema = z.object({
   account_type: SavingsAccountTypeSchema,
   account_name: z.string(),
   rate: SavingsRateSchema,
-  min_amount_cop: z.number().positive().optional(),
+  min_amount_cop: z.number().nonnegative().optional(),
   max_amount_cop: z.number().positive().optional(),
   source: OfferSourceSchema,
 });

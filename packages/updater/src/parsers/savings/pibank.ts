@@ -11,7 +11,7 @@ import {
 import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
 
-const SOURCE_URL = "https://www.pibank.co/uploads/2025/12/Tasas012026.pdf";
+const SOURCE_URL = "https://www.pibank.co/uploads/2026/01/Tasas022026.pdf";
 
 /**
  * Extracts text content from a PDF buffer using pdfjs-dist
@@ -58,7 +58,7 @@ export class PibankParser implements BankSavingsParser {
     if (this.config.useFixtures && this.config.fixturesPath) {
       pdfBuffer = await readFile(this.config.fixturesPath);
     } else {
-      const result = await fetchWithRetry(this.sourceUrl);
+      const result = await fetchWithRetry(this.sourceUrl, { useBrowserUserAgent: true });
       pdfBuffer = result.content;
     }
 
