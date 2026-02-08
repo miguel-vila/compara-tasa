@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T05:08:11.780Z",
+  "generated_at": "2026-02-08T05:56:08.410Z",
   "offers": [
     {
       "id": "1148421d91e28d09",
@@ -16,7 +16,7 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "retrieved_at": "2026-02-08T05:56:04.996Z",
         "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -40,7 +40,7 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "retrieved_at": "2026-02-08T05:56:04.996Z",
         "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -63,7 +63,7 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "retrieved_at": "2026-02-08T05:56:04.996Z",
         "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -86,7 +86,7 @@
         "url": "https://www.ban100.com.co/productos/cuenta-de-ahorro",
         "source_type": "HTML",
         "document_label": "Cuenta de Ahorro",
-        "retrieved_at": "2026-02-08T05:08:09.893Z",
+        "retrieved_at": "2026-02-08T05:56:04.996Z",
         "extracted_text_fingerprint": "c77a1019e61fcce7ec19d4f453767d72e4a954949aec5cc31e84d2e16b40d796",
         "extraction": {
           "method": "CSS_SELECTOR",
@@ -110,7 +110,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -134,7 +134,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -158,7 +158,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -182,7 +182,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -206,7 +206,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -230,7 +230,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -253,7 +253,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -276,7 +276,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -299,7 +299,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -322,7 +322,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -346,7 +346,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -370,7 +370,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -394,7 +394,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -418,7 +418,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -441,7 +441,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -465,7 +465,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -489,7 +489,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -513,7 +513,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -537,7 +537,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -561,7 +561,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -584,7 +584,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
@@ -607,12 +607,196 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés cuentas de ahorro",
-        "retrieved_at": "2026-02-08T05:08:11.640Z",
+        "retrieved_at": "2026-02-08T05:56:05.826Z",
         "extracted_text_fingerprint": "afb57de41af12b1e8e4f96d1d336f9dc5c8c397f324bdcf2ab2c0d4a5b4c0327",
         "extraction": {
           "method": "REGEX",
           "locator": "bbva_ahorro_fijo",
           "excerpt": "Ahorro Fijo: 10% E.A."
+        }
+      }
+    },
+    {
+      "id": "52f0ab39ac636b1c",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Flex",
+      "rate": {
+        "ea_percent": 7.5
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
+        "source_type": "HTML",
+        "document_label": "Características de los bolsillos",
+        "retrieved_at": "2026-02-08T05:56:06.070Z",
+        "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
+        "extraction": {
+          "method": "REGEX",
+          "locator": ".article-body",
+          "excerpt": "Bolsillos Flex: 7,5% E.A."
+        }
+      }
+    },
+    {
+      "id": "74181bf2bacf70ad",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Flex (Lulo Pro)",
+      "rate": {
+        "ea_percent": 9.25
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
+        "source_type": "HTML",
+        "document_label": "Características de los bolsillos",
+        "retrieved_at": "2026-02-08T05:56:06.070Z",
+        "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
+        "extraction": {
+          "method": "REGEX",
+          "locator": ".article-body",
+          "excerpt": "Bolsillos Flex Lulo Pro: 9,25% E.A."
+        }
+      }
+    },
+    {
+      "id": "f702163a171c1f8b",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Programados",
+      "rate": {
+        "ea_percent": 9
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
+        "source_type": "HTML",
+        "document_label": "Características de los bolsillos",
+        "retrieved_at": "2026-02-08T05:56:06.070Z",
+        "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
+        "extraction": {
+          "method": "REGEX",
+          "locator": ".article-body",
+          "excerpt": "Bolsillos Programados: 9% E.A."
+        }
+      }
+    },
+    {
+      "id": "11693522babf3a62",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Programados (Lulo Pro)",
+      "rate": {
+        "ea_percent": 10
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
+        "source_type": "HTML",
+        "document_label": "Características de los bolsillos",
+        "retrieved_at": "2026-02-08T05:56:06.070Z",
+        "extracted_text_fingerprint": "425b0e411e92c8f05590d5a91007c0100287a67735ede272c40bcdb81fcf90f7",
+        "extraction": {
+          "method": "REGEX",
+          "locator": ".article-body",
+          "excerpt": "Bolsillos Programados Lulo Pro: 10% E.A."
+        }
+      }
+    },
+    {
+      "id": "31c365dcb1142153",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos (Depósito de Bajo Monto)",
+      "rate": {
+        "ea_percent": 9
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.rappipay.co/tasas-y-tarifas/",
+        "source_type": "HTML",
+        "document_label": "Tasas y Tarifas",
+        "retrieved_at": "2026-02-08T05:56:08.086Z",
+        "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": ".e-n-tabs-content .e-n-tab-content.e-active table",
+          "excerpt": "Saldo en Bolsillos. Descubre más aquí.: 9% E.A."
+        }
+      }
+    },
+    {
+      "id": "324af5f4cb075b3d",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "standard",
+      "account_name": "Saldo Principal (Depósito de Bajo Monto)",
+      "rate": {
+        "ea_percent": 0.1
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.rappipay.co/tasas-y-tarifas/",
+        "source_type": "HTML",
+        "document_label": "Tasas y Tarifas",
+        "retrieved_at": "2026-02-08T05:56:08.086Z",
+        "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": ".e-n-tabs-content .e-n-tab-content.e-active table",
+          "excerpt": "Saldo fuera de Bolsillos: 0.1% E.A."
+        }
+      }
+    },
+    {
+      "id": "d4cd5cbac4d4ecb6",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos (Cuenta de Ahorros)",
+      "rate": {
+        "ea_percent": 9
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.rappipay.co/tasas-y-tarifas/",
+        "source_type": "HTML",
+        "document_label": "Tasas y Tarifas",
+        "retrieved_at": "2026-02-08T05:56:08.086Z",
+        "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": ".e-n-tabs-content .e-n-tab-content.e-active table",
+          "excerpt": "Saldo en Bolsillos. Descubre más aquí.: 9% E.A."
+        }
+      }
+    },
+    {
+      "id": "7fe2942751bc947a",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "standard",
+      "account_name": "Saldo Principal (Cuenta de Ahorros)",
+      "rate": {
+        "ea_percent": 0.1
+      },
+      "min_amount_cop": 1,
+      "source": {
+        "url": "https://www.rappipay.co/tasas-y-tarifas/",
+        "source_type": "HTML",
+        "document_label": "Tasas y Tarifas",
+        "retrieved_at": "2026-02-08T05:56:08.086Z",
+        "extracted_text_fingerprint": "718ac81531bd26f751bb6ca1077fdb9b199cc63e80b51b0f0fd4647ed14cd5fa",
+        "extraction": {
+          "method": "CSS_SELECTOR",
+          "locator": ".e-n-tabs-content .e-n-tab-content.e-active table",
+          "excerpt": "Saldo fuera de Bolsillos: 0.1% E.A."
         }
       }
     }
