@@ -5,19 +5,18 @@
     "implemented_date": "2026-02-08"
   },
   {
-    "bank_name": "Nubank",
-    "implemented": false
+    "bank_name": "Nu Colombia",
+    "implemented": false,
+    "blocked": true,
+    "blocked_reason": "Cajitas rate not available in scrapeable format. The rate is dynamically loaded in their app/website and not published in any static PDF or HTML page. The official conditions page shows 'Estamos actualizando la tasa' and their costs PDF links to 'find it here' without the actual rate."
   },
   {
     "bank_name": "RappiPay",
-    "implemented": false
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   },
   {
     "bank_name": "Pibank",
-    "implemented": false
-  },
-  {
-    "bank_name": "Nu",
     "implemented": false
   }
 ]
