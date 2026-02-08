@@ -1,4 +1,5 @@
 export type { BankSavingsParser, SavingsParserConfig } from "./types.js";
+export { AvvillasParser } from "./avvillas.js";
 export { Ban100Parser } from "./ban100.js";
 export { BancamiaParser } from "./bancamia.js";
 export { BbvaSavingsParser } from "./bbva.js";
@@ -8,6 +9,7 @@ export { PibankParser } from "./pibank.js";
 export { RappiPayParser } from "./rappipay.js";
 export { UalaParser } from "./uala.js";
 
+import { AvvillasParser } from "./avvillas.js";
 import { Ban100Parser } from "./ban100.js";
 import { BancamiaParser } from "./bancamia.js";
 import { BbvaSavingsParser } from "./bbva.js";
@@ -23,6 +25,7 @@ import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
  */
 export function createAllSavingsParsers(config: SavingsParserConfig = {}): BankSavingsParser[] {
   return [
+    new AvvillasParser(config),
     new Ban100Parser(config),
     new BancamiaParser(config),
     new BbvaSavingsParser(config),

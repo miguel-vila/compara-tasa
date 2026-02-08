@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 7 Banks
+## Status: MVP + 8 Banks
 
-The savings account support is functional with eight banks (Ban100, Bancamía, Banco Caja Social, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
+The savings account support is functional with nine banks (AV Villas, Ban100, Bancamía, Banco Caja Social, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
 
 ## Completed Tasks
 
@@ -38,6 +38,7 @@ The savings account support is functional with eight banks (Ban100, Bancamía, B
 - [x] **Ualá**: Implement HTML parsing from press releases (11 tests)
 - [x] **Bancamía**: Implement PDF parsing for RentaPlus (15 tests)
 - [x] **Banco Caja Social**: Implement PDF parsing for Alcancía Digital (11 tests)
+- [x] **Banco AV Villas**: Implement PDF parsing for Cuenta Premium and Bolsillos (18 tests)
 
 ### Phase 3: Frontend
 
@@ -243,6 +244,47 @@ pnpm --filter @compara-tasa/updater dev:savings
 - If withdrawals are made, the standard rate of 0.05% E.A. applies
 - Maximum balance for the premium rate is $40,000,000 COP
 - Interest is calculated on daily available balance
+
+## Banco AV Villas Implementation Details
+
+**Source URL:** https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf
+
+**Scraping Method:** PDF parsing with pdfjs-dist
+
+**Accounts Parsed:**
+
+1. **Bolsillos con Rentabilidad (Cuenta Premium)** (High Yield) - 8 tiered rates (>365 days plazo):
+   - $1 - $499,999: 0.50% E.A.
+   - $500,000 - $5,000,000: 3.25% E.A.
+   - $5,000,001 - $20,000,000: 5.75% E.A.
+   - $20,000,001 - $50,000,000: 8.05% E.A.
+   - $50,000,001 - $100,000,001: 9.25% E.A.
+   - $100,000,001 - $250,000,000: 10.25% E.A.
+   - $250,000,001 - $500,000,000: 10.35% E.A.
+   - $500,000,002+: 10.50% E.A.
+
+2. **Cuenta Premium** (High Yield) - 7 tiered rates:
+   - $0 - $5,000,000: 0.50% E.A.
+   - $5,000,001 - $20,000,000: 3.00% E.A.
+   - $20,000,001 - $50,000,000: 5.30% E.A.
+   - $50,000,001 - $100,000,000: 6.50% E.A.
+   - $100,000,001 - $250,000,000: 7.50% E.A.
+   - $250,000,001 - $500,000,000: 8.50% E.A.
+   - $500,000,001+: 9.00% E.A.
+
+3. **RentaVillas** (Standard) - 5 tiered rates:
+   - $0 - $5,000,000: 0.50% E.A.
+   - $5,000,001 - $20,000,000: 0.75% E.A.
+   - $20,000,001 - $50,000,000: 1.00% E.A.
+   - $50,000,001 - $100,000,000: 1.25% E.A.
+   - $100,000,001+: 1.50% E.A.
+
+**Notes:**
+
+- Bolsillos con Rentabilidad require a holding period (plazo de permanencia) - we extract the >365 days rates
+- If withdrawals are made before the plazo, only the Cuenta Premium base rate applies
+- AFC (housing savings) rates reference the same structure as CERTIVILLAS and are not disclosed separately
+- Other accounts (VillaDiario, Cuenta Móvil, Digital) have 0.01% base rates and are not included
 
 ## Next Banks to Add
 

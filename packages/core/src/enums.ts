@@ -74,6 +74,8 @@ export const BankUrls = BankMortgageUrls;
 
 // Bank savings account information URLs (partial - only for banks with savings products)
 export const BankSavingsUrls: Partial<Record<BankId, string>> = {
+  avvillas:
+    "https://www.avvillas.com.co/documents/2920580/43165594/TASAS+AHORROS+Y+BOLSILLOS+CON+RENTABILIDAD+INTRANET+(1).pdf/eef5b4a3-dc4b-1f27-ea9d-db3a989ea862",
   ban100: "https://www.ban100.com.co/productos/cuenta-de-ahorro",
   banco_caja_social:
     "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
@@ -188,6 +190,7 @@ export type SavingsBankType = (typeof SavingsBankType)[keyof typeof SavingsBankT
 
 // Map bank IDs to their type
 export const BankTypeClassification: Record<string, SavingsBankType> = {
+  avvillas: SavingsBankType.TRADITIONAL,
   ban100: SavingsBankType.NEOBANK,
   lulo: SavingsBankType.NEOBANK,
   rappipay: SavingsBankType.NEOBANK,

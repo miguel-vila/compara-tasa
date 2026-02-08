@@ -48,5 +48,18 @@
     "blocked": true,
     "rate_info": "0.1% E.A.",
     "blocked_reason": "Rate is too low (0.1% E.A.) to be competitive. Not worth implementing as users would not benefit from comparing this rate."
+  },
+  {
+    "bank_name": "Banco AV Villas",
+    "implemented": true,
+    "implemented_date": "2026-02-08"
+  },
+  {
+    "bank_name": "Banco Popular",
+    "implemented": false
+  },
+  {
+    "bank_name": "Mi Banco",
+    "implemented": false
   }
 ]

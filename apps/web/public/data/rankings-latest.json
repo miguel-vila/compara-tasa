@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T06:33:17.500Z",
+  "generated_at": "2026-02-08T16:34:09.923Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -108,6 +108,14 @@
     "best_uvr_vis_payroll": [
       {
         "position": 1,
+        "offer_id": "586cae489862fdf7",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 4.5
+        }
+      },
+      {
+        "position": 2,
         "offer_id": "a4d1b69326638fdd",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -115,7 +123,7 @@
         }
       },
       {
-        "position": 2,
+        "position": 3,
         "offer_id": "91cb9bcf79d069e2",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -126,6 +134,14 @@
     "best_uvr_no_vis_payroll": [
       {
         "position": 1,
+        "offer_id": "008876188be57f15",
+        "metric": {
+          "kind": "UVR_SPREAD_EA",
+          "value": 7.5
+        }
+      },
+      {
+        "position": 2,
         "offer_id": "b821b1bce2b6732d",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -136,6 +152,14 @@
     "best_cop_vis_payroll": [
       {
         "position": 1,
+        "offer_id": "e5ce7c0191900770",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 9.5
+        }
+      },
+      {
+        "position": 2,
         "offer_id": "2176a229c5587a44",
         "metric": {
           "kind": "EA_PERCENT",
@@ -143,7 +167,7 @@
         }
       },
       {
-        "position": 2,
+        "position": 3,
         "offer_id": "38e27706d37a20cf",
         "metric": {
           "kind": "EA_PERCENT",
@@ -162,6 +186,14 @@
       },
       {
         "position": 2,
+        "offer_id": "6ac01a063d37c5f6",
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 12
+        }
+      },
+      {
+        "position": 3,
         "offer_id": "e4d5739b1d7a332a",
         "metric": {
           "kind": "EA_PERCENT",
