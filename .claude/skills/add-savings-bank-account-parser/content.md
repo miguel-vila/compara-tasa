@@ -563,3 +563,31 @@ See `packages/updater/src/parsers/savings/lulo.ts` for a complete implementation
 Some bank PDFs may visually appear to be image-based (scanned documents) but actually contain extractable text. Always try `pdfjs-dist` extraction first before assuming OCR is needed. The Banco Caja Social Alcancía PDF is an example - it looks like a styled image but `pdfjs-dist` successfully extracts the text.
 
 See `packages/updater/src/parsers/savings/caja_social.ts` for a complete implementation example.
+
+### Date-based PDF URLs that change monthly
+
+Some banks publish rates in PDFs with date-based URLs that change each month. These require **dynamic URL resolution** instead of hardcoded URLs.
+
+**Banks with date-based URLs:**
+
+| Bank         | URL Pattern                                   | Resolution Strategy                                                     |
+| ------------ | --------------------------------------------- | ----------------------------------------------------------------------- |
+| **Pibank**   | `/uploads/{year}/{month}/Tasas{MM}{YYYY}.pdf` | Predictable - use `fetchPibankPdf()`                                    |
+| **Bancamía** | Unpredictable date ranges in filename         | Cannot be automated - requires manual updates or scraping an index page |
+
+**For predictable patterns:**
+
+1. Create a dedicated fetch helper in `packages/updater/src/utils/fetch.ts` (follow the pattern of `fetchPibankPdf` or `fetchBancoDeBogotaPdf`)
+2. The helper should calculate the expected URL from the current date
+3. Try current month first, fall back to previous month if 404/403
+4. Return both the content and the resolved URL
+5. Update the parser to use the resolved URL in the offer's source metadata
+
+**For unpredictable patterns:**
+
+If the URL pattern cannot be predicted (e.g., Bancamía uses arbitrary date ranges), options are:
+
+- Scrape an index/landing page to discover the current PDF link
+- Accept that the parser will break periodically and require manual URL updates
+
+**Reference implementations:** `fetchPibankPdf()` and `fetchBancoDeBogotaPdf()` in `packages/updater/src/utils/fetch.ts`

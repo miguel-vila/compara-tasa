@@ -109,9 +109,14 @@ const SPANISH_MONTHS = [
 ];
 
 const BANCO_DE_BOGOTA_BASE_URL = "https://www.bancodebogota.com/documents/d/guest";
+const PIBANK_BASE_URL = "https://www.pibank.co/uploads";
 
 function isHttp404(error: unknown): boolean {
   return error instanceof Error && error.message.includes("HTTP 404");
+}
+
+function isHttp403(error: unknown): boolean {
+  return error instanceof Error && error.message.includes("HTTP 403");
 }
 
 /**
@@ -144,6 +149,66 @@ export async function fetchBancoDeBogotaPdf(
         `Banco de Bogotá: current month URL returned 404, trying previous month: ${prevUrl}`
       );
       const result = await fetchWithRetry(prevUrl, options);
+      return { ...result, resolvedUrl: prevUrl };
+    }
+    throw error;
+  }
+}
+
+/**
+ * Builds a Pibank PDF URL for a given rate month.
+ *
+ * URL pattern: /uploads/{upload_year}/{upload_month}/Tasas{rate_month}{rate_year}.pdf
+ * The upload date is the month BEFORE the rates take effect.
+ * Example: February 2026 rates -> uploaded January 2026 -> /uploads/2026/01/Tasas022026.pdf
+ */
+function buildPibankUrl(rateYear: number, rateMonth: number): string {
+  // Upload happens in the previous month
+  const uploadDate = new Date(rateYear, rateMonth - 2, 1); // month is 0-indexed, so rateMonth-2
+  const uploadYear = uploadDate.getFullYear();
+  const uploadMonth = String(uploadDate.getMonth() + 1).padStart(2, "0");
+
+  const rateMonthStr = String(rateMonth).padStart(2, "0");
+
+  return `${PIBANK_BASE_URL}/${uploadYear}/${uploadMonth}/Tasas${rateMonthStr}${rateYear}.pdf`;
+}
+
+/**
+ * Fetches Pibank PDF with month-based URL resolution.
+ * Tries current month first, falls back to previous month if 403/404.
+ *
+ * Pibank requires a browser User-Agent (CloudFront blocks default agents).
+ */
+export async function fetchPibankPdf(
+  options?: Omit<Parameters<typeof fetchWithRetry>[1], "useBrowserUserAgent">
+): Promise<FetchResult & { resolvedUrl: string }> {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1; // 1-indexed
+
+  // Try current month first
+  const currentUrl = buildPibankUrl(currentYear, currentMonth);
+
+  try {
+    const result = await fetchWithRetry(currentUrl, {
+      ...options,
+      useBrowserUserAgent: true,
+      retries: 0,
+    });
+    return { ...result, resolvedUrl: currentUrl };
+  } catch (error) {
+    // If 403 or 404, try previous month (rates may not be uploaded yet)
+    if (isHttp403(error) || isHttp404(error)) {
+      const prevDate = new Date(currentYear, currentMonth - 2, 1);
+      const prevYear = prevDate.getFullYear();
+      const prevMonth = prevDate.getMonth() + 1;
+      const prevUrl = buildPibankUrl(prevYear, prevMonth);
+
+      console.log(`Pibank: current month URL failed, trying previous month: ${prevUrl}`);
+      const result = await fetchWithRetry(prevUrl, {
+        ...options,
+        useBrowserUserAgent: true,
+      });
       return { ...result, resolvedUrl: prevUrl };
     }
     throw error;

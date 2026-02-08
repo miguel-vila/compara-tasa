@@ -8,10 +8,8 @@ import {
   type SavingsOffer,
   type BankSavingsParseResult,
 } from "@compara-tasa/core";
-import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
+import { fetchPibankPdf, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
-
-const SOURCE_URL = "https://www.pibank.co/uploads/2026/01/Tasas022026.pdf";
 
 /**
  * Extracts text content from a PDF buffer using pdfjs-dist
@@ -44,7 +42,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
  */
 export class PibankParser implements BankSavingsParser {
   bankId = BankId.PIBANK;
-  sourceUrl = SOURCE_URL;
+  sourceUrl = "https://www.pibank.co/tasas-y-tarifas"; // Landing page; actual PDF URL resolved dynamically
 
   constructor(private config: SavingsParserConfig = {}) {}
 
@@ -55,11 +53,14 @@ export class PibankParser implements BankSavingsParser {
 
     // Fetch PDF (from fixture or live)
     let pdfBuffer: Buffer;
+    let resolvedUrl: string;
     if (this.config.useFixtures && this.config.fixturesPath) {
       pdfBuffer = await readFile(this.config.fixturesPath);
+      resolvedUrl = this.sourceUrl;
     } else {
-      const result = await fetchWithRetry(this.sourceUrl, { useBrowserUserAgent: true });
+      const result = await fetchPibankPdf();
       pdfBuffer = result.content;
+      resolvedUrl = result.resolvedUrl;
     }
 
     const rawTextHash = sha256(pdfBuffer.toString("base64"));
@@ -90,7 +91,7 @@ export class PibankParser implements BankSavingsParser {
     if (altMatch) {
       // Combine the two digits (e.g., "1" "1" -> 11)
       const rate = parseInt(altMatch[1] + altMatch[2], 10);
-      this.addCuentaPibankOffer(offers, rate, retrievedAt, rawTextHash);
+      this.addCuentaPibankOffer(offers, rate, retrievedAt, rawTextHash, resolvedUrl);
     } else {
       // Try standard format with comma decimal separator (e.g., "11,50%") or integer (e.g., "11%")
       const standardMatch = fullText.match(
@@ -107,7 +108,7 @@ export class PibankParser implements BankSavingsParser {
       } else {
         rate = parseInt(standardMatch[1], 10);
       }
-      this.addCuentaPibankOffer(offers, rate, retrievedAt, rawTextHash);
+      this.addCuentaPibankOffer(offers, rate, retrievedAt, rawTextHash, resolvedUrl);
     }
 
     // Validate we extracted something useful
@@ -127,7 +128,8 @@ export class PibankParser implements BankSavingsParser {
     offers: SavingsOffer[],
     eaPercent: number,
     retrievedAt: string,
-    rawTextHash: string
+    rawTextHash: string,
+    sourceUrl: string
   ): void {
     const offer: SavingsOffer = {
       id: generateSavingsOfferId({
@@ -144,7 +146,7 @@ export class PibankParser implements BankSavingsParser {
       rate: { ea_percent: eaPercent },
       min_amount_cop: 1,
       source: {
-        url: this.sourceUrl,
+        url: sourceUrl,
         source_type: SourceType.PDF,
         document_label: "Tasas y Tarifario",
         retrieved_at: retrievedAt,
