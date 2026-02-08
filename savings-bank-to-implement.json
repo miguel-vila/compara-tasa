@@ -22,9 +22,8 @@
   },
   {
     "bank_name": "Ualá",
-    "implemented": false,
-    "rate_info": "13% E.A.",
-    "notes": "Rate published in press releases at uala.com.co/prensa. No static PDF with rates found. Would need to scrape the costos page or press releases for rate updates."
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   },
   {
     "bank_name": "Bancamía (RentaPlus)",

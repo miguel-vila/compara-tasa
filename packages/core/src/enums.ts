@@ -18,6 +18,7 @@ export const BankId = {
   LULO: "lulo",
   RAPPIPAY: "rappipay",
   PIBANK: "pibank",
+  UALA: "uala",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -41,6 +42,7 @@ export const BankNames: Record<BankId, string> = {
   lulo: "Lulo Bank",
   rappipay: "RappiPay",
   pibank: "Pibank",
+  uala: "Ualá",
 };
 
 // Bank mortgage information URLs (partial - only for banks with mortgage products)
@@ -75,6 +77,7 @@ export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   lulo: "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
   rappipay: "https://www.rappipay.co/tasas-y-tarifas/",
   pibank: "https://www.pibank.co/uploads/2025/12/Tasas012026.pdf",
+  uala: "https://www.uala.com.co/prensa",
 };
 
 // Mortgage product types

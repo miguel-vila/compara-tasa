@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 4 Banks
+## Status: MVP + 5 Banks
 
-The savings account support is functional with five banks (Ban100, BBVA, Lulo Bank, RappiPay, and Pibank).
+The savings account support is functional with six banks (Ban100, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
 
 ## Completed Tasks
 
@@ -35,6 +35,7 @@ The savings account support is functional with five banks (Ban100, BBVA, Lulo Ba
 - [x] **Lulo Bank**: Implement Playwright + HTML parsing (12 tests)
 - [x] **RappiPay**: Implement HTML parsing (12 tests)
 - [x] **Pibank**: Implement PDF parsing (11 tests)
+- [x] **Ualá**: Implement HTML parsing from press releases (11 tests)
 
 ### Phase 3: Frontend
 
@@ -172,6 +173,25 @@ pnpm --filter @compara-tasa/updater dev:savings
 - Interests are calculated on daily balance and credited the first day of the following month
 - PDF also contains CDT and credit rates, but only the savings account rate is extracted
 - PDF text extraction quirk: rate appears as "1 1 %" with spaces between digits
+
+## Ualá Implementation Details
+
+**Source URL:** https://www.uala.com.co/prensa
+
+**Scraping Method:** HTML parsing with cheerio (press releases page)
+
+**Accounts Parsed:**
+
+1. **Depósito Remunerado** (High Yield) - 1 rate:
+   - All amounts from $1: 13% E.A.
+
+**Notes:**
+
+- Ualá publishes rate updates via press releases on their `/prensa` page
+- Rate applies from the first peso with no minimum balance or holding period
+- Daily interest payments (since September 2024)
+- Funds are protected by Fogafín deposit insurance
+- Rate information is embedded as JSON in the page (news entries)
 
 ## Next Banks to Add
 
