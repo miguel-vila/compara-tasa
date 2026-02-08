@@ -477,6 +477,7 @@ Add the new bank to the completed tasks:
 - [ ] All tests pass: `pnpm --filter @compara-tasa/updater test -- --run savings`
 - [ ] Type check passes: `pnpm typecheck`
 - [ ] PROGRESS-SAVINGS.md updated
+- [ ] Commit with message: `feat: add savings parser for BankName`
 
 ---
 

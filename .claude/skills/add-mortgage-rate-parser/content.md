@@ -458,6 +458,7 @@ Update the status line and test counts as appropriate.
 - [ ] All tests pass: `pnpm --filter @compara-tasa/updater test -- --run`
 - [ ] Type check passes: `pnpm typecheck`
 - [ ] PROGRESS.md updated (note if browser user-agent or Playwright required)
+- [ ] Commit with message: `feat: add mortgage parser for BankName`
 
 ---
 
