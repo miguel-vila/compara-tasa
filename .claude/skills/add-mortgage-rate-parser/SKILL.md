@@ -1,9 +1,9 @@
 ---
-name: add-bank-parser
+name: add-mortgage-rate-parser
 description: Guide for adding a new bank parser to extract mortgage rates. Use when implementing parsers for BBVA, Caja Social, AV Villas, Itaú, or any new Colombian bank.
 ---
 
-# Add Bank Parser
+# Add Mortgage Rate Parser
 
 This skill guides you through adding a new bank parser to extract mortgage rates from HTML pages or PDF documents.
 
