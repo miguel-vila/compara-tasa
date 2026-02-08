@@ -56,7 +56,8 @@
   },
   {
     "bank_name": "Banco Popular",
-    "implemented": false
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   },
   {
     "bank_name": "Mi Banco",

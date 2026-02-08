@@ -2,6 +2,7 @@ export type { BankSavingsParser, SavingsParserConfig } from "./types.js";
 export { AvvillasParser } from "./avvillas.js";
 export { Ban100Parser } from "./ban100.js";
 export { BancamiaParser } from "./bancamia.js";
+export { BancoPopularParser } from "./banco_popular.js";
 export { BbvaSavingsParser } from "./bbva.js";
 export { CajaSocialParser } from "./caja_social.js";
 export { LuloParser } from "./lulo.js";
@@ -12,6 +13,7 @@ export { UalaParser } from "./uala.js";
 import { AvvillasParser } from "./avvillas.js";
 import { Ban100Parser } from "./ban100.js";
 import { BancamiaParser } from "./bancamia.js";
+import { BancoPopularParser } from "./banco_popular.js";
 import { BbvaSavingsParser } from "./bbva.js";
 import { CajaSocialParser } from "./caja_social.js";
 import { LuloParser } from "./lulo.js";
@@ -28,6 +30,7 @@ export function createAllSavingsParsers(config: SavingsParserConfig = {}): BankS
     new AvvillasParser(config),
     new Ban100Parser(config),
     new BancamiaParser(config),
+    new BancoPopularParser(config),
     new BbvaSavingsParser(config),
     new CajaSocialParser(config),
     new LuloParser(config),

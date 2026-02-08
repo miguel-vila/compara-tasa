@@ -79,6 +79,8 @@ export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   ban100: "https://www.ban100.com.co/productos/cuenta-de-ahorro",
   banco_caja_social:
     "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
+  banco_popular:
+    "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
   bbva: "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
   lulo: "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
   rappipay: "https://www.rappipay.co/tasas-y-tarifas/",
@@ -192,6 +194,7 @@ export type SavingsBankType = (typeof SavingsBankType)[keyof typeof SavingsBankT
 export const BankTypeClassification: Record<string, SavingsBankType> = {
   avvillas: SavingsBankType.TRADITIONAL,
   ban100: SavingsBankType.NEOBANK,
+  banco_popular: SavingsBankType.TRADITIONAL,
   lulo: SavingsBankType.NEOBANK,
   rappipay: SavingsBankType.NEOBANK,
   pibank: SavingsBankType.NEOBANK,

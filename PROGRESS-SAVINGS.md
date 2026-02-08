@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 8 Banks
+## Status: MVP + 9 Banks
 
-The savings account support is functional with nine banks (AV Villas, Ban100, Bancamía, Banco Caja Social, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
+The savings account support is functional with ten banks (AV Villas, Ban100, Bancamía, Banco Caja Social, Banco Popular, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
 
 ## Completed Tasks
 
@@ -39,6 +39,7 @@ The savings account support is functional with nine banks (AV Villas, Ban100, Ba
 - [x] **Bancamía**: Implement PDF parsing for RentaPlus (15 tests)
 - [x] **Banco Caja Social**: Implement PDF parsing for Alcancía Digital (11 tests)
 - [x] **Banco AV Villas**: Implement PDF parsing for Cuenta Premium and Bolsillos (18 tests)
+- [x] **Banco Popular**: Implement HTML parsing for Cuenta para Ahorrar and Cuenta Plateada (15 tests)
 
 ### Phase 3: Frontend
 
@@ -285,6 +286,33 @@ pnpm --filter @compara-tasa/updater dev:savings
 - If withdrawals are made before the plazo, only the Cuenta Premium base rate applies
 - AFC (housing savings) rates reference the same structure as CERTIVILLAS and are not disclosed separately
 - Other accounts (VillaDiario, Cuenta Móvil, Digital) have 0.01% base rates and are not included
+
+## Banco Popular Implementation Details
+
+**Source URL:** https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas
+
+**Scraping Method:** HTML parsing with cheerio (direct webpage with embedded tables)
+
+**Accounts Parsed:**
+
+1. **Cuenta para Ahorrar (Persona Natural)** (Standard) - 4 tiered rates:
+   - $0 - $10,000,000: 1.50% E.A.
+   - $10,000,001 - $50,000,000: 4.50% E.A.
+   - $50,000,001 - $150,000,000: 5.00% E.A.
+   - $150,000,001+: 8.00% E.A.
+
+2. **Cuenta Ahorro Cuenta Plateada** (High Yield) - 2 tiered rates:
+   - $0 - $10,000,000: 9.00% E.A.
+   - $10,000,001+: 9.00% E.A.
+
+**Notes:**
+
+- Banco Popular is a traditional bank (part of Grupo Aval)
+- Cuenta Plateada offers the highest yield at 9.00% E.A. across all balance tiers
+- Cuenta para Ahorrar has tiered rates that improve with higher balances
+- Other accounts (Cuenta Exprés, Nómina, Pensión) have very low rates (0.01%-0.50%) and are not included
+- Interest is calculated on daily balance (liquidación diaria)
+- The rates page also contains CDT rates which are not extracted
 
 ## Next Banks to Add
 
