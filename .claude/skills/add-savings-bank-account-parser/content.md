@@ -502,6 +502,16 @@ See `packages/updater/src/parsers/savings/bbva.ts` for a complete example that h
 - Cross-page section parsing
 - PDF-specific text format quirks (e.g., `-$ 1- -$ 4.999.999-`)
 
+### Playwright + Cloudflare Bypass (Lulo Bank)
+
+See `packages/updater/src/parsers/savings/lulo.ts` for a complete example that handles:
+
+- Cloudflare-protected Zendesk help pages
+- Playwright with stealth plugin for bot detection bypass
+- cheerio parsing of the rendered HTML
+- Multiple rate tiers (regular vs Lulo Pro customers)
+- Regex extraction from article body text
+
 ---
 
 ## Common Issues
@@ -525,3 +535,25 @@ If `curl` doesn't show the rates but they appear in browser:
 ### Multiple account products
 
 Create separate offers for each account type. Use the `account_name` field to distinguish between products from the same bank.
+
+### Cloudflare-protected Zendesk help pages (e.g., Lulo Bank)
+
+Lulo Bank's help center (ayuda.lulobank.com) is behind Cloudflare protection. Regular HTTP requests fail with 403 errors. The solution:
+
+1. **Use Playwright with stealth plugin** - already configured in the project:
+
+   ```typescript
+   import { chromium } from "playwright-extra";
+   import StealthPlugin from "puppeteer-extra-plugin-stealth";
+   chromium.use(StealthPlugin());
+   ```
+
+2. **Wait for content** - Zendesk pages load content dynamically:
+
+   ```typescript
+   await page.waitForSelector(".article-body", { timeout: 30000 });
+   ```
+
+3. **Rate information location** - Lulo Bank rates are found in the `.article-body` div of their Zendesk help articles.
+
+See `packages/updater/src/parsers/savings/lulo.ts` for a complete implementation example.

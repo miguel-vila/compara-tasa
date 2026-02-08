@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-02T14:26:17.343Z",
+  "generated_at": "2026-02-08T05:29:20.243Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -20,10 +20,10 @@
       },
       {
         "position": 3,
-        "offer_id": "787d350b7e8ea403",
+        "offer_id": "c6b54c3eaa6dfab0",
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 6.6
+          "value": 6.95
         }
       }
     ],
@@ -72,10 +72,10 @@
       },
       {
         "position": 3,
-        "offer_id": "2788e2e4775669cf",
+        "offer_id": "ed22474a8ced97cc",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11.5
+          "value": 12
         }
       }
     ],
@@ -90,32 +90,24 @@
       },
       {
         "position": 2,
-        "offer_id": "c03faba8d9d1d822",
+        "offer_id": "a35760ad881a00a1",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11.65
+          "value": 12.15
         }
       },
       {
         "position": 3,
-        "offer_id": "1ddf1a9c9b72cd0a",
+        "offer_id": "df1e056a96a1f5b8",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 12.25
+          "value": 12.5
         }
       }
     ],
     "best_uvr_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "586cae489862fdf7",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 4.5
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "a4d1b69326638fdd",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -123,7 +115,7 @@
         }
       },
       {
-        "position": 3,
+        "position": 2,
         "offer_id": "91cb9bcf79d069e2",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -134,14 +126,6 @@
     "best_uvr_no_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "008876188be57f15",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 7.5
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "b821b1bce2b6732d",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -152,14 +136,6 @@
     "best_cop_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "e5ce7c0191900770",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 9.5
-        }
-      },
-      {
-        "position": 2,
         "offer_id": "2176a229c5587a44",
         "metric": {
           "kind": "EA_PERCENT",
@@ -167,7 +143,7 @@
         }
       },
       {
-        "position": 3,
+        "position": 2,
         "offer_id": "38e27706d37a20cf",
         "metric": {
           "kind": "EA_PERCENT",
@@ -186,14 +162,6 @@
       },
       {
         "position": 2,
-        "offer_id": "6ac01a063d37c5f6",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 12
-        }
-      },
-      {
-        "position": 3,
         "offer_id": "e4d5739b1d7a332a",
         "metric": {
           "kind": "EA_PERCENT",
@@ -220,10 +188,10 @@
       },
       {
         "position": 3,
-        "offer_id": "2788e2e4775669cf",
+        "offer_id": "ed22474a8ced97cc",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11.5
+          "value": 12
         }
       }
     ]

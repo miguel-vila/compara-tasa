@@ -1,22 +1,23 @@
 [
-    {
-        "bank_name": "Lulo",
-        "implemented": false
-    },
-    {
-        "bank_name": "Nubank",
-        "implemented": false
-    },
-    {
-        "bank_name": "RappiPay",
-        "implemented": false
-    },
-    {
-        "bank_name": "Pibank",
-        "implemented": false
-    },
-    {
-        "bank_name": "Nu",
-        "implemented": false
-    }
+  {
+    "bank_name": "Lulo",
+    "implemented": true,
+    "implemented_date": "2026-02-08"
+  },
+  {
+    "bank_name": "Nubank",
+    "implemented": false
+  },
+  {
+    "bank_name": "RappiPay",
+    "implemented": false
+  },
+  {
+    "bank_name": "Pibank",
+    "implemented": false
+  },
+  {
+    "bank_name": "Nu",
+    "implemented": false
+  }
 ]

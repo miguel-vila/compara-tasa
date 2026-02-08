@@ -15,6 +15,7 @@ export const BankId = {
   BANCOOMEVA: "bancoomeva",
   // Savings-focused banks
   BAN100: "ban100",
+  LULO: "lulo",
 } as const;
 
 export type BankId = (typeof BankId)[keyof typeof BankId];
@@ -35,6 +36,7 @@ export const BankNames: Record<BankId, string> = {
   banco_agrario: "Banco Agrario",
   bancoomeva: "Bancoomeva",
   ban100: "Ban100",
+  lulo: "Lulo Bank",
 };
 
 // Bank mortgage information URLs (partial - only for banks with mortgage products)
@@ -66,6 +68,7 @@ export const BankUrls = BankMortgageUrls;
 export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   ban100: "https://www.ban100.com.co/productos/cuenta-de-ahorro",
   bbva: "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
+  lulo: "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
 };
 
 // Mortgage product types
