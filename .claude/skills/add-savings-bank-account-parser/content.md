@@ -557,3 +557,9 @@ Lulo Bank's help center (ayuda.lulobank.com) is behind Cloudflare protection. Re
 3. **Rate information location** - Lulo Bank rates are found in the `.article-body` div of their Zendesk help articles.
 
 See `packages/updater/src/parsers/savings/lulo.ts` for a complete implementation example.
+
+### PDFs that appear image-based but are actually text-based (e.g., Banco Caja Social)
+
+Some bank PDFs may visually appear to be image-based (scanned documents) but actually contain extractable text. Always try `pdfjs-dist` extraction first before assuming OCR is needed. The Banco Caja Social Alcancía PDF is an example - it looks like a styled image but `pdfjs-dist` successfully extracts the text.
+
+See `packages/updater/src/parsers/savings/caja_social.ts` for a complete implementation example.

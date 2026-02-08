@@ -32,10 +32,8 @@
   },
   {
     "bank_name": "Banco Caja Social (Alcancía Digital)",
-    "implemented": false,
-    "rate_info": "Up to 8% E.A. (0.05% if withdrawals made during month)",
-    "source_url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
-    "notes": "PDF available but appears to be image-based rather than text-based. May need OCR or alternative approach."
+    "implemented": true,
+    "implemented_date": "2026-02-08"
   },
   {
     "bank_name": "Daviplata",

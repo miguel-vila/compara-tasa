@@ -2,9 +2,9 @@
 
 This document tracks the implementation of savings account rate comparison features.
 
-## Status: MVP + 6 Banks
+## Status: MVP + 7 Banks
 
-The savings account support is functional with seven banks (Ban100, Bancamía, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
+The savings account support is functional with eight banks (Ban100, Bancamía, Banco Caja Social, BBVA, Lulo Bank, RappiPay, Pibank, and Ualá).
 
 ## Completed Tasks
 
@@ -37,6 +37,7 @@ The savings account support is functional with seven banks (Ban100, Bancamía, B
 - [x] **Pibank**: Implement PDF parsing (11 tests)
 - [x] **Ualá**: Implement HTML parsing from press releases (11 tests)
 - [x] **Bancamía**: Implement PDF parsing for RentaPlus (15 tests)
+- [x] **Banco Caja Social**: Implement PDF parsing for Alcancía Digital (11 tests)
 
 ### Phase 3: Frontend
 
@@ -218,6 +219,30 @@ pnpm --filter @compara-tasa/updater dev:savings
 - RentaPlus is their flagship high-yield savings product, competing with digital banks
 - Rate tiers incentivize larger deposits with progressively better rates
 - PDF also contains other savings products (Ahorramía, Soñando Juntos, etc.) with lower rates
+
+## Banco Caja Social Implementation Details
+
+**Source URL:** https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf
+
+**Scraping Method:** PDF parsing with pdfjs-dist
+
+**Accounts Parsed:**
+
+1. **Cuenta Alcancía Digital** (Digital) - 2 tiered rates:
+   - $1 - $40,000,000: 0.05% E.A.
+   - $40,000,001+: 0.05% E.A.
+
+2. **Cuenta Alcancía Digital (Tasa Premio)** (High Yield) - 2 tiered rates:
+   - $1 - $40,000,000: 8.00% E.A.
+   - $40,000,001+: 0.05% E.A.
+
+**Notes:**
+
+- Banco Caja Social's Alcancía Digital is a digital savings account with a bonus rate for customers who don't make withdrawals
+- The "Tasa Premio" (premium rate of 8% E.A.) applies when no withdrawals were made during the previous month
+- If withdrawals are made, the standard rate of 0.05% E.A. applies
+- Maximum balance for the premium rate is $40,000,000 COP
+- Interest is calculated on daily available balance
 
 ## Next Banks to Add
 
