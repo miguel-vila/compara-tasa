@@ -11,7 +11,7 @@ ERRORS_FILE="$PROJECT_DIR/ERRORS-SAVINGS.md"
 LOG_FILE="$PROJECT_DIR/scripts/implement-savings-banks.log"
 BANKS_JSON="$PROJECT_DIR/savings-bank-to-implement.json"
 
-PROMPT='Choose the first non-implemented bank from @savings-bank-to-implement.json and use the /add-savings-bank-account-parser skill to include it. If you have any learnings about including this bank, update the skill. If there are no more banks to implement output "<DONE>" and nothing else. When you successfully implement a bank, output the bank name in this format at the end: <BANK_NAME>BankName</BANK_NAME>'
+PROMPT='Choose the first non-implemented and non-blocked bank from @savings-bank-to-implement.json and use the /add-savings-bank-account-parser skill to include it. Pay attention to the "notes" field which contains useful context about the bank (source URLs, scraping challenges, rate structure, etc.). If you have any learnings about including this bank, update the skill. If there are no more banks to implement (all are either implemented or blocked) output "<DONE>" and nothing else. When you successfully implement a bank, output the bank name in this format at the end: <BANK_NAME>BankName</BANK_NAME>'
 
 iteration=0
 

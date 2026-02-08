@@ -19,5 +19,38 @@
     "bank_name": "Pibank",
     "implemented": true,
     "implemented_date": "2026-02-08"
+  },
+  {
+    "bank_name": "Ualá",
+    "implemented": false,
+    "rate_info": "13% E.A.",
+    "notes": "Rate published in press releases at uala.com.co/prensa. No static PDF with rates found. Would need to scrape the costos page or press releases for rate updates."
+  },
+  {
+    "bank_name": "Bancamía (RentaPlus)",
+    "implemented": false,
+    "rate_info": "Up to 10.5% E.A. (tiered: 5% for 0-2.5M, 8% for 2.5M-10M, 10% for 10M+)",
+    "notes": "Has PDF rates at bancamia.com.co/tasas-y-tarifas/ but site uses bot protection (ShieldSquare/PerimeterX). May need alternative scraping approach."
+  },
+  {
+    "bank_name": "Banco Caja Social (Alcancía Digital)",
+    "implemented": false,
+    "rate_info": "Up to 8% E.A. (0.05% if withdrawals made during month)",
+    "source_url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/cuentas-bancarias/Tasas-Cuenta-Alcancia.pdf",
+    "notes": "PDF available but appears to be image-based rather than text-based. May need OCR or alternative approach."
+  },
+  {
+    "bank_name": "Daviplata",
+    "implemented": false,
+    "blocked": true,
+    "rate_info": "~8.25% E.A. for bolsillo de ahorro",
+    "blocked_reason": "Website uses Incapsula/Imperva security protection. Rate documents are not accessible via standard scraping. The bolsillo rates are shown in-app but not in scrapeable web format."
+  },
+  {
+    "bank_name": "Nequi",
+    "implemented": false,
+    "blocked": true,
+    "rate_info": "0.1% E.A.",
+    "blocked_reason": "Rate is too low (0.1% E.A.) to be competitive. Not worth implementing as users would not benefit from comparing this rate."
   }
 ]
