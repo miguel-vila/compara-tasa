@@ -136,4 +136,4 @@ pnpm --filter @compara-tasa/core build
 pnpm dev
 ```
 
-Run `pnpm update-rates` to fetch live rates and generate data files for the frontend.
+Run `pnpm update-mortgage-rates` and `pnpm update-savings-rates` to fetch live rates and generate data files for the frontend.

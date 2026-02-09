@@ -13,7 +13,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // The source URL uses a file ID that changes monthly. We use the rates page URL
 // as the canonical source, but fetch the latest PDF dynamically.
@@ -146,7 +146,7 @@ export class BancomevaParser implements BankMortgageParser {
   bankId = BankId.BANCOOMEVA;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

@@ -12,8 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "pnpm -r test",
-    "update-rates": "pnpm --filter @compara-tasa/updater run update",
-    "update-savings": "pnpm --filter @compara-tasa/updater run update-savings",
+    "update-mortgage-rates": "pnpm --filter @compara-tasa/updater run update-mortgage-rates",
+    "update-savings-rates": "pnpm --filter @compara-tasa/updater run update-savings-rates",
     "typecheck": "pnpm -r typecheck",
     "prepare": "husky",
     "postinstall": "pnpm exec playwright install chromium"

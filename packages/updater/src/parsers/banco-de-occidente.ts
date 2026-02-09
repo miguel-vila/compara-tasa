@@ -12,7 +12,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 import { chromium } from "playwright-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
@@ -227,7 +227,7 @@ export class BancoDeOccidenteParser implements BankMortgageParser {
   bankId = BankId.BANCO_DE_OCCIDENTE;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

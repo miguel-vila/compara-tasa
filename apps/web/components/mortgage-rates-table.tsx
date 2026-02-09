@@ -21,7 +21,7 @@ export function MortgageRatesTable() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   useEffect(() => {
-    fetch("/data/offers-latest.json")
+    fetch("/data/mortgage-offers-latest.json")
       .then((res) => res.json())
       .then((data) => {
         setOffers(data.offers || []);

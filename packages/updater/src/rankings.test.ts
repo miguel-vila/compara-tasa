@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { computeRankings } from "./rankings.js";
+import { computeMortgageRankings } from "./rankings.js";
 import {
   BankId,
   CurrencyIndex,
@@ -32,7 +32,7 @@ function createMockOffer(overrides: Partial<MortgageOffer> & { id: string }): Mo
   };
 }
 
-describe("computeRankings", () => {
+describe("computeMortgageRankings", () => {
   describe("BEST_COP_VIS_HIPOTECARIO", () => {
     it("should return top 3 offers sorted by lowest COP rate for VIS segment", () => {
       const offers: MortgageOffer[] = [
@@ -56,7 +56,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]).toEqual([
         { position: 1, offer_id: "offer-2", metric: { kind: "EA_PERCENT", value: 11.5 } },
@@ -81,7 +81,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(
         rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]?.[0]?.offer_id
@@ -106,7 +106,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO]).toEqual([
         { position: 1, offer_id: "no-vis-2", metric: { kind: "EA_PERCENT", value: 10.5 } },
@@ -132,7 +132,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_UVR_VIS_HIPOTECARIO]).toEqual([
         { position: 1, offer_id: "uvr-vis-2", metric: { kind: "UVR_SPREAD_EA", value: 6.5 } },
@@ -156,7 +156,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(
         rankings.mortgageScenarios[MortgageScenarioKey.BEST_UVR_VIS_HIPOTECARIO]?.[0]?.offer_id
@@ -181,7 +181,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO]).toEqual([
         { position: 1, offer_id: "uvr-no-vis-2", metric: { kind: "UVR_SPREAD_EA", value: 7.5 } },
@@ -220,7 +220,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       // Payroll offers appear in payroll scenario
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_PAYROLL]).toEqual([
@@ -250,7 +250,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_PAYROLL]).toBeUndefined();
     });
@@ -275,7 +275,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       // Non-payroll in base scenario
       expect(
@@ -308,7 +308,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]).toEqual([
         { position: 1, offer_id: "digital-low", metric: { kind: "EA_PERCENT", value: 11.0 } },
@@ -332,7 +332,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(
         rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]?.[0]?.offer_id
@@ -342,7 +342,7 @@ describe("computeRankings", () => {
 
   describe("edge cases", () => {
     it("should return empty scenarios when no offers provided", () => {
-      const rankings = computeRankings([]);
+      const rankings = computeMortgageRankings([]);
 
       expect(rankings.mortgageScenarios).toEqual({});
     });
@@ -366,7 +366,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(
         rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]?.[0]?.offer_id
@@ -374,7 +374,7 @@ describe("computeRankings", () => {
     });
 
     it("should include generated_at timestamp", () => {
-      const rankings = computeRankings([]);
+      const rankings = computeMortgageRankings([]);
 
       expect(rankings.generated_at).toBeDefined();
       expect(new Date(rankings.generated_at).getTime()).not.toBeNaN();
@@ -396,7 +396,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       // Both have same rate, both should be included in rankings
       expect(
@@ -463,7 +463,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(
         rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]?.[0]?.offer_id
@@ -521,7 +521,7 @@ describe("computeRankings", () => {
         }),
       ];
 
-      const rankings = computeRankings(offers);
+      const rankings = computeMortgageRankings(offers);
 
       expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO]?.length).toBe(
         3

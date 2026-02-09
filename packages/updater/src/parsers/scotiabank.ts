@@ -13,7 +13,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf";
@@ -146,7 +146,7 @@ export class ScotiabankParser implements BankMortgageParser {
   bankId = BankId.SCOTIABANK_COLPATRIA;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

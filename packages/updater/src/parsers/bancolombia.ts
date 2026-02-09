@@ -20,7 +20,7 @@ import {
   parseUvrSpread,
   parseEaPercent,
 } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda";
@@ -35,7 +35,7 @@ export class BancolombiaParser implements BankMortgageParser {
   bankId = BankId.BANCOLOMBIA;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

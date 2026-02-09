@@ -16,7 +16,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // Note: Direct PDF URLs return 403. This is the landing page with the link.
 // The actual PDF must be downloaded manually for fixtures.
@@ -128,7 +128,7 @@ export class ItauParser implements BankMortgageParser {
   bankId = BankId.ITAU;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

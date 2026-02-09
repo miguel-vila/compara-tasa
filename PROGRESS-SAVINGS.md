@@ -29,8 +29,8 @@ The savings account support is functional with ten banks (AV Villas, Ban100, Ban
 - [x] Implement `Ban100Parser` using cheerio for HTML parsing
 - [x] Create `createAllSavingsParsers()` factory
 - [x] Write fixture-based tests (13 tests passing)
-- [x] Create `update-savings.ts` entry point
-- [x] Add `update-savings` script to package.json
+- [x] Create `update-savings-rates.ts` entry point
+- [x] Add `update-savings-rates` script to package.json
 - [x] **BBVA**: Implement PDF parsing (20 tests)
 - [x] **Lulo Bank**: Implement Playwright + HTML parsing (12 tests)
 - [x] **RappiPay**: Implement HTML parsing (12 tests)

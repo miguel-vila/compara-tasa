@@ -71,9 +71,6 @@ export const BankMortgageUrls: Partial<Record<BankId, string>> = {
   bancoomeva: "https://vivienda.coomeva.com.co/",
 };
 
-// Legacy alias for backwards compatibility
-export const BankUrls = BankMortgageUrls;
-
 // Bank savings account information URLs (partial - only for banks with savings products)
 export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   avvillas:

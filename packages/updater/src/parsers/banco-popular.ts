@@ -13,7 +13,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 const SOURCE_URL =
   "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas";
@@ -27,7 +27,7 @@ export class BancoPopularParser implements BankMortgageParser {
   bankId = BankId.BANCO_POPULAR;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

@@ -13,7 +13,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // Banco Agrario publishes rates at this base URL
 // The actual PDF URL changes weekly, so we need to discover it from the main page
@@ -157,7 +157,7 @@ export class BancoAgrarioParser implements BankMortgageParser {
   bankId = BankId.BANCO_AGRARIO;
   sourceUrl = SOURCE_PAGE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

@@ -31,8 +31,9 @@ pnpm build:standalone                     # Build all + copy assets for Next.js 
 # Development
 pnpm dev                              # Run Next.js dev server (localhost:3000)
 
-# Run rate update ETL pipeline
-pnpm update-rates                     # Scrapes banks and generates apps/web/public/data/*.json
+# Run rate update ETL pipelines
+pnpm update-mortgage-rates            # Scrapes banks for mortgage rates
+pnpm update-savings-rates                   # Scrapes banks for savings account rates
 
 # Testing
 pnpm test                             # Run all tests
@@ -55,9 +56,9 @@ Shared TypeScript types and Zod schemas. Must be built first as other packages d
 
 Key exports:
 
-- **Enums**: `BankId`, `ProductType`, `CurrencyIndex`, `Segment`, `Channel`, `SourceType`, `ExtractionMethod`, `ScenarioKey`
-- **Types**: `Offer`, `Rate` (union of `CopFixedRate` | `UvrSpreadRate`), `Rankings`, `OffersDataset`, `BankParseResult`
-- **Schemas**: Zod validators for all types (e.g., `OfferSchema`, `RankingsSchema`)
+- **Enums**: `BankId`, `MortgageType`, `CurrencyIndex`, `Segment`, `Channel`, `SourceType`, `ExtractionMethod`, `MortgageScenarioKey`, `SavingsScenarioKey`
+- **Types**: `MortgageOffer`, `Rate` (union of `CopFixedRate` | `UvrSpreadRate`), `MortgageRankings`, `MortgageOffersDataset`, `BankMortgageParseResult`, `SavingsOffer`, `SavingsRankings`, `SavingsOffersDataset`, `BankSavingsParseResult`
+- **Schemas**: Zod validators for all types (e.g., `MortgageOfferSchema`, `MortgageRankingsSchema`, `SavingsOfferSchema`)
 
 ### `packages/updater` (@compara-tasa/updater)
 
@@ -65,11 +66,9 @@ ETL pipeline that scrapes bank rate disclosures and produces JSON datasets.
 
 Key patterns:
 
-- Each bank has an isolated parser implementing `BankParser` interface
-- Parsers return `BankParseResult` with `offers`, `warnings`, and `raw_text_hash`
-- Uses `cheerio` for HTML parsing (Bancolombia)
-
-- Uses `pdfjs-dist` for PDF text extraction (all other banks)
+- **Mortgage parsers**: Implement `BankMortgageParser` interface, return `BankMortgageParseResult`
+- **Savings parsers**: Implement `BankSavingsParser` interface, return `BankSavingsParseResult`
+- Uses `cheerio` for HTML parsing and `pdfjs-dist` for PDF text extraction
 - Outputs JSON files to `apps/web/public/data/` directory
 
 ### `apps/web` (@compara-tasa/web)
@@ -78,13 +77,25 @@ Next.js 15 frontend with React 19, TailwindCSS, and TanStack React Table.
 
 ## Data Flow
 
-1. `pnpm update-rates` runs the updater
-2. Parsers fetch from bank URLs and extract rates
+### Mortgage Rates
+
+1. `pnpm update-mortgage-rates` runs the mortgage updater
+2. Parsers fetch from bank URLs and extract mortgage rates
 3. Offers are validated with Zod schemas
 4. Rankings are computed for predefined scenarios
 5. Output files written to `apps/web/public/data/`:
-   - `offers-latest.json`
-   - `rankings-latest.json`
+   - `mortgage-offers-latest.json`
+   - `mortgage-rankings-latest.json`
+
+### Savings Rates
+
+1. `pnpm update-savings-rates` runs the savings updater
+2. Parsers fetch from bank URLs and extract savings rates
+3. Offers are validated with Zod schemas
+4. Rankings are computed for predefined scenarios
+5. Output files written to `apps/web/public/data/`:
+   - `savings-offers-latest.json`
+   - `savings-rankings-latest.json`
 
 ## Domain Concepts
 
@@ -111,10 +122,21 @@ Tests use Vitest. Bank parsers should have fixture-based tests using saved HTML/
 
 ## Adding a New Bank Parser
 
-See `.claude/skills/add-bank-parser/` for detailed instructions. Quick summary:
+### Mortgage Rate Parser
+
+See `.claude/skills/add-mortgage-rate-parser/` for detailed instructions. Quick summary:
 
 1. Download fixture to `fixtures/{bank_id}/`
 2. Implement parser in `packages/updater/src/parsers/{bank_id}.ts`
 3. Register in `packages/updater/src/parsers/index.ts`
 4. Write tests in `packages/updater/src/parsers/{bank_id}.test.ts`
 5. Update PROGRESS.md
+
+### Savings Account Parser
+
+See `.claude/skills/add-savings-bank-account-parser/` for detailed instructions. Quick summary:
+
+1. Download fixture to `fixtures/{bank_id}/`
+2. Implement parser in `packages/updater/src/parsers/savings/{bank_id}.ts`
+3. Register in `packages/updater/src/parsers/savings/index.ts`
+4. Write tests in `packages/updater/src/parsers/savings/{bank_id}.test.ts`

@@ -18,7 +18,7 @@ import {
   generateOfferId,
   parseColombianNumber,
 } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // The PDF URL uses a date-based naming scheme (tasas-{month}-{year})
 // The actual URL is resolved dynamically by fetchBancoDeBogotaPdf
@@ -132,7 +132,7 @@ export class BancoDeBogotaParser implements BankMortgageParser {
   bankId = BankId.BANCO_DE_BOGOTA;
   sourceUrl = DEFAULT_SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

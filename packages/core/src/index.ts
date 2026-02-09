@@ -2,7 +2,6 @@
 export {
   BankId,
   BankNames,
-  BankUrls,
   BankMortgageUrls,
   BankSavingsUrls,
   MortgageType,
@@ -34,7 +33,7 @@ export type {
   RankingMetric,
   RankedEntry,
   ScenarioRanking,
-  Rankings,
+  MortgageRankings,
   MortgageOffersDataset,
   BankMortgageParseResult,
   // Savings types
@@ -74,7 +73,7 @@ export {
   RankingMetricSchema,
   RankedEntrySchema,
   ScenarioRankingSchema,
-  RankingsSchema,
+  MortgageRankingsSchema,
   MortgageOffersDatasetSchema,
   BankMortgageParseResultSchema,
   // Savings schemas

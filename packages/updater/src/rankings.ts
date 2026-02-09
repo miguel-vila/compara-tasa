@@ -5,7 +5,7 @@ import {
   MortgageType,
   Channel,
   type MortgageOffer,
-  type Rankings,
+  type MortgageRankings,
   type ScenarioRanking,
   type RankedEntry,
   type RankingMetric,
@@ -135,7 +135,7 @@ function findTopOffers(offers: MortgageOffer[], filter: MortgageScenarioFilter):
 /**
  * Computes rankings for all mortgage scenarios based on the offers
  */
-export function computeRankings(offers: MortgageOffer[]): Rankings {
+export function computeMortgageRankings(offers: MortgageOffer[]): MortgageRankings {
   const mortgageScenarios: Partial<Record<MortgageScenarioKey, ScenarioRanking>> = {};
 
   for (const [key, filter] of Object.entries(MORTGAGE_SCENARIO_FILTERS)) {

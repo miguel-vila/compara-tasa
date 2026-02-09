@@ -149,24 +149,24 @@ import {
   Channel,
   SourceType,
   ExtractionMethod,
-  type Offer,
+  type MortgageOffer,
   type Rate,
-  type BankParseResult,
+  type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 const SOURCE_URL = "https://example.com/rates";
 
-export class MyBankParser implements BankParser {
+export class MyBankParser implements BankMortgageParser {
   bankId = BankId.MY_BANK;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
-  async parse(): Promise<BankParseResult> {
+  async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];
-    const offers: Offer[] = [];
+    const offers: MortgageOffer[] = [];
     const retrievedAt = new Date().toISOString();
 
     // Fetch source (from fixture or live)
@@ -222,7 +222,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
 ### Creating an Offer
 
 ```typescript
-const offer: Offer = {
+const offer: MortgageOffer = {
   id: generateOfferId({
     bank_id: this.bankId,
     product_type: ProductType.HIPOTECARIO,
@@ -311,7 +311,7 @@ Edit `packages/updater/src/parsers/index.ts`:
 ```typescript
 import { MyBankParser } from "./my-bank.js";
 
-export function createAllParsers(config: ParserConfig = {}): BankParser[] {
+export function createAllMortgageParsers(config: MortgageParserConfig = {}): BankMortgageParser[] {
   return [
     // ... existing parsers
     new MyBankParser(config),
@@ -337,7 +337,7 @@ packages/updater/src/parsers/{bank_id}.test.ts
 import { describe, it, expect, beforeAll } from "vitest";
 import { resolve } from "path";
 import { MyBankParser } from "./my-bank.js";
-import { BankId, CurrencyIndex, Segment, Channel, ProductType } from "@compara-tasa/core";
+import { BankId, CurrencyIndex, Segment, Channel, MortgageType } from "@compara-tasa/core";
 
 const FIXTURE_PATH = resolve(__dirname, "../../../../fixtures/{bank_id}/rates.pdf");
 
@@ -376,7 +376,7 @@ describe("MyBankParser", () => {
     it("should extract VIS UVR rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.UVR &&
           o.segment === Segment.VIS
       );
@@ -392,7 +392,7 @@ describe("MyBankParser", () => {
     it("should extract VIS COP rate", () => {
       const offer = result.offers.find(
         (o) =>
-          o.product_type === ProductType.HIPOTECARIO &&
+          o.product_type === MortgageType.HIPOTECARIO &&
           o.currency_index === CurrencyIndex.COP &&
           o.segment === Segment.VIS
       );

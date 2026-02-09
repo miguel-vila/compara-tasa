@@ -2,11 +2,11 @@ import { readFile } from "fs/promises";
 import { join } from "path";
 import {
   MortgageOffersDatasetSchema,
-  RankingsSchema,
+  MortgageRankingsSchema,
   SavingsOffersDatasetSchema,
   SavingsRankingsSchema,
   type MortgageOffersDataset,
-  type Rankings,
+  type MortgageRankings,
   type SavingsOffersDataset,
   type SavingsRankings,
 } from "@compara-tasa/core";
@@ -14,14 +14,14 @@ import {
 // Read from public/data for server components
 const DATA_DIR = join(process.cwd(), "public/data");
 
-export async function fetchOffers(): Promise<MortgageOffersDataset> {
+export async function fetchMortgageOffers(): Promise<MortgageOffersDataset> {
   try {
-    const filePath = join(DATA_DIR, "offers-latest.json");
+    const filePath = join(DATA_DIR, "mortgage-offers-latest.json");
     const content = await readFile(filePath, "utf-8");
     const data = JSON.parse(content);
     return MortgageOffersDatasetSchema.parse(data);
   } catch (error) {
-    console.error("Error fetching offers:", error);
+    console.error("Error fetching mortgage offers:", error);
     return {
       generated_at: new Date().toISOString(),
       offers: [],
@@ -29,14 +29,14 @@ export async function fetchOffers(): Promise<MortgageOffersDataset> {
   }
 }
 
-export async function fetchRankings(): Promise<Rankings> {
+export async function fetchMortgageRankings(): Promise<MortgageRankings> {
   try {
-    const filePath = join(DATA_DIR, "rankings-latest.json");
+    const filePath = join(DATA_DIR, "mortgage-rankings-latest.json");
     const content = await readFile(filePath, "utf-8");
     const data = JSON.parse(content);
-    return RankingsSchema.parse(data);
+    return MortgageRankingsSchema.parse(data);
   } catch (error) {
-    console.error("Error fetching rankings:", error);
+    console.error("Error fetching mortgage rankings:", error);
     return {
       generated_at: new Date().toISOString(),
       mortgageScenarios: {},

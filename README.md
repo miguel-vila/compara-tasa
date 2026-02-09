@@ -25,7 +25,8 @@ Abre http://localhost:3000
 ## Actualizar tasas
 
 ```bash
-pnpm update-rates
+pnpm update-mortgage-rates   # Actualizar tasas hipotecarias
+pnpm update-savings-rates    # Actualizar tasas de ahorro
 ```
 
 Esto ejecuta el ETL que descarga las tasas de los bancos y genera los archivos JSON en `apps/web/public/data/`.

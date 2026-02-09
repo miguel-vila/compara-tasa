@@ -14,9 +14,9 @@ export interface BankMortgageParser {
 }
 
 /**
- * Parser configuration
+ * Mortgage parser configuration
  */
-export type ParserConfig = {
+export type MortgageParserConfig = {
   fixturesPath?: string; // Path to fixtures for testing
   useFixtures?: boolean; // Use fixtures instead of live fetch
 };

@@ -1,7 +1,7 @@
-import { fetchRankings, fetchOffers } from "@/lib/data";
+import { fetchMortgageRankings, fetchMortgageOffers } from "@/lib/data";
 import { formatRate, MORTGAGE_SCENARIO_LABELS, MORTGAGE_SCENARIO_DESCRIPTIONS } from "@/lib/format";
 import {
-  BankUrls,
+  BankMortgageUrls,
   MortgageScenarioKey,
   type BankId,
   type MortgageOffer,
@@ -53,7 +53,10 @@ const PAYROLL_THEME: ThemeConfig = {
 };
 
 export async function BestMortgageRatesSection() {
-  const [rankings, { offers }] = await Promise.all([fetchRankings(), fetchOffers()]);
+  const [rankings, { offers }] = await Promise.all([
+    fetchMortgageRankings(),
+    fetchMortgageOffers(),
+  ]);
 
   const offerMap = new Map(offers.map((o) => [o.id, o]));
 
@@ -256,7 +259,7 @@ function RankingRow({
   };
 
   const style = positionStyles[entry.position] || positionStyles[3];
-  const bankUrl = BankUrls[offer.bank_id as BankId];
+  const bankUrl = BankMortgageUrls[offer.bank_id as BankId];
 
   return (
     <a

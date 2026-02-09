@@ -100,8 +100,8 @@ export type RankedEntry = {
 // Scenario ranking - array of top ranked entries
 export type ScenarioRanking = RankedEntry[];
 
-// Rankings object (precomputed)
-export type Rankings = {
+// Mortgage rankings object (precomputed)
+export type MortgageRankings = {
   generated_at: string; // ISO timestamp
   mortgageScenarios: Partial<Record<MortgageScenarioKey, ScenarioRanking>>;
 };

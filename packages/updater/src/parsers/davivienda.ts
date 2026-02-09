@@ -13,7 +13,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // Stable URL that always points to the latest rates PDF
 const SOURCE_URL = "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda";
@@ -140,7 +140,7 @@ export class DaviviendaParser implements BankMortgageParser {
   bankId = BankId.DAVIVIENDA;
   sourceUrl = SOURCE_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

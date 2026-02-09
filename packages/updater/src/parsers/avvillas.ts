@@ -14,7 +14,7 @@ import {
   type BankMortgageParseResult,
 } from "@compara-tasa/core";
 import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from "../utils/index.js";
-import type { BankMortgageParser, ParserConfig } from "./types.js";
+import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 const LANDING_URL = "https://www.avvillas.com.co/credito-hipotecario";
 
@@ -222,7 +222,7 @@ export class AvvillasParser implements BankMortgageParser {
   bankId = BankId.AVVILLAS;
   sourceUrl = LANDING_URL;
 
-  constructor(private config: ParserConfig = {}) {}
+  constructor(private config: MortgageParserConfig = {}) {}
 
   async parse(): Promise<BankMortgageParseResult> {
     const warnings: string[] = [];

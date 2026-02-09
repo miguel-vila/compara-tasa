@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { fetchOffers, fetchSavingsOffers } from "@/lib/data";
+import { fetchMortgageOffers, fetchSavingsOffers } from "@/lib/data";
 
 export async function StatsSection() {
   const [{ offers: mortgageOffers }, { offers: savingsOffers }] = await Promise.all([
-    fetchOffers(),
+    fetchMortgageOffers(),
     fetchSavingsOffers(),
   ]);
 

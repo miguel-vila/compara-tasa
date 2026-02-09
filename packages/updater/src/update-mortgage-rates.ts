@@ -3,13 +3,13 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import {
   MortgageOffersDatasetSchema,
-  RankingsSchema,
+  MortgageRankingsSchema,
   type MortgageOffer,
   type MortgageOffersDataset,
-  type Rankings,
+  type MortgageRankings,
 } from "@compara-tasa/core";
-import { createAllParsers } from "./parsers/index.js";
-import { computeRankings } from "./rankings.js";
+import { createAllMortgageParsers } from "./parsers/index.js";
+import { computeMortgageRankings } from "./rankings.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../../../apps/web/public/data");
@@ -25,7 +25,7 @@ async function writeJson(path: string, data: unknown): Promise<void> {
 async function main(): Promise<void> {
   console.log("Starting rate update...\n");
 
-  const parsers = createAllParsers();
+  const parsers = createAllMortgageParsers();
   const allOffers: MortgageOffer[] = [];
   const allErrors: string[] = [];
 
@@ -73,10 +73,10 @@ async function main(): Promise<void> {
   }
 
   // Compute rankings
-  const rankings: Rankings = computeRankings(allOffers);
+  const rankings: MortgageRankings = computeMortgageRankings(allOffers);
 
   // Validate rankings
-  const rankingsResult = RankingsSchema.safeParse(rankings);
+  const rankingsResult = MortgageRankingsSchema.safeParse(rankings);
   if (!rankingsResult.success) {
     console.error("Rankings validation failed:", rankingsResult.error);
     process.exit(1);
@@ -85,8 +85,8 @@ async function main(): Promise<void> {
   // Write outputs
   await ensureDir(DATA_DIR);
 
-  const offersLatestPath = join(DATA_DIR, "offers-latest.json");
-  const rankingsLatestPath = join(DATA_DIR, "rankings-latest.json");
+  const offersLatestPath = join(DATA_DIR, "mortgage-offers-latest.json");
+  const rankingsLatestPath = join(DATA_DIR, "mortgage-rankings-latest.json");
 
   await Promise.all([
     writeJson(offersLatestPath, dataset),
@@ -94,8 +94,8 @@ async function main(): Promise<void> {
   ]);
 
   console.log(`\nOutputs written to ${DATA_DIR}:`);
-  console.log(`  - offers-latest.json`);
-  console.log(`  - rankings-latest.json`);
+  console.log(`  - mortgage-offers-latest.json`);
+  console.log(`  - mortgage-rankings-latest.json`);
 
   // Summary
   console.log("\n--- Summary ---");

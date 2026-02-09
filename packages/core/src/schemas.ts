@@ -113,8 +113,8 @@ export const RankedEntrySchema = z.object({
 // Scenario ranking schema - array of top ranked entries
 export const ScenarioRankingSchema = z.array(RankedEntrySchema).max(3);
 
-// Rankings schema
-export const RankingsSchema = z.object({
+// Mortgage rankings schema
+export const MortgageRankingsSchema = z.object({
   generated_at: z.string().datetime(),
   mortgageScenarios: z.record(MortgageScenarioKeySchema, ScenarioRankingSchema.optional()),
 });
