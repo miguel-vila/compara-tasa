@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 export const metadata = {
   title: "Metodología | Compara Tasa",
   description:
-    "Conoce cómo recopilamos y presentamos la información de tasas hipotecarias en Colombia.",
+    "Conoce cómo recopilamos y presentamos la información de tasas hipotecarias y de cuentas de ahorro en Colombia.",
 };
 
 export default function MetodologiaPage() {
@@ -19,7 +19,7 @@ export default function MetodologiaPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Metodología</h1>
             <p className="text-lg text-gray-600">
               Conoce cómo recopilamos, procesamos y presentamos la información de tasas hipotecarias
-              en Colombia.
+              y de cuentas de ahorro en Colombia.
             </p>
           </div>
         </section>
@@ -27,7 +27,12 @@ export default function MetodologiaPage() {
         {/* Content Section */}
         <section className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-12">
-            {/* Qué significa "mejor tasa" */}
+            {/* Section divider - Créditos Hipotecarios */}
+            <div className="border-b border-gray-200 pb-4">
+              <h2 className="text-3xl font-bold text-primary-600">Créditos Hipotecarios</h2>
+            </div>
+
+            {/* Qué significa "mejor tasa" - Hipotecas */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-300 mb-4">
                 Qué significa &quot;mejor tasa&quot;
@@ -98,6 +103,85 @@ export default function MetodologiaPage() {
               </div>
             </div>
 
+            {/* Section divider - Cuentas de Ahorro */}
+            <div className="border-b border-gray-200 pb-4 pt-8">
+              <h2 className="text-3xl font-bold text-primary-600">Cuentas de Ahorro</h2>
+            </div>
+
+            {/* Cómo comparamos las tasas de ahorro */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
+                Cómo comparamos las tasas de ahorro
+              </h2>
+              <p className="text-gray-400 mb-4">
+                Todas las tasas de cuentas de ahorro se presentan como tasa E.A. (Efectiva Anual).
+                Esta es la tasa real de rendimiento que recibirás sobre tu dinero en un año,
+                considerando la capitalización de intereses.
+              </p>
+              <div className="bg-accent-50 border border-accent-200 rounded-lg p-5">
+                <p className="text-gray-600 text-sm">
+                  <strong>Importante:</strong> Las tasas de ahorro varían según el monto depositado.
+                  Por eso mostramos los rangos de saldo aplicables para cada tasa.
+                </p>
+              </div>
+            </div>
+
+            {/* Tipos de bancos */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">Tipos de entidades</h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <span className="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded mb-3">
+                    Neobancos
+                  </span>
+                  <h3 className="font-medium text-gray-500 mb-2">Bancos 100% digitales</h3>
+                  <p className="text-sm text-gray-600">
+                    Entidades que operan exclusivamente de forma digital, como Nu Colombia, Lulo
+                    Bank, RappiPay, Pibank y Ban100. Generalmente ofrecen tasas más altas por tener
+                    menores costos operativos.
+                  </p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded mb-3">
+                    Bancos Tradicionales
+                  </span>
+                  <h3 className="font-medium text-gray-500 mb-2">Bancos con sucursales físicas</h3>
+                  <p className="text-sm text-gray-600">
+                    Entidades con presencia física como BBVA, AV Villas, Banco Caja Social y
+                    Bancamía. Pueden ofrecer tasas competitivas en productos digitales específicos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Rangos de saldo */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">Rangos de saldo</h2>
+              <p className="text-gray-400 mb-4">
+                Las tasas de ahorro típicamente varían según el monto que tengas en la cuenta.
+                Clasificamos las ofertas en tres rangos principales:
+              </p>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm text-center">
+                  <p className="text-sm text-gray-500 mb-1">Menos de</p>
+                  <p className="text-lg font-semibold text-gray-900">$10M</p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm text-center">
+                  <p className="text-sm text-gray-500 mb-1">Entre</p>
+                  <p className="text-lg font-semibold text-gray-900">$10M - $50M</p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm text-center">
+                  <p className="text-sm text-gray-500 mb-1">Más de</p>
+                  <p className="text-lg font-semibold text-gray-900">$50M</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Section divider - General */}
+            <div className="border-b border-gray-200 pb-4 pt-8">
+              <h2 className="text-3xl font-bold text-primary-600">Información General</h2>
+            </div>
+
             {/* Frecuencia de actualización */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-300 mb-4">
@@ -128,6 +212,30 @@ export default function MetodologiaPage() {
               </div>
             </div>
 
+            {/* Fuentes de datos */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">Fuentes de datos</h2>
+              <p className="text-gray-400 mb-4">
+                Recopilamos la información directamente de las fuentes públicas oficiales de cada
+                entidad financiera:
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <h3 className="font-medium text-gray-500 mb-2">Documentos PDF</h3>
+                  <p className="text-sm text-gray-600">
+                    Hojas de tasas publicadas por los bancos (ej: &quot;Tasas y Tarifas&quot;,
+                    &quot;Tasas de Vivienda&quot;).
+                  </p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <h3 className="font-medium text-gray-500 mb-2">Páginas web</h3>
+                  <p className="text-sm text-gray-600">
+                    Información de tasas publicada directamente en los sitios web de las entidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Limitaciones importantes */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-300 mb-4">
@@ -150,7 +258,8 @@ export default function MetodologiaPage() {
                   </svg>
                   <span className="font-medium text-amber-800">Aviso importante</span>
                 </div>
-                <ul className="space-y-3 text-amber-800">
+                <p className="text-amber-700 font-medium mb-3">Créditos hipotecarios:</p>
+                <ul className="space-y-2 text-amber-800 mb-4">
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 mt-1">•</span>
                     <span>
@@ -165,15 +274,48 @@ export default function MetodologiaPage() {
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 mt-1">•</span>
                     <span>
-                      No incluimos todos los bancos del mercado; algunos tienen protecciones que
+                      No calculamos APR ni incluimos costos adicionales como estudio de crédito,
+                      avalúo o seguros.
+                    </span>
+                  </li>
+                </ul>
+                <p className="text-amber-700 font-medium mb-3">Cuentas de ahorro:</p>
+                <ul className="space-y-2 text-amber-800 mb-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    <span>
+                      Las tasas pueden cambiar sin previo aviso por decisión de cada entidad.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    <span>
+                      Algunas cuentas tienen requisitos de permanencia o condiciones especiales para
+                      acceder a las tasas publicadas.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    <span>
+                      Los rendimientos están sujetos a retención en la fuente según la normativa
+                      colombiana.
+                    </span>
+                  </li>
+                </ul>
+                <p className="text-amber-700 font-medium mb-3">General:</p>
+                <ul className="space-y-2 text-amber-800">
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    <span>
+                      No incluimos todas las entidades del mercado; algunas tienen protecciones que
                       impiden la recopilación automatizada.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 mt-1">•</span>
                     <span>
-                      No calculamos APR ni incluimos costos adicionales como estudio de crédito,
-                      avalúo o seguros.
+                      Verifica siempre la información directamente con la entidad antes de tomar
+                      decisiones financieras.
                     </span>
                   </li>
                 </ul>
