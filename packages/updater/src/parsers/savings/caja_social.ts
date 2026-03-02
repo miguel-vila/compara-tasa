@@ -48,90 +48,93 @@ type AccountData = {
 /**
  * Parses rates from the PDF text.
  *
- * PDF structure (extracted text):
- * "Cuenta Alcancía (1) 10-mar-2025 Cuenta Alcancía - Tasa Premio (1) (2)"
+ * PDF structure (current as of March 2025):
+ * "Alcancía - Tasa Básica (2)   0.05%   -   -"
+ * "Alcancía - Tasa Premio (1)   8.75%   1   40,000,000"
+ * "0.05%   40,000,001   -"
  *
- * The rates appear before the account labels in this pattern:
- * "Tasa EA Monto mínimo Monto máximo ... 0.05% 1 40,000,000 0.05% 40,000,001 - 8.00% 1 40,000,000 0.05% 40,000,001 -"
+ * Updated March 2026:
+ * "Alcancía - Tasa Básica (2)   0.05%   -   -"
+ * "Alcancía - Tasa Premio (1)   8.75%   1   40,000,000"
+ * "0.05%   40,000,001   -"
  *
  * Pattern breakdown:
- * - Cuenta Alcancía: 0.05% (1-40M), 0.05% (40M+)
- * - Cuenta Alcancía Tasa Premio: 8.00% (1-40M), 0.05% (40M+) - applies when no withdrawals
+ * - Tasa Básica: 0.05% (applies when withdrawals made)
+ * - Tasa Premio: 8.75% (1-40M), 0.05% (40M+) - applies when no withdrawals
  */
 function parseAlcanciaRates(text: string): AccountData[] {
   const accounts: AccountData[] = [];
 
-  // Verify we have the right document
-  if (!/Cuenta\s+Alcanc[ií]a/i.test(text)) {
-    throw new Error("Could not find 'Cuenta Alcancía' header - PDF structure may have changed");
+  // Verify we have the right document - look for "Alcancía" (may or may not have "Cuenta" prefix)
+  if (!/Alcanc[ií]a/i.test(text)) {
+    throw new Error("Could not find 'Alcancía' in PDF - document structure may have changed");
   }
 
   // Extract all rate-amount patterns from the text
   // Pattern: RATE% MONTO_MIN MONTO_MAX (or -)
-  // e.g., "0.05% 1 40,000,000" or "8.00% 1 40,000,000"
-  const ratePattern = /(\d+\.\d+)%\s+(\d+(?:,\d+)*)\s+((?:\d+(?:,\d+)*)|(?:-))/g;
-  const matches: Array<{ rate: number; min: number; max?: number }> = [];
+  // e.g., "0.05% 1 40,000,000" or "8.75% 1 40,000,000" or "0.05% - -"
+  const ratePattern = /(\d+\.\d+)%\s+((?:\d+(?:,\d+)*)|(?:-))\s+((?:\d+(?:,\d+)*)|(?:-))/g;
+  const matches: Array<{ rate: number; min: number | null; max: number | undefined }> = [];
 
   let match;
   while ((match = ratePattern.exec(text)) !== null) {
     const rate = parseFloat(match[1]);
-    const minStr = match[2].replace(/,/g, "");
+    const minStr = match[2];
     const maxStr = match[3];
 
     matches.push({
       rate,
-      min: parseInt(minStr, 10),
+      min: minStr === "-" ? null : parseInt(minStr.replace(/,/g, ""), 10),
       max: maxStr === "-" ? undefined : parseInt(maxStr.replace(/,/g, ""), 10),
     });
   }
 
-  // We expect 4 rate entries based on the PDF structure:
-  // 1. Cuenta Alcancía: 0.05% (1-40M)
-  // 2. Cuenta Alcancía: 0.05% (40M+)
-  // 3. Cuenta Alcancía Tasa Premio: 8.00% (1-40M)
-  // 4. Cuenta Alcancía Tasa Premio: 0.05% (40M+)
-  if (matches.length < 4) {
+  // Determine which format we're dealing with based on matches found
+  // New format has:
+  // - Tasa Básica: 0.05% - -
+  // - Tasa Premio tier 1: 8.75% 1 40,000,000
+  // - Tasa Premio tier 2: 0.05% 40,000,001 -
+
+  // Filter out the Tasa Básica entry (min is null)
+  const tasaBasica = matches.find((m) => m.min === null);
+  const premioMatches = matches.filter((m) => m.min !== null);
+
+  if (!tasaBasica && premioMatches.length === 0) {
     throw new Error(
-      `Expected at least 4 rate entries, got ${matches.length} - PDF structure may have changed`
+      `Could not parse rate structure. Found ${matches.length} matches but no recognizable pattern - PDF structure may have changed`
     );
   }
 
-  // First two entries are for Cuenta Alcancía (standard)
-  accounts.push({
-    name: "Cuenta Alcancía Digital",
-    type: SavingsAccountType.DIGITAL,
-    tiers: [
-      {
-        min_amount: matches[0].min,
-        max_amount: matches[0].max,
-        ea_percent: matches[0].rate,
-      },
-      {
-        min_amount: matches[1].min,
-        max_amount: matches[1].max,
-        ea_percent: matches[1].rate,
-      },
-    ],
-  });
+  // Standard account (Tasa Básica - applies when withdrawals made)
+  if (tasaBasica) {
+    accounts.push({
+      name: "Cuenta Alcancía Digital",
+      type: SavingsAccountType.DIGITAL,
+      tiers: [
+        {
+          min_amount: 1,
+          max_amount: undefined, // No max for basic rate
+          ea_percent: tasaBasica.rate,
+        },
+      ],
+    });
+  }
 
-  // Second two entries are for Cuenta Alcancía Tasa Premio (no withdrawals bonus)
-  accounts.push({
-    name: "Cuenta Alcancía Digital (Tasa Premio)",
-    type: SavingsAccountType.HIGH_YIELD,
-    tiers: [
-      {
-        min_amount: matches[2].min,
-        max_amount: matches[2].max,
-        ea_percent: matches[2].rate,
-      },
-      {
-        min_amount: matches[3].min,
-        max_amount: matches[3].max,
-        ea_percent: matches[3].rate,
-      },
-    ],
-    note: "La tasa premio aplica siempre que no se hayan realizado retiros durante el mes anterior",
-  });
+  // Premium account (Tasa Premio - applies when no withdrawals)
+  if (premioMatches.length >= 1) {
+    const tiers: RateTier[] = premioMatches.map((m) => ({
+      min_amount: m.min || 1,
+      max_amount: m.max,
+      ea_percent: m.rate,
+    }));
+
+    accounts.push({
+      name: "Cuenta Alcancía Digital (Tasa Premio)",
+      type: SavingsAccountType.HIGH_YIELD,
+      tiers,
+      note: "La tasa premio aplica siempre que el cliente no realice retiros durante el mes",
+    });
+  }
 
   return accounts;
 }
