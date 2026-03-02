@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-23T14:00:24.908Z",
+  "generated_at": "2026-03-02T14:00:28.722Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -72,10 +72,10 @@
       },
       {
         "position": 3,
-        "offer_id": "ed22474a8ced97cc",
+        "offer_id": "292f025f2387eaf7",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 12
+          "value": 12.82
         }
       }
     ],
@@ -90,15 +90,15 @@
       },
       {
         "position": 2,
-        "offer_id": "a35760ad881a00a1",
+        "offer_id": "df1e056a96a1f5b8",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 12.15
+          "value": 12.5
         }
       },
       {
         "position": 3,
-        "offer_id": "df1e056a96a1f5b8",
+        "offer_id": "8e9bbfb067a56ee0",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.5
@@ -116,14 +116,6 @@
       },
       {
         "position": 2,
-        "offer_id": "a4d1b69326638fdd",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 6.16
-        }
-      },
-      {
-        "position": 3,
         "offer_id": "91cb9bcf79d069e2",
         "metric": {
           "kind": "UVR_SPREAD_EA",
@@ -160,10 +152,10 @@
       },
       {
         "position": 2,
-        "offer_id": "2176a229c5587a44",
+        "offer_id": "6d7d4c51dae4c110",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 11.48
+          "value": 12
         }
       },
       {
@@ -191,14 +183,6 @@
           "kind": "EA_PERCENT",
           "value": 13
         }
-      },
-      {
-        "position": 3,
-        "offer_id": "e4d5739b1d7a332a",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 13.6
-        }
       }
     ],
     "best_digital_hipotecario": [
@@ -220,10 +204,10 @@
       },
       {
         "position": 3,
-        "offer_id": "ed22474a8ced97cc",
+        "offer_id": "73e25f0f5faac283",
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 12
+          "value": 13
         }
       }
     ]
