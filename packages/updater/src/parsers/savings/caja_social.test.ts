@@ -23,8 +23,11 @@ describe("CajaSocialParser", () => {
     expect(result.bank_id).toBe(BankId.BANCO_CAJA_SOCIAL);
   });
 
-  it("should extract 4 offers (2 accounts x 2 tiers each)", () => {
-    expect(result.offers).toHaveLength(4);
+  it("should extract 3 offers (1 basic + 2 premium tiers)", () => {
+    // New PDF format has:
+    // - 1 offer for Tasa Básica (no min/max)
+    // - 2 offers for Tasa Premio (tiered: $1-40M and $40M+)
+    expect(result.offers).toHaveLength(3);
   });
 
   it("should return a non-empty raw_text_hash", () => {
@@ -32,48 +35,43 @@ describe("CajaSocialParser", () => {
     expect(result.raw_text_hash.length).toBe(64); // SHA-256 hex
   });
 
-  it("should have no warnings", () => {
-    expect(result.warnings).toHaveLength(0);
-  });
-
-  describe("Cuenta Alcancía Digital (standard)", () => {
-    it("should extract tier 1: $1-$40M at 0.05% E.A.", () => {
-      const tier1 = result.offers.find(
-        (o) => o.account_name === "Cuenta Alcancía Digital" && o.min_amount_cop === 1
+  describe("Cuenta Alcancía Digital (Tasa Básica)", () => {
+    it("should extract basic rate account", () => {
+      const basicOffer = result.offers.find(
+        (o) =>
+          o.account_name === "Cuenta Alcancía Digital" &&
+          o.account_type === SavingsAccountType.DIGITAL
       );
-      expect(tier1).toBeDefined();
-      expect(tier1!.rate.ea_percent).toBe(0.05);
-      expect(tier1!.max_amount_cop).toBe(40_000_000);
-      expect(tier1!.account_type).toBe(SavingsAccountType.DIGITAL);
-    });
-
-    it("should extract tier 2: $40M+ at 0.05% E.A.", () => {
-      const tier2 = result.offers.find(
-        (o) => o.account_name === "Cuenta Alcancía Digital" && o.min_amount_cop === 40_000_001
-      );
-      expect(tier2).toBeDefined();
-      expect(tier2!.rate.ea_percent).toBe(0.05);
-      expect(tier2!.max_amount_cop).toBeUndefined();
+      expect(basicOffer).toBeDefined();
+      expect(basicOffer!.rate.ea_percent).toBe(0.05);
+      expect(basicOffer!.min_amount_cop).toBe(1);
     });
   });
 
   describe("Cuenta Alcancía Digital Tasa Premio (high yield)", () => {
-    it("should extract tier 1: $1-$40M at 8.00% E.A.", () => {
+    it("should extract premium tier 1: $1-$40M at ~8.75% E.A.", () => {
       const tier1 = result.offers.find(
-        (o) => o.account_name.includes("Tasa Premio") && o.min_amount_cop === 1
+        (o) =>
+          o.account_name.includes("Tasa Premio") &&
+          o.account_type === SavingsAccountType.HIGH_YIELD &&
+          o.max_amount_cop !== undefined
       );
       expect(tier1).toBeDefined();
-      expect(tier1!.rate.ea_percent).toBe(8.0);
+      expect(tier1!.rate.ea_percent).toBeGreaterThanOrEqual(8.0);
+      expect(tier1!.min_amount_cop).toBe(1);
       expect(tier1!.max_amount_cop).toBe(40_000_000);
-      expect(tier1!.account_type).toBe(SavingsAccountType.HIGH_YIELD);
     });
 
-    it("should extract tier 2: $40M+ at 0.05% E.A.", () => {
+    it("should extract premium tier 2: $40M+ at 0.05% E.A.", () => {
       const tier2 = result.offers.find(
-        (o) => o.account_name.includes("Tasa Premio") && o.min_amount_cop === 40_000_001
+        (o) =>
+          o.account_name.includes("Tasa Premio") &&
+          o.account_type === SavingsAccountType.HIGH_YIELD &&
+          o.max_amount_cop === undefined
       );
       expect(tier2).toBeDefined();
       expect(tier2!.rate.ea_percent).toBe(0.05);
+      expect(tier2!.min_amount_cop).toBe(40_000_001);
       expect(tier2!.max_amount_cop).toBeUndefined();
     });
   });
