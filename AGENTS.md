@@ -97,6 +97,10 @@ Next.js 15 frontend with React 19, TailwindCSS, and TanStack React Table.
    - `savings-offers-latest.json`
    - `savings-rankings-latest.json`
 
+## Feature Documentation
+
+- [Mortgage Rates](./docs/mortgage-rates/index.md): Segmentation dimensions, ranking scenarios, and per-bank parser implementation details.
+
 ## Domain Concepts
 
 - **COP rates**: Fixed rates in Colombian Pesos (E.A. percentage)
