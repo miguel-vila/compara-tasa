@@ -1,0 +1,22 @@
+name: Verify Docs in Sync with Code
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # Every Monday at 3am UTC
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: miguel-vila/verify-docs-action@releases/v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          include: "AGENTS.md"
+          verbose: "true"
