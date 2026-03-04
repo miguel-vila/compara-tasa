@@ -1,79 +1,11 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Before You Start
-
-**Read `PROGRESS.md` first.** It contains:
-
-- Current project status (what works, what doesn't)
-- Checklist of completed and pending tasks
-- Next steps prioritized by importance
-
-**After completing work**, update `PROGRESS.md`:
-
-- Mark completed items with `[x]`
-- Add new items discovered during implementation
-- Update the status if the project becomes functional
+# AGENTS.md
 
 ## Project Overview
 
-ComparaTasa is a Colombia mortgage rates aggregator that scrapes publicly disclosed rates from Colombian banks and presents them on a consumer-facing comparison site. The system consists of an ETL pipeline that extracts rates from HTML/PDF sources and a Next.js frontend for displaying them.
+ComparaTasa is a Colombia rates aggregator that scrapes publicly disclosed rates from Colombian banks and presents them on a consumer-facing comparison site. It does it for mortgage rates and savings account rates. The system consists of an ETL pipeline that extracts rates from HTML/PDF sources and a Next.js frontend for displaying them.
 
-## Commands
-
-```bash
-# Install dependencies and build
-pnpm install
-pnpm build                                # Build all packages (core, updater, web)
-pnpm build:standalone                     # Build all + copy assets for Next.js standalone output
-
-# Development
-pnpm dev                              # Run Next.js dev server (localhost:3000)
-
-# Run rate update ETL pipelines
-pnpm update-mortgage-rates            # Scrapes banks for mortgage rates
-pnpm update-savings-rates                   # Scrapes banks for savings account rates
-
-# Testing
-pnpm test                             # Run all tests
-pnpm --filter @compara-tasa/updater test:watch  # Watch mode for updater tests
-
-# Code quality
-pnpm lint                             # ESLint
-pnpm lint:fix                         # ESLint with auto-fix
-pnpm format                           # Prettier
-pnpm typecheck                        # TypeScript across all packages
-```
-
-## Architecture
-
-This is a pnpm monorepo with three packages:
-
-### `packages/core` (@compara-tasa/core)
-
-Shared TypeScript types and Zod schemas. Must be built first as other packages depend on it.
-
-Key exports:
-
-- **Enums**: `BankId`, `MortgageType`, `CurrencyIndex`, `Segment`, `Channel`, `SourceType`, `ExtractionMethod`, `MortgageScenarioKey`, `SavingsScenarioKey`
-- **Types**: `MortgageOffer`, `Rate` (union of `CopFixedRate` | `UvrSpreadRate`), `MortgageRankings`, `MortgageOffersDataset`, `BankMortgageParseResult`, `SavingsOffer`, `SavingsRankings`, `SavingsOffersDataset`, `BankSavingsParseResult`
-- **Schemas**: Zod validators for all types (e.g., `MortgageOfferSchema`, `MortgageRankingsSchema`, `SavingsOfferSchema`)
-
-### `packages/updater` (@compara-tasa/updater)
-
-ETL pipeline that scrapes bank rate disclosures and produces JSON datasets.
-
-Key patterns:
-
-- **Mortgage parsers**: Implement `BankMortgageParser` interface, return `BankMortgageParseResult`
-- **Savings parsers**: Implement `BankSavingsParser` interface, return `BankSavingsParseResult`
-- Uses `cheerio` for HTML parsing and `pdfjs-dist` for PDF text extraction
-- Outputs JSON files to `apps/web/public/data/` directory
-
-### `apps/web` (@compara-tasa/web)
-
-Next.js 15 frontend with React 19, TailwindCSS, and TanStack React Table.
+- [Commands](./docs/commands.md): Commands to run the ETL, build the project, run the web server and others.
+- [Architecture](./docs/architecture.md): High-level architecture and data flow.
 
 ## Data Flow
 
@@ -100,6 +32,7 @@ Next.js 15 frontend with React 19, TailwindCSS, and TanStack React Table.
 ## Feature Documentation
 
 - [Mortgage Rates](./docs/mortgage-rates/index.md): Segmentation dimensions, ranking scenarios, and per-bank parser implementation details.
+- [Savings Rates](./docs/savings-rates/index.md): Balance tier and bank type segmentation, ranking scenarios, and per-bank parser implementation details.
 
 ## Domain Concepts
 
@@ -130,17 +63,6 @@ Tests use Vitest. Bank parsers should have fixture-based tests using saved HTML/
 
 See `.claude/skills/add-mortgage-rate-parser/` for detailed instructions. Quick summary:
 
-1. Download fixture to `fixtures/{bank_id}/`
-2. Implement parser in `packages/updater/src/parsers/{bank_id}.ts`
-3. Register in `packages/updater/src/parsers/index.ts`
-4. Write tests in `packages/updater/src/parsers/{bank_id}.test.ts`
-5. Update PROGRESS.md
-
 ### Savings Account Parser
 
 See `.claude/skills/add-savings-bank-account-parser/` for detailed instructions. Quick summary:
-
-1. Download fixture to `fixtures/{bank_id}/`
-2. Implement parser in `packages/updater/src/parsers/savings/{bank_id}.ts`
-3. Register in `packages/updater/src/parsers/savings/index.ts`
-4. Write tests in `packages/updater/src/parsers/savings/{bank_id}.test.ts`
