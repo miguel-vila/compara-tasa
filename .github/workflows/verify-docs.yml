@@ -14,7 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      - name: Debug Claude Code
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude --version
+          claude -p "Say hello" --allowedTools "" --max-turns 1 2>&1 || echo "Exit code: $?"
       - uses: miguel-vila/verify-docs-action@releases/v1
         with:
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
