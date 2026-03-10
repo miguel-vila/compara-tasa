@@ -26,3 +26,4 @@ jobs:
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           include: "AGENTS.md"
           verbose: "true"
+          debug: "true"
