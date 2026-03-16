@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T14:01:43.522Z",
+  "generated_at": "2026-03-16T14:01:41.856Z",
   "offers": [
     {
       "id": "91cb9bcf79d069e2",
@@ -26,8 +26,8 @@
         "url": "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda",
         "source_type": "HTML",
         "document_label": "Crédito hipotecario para comprar vivienda",
-        "retrieved_at": "2026-03-09T14:01:24.244Z",
-        "extracted_text_fingerprint": "fc0f75986cca04e538fc235151aeecc00f7502c85f2e9dbe45d251b4e8e3bc9c",
+        "retrieved_at": "2026-03-16T14:01:12.061Z",
+        "extracted_text_fingerprint": "91da486a8b7d24fec817f8147849a4f0d31fdd258a3aabec8701f29929ece0d1",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#detalles-tasas-tarifas h3:contains(\"UVR\") + table",
@@ -60,8 +60,8 @@
         "url": "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda",
         "source_type": "HTML",
         "document_label": "Crédito hipotecario para comprar vivienda",
-        "retrieved_at": "2026-03-09T14:01:24.244Z",
-        "extracted_text_fingerprint": "fc0f75986cca04e538fc235151aeecc00f7502c85f2e9dbe45d251b4e8e3bc9c",
+        "retrieved_at": "2026-03-16T14:01:12.061Z",
+        "extracted_text_fingerprint": "91da486a8b7d24fec817f8147849a4f0d31fdd258a3aabec8701f29929ece0d1",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#detalles-tasas-tarifas h3:contains(\"UVR\") + table",
@@ -94,8 +94,8 @@
         "url": "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda",
         "source_type": "HTML",
         "document_label": "Crédito hipotecario para comprar vivienda",
-        "retrieved_at": "2026-03-09T14:01:24.244Z",
-        "extracted_text_fingerprint": "fc0f75986cca04e538fc235151aeecc00f7502c85f2e9dbe45d251b4e8e3bc9c",
+        "retrieved_at": "2026-03-16T14:01:12.061Z",
+        "extracted_text_fingerprint": "91da486a8b7d24fec817f8147849a4f0d31fdd258a3aabec8701f29929ece0d1",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#detalles-tasas-tarifas h3:contains(\"COP\") + table",
@@ -128,8 +128,8 @@
         "url": "https://www.bancolombia.com/personas/creditos/vivienda/credito-hipotecario-para-comprar-vivienda",
         "source_type": "HTML",
         "document_label": "Crédito hipotecario para comprar vivienda",
-        "retrieved_at": "2026-03-09T14:01:24.244Z",
-        "extracted_text_fingerprint": "fc0f75986cca04e538fc235151aeecc00f7502c85f2e9dbe45d251b4e8e3bc9c",
+        "retrieved_at": "2026-03-16T14:01:12.061Z",
+        "extracted_text_fingerprint": "91da486a8b7d24fec817f8147849a4f0d31fdd258a3aabec8701f29929ece0d1",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#detalles-tasas-tarifas h3:contains(\"COP\") + table",
@@ -162,7 +162,7 @@
         "url": "https://www.bbva.com.co/content/dam/public-web/colombia/documents/home/prefooter/tarifas/DO-11-TASAS-VIVIENDA.pdf",
         "source_type": "PDF",
         "document_label": "Tasas de interés líneas de vivienda",
-        "retrieved_at": "2026-03-09T14:01:25.148Z",
+        "retrieved_at": "2026-03-16T14:01:13.087Z",
         "extracted_text_fingerprint": "349fc7fd7ace7ad057248136c8f711ee1075fd04bc118152c805ed5ffb187a16",
         "extraction": {
           "method": "REGEX",
@@ -189,7 +189,7 @@
         "url": "https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y productos de crédito",
-        "retrieved_at": "2026-03-09T14:01:25.550Z",
+        "retrieved_at": "2026-03-16T14:01:13.525Z",
         "extracted_text_fingerprint": "f76a9f03f7efe542bb10784bdee28d0608136d1b3eb1ac79882d2d03b8aade3e",
         "extraction": {
           "method": "REGEX",
@@ -216,7 +216,7 @@
         "url": "https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y productos de crédito",
-        "retrieved_at": "2026-03-09T14:01:25.550Z",
+        "retrieved_at": "2026-03-16T14:01:13.525Z",
         "extracted_text_fingerprint": "f76a9f03f7efe542bb10784bdee28d0608136d1b3eb1ac79882d2d03b8aade3e",
         "extraction": {
           "method": "REGEX",
@@ -243,7 +243,7 @@
         "url": "https://cdn.aglty.io/scotiabank-colombia/scotiabank-colpatria/pdf/tasas-y-tarifas/Tasas-y-productos-credito.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y productos de crédito",
-        "retrieved_at": "2026-03-09T14:01:25.550Z",
+        "retrieved_at": "2026-03-16T14:01:13.525Z",
         "extracted_text_fingerprint": "f76a9f03f7efe542bb10784bdee28d0608136d1b3eb1ac79882d2d03b8aade3e",
         "extraction": {
           "method": "REGEX",
@@ -272,7 +272,7 @@
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Crédito de Vivienda",
-        "retrieved_at": "2026-03-09T14:01:25.712Z",
+        "retrieved_at": "2026-03-16T14:01:13.679Z",
         "extracted_text_fingerprint": "bb7d9907f8e2102e3b304b702df539b63a0a20a6d37c10c8b9435525b2d83af5",
         "extraction": {
           "method": "REGEX",
@@ -301,7 +301,7 @@
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Crédito de Vivienda",
-        "retrieved_at": "2026-03-09T14:01:25.712Z",
+        "retrieved_at": "2026-03-16T14:01:13.679Z",
         "extracted_text_fingerprint": "bb7d9907f8e2102e3b304b702df539b63a0a20a6d37c10c8b9435525b2d83af5",
         "extraction": {
           "method": "REGEX",
@@ -330,7 +330,7 @@
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Crédito de Vivienda",
-        "retrieved_at": "2026-03-09T14:01:25.712Z",
+        "retrieved_at": "2026-03-16T14:01:13.679Z",
         "extracted_text_fingerprint": "bb7d9907f8e2102e3b304b702df539b63a0a20a6d37c10c8b9435525b2d83af5",
         "extraction": {
           "method": "REGEX",
@@ -359,7 +359,7 @@
         "url": "https://www.bancocajasocial.com/content/dam/bcs/documentos/informacion-corporativa/tasas-precios-y-comisiones/credito-vivienda/Tasas-Credito-Vivienda.pdf",
         "source_type": "PDF",
         "document_label": "Tasas Crédito de Vivienda",
-        "retrieved_at": "2026-03-09T14:01:25.712Z",
+        "retrieved_at": "2026-03-16T14:01:13.679Z",
         "extracted_text_fingerprint": "bb7d9907f8e2102e3b304b702df539b63a0a20a6d37c10c8b9435525b2d83af5",
         "extraction": {
           "method": "REGEX",
@@ -386,7 +386,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -413,7 +413,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -440,7 +440,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -466,7 +466,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -492,7 +492,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -518,7 +518,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -545,7 +545,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -572,7 +572,7 @@
         "url": "https://www.avvillas.com.co/documents/37648/10212085/Tasas+Activas+02+Marzo+2026.pdf/53fd61c5-8aa5-6667-e110-774ae8c2c06c?t=1772485563925",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Crédito Según Línea y Plazo",
-        "retrieved_at": "2026-03-09T14:01:25.892Z",
+        "retrieved_at": "2026-03-16T14:01:13.980Z",
         "extracted_text_fingerprint": "ea870dcb969a0f3c1c209e2701508a1452a8a182004513584de0f19a0a3cd0e8",
         "extraction": {
           "method": "REGEX",
@@ -599,7 +599,7 @@
         "url": "https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas vigentes persona natural",
-        "retrieved_at": "2026-03-09T14:01:27.407Z",
+        "retrieved_at": "2026-03-16T14:01:16.363Z",
         "extracted_text_fingerprint": "57e75242a943df10f027d99900d333cfef00536caeb083448c5f45e551c51a3e",
         "extraction": {
           "method": "REGEX",
@@ -626,7 +626,7 @@
         "url": "https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas vigentes persona natural",
-        "retrieved_at": "2026-03-09T14:01:27.407Z",
+        "retrieved_at": "2026-03-16T14:01:16.363Z",
         "extracted_text_fingerprint": "57e75242a943df10f027d99900d333cfef00536caeb083448c5f45e551c51a3e",
         "extraction": {
           "method": "REGEX",
@@ -659,8 +659,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -692,8 +692,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -725,8 +725,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -758,8 +758,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -791,8 +791,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -824,8 +824,8 @@
         "url": "https://www.fna.gov.co/sobre-el-fna/tasas",
         "source_type": "HTML",
         "document_label": "Tasas FNA",
-        "retrieved_at": "2026-03-09T14:01:27.523Z",
-        "extracted_text_fingerprint": "0f0f8bb55d7b590012a084de8045d637606b1ee8c01d105b4d6c22c8a286d087",
+        "retrieved_at": "2026-03-16T14:01:16.453Z",
+        "extracted_text_fingerprint": "cd6ee81fce05c263e1c98d82bac376fcdf79aa047610628fff3c5c12dba0501a",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "table caption h3:contains(\"Cesantías\")",
@@ -851,8 +851,8 @@
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas - Casayá",
-        "retrieved_at": "2026-03-09T14:01:28.225Z",
-        "extracted_text_fingerprint": "13854da7219562702bec00ddb5a8d630641240cf0022c3a9ea01db6ea473e530",
+        "retrieved_at": "2026-03-16T14:01:18.183Z",
+        "extracted_text_fingerprint": "abee27f97fcf19a38450ac8354039bad0f67c9054364688a086b690f58c542f2",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#table-rates-casaya table.simple-table",
@@ -878,8 +878,8 @@
         "url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/informacion-interes/tasas",
         "source_type": "HTML",
         "document_label": "Tasas y Tarifas - Casayá",
-        "retrieved_at": "2026-03-09T14:01:28.225Z",
-        "extracted_text_fingerprint": "13854da7219562702bec00ddb5a8d630641240cf0022c3a9ea01db6ea473e530",
+        "retrieved_at": "2026-03-16T14:01:18.183Z",
+        "extracted_text_fingerprint": "abee27f97fcf19a38450ac8354039bad0f67c9054364688a086b690f58c542f2",
         "extraction": {
           "method": "CSS_SELECTOR",
           "locator": "#table-rates-casaya table.simple-table",
@@ -904,7 +904,7 @@
         "url": "https://www.bancodebogota.com/documents/d/guest/tasas-marzo-2026",
         "source_type": "PDF",
         "document_label": "Tasas Banco de Bogotá - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:28.386Z",
+        "retrieved_at": "2026-03-16T14:01:18.396Z",
         "extracted_text_fingerprint": "bf69e8c8bb25476b8ef99e4ebc8d7ba2b29e754220c43f30dcbe94818c0e874d",
         "extraction": {
           "method": "REGEX",
@@ -930,7 +930,7 @@
         "url": "https://www.bancodebogota.com/documents/d/guest/tasas-marzo-2026",
         "source_type": "PDF",
         "document_label": "Tasas Banco de Bogotá - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:28.386Z",
+        "retrieved_at": "2026-03-16T14:01:18.396Z",
         "extracted_text_fingerprint": "bf69e8c8bb25476b8ef99e4ebc8d7ba2b29e754220c43f30dcbe94818c0e874d",
         "extraction": {
           "method": "REGEX",
@@ -956,7 +956,7 @@
         "url": "https://www.bancodebogota.com/documents/d/guest/tasas-marzo-2026",
         "source_type": "PDF",
         "document_label": "Tasas Banco de Bogotá - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:28.386Z",
+        "retrieved_at": "2026-03-16T14:01:18.396Z",
         "extracted_text_fingerprint": "bf69e8c8bb25476b8ef99e4ebc8d7ba2b29e754220c43f30dcbe94818c0e874d",
         "extraction": {
           "method": "REGEX",
@@ -982,7 +982,7 @@
         "url": "https://www.bancodebogota.com/documents/d/guest/tasas-marzo-2026",
         "source_type": "PDF",
         "document_label": "Tasas Banco de Bogotá - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:28.386Z",
+        "retrieved_at": "2026-03-16T14:01:18.396Z",
         "extracted_text_fingerprint": "bf69e8c8bb25476b8ef99e4ebc8d7ba2b29e754220c43f30dcbe94818c0e874d",
         "extraction": {
           "method": "REGEX",
@@ -1008,7 +1008,7 @@
         "url": "https://www.bancodebogota.com/documents/d/guest/tasas-marzo-2026",
         "source_type": "PDF",
         "document_label": "Tasas Banco de Bogotá - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:28.386Z",
+        "retrieved_at": "2026-03-16T14:01:18.396Z",
         "extracted_text_fingerprint": "bf69e8c8bb25476b8ef99e4ebc8d7ba2b29e754220c43f30dcbe94818c0e874d",
         "extraction": {
           "method": "REGEX",
@@ -1035,7 +1035,7 @@
         "url": "https://www.bancodeoccidente.com.co/banco-de-occidente/documentos/tasas-tarifas/para-personas/tasas/tasas-personas.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas - Personas",
-        "retrieved_at": "2026-03-09T14:01:28.902Z",
+        "retrieved_at": "2026-03-16T14:01:18.947Z",
         "extracted_text_fingerprint": "99dc68d46820033bcb7b5588ce14d95d7280440127f1be4a5f0b7a757a70d6b2",
         "extraction": {
           "method": "REGEX",
@@ -1062,7 +1062,7 @@
         "url": "https://www.bancodeoccidente.com.co/banco-de-occidente/documentos/tasas-tarifas/para-personas/tasas/tasas-personas.pdf",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas - Personas",
-        "retrieved_at": "2026-03-09T14:01:28.902Z",
+        "retrieved_at": "2026-03-16T14:01:18.947Z",
         "extracted_text_fingerprint": "99dc68d46820033bcb7b5588ce14d95d7280440127f1be4a5f0b7a757a70d6b2",
         "extraction": {
           "method": "REGEX",
@@ -1088,8 +1088,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1114,8 +1114,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1140,8 +1140,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1166,8 +1166,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1192,8 +1192,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1218,8 +1218,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1244,8 +1244,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1270,8 +1270,8 @@
         "url": "https://www.davivienda.com/documents/d/guest/tasas-tarifas-davivienda",
         "source_type": "PDF",
         "document_label": "Tasas y Tarifas Davivienda - Vivienda",
-        "retrieved_at": "2026-03-09T14:01:38.825Z",
-        "extracted_text_fingerprint": "35fad5546f78df078a73f73787ac6598616e4d6d087a7a5294a10b4e83e03361",
+        "retrieved_at": "2026-03-16T14:01:33.073Z",
+        "extracted_text_fingerprint": "cb6b0d1623cbf1f4a91cdbf5cc8b8e19406b4718e5e42fcf1926cf9e12b44943",
         "extraction": {
           "method": "REGEX",
           "locator": "vivienda_section",
@@ -1296,7 +1296,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1322,7 +1322,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1348,7 +1348,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1374,7 +1374,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1400,7 +1400,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1426,7 +1426,7 @@
         "url": "https://www.bancoagrario.gov.co/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas de Colocación - Banco Agrario",
-        "retrieved_at": "2026-03-09T14:01:39.922Z",
+        "retrieved_at": "2026-03-16T14:01:34.168Z",
         "extracted_text_fingerprint": "b4ed073c68b3dfb4629461786bd61871940d3d7b725dd9feab2c2b59278cf5cb",
         "extraction": {
           "method": "REGEX",
@@ -1452,8 +1452,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "clientes_vivienda",
@@ -1478,8 +1478,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "clientes_vivienda",
@@ -1504,8 +1504,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "clientes_vivienda",
@@ -1530,8 +1530,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "clientes_vivienda",
@@ -1560,8 +1560,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "asociados_vivienda",
@@ -1590,8 +1590,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "asociados_vivienda",
@@ -1620,8 +1620,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "asociados_vivienda",
@@ -1650,8 +1650,8 @@
         "url": "https://www.bancoomeva.com.co/publicaciones/164289/tasas-de-credito/",
         "source_type": "PDF",
         "document_label": "Tasas de Crédito",
-        "retrieved_at": "2026-03-09T14:01:40.997Z",
-        "extracted_text_fingerprint": "879ae131ce4c83382b26fd301aacc7c546acc3adcd00a0958fdbfc4e2ecb4153",
+        "retrieved_at": "2026-03-16T14:01:35.221Z",
+        "extracted_text_fingerprint": "b479d3d7f6eef9bd4c2699761f630c8fcaa089b8c5c78d03bd2c113ad5617822",
         "extraction": {
           "method": "REGEX",
           "locator": "asociados_vivienda",
