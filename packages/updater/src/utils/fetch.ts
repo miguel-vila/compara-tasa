@@ -158,19 +158,16 @@ export async function fetchBancoDeBogotaPdf(
 /**
  * Builds a Pibank PDF URL for a given rate month.
  *
- * URL pattern: /uploads/{upload_year}/{upload_month}/Tasas{rate_month}{rate_year}.pdf
- * The upload date is the month BEFORE the rates take effect.
- * Example: February 2026 rates -> uploaded January 2026 -> /uploads/2026/01/Tasas022026.pdf
+ * URL pattern: /uploads/{year}/{month}/Tarifas_{MonthName}{year}.pdf
+ * Uses Spanish month names (capitalized), not numeric.
+ * Example: April 2026 -> /uploads/2026/04/Tarifas_Abril2026.pdf
  */
 function buildPibankUrl(rateYear: number, rateMonth: number): string {
-  // Upload happens in the previous month
-  const uploadDate = new Date(rateYear, rateMonth - 2, 1); // month is 0-indexed, so rateMonth-2
-  const uploadYear = uploadDate.getFullYear();
-  const uploadMonth = String(uploadDate.getMonth() + 1).padStart(2, "0");
-
+  const monthName = SPANISH_MONTHS[rateMonth - 1]; // 0-indexed array
+  const monthNameCapitalized = monthName.charAt(0).toUpperCase() + monthName.slice(1);
   const rateMonthStr = String(rateMonth).padStart(2, "0");
 
-  return `${PIBANK_BASE_URL}/${uploadYear}/${uploadMonth}/Tasas${rateMonthStr}${rateYear}.pdf`;
+  return `${PIBANK_BASE_URL}/${rateYear}/${rateMonthStr}/Tarifas_${monthNameCapitalized}${rateYear}.pdf`;
 }
 
 /**
@@ -199,7 +196,7 @@ export async function fetchPibankPdf(
   } catch (error) {
     // If 403 or 404, try previous month (rates may not be uploaded yet)
     if (isHttp403(error) || isHttp404(error)) {
-      const prevDate = new Date(currentYear, currentMonth - 2, 1);
+      const prevDate = new Date(currentYear, currentMonth - 1, 1); // try previous month
       const prevYear = prevDate.getFullYear();
       const prevMonth = prevDate.getMonth() + 1;
       const prevUrl = buildPibankUrl(prevYear, prevMonth);
