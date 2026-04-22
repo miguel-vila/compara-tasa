@@ -115,8 +115,10 @@ async function main(): Promise<void> {
   for (const [scenario, ranking] of Object.entries(rankings.mortgageScenarios)) {
     if (ranking && ranking.length > 0) {
       const top = ranking[0];
+      const ids = top.entries.map((e) => e.offer_id).join(", ");
+      const tieNote = top.entries.length > 1 ? ` (tied x${top.entries.length})` : "";
       console.log(
-        `  ${scenario}: ${top.metric.value} (${top.offer_id}) [${ranking.length} ranked]`
+        `  ${scenario}: ${top.metric.value} [${ids}]${tieNote} [${ranking.length} positions]`
       );
     }
   }

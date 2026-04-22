@@ -5,7 +5,6 @@ import {
   type SavingsOffer,
   type SavingsRankings,
   type SavingsScenarioRanking,
-  type SavingsRankedEntry,
   type SavingsRankingMetric,
 } from "@compara-tasa/core";
 
@@ -71,6 +70,7 @@ function getOfferMetric(offer: SavingsOffer): SavingsRankingMetric {
 /**
  * For savings, we want the HIGHEST rate (unlike mortgages where lower is better).
  * Also, we deduplicate by bank - only show the best offer from each bank.
+ * Tied rates share a position; the ranking is capped at 3 distinct rates.
  */
 function findTopOffers(
   offers: SavingsOffer[],
@@ -96,14 +96,23 @@ function findTopOffers(
   // Sort by rate value (descending = highest rate is best for savings)
   deduped.sort((a, b) => b.rate.ea_percent - a.rate.ea_percent);
 
-  // Return top 3 offers with their positions
-  return deduped.slice(0, 3).map(
-    (offer, index): SavingsRankedEntry => ({
-      position: index + 1,
-      offer_id: offer.id,
-      metric: getOfferMetric(offer),
-    })
-  );
+  // Group consecutive equal metric values; cap at 3 distinct rates.
+  const groups: SavingsScenarioRanking = [];
+  for (const offer of deduped) {
+    const metric = getOfferMetric(offer);
+    const last = groups[groups.length - 1];
+    if (last && last.metric.value === metric.value) {
+      last.entries.push({ offer_id: offer.id });
+    } else {
+      if (groups.length >= 3) break;
+      groups.push({
+        position: groups.length + 1,
+        metric,
+        entries: [{ offer_id: offer.id }],
+      });
+    }
+  }
+  return groups;
 }
 
 /**

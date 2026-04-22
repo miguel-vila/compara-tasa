@@ -46,12 +46,15 @@ describe("computeSavingsRankings", () => {
     expect(neobankRanking).toBeDefined();
     expect(neobankRanking!.length).toBe(3);
 
-    // Highest rate should be first
-    expect(neobankRanking![0].offer_id).toBe("2"); // Lulo 10%
+    expect(neobankRanking![0].position).toBe(1);
     expect(neobankRanking![0].metric.value).toBe(10.0);
+    expect(neobankRanking![0].entries).toEqual([{ offer_id: "2" }]);
 
-    expect(neobankRanking![1].offer_id).toBe("3"); // RappiPay 9%
-    expect(neobankRanking![2].offer_id).toBe("1"); // Ban100 8%
+    expect(neobankRanking![1].position).toBe(2);
+    expect(neobankRanking![1].entries).toEqual([{ offer_id: "3" }]);
+
+    expect(neobankRanking![2].position).toBe(3);
+    expect(neobankRanking![2].entries).toEqual([{ offer_id: "1" }]);
   });
 
   it("should deduplicate by bank, keeping best offer per bank", () => {
@@ -69,87 +72,74 @@ describe("computeSavingsRankings", () => {
     // Should have 2 banks (Ban100 best offer + Lulo), not 4 offers
     expect(neobankRanking!.length).toBe(2);
 
-    // Ban100's best offer (10%) should be first
-    expect(neobankRanking![0].offer_id).toBe("3");
     expect(neobankRanking![0].metric.value).toBe(10.0);
-
-    // Lulo's offer should be second
-    expect(neobankRanking![1].offer_id).toBe("4");
+    expect(neobankRanking![0].entries).toEqual([{ offer_id: "3" }]);
+    expect(neobankRanking![1].entries).toEqual([{ offer_id: "4" }]);
   });
 
   it("should filter by balance tier for under_10m scenario", () => {
     const offers: SavingsOffer[] = [
-      // Ban100 tiered rates
       createTestOffer("ban100-low", BankId.BAN100, 6.0, 1, 10_000_000),
       createTestOffer("ban100-mid", BankId.BAN100, 9.0, 10_000_001, 30_000_000),
       createTestOffer("ban100-high", BankId.BAN100, 10.0, 30_000_001),
-      // Lulo single rate
       createTestOffer("lulo", BankId.LULO, 7.5, 1),
     ];
 
     const rankings = computeSavingsRankings(offers);
 
-    // For under 10M scenario, only offers with min <= 5M and max >= 5M should apply
     const under10mRanking = rankings.scenarios[SavingsScenarioKey.BEST_RATE_UNDER_10M];
     expect(under10mRanking).toBeDefined();
 
-    // Lulo (7.5%) should be best, then Ban100 low tier (6.0%)
-    expect(under10mRanking![0].offer_id).toBe("lulo");
     expect(under10mRanking![0].metric.value).toBe(7.5);
+    expect(under10mRanking![0].entries).toEqual([{ offer_id: "lulo" }]);
 
-    expect(under10mRanking![1].offer_id).toBe("ban100-low");
     expect(under10mRanking![1].metric.value).toBe(6.0);
+    expect(under10mRanking![1].entries).toEqual([{ offer_id: "ban100-low" }]);
   });
 
   it("should filter by balance tier for over_50m scenario", () => {
     const offers: SavingsOffer[] = [
-      // Ban100 tiered rates
       createTestOffer("ban100-low", BankId.BAN100, 6.0, 1, 10_000_000),
       createTestOffer("ban100-high", BankId.BAN100, 10.0, 30_000_001),
-      // BBVA premium tier
       createTestOffer("bbva-premium", BankId.BBVA, 8.0, 50_000_000),
     ];
 
     const rankings = computeSavingsRankings(offers);
 
-    // For over 50M scenario (100M test amount), only high tier offers should apply
     const over50mRanking = rankings.scenarios[SavingsScenarioKey.BEST_RATE_OVER_50M];
     expect(over50mRanking).toBeDefined();
 
-    // Ban100 high tier (10%) should be first (accessible at 100M)
-    expect(over50mRanking![0].offer_id).toBe("ban100-high");
     expect(over50mRanking![0].metric.value).toBe(10.0);
+    expect(over50mRanking![0].entries).toEqual([{ offer_id: "ban100-high" }]);
 
-    // BBVA premium (8%) should be second
-    expect(over50mRanking![1].offer_id).toBe("bbva-premium");
+    expect(over50mRanking![1].metric.value).toBe(8.0);
+    expect(over50mRanking![1].entries).toEqual([{ offer_id: "bbva-premium" }]);
   });
 
   it("should separate neobank and traditional bank rankings", () => {
     const offers: SavingsOffer[] = [
-      createTestOffer("ban100", BankId.BAN100, 10.0, 1), // neobank
-      createTestOffer("lulo", BankId.LULO, 9.0, 1), // neobank
-      createTestOffer("bbva", BankId.BBVA, 8.0, 1), // traditional
-      createTestOffer("caja", BankId.BANCO_CAJA_SOCIAL, 7.0, 1), // traditional
+      createTestOffer("ban100", BankId.BAN100, 10.0, 1),
+      createTestOffer("lulo", BankId.LULO, 9.0, 1),
+      createTestOffer("bbva", BankId.BBVA, 8.0, 1),
+      createTestOffer("caja", BankId.BANCO_CAJA_SOCIAL, 7.0, 1),
     ];
 
     const rankings = computeSavingsRankings(offers);
 
-    // Neobank ranking should only include Ban100 and Lulo
     const neobankRanking = rankings.scenarios[SavingsScenarioKey.BEST_NEOBANK];
     expect(neobankRanking).toBeDefined();
     expect(neobankRanking!.length).toBe(2);
-    expect(neobankRanking![0].offer_id).toBe("ban100");
-    expect(neobankRanking![1].offer_id).toBe("lulo");
+    expect(neobankRanking![0].entries).toEqual([{ offer_id: "ban100" }]);
+    expect(neobankRanking![1].entries).toEqual([{ offer_id: "lulo" }]);
 
-    // Traditional ranking should only include BBVA and Caja Social
     const traditionalRanking = rankings.scenarios[SavingsScenarioKey.BEST_TRADITIONAL];
     expect(traditionalRanking).toBeDefined();
     expect(traditionalRanking!.length).toBe(2);
-    expect(traditionalRanking![0].offer_id).toBe("bbva");
-    expect(traditionalRanking![1].offer_id).toBe("caja");
+    expect(traditionalRanking![0].entries).toEqual([{ offer_id: "bbva" }]);
+    expect(traditionalRanking![1].entries).toEqual([{ offer_id: "caja" }]);
   });
 
-  it("should limit rankings to top 3", () => {
+  it("should cap at 3 distinct rates", () => {
     const offers: SavingsOffer[] = [
       createTestOffer("1", BankId.BAN100, 10.0, 1),
       createTestOffer("2", BankId.LULO, 9.5, 1),
@@ -164,9 +154,58 @@ describe("computeSavingsRankings", () => {
     expect(neobankRanking).toBeDefined();
     expect(neobankRanking!.length).toBe(3);
 
-    // Verify positions
     expect(neobankRanking![0].position).toBe(1);
     expect(neobankRanking![1].position).toBe(2);
     expect(neobankRanking![2].position).toBe(3);
+  });
+
+  describe("ties", () => {
+    it("should group two banks tied at the top rate into one position-1 group", () => {
+      const offers: SavingsOffer[] = [
+        createTestOffer("bbva", BankId.BBVA, 11.0, 1),
+        createTestOffer("pibank", BankId.PIBANK, 11.0, 1),
+        createTestOffer("bancamia", BankId.BANCAMIA, 10.0, 1),
+      ];
+
+      const rankings = computeSavingsRankings(offers);
+
+      const ranking = rankings.scenarios[SavingsScenarioKey.BEST_RATE_UNDER_10M];
+      expect(ranking).toBeDefined();
+      expect(ranking!.length).toBe(2);
+
+      expect(ranking![0]).toEqual({
+        position: 1,
+        metric: { kind: "EA_PERCENT", value: 11.0 },
+        entries: [{ offer_id: "bbva" }, { offer_id: "pibank" }],
+      });
+
+      expect(ranking![1]).toEqual({
+        position: 2,
+        metric: { kind: "EA_PERCENT", value: 10.0 },
+        entries: [{ offer_id: "bancamia" }],
+      });
+    });
+
+    it("should include all entries tied at the third position even when more banks exist", () => {
+      const offers: SavingsOffer[] = [
+        createTestOffer("a", BankId.LULO, 10.0, 1),
+        createTestOffer("b", BankId.NU, 9.0, 1),
+        createTestOffer("c", BankId.RAPPIPAY, 8.5, 1),
+        createTestOffer("d", BankId.UALA, 8.5, 1),
+        createTestOffer("e", BankId.PIBANK, 8.0, 1),
+      ];
+
+      const rankings = computeSavingsRankings(offers);
+
+      const ranking = rankings.scenarios[SavingsScenarioKey.BEST_NEOBANK];
+      expect(ranking).toBeDefined();
+      expect(ranking!.length).toBe(3);
+
+      expect(ranking![2]).toEqual({
+        position: 3,
+        metric: { kind: "EA_PERCENT", value: 8.5 },
+        entries: [{ offer_id: "c" }, { offer_id: "d" }],
+      });
+    });
   });
 });

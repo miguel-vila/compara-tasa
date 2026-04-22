@@ -32,6 +32,7 @@ export type {
   MortgageOffer,
   RankingMetric,
   RankedEntry,
+  RankedGroup,
   ScenarioRanking,
   MortgageRankings,
   MortgageOffersDataset,
@@ -47,6 +48,7 @@ export type {
   // Savings rankings types
   SavingsRankingMetric,
   SavingsRankedEntry,
+  SavingsRankedGroup,
   SavingsScenarioRanking,
   SavingsRankings,
 } from "./types.js";
@@ -72,6 +74,7 @@ export {
   MortgageOfferSchema,
   RankingMetricSchema,
   RankedEntrySchema,
+  RankedGroupSchema,
   ScenarioRankingSchema,
   MortgageRankingsSchema,
   MortgageOffersDatasetSchema,
@@ -90,6 +93,7 @@ export {
   SavingsBankTypeSchema,
   SavingsRankingMetricSchema,
   SavingsRankedEntrySchema,
+  SavingsRankedGroupSchema,
   SavingsScenarioRankingSchema,
   SavingsRankingsSchema,
 } from "./schemas.js";

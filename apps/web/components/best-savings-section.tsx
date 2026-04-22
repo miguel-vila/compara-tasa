@@ -11,7 +11,7 @@ import {
   type BankId,
   type SavingsOffer,
   type SavingsScenarioRanking,
-  type SavingsRankedEntry,
+  type SavingsRankedGroup,
 } from "@compara-tasa/core";
 
 // Group scenarios by type for display
@@ -193,7 +193,7 @@ function SavingsScenarioCard({
   colors,
 }: {
   scenarioKey: SavingsScenarioKey;
-  ranking: SavingsRankedEntry[];
+  ranking: SavingsRankedGroup[];
   offerMap: Map<string, SavingsOffer>;
   colors: {
     cardBorder: string;
@@ -223,15 +223,15 @@ function SavingsScenarioCard({
       </div>
 
       {/* Ranking List */}
-      <div className="p-2 space-y-1.5">
-        {ranking.map((entry) => {
-          const offer = offerMap.get(entry.offer_id);
-          if (!offer) return null;
-
-          return (
-            <SavingsRankingRow key={entry.offer_id} entry={entry} offer={offer} colors={colors} />
-          );
-        })}
+      <div className="p-2 space-y-2">
+        {ranking.map((group) => (
+          <SavingsRankingGroupRow
+            key={group.position}
+            group={group}
+            offerMap={offerMap}
+            colors={colors}
+          />
+        ))}
       </div>
 
       {/* Footer */}
@@ -242,13 +242,13 @@ function SavingsScenarioCard({
   );
 }
 
-function SavingsRankingRow({
-  entry,
-  offer,
+function SavingsRankingGroupRow({
+  group,
+  offerMap,
   colors,
 }: {
-  entry: SavingsRankedEntry;
-  offer: SavingsOffer;
+  group: SavingsRankedGroup;
+  offerMap: Map<string, SavingsOffer>;
   colors: { rateColor: string };
 }) {
   const positionStyles: Record<number, { bg: string; text: string }> = {
@@ -257,43 +257,68 @@ function SavingsRankingRow({
     3: { bg: "bg-gradient-to-r from-amber-700 to-amber-600", text: "text-white" },
   };
 
-  const style = positionStyles[entry.position] || positionStyles[3];
-  const bankUrl = BankSavingsUrls[offer.bank_id as BankId];
-  const isFirst = entry.position === 1;
+  const style = positionStyles[group.position] || positionStyles[3];
+  const isFirst = group.position === 1;
+  const isTie = group.entries.length > 1;
+
+  const offers = group.entries
+    .map((e) => offerMap.get(e.offer_id))
+    .filter((o): o is SavingsOffer => Boolean(o));
+
+  if (offers.length === 0) return null;
 
   return (
-    <a
-      href={bankUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex items-center gap-3 p-3 rounded-xl transition-colors cursor-pointer ${
-        isFirst
-          ? "bg-gradient-to-r from-amber-50 to-amber-100/50 border border-amber-200 hover:from-amber-100 hover:to-amber-100"
-          : "bg-gray-50 hover:bg-gray-100"
-      }`}
-    >
+    <div className="flex gap-3 items-stretch">
       {/* Position Badge */}
-      <div
-        className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm ${style.bg} ${style.text}`}
-      >
-        {entry.position}
-      </div>
-
-      {/* Bank Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-gray-900 font-medium text-sm truncate">{offer.bank_name}</p>
-        <p className="text-gray-500 text-xs truncate">{offer.account_name}</p>
-      </div>
-
-      {/* Rate */}
-      <div className="text-right flex-shrink-0">
-        <p
-          className={`font-bold ${isFirst ? `${colors.rateColor} text-lg` : `${colors.rateColor} text-base`}`}
+      <div className="flex flex-col items-center pt-1.5 flex-shrink-0">
+        <div
+          className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm ${style.bg} ${style.text}`}
         >
-          {entry.metric.value.toFixed(1)}%
-        </p>
-        <p className="text-[10px] text-gray-400">E.A.</p>
+          {group.position}
+        </div>
+        {isTie && (
+          <span className="text-[9px] uppercase tracking-wider text-amber-600 mt-1">empate</span>
+        )}
       </div>
-    </a>
+
+      {/* Tied bank rows */}
+      <div
+        className={`flex-1 min-w-0 rounded-xl overflow-hidden ${
+          isFirst
+            ? "bg-gradient-to-r from-amber-50 to-amber-100/50 border border-amber-200"
+            : "bg-gray-50"
+        }`}
+      >
+        {offers.map((offer, idx) => {
+          const bankUrl = BankSavingsUrls[offer.bank_id as BankId];
+          return (
+            <a
+              key={offer.id}
+              href={bankUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-3 p-3 transition-colors cursor-pointer hover:bg-gray-100/60 ${
+                idx > 0 ? "border-t border-gray-200/60" : ""
+              }`}
+            >
+              <div className="flex-1 min-w-0">
+                <p className="text-gray-900 font-medium text-sm truncate">{offer.bank_name}</p>
+                <p className="text-gray-500 text-xs truncate">{offer.account_name}</p>
+              </div>
+              <div className="text-right flex-shrink-0">
+                <p
+                  className={`font-bold ${
+                    isFirst ? `${colors.rateColor} text-lg` : `${colors.rateColor} text-base`
+                  }`}
+                >
+                  {group.metric.value.toFixed(1)}%
+                </p>
+                <p className="text-[10px] text-gray-400">E.A.</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 }

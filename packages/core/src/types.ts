@@ -90,15 +90,20 @@ export type RankingMetric =
   | { kind: "EA_PERCENT"; value: number }
   | { kind: "UVR_SPREAD_EA"; value: number };
 
-// Ranked entry (position 1, 2, or 3)
+// A single offer reference inside a ranked group.
 export type RankedEntry = {
-  position: number;
   offer_id: string;
-  metric: RankingMetric;
 };
 
-// Scenario ranking - array of top ranked entries
-export type ScenarioRanking = RankedEntry[];
+// A position in the ranking. Multiple entries indicate a tie at this position.
+export type RankedGroup = {
+  position: number; // 1, 2, 3 — distinct rates only, no skipped positions
+  metric: RankingMetric; // shared by all entries in this group
+  entries: RankedEntry[]; // length >= 1
+};
+
+// Scenario ranking - array of position groups (top 3 distinct rates)
+export type ScenarioRanking = RankedGroup[];
 
 // Mortgage rankings object (precomputed)
 export type MortgageRankings = {
@@ -198,15 +203,20 @@ export type SavingsRankingMetric = {
   value: number;
 };
 
-// Savings ranked entry
+// Savings ranked entry (single offer reference inside a group).
 export type SavingsRankedEntry = {
-  position: number;
   offer_id: string;
-  metric: SavingsRankingMetric;
 };
 
-// Savings scenario ranking - array of top ranked entries
-export type SavingsScenarioRanking = SavingsRankedEntry[];
+// Savings position group — multiple entries indicate a tie.
+export type SavingsRankedGroup = {
+  position: number;
+  metric: SavingsRankingMetric;
+  entries: SavingsRankedEntry[];
+};
+
+// Savings scenario ranking - array of position groups
+export type SavingsScenarioRanking = SavingsRankedGroup[];
 
 // Savings rankings object (precomputed)
 export type SavingsRankings = {

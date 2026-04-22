@@ -1,230 +1,328 @@
 {
-  "generated_at": "2026-04-20T14:00:31.760Z",
+  "generated_at": "2026-04-22T03:18:57.494Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "963168bc752fb938",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 5.1
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "963168bc752fb938"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "ec75af0ff0c60e34",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.2
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "ec75af0ff0c60e34"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "c6b54c3eaa6dfab0",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.95
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "c6b54c3eaa6dfab0"
+          }
+        ]
       }
     ],
     "best_uvr_no_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "e9c99af0ce3065f3",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.1
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "e9c99af0ce3065f3"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "b846035bba2ce31e",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 7
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "b846035bba2ce31e"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "717e9a8f37c802c8",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 7.3
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "717e9a8f37c802c8"
+          }
+        ]
       }
     ],
     "best_cop_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "07fd59c57fd2c3c1",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 10.7
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "07fd59c57fd2c3c1"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "9e2440567b2bb18b",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.6
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "9e2440567b2bb18b"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "292f025f2387eaf7",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.82
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "292f025f2387eaf7"
+          }
+        ]
       }
     ],
     "best_cop_no_vis_hipotecario": [
       {
         "position": 1,
-        "offer_id": "8e9bbfb067a56ee0",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.5
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "8e9bbfb067a56ee0"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "430f7ad9de10d3ef",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.75
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "430f7ad9de10d3ef"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "2bc308a1681c0114",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 13
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "2bc308a1681c0114"
+          }
+        ]
       }
     ],
     "best_uvr_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "586cae489862fdf7",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 4.5
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "586cae489862fdf7"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "66f6fb1a2c563c8a",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.45
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "66f6fb1a2c563c8a"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "e3bc166e25f7022f",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 6.8
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "e3bc166e25f7022f"
+          }
+        ]
       }
     ],
     "best_uvr_no_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "008876188be57f15",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 7.5
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "008876188be57f15"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "1a25c420c725670c",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 8.3
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "1a25c420c725670c"
+          }
+        ]
       }
     ],
     "best_cop_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "e5ce7c0191900770",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 9.5
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "e5ce7c0191900770"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "7c319c44b15aca75",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12.7
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "7c319c44b15aca75"
+          }
+        ]
       },
       {
         "position": 3,
-        "offer_id": "4716bd339b830bc4",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 14
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "4716bd339b830bc4"
+          }
+        ]
       }
     ],
     "best_cop_no_vis_payroll": [
       {
         "position": 1,
-        "offer_id": "6ac01a063d37c5f6",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 12
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "6ac01a063d37c5f6"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "4efd20ba32b4f8e4",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 14
-        }
-      },
-      {
-        "position": 3,
-        "offer_id": "365538f6b72cefe7",
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 14
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "4efd20ba32b4f8e4"
+          },
+          {
+            "offer_id": "365538f6b72cefe7"
+          }
+        ]
       }
     ],
     "best_digital_hipotecario": [
       {
         "position": 1,
-        "offer_id": "4ffdcb36f61e576a",
         "metric": {
           "kind": "UVR_SPREAD_EA",
           "value": 7.5
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "4ffdcb36f61e576a"
+          },
+          {
+            "offer_id": "93d8e2c707453d39"
+          }
+        ]
       },
       {
         "position": 2,
-        "offer_id": "93d8e2c707453d39",
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 7.5
-        }
-      },
-      {
-        "position": 3,
-        "offer_id": "73e25f0f5faac283",
         "metric": {
           "kind": "EA_PERCENT",
           "value": 13
-        }
+        },
+        "entries": [
+          {
+            "offer_id": "73e25f0f5faac283"
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "metric": {
+          "kind": "EA_PERCENT",
+          "value": 13.5
+        },
+        "entries": [
+          {
+            "offer_id": "229e4ab8106c4375"
+          }
+        ]
       }
     ]
   }

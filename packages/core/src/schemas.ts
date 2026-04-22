@@ -103,15 +103,20 @@ export const RankingMetricSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("UVR_SPREAD_EA"), value: z.number() }),
 ]);
 
-// Ranked entry schema (position 1, 2, or 3)
+// Single offer reference inside a ranked group.
 export const RankedEntrySchema = z.object({
-  position: z.number().int().min(1).max(3),
   offer_id: z.string(),
-  metric: RankingMetricSchema,
 });
 
-// Scenario ranking schema - array of top ranked entries
-export const ScenarioRankingSchema = z.array(RankedEntrySchema).max(3);
+// A position in the ranking. Multiple entries indicate a tie.
+export const RankedGroupSchema = z.object({
+  position: z.number().int().min(1).max(3),
+  metric: RankingMetricSchema,
+  entries: z.array(RankedEntrySchema).min(1),
+});
+
+// Scenario ranking schema - array of position groups (top 3 distinct rates)
+export const ScenarioRankingSchema = z.array(RankedGroupSchema).max(3);
 
 // Mortgage rankings schema
 export const MortgageRankingsSchema = z.object({
@@ -217,15 +222,20 @@ export const SavingsRankingMetricSchema = z.object({
   value: z.number(),
 });
 
-// Savings ranked entry schema
+// Savings ranked entry schema (single offer reference inside a group)
 export const SavingsRankedEntrySchema = z.object({
-  position: z.number().int().min(1).max(3),
   offer_id: z.string(),
+});
+
+// Savings position group — multiple entries indicate a tie.
+export const SavingsRankedGroupSchema = z.object({
+  position: z.number().int().min(1).max(3),
   metric: SavingsRankingMetricSchema,
+  entries: z.array(SavingsRankedEntrySchema).min(1),
 });
 
 // Savings scenario ranking schema
-export const SavingsScenarioRankingSchema = z.array(SavingsRankedEntrySchema).max(3);
+export const SavingsScenarioRankingSchema = z.array(SavingsRankedGroupSchema).max(3);
 
 // Savings rankings schema
 export const SavingsRankingsSchema = z.object({

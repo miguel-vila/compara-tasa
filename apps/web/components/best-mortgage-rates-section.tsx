@@ -5,7 +5,7 @@ import {
   MortgageScenarioKey,
   type BankId,
   type MortgageOffer,
-  type RankedEntry,
+  type RankedGroup,
   type ScenarioRanking,
 } from "@compara-tasa/core";
 
@@ -184,7 +184,7 @@ function CompactRankingCard({
   theme,
 }: {
   scenarioKey: MortgageScenarioKey;
-  ranking: RankedEntry[];
+  ranking: RankedGroup[];
   offerMap: Map<string, MortgageOffer>;
   theme: ThemeConfig;
 }) {
@@ -216,21 +216,10 @@ function CompactRankingCard({
       </div>
 
       {/* Ranking List */}
-      <div className="p-2 space-y-1.5">
-        {ranking.map((entry) => {
-          const offer = offerMap.get(entry.offer_id);
-          if (!offer) return null;
-
-          return (
-            <RankingRow
-              key={entry.offer_id}
-              entry={entry}
-              offer={offer}
-              isFirst={entry.position === 1}
-              theme={theme}
-            />
-          );
-        })}
+      <div className="p-2 space-y-2">
+        {ranking.map((group) => (
+          <RankingGroupRow key={group.position} group={group} offerMap={offerMap} theme={theme} />
+        ))}
       </div>
 
       {/* Footer */}
@@ -241,15 +230,13 @@ function CompactRankingCard({
   );
 }
 
-function RankingRow({
-  entry,
-  offer,
-  isFirst,
+function RankingGroupRow({
+  group,
+  offerMap,
   theme,
 }: {
-  entry: RankedEntry;
-  offer: MortgageOffer;
-  isFirst: boolean;
+  group: RankedGroup;
+  offerMap: Map<string, MortgageOffer>;
   theme: ThemeConfig;
 }) {
   const positionStyles: Record<number, { bg: string; text: string }> = {
@@ -258,40 +245,68 @@ function RankingRow({
     3: { bg: "bg-gradient-to-r from-amber-700 to-amber-600", text: "text-white" },
   };
 
-  const style = positionStyles[entry.position] || positionStyles[3];
-  const bankUrl = BankMortgageUrls[offer.bank_id as BankId];
+  const style = positionStyles[group.position] || positionStyles[3];
+  const isFirst = group.position === 1;
+  const isTie = group.entries.length > 1;
+
+  const offers = group.entries
+    .map((e) => offerMap.get(e.offer_id))
+    .filter((o): o is MortgageOffer => Boolean(o));
+
+  if (offers.length === 0) return null;
 
   return (
-    <a
-      href={bankUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex items-center gap-3 p-3 rounded-xl transition-colors cursor-pointer ${
-        isFirst
-          ? "bg-gradient-to-r from-slate-800 to-amber-500/10 border border-amber-500/30 hover:to-amber-500/20"
-          : "bg-slate-800/50 hover:bg-slate-700/50"
-      }`}
-    >
+    <div className="flex gap-3 items-stretch">
       {/* Position Badge */}
-      <div
-        className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm ${style.bg} ${style.text}`}
-      >
-        {entry.position}
-      </div>
-
-      {/* Bank Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-white font-medium text-sm truncate">{offer.bank_name}</p>
-      </div>
-
-      {/* Rate */}
-      <div className="text-right flex-shrink-0">
-        <p
-          className={`font-bold ${isFirst ? `${theme.rateColorFirst} text-lg` : `${theme.rateColorOther} text-base`}`}
+      <div className="flex flex-col items-center pt-1.5 flex-shrink-0">
+        <div
+          className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm ${style.bg} ${style.text}`}
         >
-          {formatRate(offer.rate)}
-        </p>
+          {group.position}
+        </div>
+        {isTie && (
+          <span className="text-[9px] uppercase tracking-wider text-amber-400 mt-1">empate</span>
+        )}
       </div>
-    </a>
+
+      {/* Tied bank rows */}
+      <div
+        className={`flex-1 min-w-0 rounded-xl overflow-hidden ${
+          isFirst
+            ? "bg-gradient-to-r from-slate-800 to-amber-500/10 border border-amber-500/30"
+            : "bg-slate-800/50"
+        }`}
+      >
+        {offers.map((offer, idx) => {
+          const bankUrl = BankMortgageUrls[offer.bank_id as BankId];
+          return (
+            <a
+              key={offer.id}
+              href={bankUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-3 p-3 transition-colors cursor-pointer hover:bg-slate-700/30 ${
+                idx > 0 ? "border-t border-slate-700/50" : ""
+              }`}
+            >
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-medium text-sm truncate">{offer.bank_name}</p>
+              </div>
+              <div className="text-right flex-shrink-0">
+                <p
+                  className={`font-bold ${
+                    isFirst
+                      ? `${theme.rateColorFirst} text-lg`
+                      : `${theme.rateColorOther} text-base`
+                  }`}
+                >
+                  {formatRate(offer.rate)}
+                </p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 }

@@ -7,7 +7,6 @@ import {
   type MortgageOffer,
   type MortgageRankings,
   type ScenarioRanking,
-  type RankedEntry,
   type RankingMetric,
 } from "@compara-tasa/core";
 
@@ -116,20 +115,26 @@ function findTopOffers(offers: MortgageOffer[], filter: MortgageScenarioFilter):
   }
 
   // Sort by metric value (ascending = best)
-  matching.sort((a, b) => {
-    const metricA = getOfferMetric(a);
-    const metricB = getOfferMetric(b);
-    return metricA.value - metricB.value;
-  });
+  matching.sort((a, b) => getOfferMetric(a).value - getOfferMetric(b).value);
 
-  // Return top 3 offers with their positions
-  return matching.slice(0, 3).map(
-    (offer, index): RankedEntry => ({
-      position: index + 1,
-      offer_id: offer.id,
-      metric: getOfferMetric(offer),
-    })
-  );
+  // Group consecutive equal metric values into ranked positions.
+  // Cap at 3 distinct rates (so ties are always shown together).
+  const groups: ScenarioRanking = [];
+  for (const offer of matching) {
+    const metric = getOfferMetric(offer);
+    const last = groups[groups.length - 1];
+    if (last && last.metric.value === metric.value) {
+      last.entries.push({ offer_id: offer.id });
+    } else {
+      if (groups.length >= 3) break;
+      groups.push({
+        position: groups.length + 1,
+        metric,
+        entries: [{ offer_id: offer.id }],
+      });
+    }
+  }
+  return groups;
 }
 
 /**

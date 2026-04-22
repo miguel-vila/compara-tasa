@@ -131,12 +131,14 @@ async function main(): Promise<void> {
   for (const [scenario, ranking] of Object.entries(rankings.scenarios)) {
     if (!ranking || ranking.length === 0) continue;
     console.log(`\n${scenario}:`);
-    for (const entry of ranking) {
-      const offer = offerById.get(entry.offer_id);
-      if (offer) {
-        console.log(
-          `  #${entry.position}: ${entry.metric.value.toFixed(2)}% E.A. - ${offer.bank_name} (${offer.account_name})`
-        );
+    for (const group of ranking) {
+      const tieNote = group.entries.length > 1 ? " (empate)" : "";
+      console.log(`  #${group.position}: ${group.metric.value.toFixed(2)}% E.A.${tieNote}`);
+      for (const entry of group.entries) {
+        const offer = offerById.get(entry.offer_id);
+        if (offer) {
+          console.log(`     - ${offer.bank_name} (${offer.account_name})`);
+        }
       }
     }
   }
