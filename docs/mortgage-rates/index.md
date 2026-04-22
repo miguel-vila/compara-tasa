@@ -41,19 +41,20 @@ Some banks offer preferential rates to customers who receive their salary throug
 
 ## Ranking Scenarios
 
-The system precomputes top-3 rankings for 9 scenarios. For mortgage rankings, **lower rates are better**:
+The system precomputes top-3 rankings for 10 scenarios. For mortgage rankings, **lower rates are better**. Digital channel rankings are split by currency because UVR spreads and COP rates use different metrics and can't be ranked together:
 
-| Scenario                      | Product     | Currency | Segment | Payroll |
-| ----------------------------- | ----------- | -------- | ------- | ------- |
-| `best_uvr_vis_hipotecario`    | Hipotecario | UVR      | VIS     | No      |
-| `best_uvr_no_vis_hipotecario` | Hipotecario | UVR      | NO_VIS  | No      |
-| `best_cop_vis_hipotecario`    | Hipotecario | COP      | VIS     | No      |
-| `best_cop_no_vis_hipotecario` | Hipotecario | COP      | NO_VIS  | No      |
-| `best_uvr_vis_payroll`        | Hipotecario | UVR      | VIS     | Yes     |
-| `best_uvr_no_vis_payroll`     | Hipotecario | UVR      | NO_VIS  | Yes     |
-| `best_cop_vis_payroll`        | Hipotecario | COP      | VIS     | Yes     |
-| `best_cop_no_vis_payroll`     | Hipotecario | COP      | NO_VIS  | Yes     |
-| `best_digital_hipotecario`    | Hipotecario | Any      | Any     | Any     |
+| Scenario                       | Product     | Currency | Segment | Payroll | Channel |
+| ------------------------------ | ----------- | -------- | ------- | ------- | ------- |
+| `best_uvr_vis_hipotecario`     | Hipotecario | UVR      | VIS     | No      | Any     |
+| `best_uvr_no_vis_hipotecario`  | Hipotecario | UVR      | NO_VIS  | No      | Any     |
+| `best_cop_vis_hipotecario`     | Hipotecario | COP      | VIS     | No      | Any     |
+| `best_cop_no_vis_hipotecario`  | Hipotecario | COP      | NO_VIS  | No      | Any     |
+| `best_uvr_vis_payroll`         | Hipotecario | UVR      | VIS     | Yes     | Any     |
+| `best_uvr_no_vis_payroll`      | Hipotecario | UVR      | NO_VIS  | Yes     | Any     |
+| `best_cop_vis_payroll`         | Hipotecario | COP      | VIS     | Yes     | Any     |
+| `best_cop_no_vis_payroll`      | Hipotecario | COP      | NO_VIS  | Yes     | Any     |
+| `best_digital_cop_hipotecario` | Hipotecario | COP      | Any     | Any     | Digital |
+| `best_digital_uvr_hipotecario` | Hipotecario | UVR      | Any     | Any     | Digital |
 
 ## Bank Parsers
 

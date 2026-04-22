@@ -274,8 +274,8 @@ describe("computeMortgageRankings", () => {
     });
   });
 
-  describe("BEST_DIGITAL_HIPOTECARIO", () => {
-    it("should return top groups sorted by lowest rate among digital channel offers", () => {
+  describe("BEST_DIGITAL_COP_HIPOTECARIO", () => {
+    it("should return top groups sorted by lowest COP rate among digital channel offers", () => {
       const offers: MortgageOffer[] = [
         createMockOffer({
           id: "branch-offer",
@@ -296,7 +296,7 @@ describe("computeMortgageRankings", () => {
 
       const rankings = computeMortgageRankings(offers);
 
-      expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]).toEqual([
+      expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_COP_HIPOTECARIO]).toEqual([
         {
           position: 1,
           metric: { kind: "EA_PERCENT", value: 11.0 },
@@ -306,6 +306,33 @@ describe("computeMortgageRankings", () => {
           position: 2,
           metric: { kind: "EA_PERCENT", value: 12.0 },
           entries: [{ offer_id: "digital-high" }],
+        },
+      ]);
+    });
+
+    it("should exclude UVR offers from the COP digital ranking", () => {
+      const offers: MortgageOffer[] = [
+        createMockOffer({
+          id: "digital-uvr",
+          channel: Channel.DIGITAL,
+          currency_index: CurrencyIndex.UVR,
+          rate: { kind: "UVR_SPREAD", spread_ea_from: 5.0 },
+        }),
+        createMockOffer({
+          id: "digital-cop",
+          channel: Channel.DIGITAL,
+          currency_index: CurrencyIndex.COP,
+          rate: { kind: "COP_FIXED", ea_percent_from: 13.0 },
+        }),
+      ];
+
+      const rankings = computeMortgageRankings(offers);
+
+      expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_COP_HIPOTECARIO]).toEqual([
+        {
+          position: 1,
+          metric: { kind: "EA_PERCENT", value: 13.0 },
+          entries: [{ offer_id: "digital-cop" }],
         },
       ]);
     });
@@ -329,9 +356,49 @@ describe("computeMortgageRankings", () => {
       const rankings = computeMortgageRankings(offers);
 
       expect(
-        rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]?.[0]?.entries[0]
-          ?.offer_id
+        rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_COP_HIPOTECARIO]?.[0]
+          ?.entries[0]?.offer_id
       ).toBe("hipotecario-digital");
+    });
+  });
+
+  describe("BEST_DIGITAL_UVR_HIPOTECARIO", () => {
+    it("should return top groups sorted by lowest UVR spread among digital channel offers", () => {
+      const offers: MortgageOffer[] = [
+        createMockOffer({
+          id: "digital-uvr-high",
+          channel: Channel.DIGITAL,
+          currency_index: CurrencyIndex.UVR,
+          rate: { kind: "UVR_SPREAD", spread_ea_from: 8.0 },
+        }),
+        createMockOffer({
+          id: "digital-uvr-low",
+          channel: Channel.DIGITAL,
+          currency_index: CurrencyIndex.UVR,
+          rate: { kind: "UVR_SPREAD", spread_ea_from: 7.0 },
+        }),
+        createMockOffer({
+          id: "digital-cop",
+          channel: Channel.DIGITAL,
+          currency_index: CurrencyIndex.COP,
+          rate: { kind: "COP_FIXED", ea_percent_from: 12.0 },
+        }),
+      ];
+
+      const rankings = computeMortgageRankings(offers);
+
+      expect(rankings.mortgageScenarios[MortgageScenarioKey.BEST_DIGITAL_UVR_HIPOTECARIO]).toEqual([
+        {
+          position: 1,
+          metric: { kind: "UVR_SPREAD_EA", value: 7.0 },
+          entries: [{ offer_id: "digital-uvr-low" }],
+        },
+        {
+          position: 2,
+          metric: { kind: "UVR_SPREAD_EA", value: 8.0 },
+          entries: [{ offer_id: "digital-uvr-high" }],
+        },
+      ]);
     });
   });
 

@@ -15,7 +15,8 @@ const STANDARD_SCENARIOS: MortgageScenarioKey[] = [
   MortgageScenarioKey.BEST_UVR_NO_VIS_HIPOTECARIO,
   MortgageScenarioKey.BEST_COP_VIS_HIPOTECARIO,
   MortgageScenarioKey.BEST_COP_NO_VIS_HIPOTECARIO,
-  MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO,
+  MortgageScenarioKey.BEST_DIGITAL_COP_HIPOTECARIO,
+  MortgageScenarioKey.BEST_DIGITAL_UVR_HIPOTECARIO,
 ];
 
 const PAYROLL_SCENARIOS: MortgageScenarioKey[] = [

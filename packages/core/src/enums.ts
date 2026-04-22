@@ -151,8 +151,9 @@ export const MortgageScenarioKey = {
   BEST_UVR_NO_VIS_PAYROLL: "best_uvr_no_vis_payroll",
   BEST_COP_VIS_PAYROLL: "best_cop_vis_payroll",
   BEST_COP_NO_VIS_PAYROLL: "best_cop_no_vis_payroll",
-  // Other scenarios
-  BEST_DIGITAL_HIPOTECARIO: "best_digital_hipotecario",
+  // Digital channel scenarios (split by currency since UVR spreads and COP rates aren't comparable)
+  BEST_DIGITAL_COP_HIPOTECARIO: "best_digital_cop_hipotecario",
+  BEST_DIGITAL_UVR_HIPOTECARIO: "best_digital_uvr_hipotecario",
 } as const;
 
 export type MortgageScenarioKey = (typeof MortgageScenarioKey)[keyof typeof MortgageScenarioKey];

@@ -50,8 +50,9 @@ export const MORTGAGE_SCENARIO_LABELS: Record<MortgageScenarioKey, string> = {
   best_uvr_no_vis_payroll: "Mejor UVR - No VIS (Nómina)",
   best_cop_vis_payroll: "Mejor Pesos - VIS (Nómina)",
   best_cop_no_vis_payroll: "Mejor Pesos - No VIS (Nómina)",
-  // Other
-  best_digital_hipotecario: "Mejor Canal Digital",
+  // Digital channel (split by currency)
+  best_digital_cop_hipotecario: "Mejor Canal Digital - Pesos",
+  best_digital_uvr_hipotecario: "Mejor Canal Digital - UVR",
 };
 
 export const MORTGAGE_SCENARIO_DESCRIPTIONS: Record<MortgageScenarioKey, string> = {
@@ -65,8 +66,9 @@ export const MORTGAGE_SCENARIO_DESCRIPTIONS: Record<MortgageScenarioKey, string>
   best_uvr_no_vis_payroll: "Crédito en UVR para No VIS con descuento por nómina",
   best_cop_vis_payroll: "Crédito en pesos para VIS con descuento por nómina",
   best_cop_no_vis_payroll: "Crédito en pesos para No VIS con descuento por nómina",
-  // Other
-  best_digital_hipotecario: "Mejor tasa disponible por canales digitales",
+  // Digital channel (split by currency)
+  best_digital_cop_hipotecario: "Mejor tasa en pesos disponible por canales digitales",
+  best_digital_uvr_hipotecario: "Mejor tasa en UVR disponible por canales digitales",
 };
 
 // Savings account formatting

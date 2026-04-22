@@ -69,9 +69,16 @@ const MORTGAGE_SCENARIO_FILTERS: Record<MortgageScenarioKey, MortgageScenarioFil
     segment: Segment.NO_VIS,
     hasPayrollDiscount: true,
   },
-  // Other scenarios
-  [MortgageScenarioKey.BEST_DIGITAL_HIPOTECARIO]: {
+  // Digital channel scenarios - split by currency because UVR spreads
+  // and COP rates use different metrics and can't be ranked together.
+  [MortgageScenarioKey.BEST_DIGITAL_COP_HIPOTECARIO]: {
     product_type: MortgageType.HIPOTECARIO,
+    currency_index: CurrencyIndex.COP,
+    channel: Channel.DIGITAL,
+  },
+  [MortgageScenarioKey.BEST_DIGITAL_UVR_HIPOTECARIO]: {
+    product_type: MortgageType.HIPOTECARIO,
+    currency_index: CurrencyIndex.UVR,
     channel: Channel.DIGITAL,
   },
 };
