@@ -6,11 +6,14 @@ on:
     paths:
       - "packages/updater/**"
       - "fixtures/**"
+      - ".github/workflows/updater-tests.yml"
   pull_request:
     branches: [main, master]
     paths:
       - "packages/updater/**"
       - "fixtures/**"
+      - ".github/workflows/updater-tests.yml"
+  workflow_dispatch:
 
 jobs:
   test-updater:
