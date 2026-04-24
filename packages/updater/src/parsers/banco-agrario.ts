@@ -16,12 +16,36 @@ import { fetchWithRetry, sha256, generateOfferId, parseColombianNumber } from ".
 import type { BankMortgageParser, MortgageParserConfig } from "./types.js";
 
 // Banco Agrario publishes rates at this base URL
-// The actual PDF URL changes weekly, so we need to discover it from the main page
+// The actual PDF URL changes weekly, so we discover it from the main page
 const SOURCE_PAGE_URL = "https://www.bancoagrario.gov.co/tasas-y-tarifas";
 
-// Fallback direct PDF URL (may need updating)
+// Fallback direct PDF URL (may need updating if discovery fails)
 const SOURCE_PDF_URL =
   "https://www.bancoagrario.gov.co/system/files/2026-01/alcance_1_tasas_colocaciones_del_05_al_11_de_enero_2026_0.pdf";
+
+/**
+ * Fetches the main rates page and discovers the latest tasas_colocaciones PDF URL.
+ * Returns the absolute URL of the PDF, or null if discovery fails.
+ */
+async function discoverPdfUrl(): Promise<string | null> {
+  try {
+    const response = await fetchWithRetry(SOURCE_PAGE_URL, {
+      useBrowserUserAgent: true,
+    });
+    const html = response.content.toString("utf-8");
+
+    // Match links like /system/files/2026-04/tasas_colocaciones_del_20_al_26abr_2026_0.pdf
+    const match = html.match(/["'](\/system\/files\/[^"']*tasas_colocaciones[^"']*\.pdf)["']/i);
+    if (!match) {
+      return null;
+    }
+
+    // Resolve relative URL to absolute
+    return `https://www.bancoagrario.gov.co${match[1]}`;
+  } catch {
+    return null;
+  }
+}
 
 type ExtractedRate = {
   productType: MortgageType;
@@ -169,8 +193,13 @@ export class BancoAgrarioParser implements BankMortgageParser {
     if (this.config.useFixtures && this.config.fixturesPath) {
       pdfBuffer = await readFile(this.config.fixturesPath);
     } else {
-      // Fetch directly from PDF URL
-      const result = await fetchWithRetry(SOURCE_PDF_URL, {
+      // Try discovering the latest PDF URL from the main page, fall back to hardcoded URL
+      const discoveredUrl = await discoverPdfUrl();
+      const pdfUrl = discoveredUrl ?? SOURCE_PDF_URL;
+      if (!discoveredUrl) {
+        warnings.push("PDF URL discovery failed, using fallback URL");
+      }
+      const result = await fetchWithRetry(pdfUrl, {
         useBrowserUserAgent: true,
       });
       pdfBuffer = result.content;
