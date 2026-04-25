@@ -56,7 +56,7 @@ Each offer is tagged with an account type, used for display but not for ranking 
 - **Extraction**: `pdfjs-dist` for text extraction, regex for parsing
 - **Products**: 3 products with tiered rates
   - **Bolsillos con Rentabilidad (Cuenta Premium)** -- High-yield product with a 5-column table organized by holding period (0-30, 31-90, 91-180, 181-365, >365 days). The parser extracts the >365-day column (best rates). 5+ balance tiers.
-  - **Cuenta Premium** -- Standard tiered savings account. 7+ balance tiers parsed from a table with a "Rango Saldo" header.
+  - **Cuenta Premium** -- High-yield tiered savings account. 7+ balance tiers parsed from a table with a "Rango Saldo" header.
   - **RentaVillas** -- First rate table on page 1. 7+ balance tiers.
 - **Notes**: Bolsillos con Rentabilidad requires no withdrawals for >365 days to obtain the best advertised rate.
 
@@ -75,7 +75,7 @@ Each offer is tagged with an account type, used for display but not for ranking 
 - **Extraction**: `pdfjs-dist` for text extraction, pattern matching against expected rate values
 - **Products**: 1 product
   - **RentaPlus** -- 6 balance tiers with rates ranging from 5.0% to 10.5% E.A.
-- **Notes**: Uses a hybrid validation approach. The parser has hardcoded expected rate values for each tier and cross-validates against the rates extracted from the PDF. If there is a mismatch, a warning is emitted but the hardcoded values are used as fallback. This guards against minor PDF formatting changes.
+- **Notes**: Uses a hybrid validation approach. The parser has hardcoded expected rate values for each tier and cross-validates against the rates extracted from the PDF. If there is a mismatch, a warning is emitted but the extracted values are used in the final offer. The hardcoded values serve primarily for validation and tier structure definition. This guards against unexpected changes in the PDF structure.
 
 ### Banco Popular
 
@@ -104,10 +104,10 @@ Each offer is tagged with an account type, used for display but not for ranking 
 
 - **Source**: PDF at `bancocajasocial.com/content/dam/.../Tasas-Cuenta-Alcancia.pdf`
 - **Extraction**: `pdfjs-dist` for text extraction, regex pattern matching with count validation
-- **Products**: 2 products (from 4 parsed entries)
-  - **Cuenta Alcancía Digital** (digital) -- 2 balance tiers.
-  - **Cuenta Alcancía Digital (Tasa Premio)** (high yield) -- 2 balance tiers, premium rate applies when no withdrawals were made during the previous month.
-- **Notes**: Expects exactly 4 rate entries in the PDF. The parser validates this count and assigns the first two to the standard digital account and the last two to the premium variant.
+- **Products**: 2 products
+  - **Cuenta Alcancía Digital** (digital) -- Single flat rate for all balances.
+  - **Cuenta Alcancía Digital (Tasa Premio)** (high yield) -- Variable balance tiers, premium rate applies when no withdrawals were made during the previous month.
+- **Notes**: The parser extracts all rate entries from the PDF, categorizing them by whether they have a minimum balance constraint. Entries without a minimum (or with `null` min) are assigned to the standard digital account, while entries with a minimum are assigned to the premium variant based on their balance tier ranges.
 
 ### Lulo Bank
 
