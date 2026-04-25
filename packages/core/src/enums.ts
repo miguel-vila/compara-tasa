@@ -29,7 +29,7 @@ export type BankId = (typeof BankId)[keyof typeof BankId];
 export const BankNames: Record<BankId, string> = {
   bancolombia: "Bancolombia",
   bbva: "BBVA Colombia",
-  scotiabank_colpatria: "Scotiabank Colpatria",
+  scotiabank_colpatria: "Davibank (ex-Scotiabank Colpatria)",
   banco_caja_social: "Banco Caja Social",
   avvillas: "Banco AV Villas",
   itau: "Banco Itaú Colombia",
@@ -37,7 +37,7 @@ export const BankNames: Record<BankId, string> = {
   banco_popular: "Banco Popular",
   banco_de_bogota: "Banco de Bogotá",
   banco_de_occidente: "Banco de Occidente",
-  davivienda: "Davivienda",
+  davivienda: "Davibank (ex-Davivienda)",
   banco_agrario: "Banco Agrario",
   bancoomeva: "Bancoomeva",
   ban100: "Ban100",

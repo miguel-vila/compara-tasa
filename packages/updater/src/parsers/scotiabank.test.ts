@@ -120,8 +120,10 @@ describe("ScotiabankParser", () => {
       expect(result.offers.every((o) => o.channel === Channel.UNSPECIFIED)).toBe(true);
     });
 
-    it("should set bank_name to Scotiabank Colpatria", () => {
-      expect(result.offers.every((o) => o.bank_name === "Scotiabank Colpatria")).toBe(true);
+    it("should set bank_name to Davibank (ex-Scotiabank Colpatria)", () => {
+      expect(result.offers.every((o) => o.bank_name === "Davibank (ex-Scotiabank Colpatria)")).toBe(
+        true
+      );
     });
 
     it("should have valid source metadata", () => {

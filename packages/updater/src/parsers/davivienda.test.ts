@@ -184,8 +184,8 @@ describe("DaviviendaParser", () => {
       expect(ids.every((id) => id.length === 16)).toBe(true);
     });
 
-    it("should set bank_name to Davivienda", () => {
-      expect(result.offers.every((o) => o.bank_name === "Davivienda")).toBe(true);
+    it("should set bank_name to Davibank (ex-Davivienda)", () => {
+      expect(result.offers.every((o) => o.bank_name === "Davibank (ex-Davivienda)")).toBe(true);
     });
   });
 });
