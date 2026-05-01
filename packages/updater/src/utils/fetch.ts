@@ -196,7 +196,7 @@ export async function fetchPibankPdf(
   } catch (error) {
     // If 403 or 404, try previous month (rates may not be uploaded yet)
     if (isHttp403(error) || isHttp404(error)) {
-      const prevDate = new Date(currentYear, currentMonth - 1, 1); // try previous month
+      const prevDate = new Date(currentYear, currentMonth - 2, 1); // try previous month (currentMonth is 1-indexed)
       const prevYear = prevDate.getFullYear();
       const prevMonth = prevDate.getMonth() + 1;
       const prevUrl = buildPibankUrl(prevYear, prevMonth);
