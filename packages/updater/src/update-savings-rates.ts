@@ -57,15 +57,7 @@ async function main(): Promise<void> {
   console.log(`\nTotal savings offers: ${allOffers.length}`);
   console.log(`Total errors: ${allErrors.length}`);
 
-  if (allErrors.length > 0) {
-    console.error("\n--- Errors ---");
-    for (const error of allErrors) {
-      console.error(`  ${error}`);
-    }
-    process.exit(1);
-  }
-
-  // Build dataset
+  // Build dataset even if some parsers failed
   const now = new Date().toISOString();
   const dataset: SavingsOffersDataset = {
     generated_at: now,
@@ -102,6 +94,15 @@ async function main(): Promise<void> {
   console.log(`\nOutputs written to ${DATA_DIR}:`);
   console.log(`  - savings-offers-latest.json`);
   console.log(`  - savings-rankings-latest.json`);
+
+  if (allErrors.length > 0) {
+    console.error("\n--- Errors ---");
+    for (const error of allErrors) {
+      console.error(`  ${error}`);
+    }
+    console.error("\n⚠️  Partial data written due to errors above");
+    process.exit(1);
+  }
 
   // Summary
   console.log("\n--- Summary ---");
