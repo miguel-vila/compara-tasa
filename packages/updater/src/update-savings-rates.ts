@@ -101,7 +101,6 @@ async function main(): Promise<void> {
       console.error(`  ${error}`);
     }
     console.error("\n⚠️  Partial data written due to errors above");
-    process.exit(1);
   }
 
   // Summary
