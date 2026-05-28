@@ -220,10 +220,11 @@ All parsers implement the `BankMortgageParser` interface, which requires a `bank
 
 ## Output
 
-The pipeline writes two files to `apps/web/public/data/`:
+The pipeline writes three files to `apps/web/public/data/`:
 
 - **`mortgage-offers-latest.json`**: Full dataset of all extracted offers, validated against `MortgageOffersDatasetSchema`.
 - **`mortgage-rankings-latest.json`**: Precomputed top-3 rankings for each scenario, validated against `MortgageRankingsSchema`.
+- **`mortgage-history.json`**: Rate change-points over time, appended on each run. See [Rate History](../rate-history/index.md).
 
 ## Summary Table
 

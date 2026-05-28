@@ -1,0 +1,1040 @@
+{
+  "generated_at": "2026-05-28T21:33:59.713Z",
+  "points": [
+    {
+      "date": "2026-01-21",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "min_amount_cop": 1,
+      "max_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 6.5
+      }
+    },
+    {
+      "date": "2026-01-21",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 30000000,
+      "rate": {
+        "ea_percent": 9.5
+      }
+    },
+    {
+      "date": "2026-01-21",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "min_amount_cop": 30000001,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-01-21",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "standard",
+      "account_name": "Cuenta de Ahorro Clásica",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 6
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 499999,
+      "rate": {
+        "ea_percent": 0.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 500000,
+      "max_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 3.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 5000001,
+      "max_amount_cop": 20000000,
+      "rate": {
+        "ea_percent": 5.75
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 20000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 8.05
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 100000001,
+      "rate": {
+        "ea_percent": 9.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 100000001,
+      "max_amount_cop": 250000000,
+      "rate": {
+        "ea_percent": 10.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 250000001,
+      "max_amount_cop": 500000000,
+      "rate": {
+        "ea_percent": 10.35
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos con Rentabilidad (Cuenta Premium)",
+      "min_amount_cop": 500000002,
+      "rate": {
+        "ea_percent": 10.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 0,
+      "max_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 0.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 5000001,
+      "max_amount_cop": 20000000,
+      "rate": {
+        "ea_percent": 3
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 20000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 5.3
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 100000000,
+      "rate": {
+        "ea_percent": 6.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 100000001,
+      "max_amount_cop": 250000000,
+      "rate": {
+        "ea_percent": 7.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 250000001,
+      "max_amount_cop": 500000000,
+      "rate": {
+        "ea_percent": 8.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Premium",
+      "min_amount_cop": 500000001,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "standard",
+      "account_name": "RentaVillas",
+      "min_amount_cop": 0,
+      "max_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 0.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "standard",
+      "account_name": "RentaVillas",
+      "min_amount_cop": 5000001,
+      "max_amount_cop": 20000000,
+      "rate": {
+        "ea_percent": 0.75
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "standard",
+      "account_name": "RentaVillas",
+      "min_amount_cop": 20000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 1
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "standard",
+      "account_name": "RentaVillas",
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 100000000,
+      "rate": {
+        "ea_percent": 1.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "account_type": "standard",
+      "account_name": "RentaVillas",
+      "min_amount_cop": 100000001,
+      "rate": {
+        "ea_percent": 1.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 1,
+      "max_amount_cop": 499999,
+      "rate": {
+        "ea_percent": 5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 500001,
+      "max_amount_cop": 999999,
+      "rate": {
+        "ea_percent": 6
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 1000000,
+      "max_amount_cop": 1999999,
+      "rate": {
+        "ea_percent": 7
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 2000000,
+      "max_amount_cop": 4999999,
+      "rate": {
+        "ea_percent": 8
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 5000000,
+      "max_amount_cop": 9999999,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bancamia",
+      "bank_name": "Bancamía",
+      "account_type": "high_yield",
+      "account_name": "RentaPlus",
+      "min_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 10.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "standard",
+      "account_name": "Cuenta para Ahorrar",
+      "min_amount_cop": 0,
+      "max_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 1.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "standard",
+      "account_name": "Cuenta para Ahorrar",
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 4.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "standard",
+      "account_name": "Cuenta para Ahorrar",
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 150000000,
+      "rate": {
+        "ea_percent": 5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "standard",
+      "account_name": "Cuenta para Ahorrar",
+      "min_amount_cop": 150000001,
+      "rate": {
+        "ea_percent": 8
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Ahorro Cuenta Plateada",
+      "min_amount_cop": 0,
+      "max_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Ahorro Cuenta Plateada",
+      "min_amount_cop": 10000001,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 1,
+      "max_amount_cop": 4999999,
+      "rate": {
+        "ea_percent": 0.01
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 5000000,
+      "max_amount_cop": 49999999,
+      "rate": {
+        "ea_percent": 3
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 50000000,
+      "max_amount_cop": 199999999,
+      "rate": {
+        "ea_percent": 7.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 200000000,
+      "max_amount_cop": 299999999,
+      "rate": {
+        "ea_percent": 7.75
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 300000000,
+      "max_amount_cop": 499000000,
+      "rate": {
+        "ea_percent": 8.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 500000000,
+      "max_amount_cop": 999999999,
+      "rate": {
+        "ea_percent": 8.75
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 1000000000,
+      "rate": {
+        "ea_percent": 9.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "digital",
+      "account_name": "Cuenta de Nómina y Digital",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 0.01
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "digital",
+      "account_name": "Cuenta Blue",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 0.01
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Blue Kids",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 0.8
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "min_amount_cop": 1,
+      "max_amount_cop": 500000,
+      "rate": {
+        "ea_percent": 0.12
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "min_amount_cop": 500001,
+      "max_amount_cop": 1000000,
+      "rate": {
+        "ea_percent": 0.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "min_amount_cop": 1000001,
+      "max_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 1
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 1.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "Cuenta Hogar",
+      "min_amount_cop": 50000001,
+      "rate": {
+        "ea_percent": 1.6
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 499999,
+      "rate": {
+        "ea_percent": 1.4
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 500000,
+      "max_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 1.6
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 5000001,
+      "max_amount_cop": 20000000,
+      "rate": {
+        "ea_percent": 2
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 20000001,
+      "max_amount_cop": 50000000,
+      "rate": {
+        "ea_percent": 2.2
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 50000001,
+      "max_amount_cop": 200000000,
+      "rate": {
+        "ea_percent": 2.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "standard",
+      "account_name": "AFC (Ahorro para Fomento de la Construcción)",
+      "min_amount_cop": 200000001,
+      "rate": {
+        "ea_percent": 3
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Ahorro Fijo",
+      "min_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "digital",
+      "account_name": "Cuenta Alcancía Digital",
+      "min_amount_cop": 1,
+      "max_amount_cop": 40000000,
+      "rate": {
+        "ea_percent": 0.05
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "digital",
+      "account_name": "Cuenta Alcancía Digital",
+      "min_amount_cop": 40000001,
+      "rate": {
+        "ea_percent": 0.05
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Alcancía Digital (Tasa Premio)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 40000000,
+      "rate": {
+        "ea_percent": 8
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Alcancía Digital (Tasa Premio)",
+      "min_amount_cop": 40000001,
+      "rate": {
+        "ea_percent": 0.05
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Flex",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 7.5
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Flex (Lulo Pro)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9.25
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Programados",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "lulo",
+      "bank_name": "Lulo Bank",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos Programados (Lulo Pro)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "pibank",
+      "bank_name": "Pibank",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Pibank",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 11
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos (Depósito de Bajo Monto)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "standard",
+      "account_name": "Saldo Principal (Depósito de Bajo Monto)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 0.1
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "high_yield",
+      "account_name": "Bolsillos (Cuenta de Ahorros)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "rappipay",
+      "bank_name": "RappiPay",
+      "account_type": "standard",
+      "account_name": "Saldo Principal (Cuenta de Ahorros)",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 0.1
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "nu",
+      "bank_name": "Nu Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cajitas",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 8.75
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Alcancía Digital (Tasa Premio)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 40000000,
+      "rate": {
+        "ea_percent": 8.75
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 50000000,
+      "max_amount_cop": 199999999,
+      "rate": {
+        "ea_percent": 7.5
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 200000000,
+      "max_amount_cop": 299999999,
+      "rate": {
+        "ea_percent": 8
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 300000000,
+      "max_amount_cop": 499000000,
+      "rate": {
+        "ea_percent": 8.75
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 500000000,
+      "max_amount_cop": 999999999,
+      "rate": {
+        "ea_percent": 9.25
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 1000000000,
+      "rate": {
+        "ea_percent": 9.75
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Ahorro Fijo",
+      "min_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 10.5
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 300000000,
+      "max_amount_cop": 499000000,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 500000000,
+      "max_amount_cop": 999999999,
+      "rate": {
+        "ea_percent": 9.5
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 1000000000,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 200000000,
+      "max_amount_cop": 299999999,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 300000000,
+      "max_amount_cop": 499000000,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 500000000,
+      "max_amount_cop": 999999999,
+      "rate": {
+        "ea_percent": 11
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Especial Premium",
+      "min_amount_cop": 1000000000,
+      "rate": {
+        "ea_percent": 11.5
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "account_type": "high_yield",
+      "account_name": "Ahorro Fijo",
+      "min_amount_cop": 5000000,
+      "rate": {
+        "ea_percent": 11
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Alcancía Digital (Tasa Premio)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 40000000,
+      "rate": {
+        "ea_percent": 9
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "bank_id": "nu",
+      "bank_name": "Nu Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cajitas",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9.25
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { MortgageRatesTable } from "@/components/mortgage-rates-table";
+import { MortgageHistorySection } from "@/components/mortgage-history-section";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -21,6 +22,10 @@ export default function HipotecarioPage() {
             Explora y filtra todas las ofertas de crédito hipotecario y leasing habitacional
             disponibles.
           </p>
+
+          <div className="mb-10">
+            <MortgageHistorySection />
+          </div>
 
           <Suspense fallback={<TableSkeleton />}>
             <MortgageRatesTable />

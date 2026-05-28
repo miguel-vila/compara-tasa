@@ -10,6 +10,7 @@ pnpm build:standalone                     # Build all + copy assets for Next.js 
 pnpm dev                              # Run Next.js dev server (localhost:3000)
 
 # Run rate update ETL pipelines
+# Each run also appends rate change-points to the *-history.json files.
 pnpm update-mortgage-rates            # Scrapes banks for mortgage rates
 pnpm update-savings-rates                   # Scrapes banks for savings account rates
 

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { SavingsRatesTable } from "@/components/savings-rates-table";
+import { SavingsHistorySection } from "@/components/savings-history-section";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -20,6 +21,10 @@ export default function AhorrosPage() {
           <p className="text-gray-400 mb-8">
             Compara las tasas de interés de las cuentas de ahorro de los bancos colombianos.
           </p>
+
+          <div className="mb-10">
+            <SavingsHistorySection />
+          </div>
 
           <Suspense fallback={<TableSkeleton />}>
             <SavingsRatesTable />

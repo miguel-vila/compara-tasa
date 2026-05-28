@@ -8,10 +8,11 @@ The pipeline runs via `pnpm update-savings-rates`. Each bank has a dedicated par
 
 ### Output Files
 
-The pipeline writes two files to `apps/web/public/data/`:
+The pipeline writes three files to `apps/web/public/data/`:
 
 - **`savings-offers-latest.json`** -- every extracted offer with full provenance metadata.
 - **`savings-rankings-latest.json`** -- top-3 banks for each ranking scenario.
+- **`savings-history.json`** -- rate change-points over time, appended on each run. See [Rate History](../rate-history/index.md).
 
 ## Segmentation
 

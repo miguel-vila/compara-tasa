@@ -10,6 +10,7 @@ import {
 } from "@compara-tasa/core";
 import { createAllMortgageParsers } from "./parsers/index.js";
 import { computeMortgageRankings } from "./rankings.js";
+import { appendMortgageHistory } from "./historyUpdate.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../../../apps/web/public/data");
@@ -79,15 +80,22 @@ async function main(): Promise<void> {
 
   const offersLatestPath = join(DATA_DIR, "mortgage-offers-latest.json");
   const rankingsLatestPath = join(DATA_DIR, "mortgage-rankings-latest.json");
+  const historyPath = join(DATA_DIR, "mortgage-history.json");
 
   await Promise.all([
     writeJson(offersLatestPath, dataset),
     writeJson(rankingsLatestPath, rankings),
   ]);
 
+  // Append change-points to the history file (idempotent within a day)
+  const history = await appendMortgageHistory(historyPath, allOffers, now);
+
   console.log(`\nOutputs written to ${DATA_DIR}:`);
   console.log(`  - mortgage-offers-latest.json`);
   console.log(`  - mortgage-rankings-latest.json`);
+  console.log(
+    `  - mortgage-history.json (${history.added} new, ${history.updated} updated, ${history.unchanged} unchanged)`
+  );
 
   if (allErrors.length > 0) {
     console.error("\n--- Errors ---");

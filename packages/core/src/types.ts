@@ -223,3 +223,50 @@ export type SavingsRankings = {
   generated_at: string; // ISO timestamp
   scenarios: Partial<Record<SavingsScenarioKey, SavingsScenarioRanking>>;
 };
+
+// ============================================
+// Rate History Types
+// ============================================
+//
+// History is stored as a flat list of "change-points": one record per
+// (logical product) per day on which its rate differed from the previous
+// recorded value. Records carry the structured product dimensions rather
+// than a baked-in series key, so the grouping logic can change without
+// rewriting historical data. The series key is derived at read time via
+// deriveMortgageSeriesKey / deriveSavingsSeriesKey.
+
+// A single mortgage rate observation (change-point).
+export type MortgageHistoryPoint = {
+  date: string; // YYYY-MM-DD - the observation day
+  bank_id: BankId;
+  bank_name: string; // display name at the time of observation
+  product_type: MortgageType;
+  currency_index: CurrencyIndex;
+  segment: Segment;
+  channel: Channel;
+  rate: Rate;
+};
+
+// Full mortgage history file.
+export type MortgageRateHistory = {
+  generated_at: string; // ISO timestamp
+  points: MortgageHistoryPoint[];
+};
+
+// A single savings rate observation (change-point).
+export type SavingsHistoryPoint = {
+  date: string; // YYYY-MM-DD - the observation day
+  bank_id: BankId;
+  bank_name: string; // display name at the time of observation
+  account_type: SavingsAccountType;
+  account_name: string;
+  min_amount_cop?: number;
+  max_amount_cop?: number;
+  rate: SavingsRate;
+};
+
+// Full savings history file.
+export type SavingsRateHistory = {
+  generated_at: string; // ISO timestamp
+  points: SavingsHistoryPoint[];
+};

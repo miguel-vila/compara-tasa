@@ -51,7 +51,25 @@ export type {
   SavingsRankedGroup,
   SavingsScenarioRanking,
   SavingsRankings,
+  // Rate history types
+  MortgageHistoryPoint,
+  MortgageRateHistory,
+  SavingsHistoryPoint,
+  SavingsRateHistory,
 } from "./types.js";
+
+// Rate history helpers
+export {
+  deriveMortgageSeriesKey,
+  deriveSavingsSeriesKey,
+  mortgageRateKey,
+  savingsRateKey,
+  mortgagePlotValue,
+  savingsPlotValue,
+  groupMortgageHistory,
+  groupSavingsHistory,
+} from "./history.js";
+export type { RateSeries } from "./history.js";
 
 // Zod Schemas
 export {
@@ -96,4 +114,9 @@ export {
   SavingsRankedGroupSchema,
   SavingsScenarioRankingSchema,
   SavingsRankingsSchema,
+  // Rate history schemas
+  MortgageHistoryPointSchema,
+  MortgageRateHistorySchema,
+  SavingsHistoryPointSchema,
+  SavingsRateHistorySchema,
 } from "./schemas.js";

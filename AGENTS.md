@@ -18,6 +18,7 @@ ComparaTasa is a Colombia rates aggregator that scrapes publicly disclosed rates
 5. Output files written to `apps/web/public/data/`:
    - `mortgage-offers-latest.json`
    - `mortgage-rankings-latest.json`
+   - `mortgage-history.json` (rate change-points appended on each run)
 
 ### Savings Rates
 
@@ -28,11 +29,17 @@ ComparaTasa is a Colombia rates aggregator that scrapes publicly disclosed rates
 5. Output files written to `apps/web/public/data/`:
    - `savings-offers-latest.json`
    - `savings-rankings-latest.json`
+   - `savings-history.json` (rate change-points appended on each run)
+
+### Rate History
+
+Both updaters also maintain `*-history.json` files of rate change-points over time (one record per product per day its rate changed), rendered as charts on the frontend. See [Rate History](./docs/rate-history/index.md).
 
 ## Feature Documentation
 
 - [Mortgage Rates](./docs/mortgage-rates/index.md): Segmentation dimensions, ranking scenarios, and per-bank parser implementation details.
 - [Savings Rates](./docs/savings-rates/index.md): Balance tier and bank type segmentation, ranking scenarios, and per-bank parser implementation details.
+- [Rate History](./docs/rate-history/index.md): Change-point storage model, series identity, and the frontend charts.
 
 ## Domain Concepts
 

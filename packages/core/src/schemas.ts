@@ -242,3 +242,45 @@ export const SavingsRankingsSchema = z.object({
   generated_at: z.string().datetime(),
   scenarios: z.record(SavingsScenarioKeySchema, SavingsScenarioRankingSchema.optional()),
 });
+
+// ============================================
+// Rate History Schemas
+// ============================================
+
+const IsoDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected YYYY-MM-DD");
+
+// Mortgage history change-point schema
+export const MortgageHistoryPointSchema = z.object({
+  date: IsoDateSchema,
+  bank_id: BankIdSchema,
+  bank_name: z.string(),
+  product_type: MortgageTypeSchema,
+  currency_index: CurrencyIndexSchema,
+  segment: SegmentSchema,
+  channel: ChannelSchema,
+  rate: RateSchema,
+});
+
+// Mortgage history file schema
+export const MortgageRateHistorySchema = z.object({
+  generated_at: z.string().datetime(),
+  points: z.array(MortgageHistoryPointSchema),
+});
+
+// Savings history change-point schema
+export const SavingsHistoryPointSchema = z.object({
+  date: IsoDateSchema,
+  bank_id: BankIdSchema,
+  bank_name: z.string(),
+  account_type: SavingsAccountTypeSchema,
+  account_name: z.string(),
+  min_amount_cop: z.number().nonnegative().optional(),
+  max_amount_cop: z.number().positive().optional(),
+  rate: SavingsRateSchema,
+});
+
+// Savings history file schema
+export const SavingsRateHistorySchema = z.object({
+  generated_at: z.string().datetime(),
+  points: z.array(SavingsHistoryPointSchema),
+});
