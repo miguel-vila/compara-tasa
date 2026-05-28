@@ -46,10 +46,10 @@ export const MORTGAGE_SCENARIO_LABELS: Record<MortgageScenarioKey, string> = {
   best_cop_vis_hipotecario: "Mejor Pesos - VIS",
   best_cop_no_vis_hipotecario: "Mejor Pesos - No VIS",
   // Payroll scenarios
-  best_uvr_vis_payroll: "Mejor UVR - VIS (Nómina)",
-  best_uvr_no_vis_payroll: "Mejor UVR - No VIS (Nómina)",
-  best_cop_vis_payroll: "Mejor Pesos - VIS (Nómina)",
-  best_cop_no_vis_payroll: "Mejor Pesos - No VIS (Nómina)",
+  best_uvr_vis_payroll: "Mejor UVR - VIS ",
+  best_uvr_no_vis_payroll: "Mejor UVR - No VIS",
+  best_cop_vis_payroll: "Mejor Pesos - VIS",
+  best_cop_no_vis_payroll: "Mejor Pesos - No VIS",
   // Digital channel (split by currency)
   best_digital_cop_hipotecario: "Mejor Canal Digital - Pesos",
   best_digital_uvr_hipotecario: "Mejor Canal Digital - UVR",
