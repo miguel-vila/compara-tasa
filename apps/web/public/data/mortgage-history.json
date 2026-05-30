@@ -1,87 +1,6 @@
 {
-  "generated_at": "2026-05-28T21:33:59.713Z",
+  "generated_at": "2026-05-30T14:18:31.327Z",
   "points": [
-    {
-      "date": "2026-01-10",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.5
-      }
-    },
-    {
-      "date": "2026-01-10",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 8
-      }
-    },
-    {
-      "date": "2026-01-10",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12
-      }
-    },
-    {
-      "date": "2026-01-10",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.5,
-        "ea_percent_to": 13
-      }
-    },
-    {
-      "date": "2026-01-10",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.25,
-        "ea_percent_to": 14.5
-      }
-    },
-    {
-      "date": "2026-01-10",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.6,
-        "spread_ea_to": 7.8
-      }
-    },
     {
       "date": "2026-01-10",
       "bank_id": "avvillas",
@@ -111,6 +30,73 @@
     },
     {
       "date": "2026-01-10",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.5
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.25,
+        "ea_percent_to": 14.5
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.5,
+        "ea_percent_to": 13
+      }
+    },
+    {
+      "date": "2026-01-10",
       "bank_id": "itau",
       "bank_name": "Banco Itaú Colombia",
       "product_type": "leasing",
@@ -124,221 +110,57 @@
       }
     },
     {
-      "date": "2026-01-11",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12,
-        "mv_percent_from": 0.95
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 9.77,
-        "mv_percent_from": 0.78
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 5.52,
-        "spread_mv_from": 0.45
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.98,
-        "mv_percent_from": 0.95
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.4,
-        "spread_mv_from": 0.6
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 10.19,
-        "mv_percent_from": 0.81
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 10.79,
-        "mv_percent_from": 0.86
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.25,
-        "ea_percent_to": 12.45
-      }
-    },
-    {
-      "date": "2026-01-11",
+      "date": "2026-01-10",
       "bank_id": "scotiabank_colpatria",
       "bank_name": "Scotiabank Colpatria",
       "product_type": "hipotecario",
       "currency_index": "UVR",
-      "segment": "VIS",
+      "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.6,
-        "spread_ea_to": 6.8
+        "spread_ea_from": 7.6,
+        "spread_ea_to": 7.8
       }
     },
     {
       "date": "2026-01-11",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
       "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
+      "segment": "NO_VIS",
+      "channel": "DIGITAL",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 12.15,
-        "ea_percent_to": 12.35
+        "ea_percent_from": 12.4
       }
     },
     {
       "date": "2026-01-11",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.25,
-        "ea_percent_to": 12.45
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 10,
-        "ea_percent_to": 14.85,
-        "mv_percent_from": 0.8,
-        "mv_percent_to": 1.16
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 5.15,
-        "spread_ea_to": 8.1,
-        "spread_mv_from": 0.42,
-        "spread_mv_to": 0.65
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 10,
-        "ea_percent_to": 16.1,
-        "mv_percent_from": 0.8,
-        "mv_percent_to": 1.25
+        "ea_percent_from": 15,
+        "ea_percent_to": 15.75
       }
     },
     {
       "date": "2026-01-11",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "DIGITAL",
       "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.45,
-        "spread_ea_to": 9.2,
-        "spread_mv_from": 0.52,
-        "spread_mv_to": 0.74
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.2
       }
     },
     {
@@ -347,12 +169,12 @@
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
       "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
+      "segment": "NO_VIS",
+      "channel": "DIGITAL",
       "rate": {
         "kind": "UVR_SPREAD",
-        "spread_ea_from": 8.9,
-        "spread_ea_to": 10.05
+        "spread_ea_from": 7.5,
+        "spread_ea_to": 8.5
       }
     },
     {
@@ -374,13 +196,27 @@
       "bank_id": "avvillas",
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "DIGITAL",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.5,
+        "spread_ea_to": 8.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 15,
-        "ea_percent_to": 15.75
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.9,
+        "spread_ea_to": 10.05
       }
     },
     {
@@ -398,315 +234,8 @@
     },
     {
       "date": "2026-01-11",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "DIGITAL",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.2
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "DIGITAL",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.4
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "DIGITAL",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.5,
-        "spread_ea_to": 8.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "DIGITAL",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.5,
-        "spread_ea_to": 8.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "itau",
-      "bank_name": "Banco Itaú Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.14,
-        "ea_percent_to": 13.46
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "itau",
-      "bank_name": "Banco Itaú Colombia",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.14,
-        "ea_percent_to": 13.46
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 4.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 9.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 9
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "fna",
-      "bank_name": "Fondo Nacional del Ahorro",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_popular",
-      "bank_name": "Banco Popular",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 17.05,
-        "ea_percent_to": 17.55
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_popular",
-      "bank_name": "Banco Popular",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 16.55,
-        "ea_percent_to": 17.05
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_bogota",
-      "bank_name": "Banco de Bogotá",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 17.4
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_bogota",
-      "bank_name": "Banco de Bogotá",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 15.7
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_bogota",
-      "bank_name": "Banco de Bogotá",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 17.4
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_bogota",
-      "bank_name": "Banco de Bogotá",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 12.3
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_bogota",
-      "bank_name": "Banco de Bogotá",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 10.6
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_occidente",
-      "bank_name": "Banco de Occidente",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.62,
-        "ea_percent_to": 16.51
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_de_occidente",
-      "bank_name": "Banco de Occidente",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.25,
-        "ea_percent_to": 16
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.6
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.95
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
       "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "NO_VIS",
@@ -714,84 +243,6 @@
       "rate": {
         "kind": "COP_FIXED",
         "ea_percent_from": 12.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.95
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.1
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "leasing",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.95
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "leasing",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.5
-      }
-    },
-    {
-      "date": "2026-01-11",
-      "bank_id": "banco_agrario",
-      "bank_name": "Banco Agrario",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 5.1
       }
     },
     {
@@ -825,12 +276,25 @@
       "bank_id": "banco_agrario",
       "bank_name": "Banco Agrario",
       "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 5.1
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
+      "product_type": "leasing",
       "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 12.5
+        "ea_percent_from": 12.4
       }
     },
     {
@@ -848,15 +312,564 @@
     },
     {
       "date": "2026-01-11",
-      "bank_id": "banco_agrario",
-      "bank_name": "Banco Agrario",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 10,
+        "ea_percent_to": 16.1,
+        "mv_percent_from": 0.8,
+        "mv_percent_to": 1.25
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 10,
+        "ea_percent_to": 14.85,
+        "mv_percent_from": 0.8,
+        "mv_percent_to": 1.16
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.45,
+        "spread_ea_to": 9.2,
+        "spread_mv_from": 0.52,
+        "spread_mv_to": 0.74
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 5.15,
+        "spread_ea_to": 8.1,
+        "spread_mv_from": 0.42,
+        "spread_mv_to": 0.65
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 17.4
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 15.7
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 12.3
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 10.6
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 17.4
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_occidente",
+      "bank_name": "Banco de Occidente",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.62,
+        "ea_percent_to": 16.51
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_de_occidente",
+      "bank_name": "Banco de Occidente",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.25,
+        "ea_percent_to": 16
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 17.05,
+        "ea_percent_to": 17.55
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 16.55,
+        "ea_percent_to": 17.05
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12,
+        "mv_percent_from": 0.95
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.98,
+        "mv_percent_from": 0.95
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 9.77,
+        "mv_percent_from": 0.78
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.4,
+        "spread_mv_from": 0.6
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 5.52,
+        "spread_mv_from": 0.45
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
       "product_type": "leasing",
       "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 12.4
+        "ea_percent_from": 10.19,
+        "mv_percent_from": 0.81
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 10.79,
+        "mv_percent_from": 0.86
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.6
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.95
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.95
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.1
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.95
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 9.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 4.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.5
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "fna",
+      "bank_name": "Fondo Nacional del Ahorro",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 9
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "itau",
+      "bank_name": "Banco Itaú Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.14,
+        "ea_percent_to": 13.46
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "itau",
+      "bank_name": "Banco Itaú Colombia",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.14,
+        "ea_percent_to": 13.46
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.25,
+        "ea_percent_to": 12.45
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.15,
+        "ea_percent_to": 12.35
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.6,
+        "spread_ea_to": 6.8
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.25,
+        "ea_percent_to": 12.45
+      }
+    },
+    {
+      "date": "2026-01-13",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "BRANCH",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.22
       }
     },
     {
@@ -877,12 +890,12 @@
       "bank_id": "bancoomeva",
       "bank_name": "Bancoomeva",
       "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "BRANCH",
       "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 8.3
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.82
       }
     },
     {
@@ -904,32 +917,6 @@
       "bank_name": "Bancoomeva",
       "product_type": "hipotecario",
       "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 8.55
-      }
-    },
-    {
-      "date": "2026-01-13",
-      "bank_id": "bancoomeva",
-      "bank_name": "Bancoomeva",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "BRANCH",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.22
-      }
-    },
-    {
-      "date": "2026-01-13",
-      "bank_id": "bancoomeva",
-      "bank_name": "Bancoomeva",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
       "segment": "NO_VIS",
       "channel": "BRANCH",
       "rate": {
@@ -942,12 +929,12 @@
       "bank_id": "bancoomeva",
       "bank_name": "Bancoomeva",
       "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "BRANCH",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
       "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.82
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.3
       }
     },
     {
@@ -961,6 +948,33 @@
       "rate": {
         "kind": "UVR_SPREAD",
         "spread_ea_from": 7.55
+      }
+    },
+    {
+      "date": "2026-01-13",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.55
+      }
+    },
+    {
+      "date": "2026-01-19",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.6,
+        "mv_percent_from": 1.07
       }
     },
     {
@@ -989,20 +1003,6 @@
         "kind": "UVR_SPREAD",
         "spread_ea_from": 6.16,
         "spread_mv_from": 0.5
-      }
-    },
-    {
-      "date": "2026-01-19",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.6,
-        "mv_percent_from": 1.07
       }
     },
     {
@@ -1039,11 +1039,11 @@
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
       "currency_index": "COP",
-      "segment": "VIS",
+      "segment": "NO_VIS",
       "channel": "DIGITAL",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 11.5
+        "ea_percent_from": 11.65
       }
     },
     {
@@ -1052,11 +1052,11 @@
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
       "currency_index": "COP",
-      "segment": "NO_VIS",
+      "segment": "VIS",
       "channel": "DIGITAL",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 11.65
+        "ea_percent_from": 11.5
       }
     },
     {
@@ -1100,72 +1100,15 @@
     },
     {
       "date": "2026-02-08",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 8.1,
-        "spread_ea_to": 8.3
-      }
-    },
-    {
-      "date": "2026-02-08",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.75,
-        "ea_percent_to": 12.95
-      }
-    },
-    {
-      "date": "2026-02-08",
-      "bank_id": "scotiabank_colpatria",
-      "bank_name": "Scotiabank Colpatria",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "UNKNOWN",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.75,
-        "ea_percent_to": 12.95
-      }
-    },
-    {
-      "date": "2026-02-08",
       "bank_id": "avvillas",
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 9.49,
-        "spread_ea_to": 10.55
-      }
-    },
-    {
-      "date": "2026-02-08",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
+      "currency_index": "COP",
       "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
+      "channel": "DIGITAL",
       "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 9.55,
-        "spread_ea_to": 10.35
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.15
       }
     },
     {
@@ -1200,12 +1143,27 @@
       "bank_id": "avvillas",
       "bank_name": "Banco AV Villas",
       "product_type": "hipotecario",
-      "currency_index": "COP",
+      "currency_index": "UVR",
       "segment": "NO_VIS",
-      "channel": "DIGITAL",
+      "channel": "UNSPECIFIED",
       "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.15
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.55,
+        "spread_ea_to": 10.35
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.49,
+        "spread_ea_to": 10.55
       }
     },
     {
@@ -1248,31 +1206,61 @@
       }
     },
     {
-      "date": "2026-02-16",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13,
-        "mv_percent_from": 1.02
-      }
-    },
-    {
-      "date": "2026-02-16",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
+      "date": "2026-02-08",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
       "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13,
-        "mv_percent_from": 1.02
+        "ea_percent_from": 12.75,
+        "ea_percent_to": 12.95
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.1,
+        "spread_ea_to": 8.3
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "bank_id": "scotiabank_colpatria",
+      "bank_name": "Scotiabank Colpatria",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.75,
+        "ea_percent_to": 12.95
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.4,
+        "ea_percent_to": 16.1,
+        "mv_percent_from": 0.9,
+        "mv_percent_to": 1.25
       }
     },
     {
@@ -1297,38 +1285,6 @@
       "bank_name": "Banco Caja Social",
       "product_type": "hipotecario",
       "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.2,
-        "spread_ea_to": 8.9,
-        "spread_mv_from": 0.5,
-        "spread_mv_to": 0.71
-      }
-    },
-    {
-      "date": "2026-02-16",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.4,
-        "ea_percent_to": 16.1,
-        "mv_percent_from": 0.9,
-        "mv_percent_to": 1.25
-      }
-    },
-    {
-      "date": "2026-02-16",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
@@ -1337,6 +1293,22 @@
         "spread_ea_to": 9.2,
         "spread_mv_from": 0.57,
         "spread_mv_to": 0.74
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.2,
+        "spread_ea_to": 8.9,
+        "spread_mv_from": 0.5,
+        "spread_mv_to": 0.71
       }
     },
     {
@@ -1350,6 +1322,34 @@
       "rate": {
         "kind": "COP_FIXED",
         "ea_percent_from": 15.53
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13,
+        "mv_percent_from": 1.02
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13,
+        "mv_percent_from": 1.02
       }
     },
     {
@@ -1371,19 +1371,6 @@
       "bank_name": "Davivienda",
       "product_type": "leasing",
       "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.55
-      }
-    },
-    {
-      "date": "2026-02-23",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "leasing",
-      "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
@@ -1392,17 +1379,29 @@
       }
     },
     {
-      "date": "2026-03-02",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
+      "date": "2026-02-23",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
       "currency_index": "COP",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 12,
-        "mv_percent_from": 0.95
+        "ea_percent_from": 12.55
+      }
+    },
+    {
+      "date": "2026-03-02",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "DIGITAL",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.5
       }
     },
     {
@@ -1420,15 +1419,16 @@
     },
     {
       "date": "2026-03-02",
-      "bank_id": "avvillas",
-      "bank_name": "Banco AV Villas",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
       "product_type": "hipotecario",
       "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "DIGITAL",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13.5
+        "ea_percent_from": 12,
+        "mv_percent_from": 0.95
       }
     },
     {
@@ -1476,19 +1476,6 @@
       "bank_name": "Davivienda",
       "product_type": "hipotecario",
       "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.7
-      }
-    },
-    {
-      "date": "2026-03-09",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
@@ -1500,13 +1487,13 @@
       "date": "2026-03-09",
       "bank_id": "davivienda",
       "bank_name": "Davivienda",
-      "product_type": "leasing",
+      "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13.35
+        "ea_percent_from": 13.7
       }
     },
     {
@@ -1523,73 +1510,16 @@
       }
     },
     {
-      "date": "2026-03-30",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.7,
-        "mv_percent_from": 1
-      }
-    },
-    {
-      "date": "2026-03-30",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.45,
-        "spread_mv_from": 0.52
-      }
-    },
-    {
-      "date": "2026-03-30",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 14,
-        "mv_percent_from": 1.1
-      }
-    },
-    {
-      "date": "2026-03-30",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
-      "product_type": "leasing",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 13.87,
-        "mv_percent_from": 1.09
-      }
-    },
-    {
-      "date": "2026-03-30",
-      "bank_id": "bbva",
-      "bank_name": "BBVA Colombia",
+      "date": "2026-03-09",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
       "product_type": "leasing",
       "currency_index": "COP",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13,
-        "mv_percent_from": 1.02
+        "ea_percent_from": 13.35
       }
     },
     {
@@ -1632,17 +1562,133 @@
       }
     },
     {
-      "date": "2026-04-13",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
+      "date": "2026-03-30",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14,
+        "mv_percent_from": 1.1
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.7,
+        "mv_percent_from": 1
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
       "product_type": "hipotecario",
       "currency_index": "UVR",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "UVR_SPREAD",
-        "spread_ea_from": 6.8,
-        "spread_mv_from": 0.55
+        "spread_ea_from": 6.45,
+        "spread_mv_from": 0.52
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.87,
+        "mv_percent_from": 1.09
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "bank_id": "bbva",
+      "bank_name": "BBVA Colombia",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13,
+        "mv_percent_from": 1.02
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 12.1,
+        "ea_percent_to": 16.1,
+        "mv_percent_from": 0.96,
+        "mv_percent_to": 1.25
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 11.9,
+        "ea_percent_to": 15.25,
+        "mv_percent_from": 0.94,
+        "mv_percent_to": 1.19
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14,
+        "mv_percent_from": 1.1
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14,
+        "mv_percent_from": 1.1
       }
     },
     {
@@ -1664,75 +1710,13 @@
       "bank_id": "bancolombia",
       "bank_name": "Bancolombia",
       "product_type": "hipotecario",
-      "currency_index": "COP",
+      "currency_index": "UVR",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 14,
-        "mv_percent_from": 1.1
-      }
-    },
-    {
-      "date": "2026-04-13",
-      "bank_id": "bancolombia",
-      "bank_name": "Bancolombia",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 14,
-        "mv_percent_from": 1.1
-      }
-    },
-    {
-      "date": "2026-04-13",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 11.9,
-        "ea_percent_to": 15.25,
-        "mv_percent_from": 0.94,
-        "mv_percent_to": 1.19
-      }
-    },
-    {
-      "date": "2026-04-13",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "NO_VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.1,
-        "ea_percent_to": 16.1,
-        "mv_percent_from": 0.96,
-        "mv_percent_to": 1.25
-      }
-    },
-    {
-      "date": "2026-04-20",
-      "bank_id": "banco_caja_social",
-      "bank_name": "Banco Caja Social",
-      "product_type": "hipotecario",
-      "currency_index": "COP",
-      "segment": "VIS",
-      "channel": "UNSPECIFIED",
-      "rate": {
-        "kind": "COP_FIXED",
-        "ea_percent_from": 12.6,
-        "ea_percent_to": 15.85,
-        "mv_percent_from": 0.99,
-        "mv_percent_to": 1.23
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 6.8,
+        "spread_mv_from": 0.55
       }
     },
     {
@@ -1753,15 +1737,18 @@
     },
     {
       "date": "2026-04-20",
-      "bank_id": "davivienda",
-      "bank_name": "Davivienda",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
       "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13.8
+        "ea_percent_from": 12.6,
+        "ea_percent_to": 15.85,
+        "mv_percent_from": 0.99,
+        "mv_percent_to": 1.23
       }
     },
     {
@@ -1781,13 +1768,13 @@
       "date": "2026-04-20",
       "bank_id": "davivienda",
       "bank_name": "Davivienda",
-      "product_type": "leasing",
+      "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13.45
+        "ea_percent_from": 13.8
       }
     },
     {
@@ -1801,6 +1788,19 @@
       "rate": {
         "kind": "COP_FIXED",
         "ea_percent_from": 12.9
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "bank_id": "davivienda",
+      "bank_name": "Davivienda",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.45
       }
     },
     {
@@ -1873,12 +1873,12 @@
       "bank_id": "banco_agrario",
       "bank_name": "Banco Agrario",
       "product_type": "hipotecario",
-      "currency_index": "UVR",
-      "segment": "VIS",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
-        "kind": "UVR_SPREAD",
-        "spread_ea_from": 7.5
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.2
       }
     },
     {
@@ -1912,12 +1912,164 @@
       "bank_id": "banco_agrario",
       "bank_name": "Banco Agrario",
       "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.5
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
       "currency_index": "COP",
       "segment": "NO_VIS",
       "channel": "UNSPECIFIED",
       "rate": {
         "kind": "COP_FIXED",
-        "ea_percent_from": 13.2
+        "ea_percent_from": 13.5,
+        "ea_percent_to": 17.2,
+        "mv_percent_from": 1.06,
+        "mv_percent_to": 1.33
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.2,
+        "ea_percent_to": 15.85,
+        "mv_percent_from": 1.04,
+        "mv_percent_to": 1.23
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 17.74
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 17.74
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.5,
+        "mv_percent_from": 1.135
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.4,
+        "mv_percent_from": 1.127
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancolombia",
+      "bank_name": "Bancolombia",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.1,
+        "spread_mv_from": 0.65
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "BRANCH",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.76
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.84
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "BRANCH",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.35
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "bank_id": "bancoomeva",
+      "bank_name": "Bancoomeva",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.44
       }
     }
   ]
