@@ -34,10 +34,10 @@ For each scenario, offers are filtered to those whose `[min_amount_cop, max_amou
 
 Banks are classified into two categories:
 
-| Type                       | Banks                                                       |
-| -------------------------- | ----------------------------------------------------------- |
-| **Neobank** (digital-only) | Ban100, Lulo Bank, RappiPay, Pibank, Ualá, Nu Colombia      |
-| **Traditional**            | AV Villas, Banco Popular, BBVA, Banco Caja Social, Bancamía |
+| Type                       | Banks                                                                  |
+| -------------------------- | ---------------------------------------------------------------------- |
+| **Neobank** (digital-only) | Ban100, Lulo Bank, RappiPay, Pibank, Ualá, Nu Colombia               |
+| **Traditional**            | Banco AV Villas, Banco Popular, BBVA, Banco Caja Social, Bancamía    |
 
 Two ranking scenarios find the best rate among neobanks and traditional banks respectively, without filtering by balance amount.
 
@@ -51,7 +51,7 @@ Each offer is tagged with an account type, used for display but not for ranking 
 
 ## Bank Parsers
 
-### AV Villas
+### Banco AV Villas
 
 - **Source**: PDF hosted on `avvillas.com.co`
 - **Extraction**: `pdfjs-dist` for text extraction, regex for parsing
@@ -148,15 +148,15 @@ Each offer is tagged with an account type, used for display but not for ranking 
 
 ## Summary
 
-| Bank          | Type        | Source Format     | Extraction                    | Products        | Tiered? |
-| ------------- | ----------- | ----------------- | ----------------------------- | --------------- | ------- |
-| AV Villas     | Traditional | PDF               | pdfjs-dist + regex            | 3               | Yes     |
-| Ban100        | Neobank     | HTML              | cheerio                       | 2               | Yes     |
-| Bancamía      | Traditional | PDF               | pdfjs-dist + pattern matching | 1               | Yes     |
-| Banco Popular | Traditional | HTML              | cheerio                       | 2               | Yes     |
-| BBVA Colombia | Traditional | PDF               | pdfjs-dist + regex            | 7               | Mixed   |
-| Caja Social   | Traditional | PDF               | pdfjs-dist + regex            | 2               | Yes     |
-| Lulo Bank     | Neobank     | HTML (Cloudflare) | Playwright + cheerio + regex  | 2 (x2 variants) | No      |
-| Pibank        | Neobank     | PDF (dynamic URL) | pdfjs-dist + regex            | 1               | No      |
-| RappiPay      | Neobank     | HTML              | cheerio                       | 2               | No      |
-| Nu Colombia   | Neobank     | Manual JSON       | JSON parsing                  | 1               | No      |
+| Bank              | Type        | Source Format     | Extraction                    | Products        | Tiered? |
+| ----------------- | ----------- | ----------------- | ----------------------------- | --------------- | ------- |
+| Banco AV Villas   | Traditional | PDF               | pdfjs-dist + regex            | 3               | Yes     |
+| Ban100            | Neobank     | HTML              | cheerio                       | 2               | Yes     |
+| Bancamía          | Traditional | PDF               | pdfjs-dist + pattern matching | 1               | Yes     |
+| Banco Popular     | Traditional | HTML              | cheerio                       | 2               | Yes     |
+| BBVA Colombia     | Traditional | PDF               | pdfjs-dist + regex            | 7               | Mixed   |
+| Banco Caja Social | Traditional | PDF               | pdfjs-dist + regex            | 2               | Yes     |
+| Lulo Bank         | Neobank     | HTML (Cloudflare) | Playwright + cheerio + regex  | 2 (x2 variants) | No      |
+| Pibank            | Neobank     | PDF (dynamic URL) | pdfjs-dist + regex            | 1               | No      |
+| RappiPay          | Neobank     | HTML              | cheerio                       | 2               | No      |
+| Nu Colombia       | Neobank     | Manual JSON       | JSON parsing                  | 1               | No      |
