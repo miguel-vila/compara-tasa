@@ -8,12 +8,42 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  ReferenceLine,
 } from "recharts";
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
 import type { ChartRow } from "@/lib/history";
 
 export type ChartLine = { key: string; label: string; color: string };
+export type ReferenceLineData = { date: string; label: string; rate: number };
+
+const REFERENCE_LINE_COLOR = "#6b7280";
+
+function BanrepLabel({
+  viewBox,
+  rate,
+  label,
+}: {
+  viewBox?: { x: number; y: number };
+  rate: number;
+  label: string;
+}) {
+  if (!viewBox) return null;
+  return (
+    <g>
+      <title>{`${label} · ${rate.toFixed(2)}%`}</title>
+      <text
+        x={viewBox.x + 3}
+        y={viewBox.y + 12}
+        fontSize={9}
+        fill={REFERENCE_LINE_COLOR}
+        fontWeight={500}
+      >
+        {rate.toFixed(2)}%
+      </text>
+    </g>
+  );
+}
 
 function shortDate(iso: string): string {
   try {
@@ -28,11 +58,15 @@ export function RateHistoryChart({
   lines,
   formatValue,
   height = 380,
+  referenceLines,
+  referenceLinesLabel,
 }: {
   rows: ChartRow[];
   lines: ChartLine[];
   formatValue: (n: number) => string;
   height?: number;
+  referenceLines?: ReferenceLineData[];
+  referenceLinesLabel?: string;
 }) {
   if (lines.length === 0) {
     return (
@@ -43,41 +77,70 @@ export function RateHistoryChart({
   }
 
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-        <XAxis
-          dataKey="date"
-          tickFormatter={shortDate}
-          tick={{ fontSize: 11, fill: "#6b7280" }}
-          minTickGap={24}
-        />
-        <YAxis
-          tickFormatter={formatValue}
-          tick={{ fontSize: 11, fill: "#6b7280" }}
-          width={64}
-          domain={["auto", "auto"]}
-        />
-        <Tooltip
-          labelFormatter={(d) => shortDate(String(d))}
-          formatter={(value, name) => [formatValue(Number(value)), name]}
-          contentStyle={{ fontSize: 12, borderRadius: 8, borderColor: "#e5e7eb" }}
-        />
-        {lines.map((line) => (
-          <Line
-            key={line.key}
-            type="stepAfter"
-            dataKey={line.key}
-            name={line.label}
-            stroke={line.color}
-            strokeWidth={2}
-            dot={{ r: 2 }}
-            activeDot={{ r: 4 }}
-            connectNulls={false}
-            isAnimationActive={false}
+    <div>
+      <ResponsiveContainer width="100%" height={height}>
+        <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <XAxis
+            dataKey="date"
+            tickFormatter={shortDate}
+            tick={{ fontSize: 11, fill: "#6b7280" }}
+            minTickGap={24}
           />
-        ))}
-      </LineChart>
-    </ResponsiveContainer>
+          <YAxis
+            tickFormatter={formatValue}
+            tick={{ fontSize: 11, fill: "#6b7280" }}
+            width={64}
+            domain={["auto", "auto"]}
+          />
+          <Tooltip
+            labelFormatter={(d) => shortDate(String(d))}
+            formatter={(value, name) => [formatValue(Number(value)), name]}
+            contentStyle={{ fontSize: 12, borderRadius: 8, borderColor: "#e5e7eb" }}
+          />
+          {referenceLines?.map((rl) => (
+            <ReferenceLine
+              key={rl.date}
+              x={rl.date}
+              stroke={REFERENCE_LINE_COLOR}
+              strokeDasharray="4 2"
+              label={(props: { viewBox?: { x: number; y: number } }) => (
+                <BanrepLabel viewBox={props.viewBox} rate={rl.rate} label={rl.label} />
+              )}
+            />
+          ))}
+          {lines.map((line) => (
+            <Line
+              key={line.key}
+              type="stepAfter"
+              dataKey={line.key}
+              name={line.label}
+              stroke={line.color}
+              strokeWidth={2}
+              dot={{ r: 2 }}
+              activeDot={{ r: 4 }}
+              connectNulls={false}
+              isAnimationActive={false}
+            />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+      {referenceLinesLabel && referenceLines && referenceLines.length > 0 && (
+        <div className="flex items-center gap-1.5 mt-1 pl-16 text-xs text-gray-500">
+          <svg width="20" height="10" aria-hidden="true">
+            <line
+              x1="0"
+              y1="5"
+              x2="20"
+              y2="5"
+              stroke={REFERENCE_LINE_COLOR}
+              strokeWidth="1.5"
+              strokeDasharray="4 2"
+            />
+          </svg>
+          {referenceLinesLabel}
+        </div>
+      )}
+    </div>
   );
 }

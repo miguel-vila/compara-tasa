@@ -9,6 +9,7 @@ import {
 } from "@compara-tasa/core";
 import { buildTimeline, timelineDates, colorForIndex, min, type SeriesValues } from "@/lib/history";
 import { RateHistoryChart, type ChartLine } from "./rate-history-chart";
+import { useBanrepRates } from "@/lib/useBanrepRates";
 
 const DEFAULT_BANK_COUNT = 5;
 
@@ -30,6 +31,7 @@ export function MortgageHistorySection() {
   const [today, setToday] = useState<string>("");
   const [viewIdx, setViewIdx] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const banrepRates = useBanrepRates();
 
   useEffect(() => {
     fetch("/data/mortgage-history.json")
@@ -56,7 +58,11 @@ export function MortgageHistorySection() {
       values: s.points.map((p) => ({ date: p.date, value: mortgagePlotValue(p.rate) })),
     }));
     const dates = timelineDates(series, today || latestDate(series));
-    const rows = buildTimeline(series, dates, min);
+    const banrepDates = banrepRates
+      .map((r) => r.effective_date)
+      .filter((d) => d >= dates[0] && d <= dates[dates.length - 1]);
+    const allDates = [...new Set([...dates, ...banrepDates])].sort();
+    const rows = buildTimeline(series, allDates, min);
     // Best mortgage rate is the lowest → rank ascending (missing → worst).
     const lastVal = (bankId: string): number => {
       const v = Number(rows.at(-1)?.[bankId]);
@@ -64,7 +70,7 @@ export function MortgageHistorySection() {
     };
     const banks = [...new Set(series.map((s) => s.bankId))].sort((a, b) => lastVal(a) - lastVal(b));
     return { banks, rows };
-  }, [points, today, view.currency, view.segment]);
+  }, [points, today, view.currency, view.segment, banrepRates]);
 
   // Reset selection to the best banks whenever the view changes.
   useEffect(() => {
@@ -155,7 +161,19 @@ export function MortgageHistorySection() {
         })}
       </div>
 
-      <RateHistoryChart rows={rows} lines={lines} formatValue={formatValue} />
+      <RateHistoryChart
+        rows={rows}
+        lines={lines}
+        formatValue={formatValue}
+        referenceLinesLabel="Tasa de intervención BanRep"
+        referenceLines={banrepRates
+          .filter(
+            (r) =>
+              r.effective_date >= (rows[0]?.date ?? "") &&
+              r.effective_date <= (rows.at(-1)?.date ?? "")
+          )
+          .map((r) => ({ date: r.effective_date, label: r.label, rate: r.rate_ea_percent }))}
+      />
     </div>
   );
 }

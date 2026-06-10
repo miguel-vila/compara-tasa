@@ -9,6 +9,7 @@ import {
 } from "@compara-tasa/core";
 import { buildTimeline, timelineDates, colorForIndex, max, type SeriesValues } from "@/lib/history";
 import { RateHistoryChart, type ChartLine } from "./rate-history-chart";
+import { useBanrepRates } from "@/lib/useBanrepRates";
 
 const DEFAULT_BANK_COUNT = 5;
 
@@ -16,6 +17,7 @@ export function SavingsHistorySection() {
   const [points, setPoints] = useState<SavingsHistoryPoint[] | null>(null);
   const [today, setToday] = useState<string>("");
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const banrepRates = useBanrepRates();
 
   useEffect(() => {
     fetch("/data/savings-history.json")
@@ -39,14 +41,18 @@ export function SavingsHistorySection() {
       values: s.points.map((p) => ({ date: p.date, value: savingsPlotValue(p.rate) })),
     }));
     const dates = timelineDates(series, today || datesFallback(series));
-    const rows = buildTimeline(series, dates, max);
+    const banrepDates = banrepRates
+      .map((r) => r.effective_date)
+      .filter((d) => d >= dates[0] && d <= dates[dates.length - 1]);
+    const allDates = [...new Set([...dates, ...banrepDates])].sort();
+    const rows = buildTimeline(series, allDates, max);
 
     // Rank banks by their most recent best rate (highest first) for color + default selection.
     const banks = [...new Set(series.map((s) => s.bankId))].sort(
       (a, b) => (Number(rows.at(-1)?.[b]) || 0) - (Number(rows.at(-1)?.[a]) || 0)
     );
     return { banks, rows };
-  }, [points, today]);
+  }, [points, today, banrepRates]);
 
   // Default to the top banks once data lands.
   useEffect(() => {
@@ -115,7 +121,19 @@ export function SavingsHistorySection() {
         })}
       </div>
 
-      <RateHistoryChart rows={rows} lines={lines} formatValue={(n) => `${n.toFixed(1)}%`} />
+      <RateHistoryChart
+        rows={rows}
+        lines={lines}
+        formatValue={(n) => `${n.toFixed(1)}%`}
+        referenceLinesLabel="Tasa de intervención BanRep"
+        referenceLines={banrepRates
+          .filter(
+            (r) =>
+              r.effective_date >= (rows[0]?.date ?? "") &&
+              r.effective_date <= (rows.at(-1)?.date ?? "")
+          )
+          .map((r) => ({ date: r.effective_date, label: r.label, rate: r.rate_ea_percent }))}
+      />
     </div>
   );
 }

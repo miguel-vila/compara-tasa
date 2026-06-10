@@ -1,0 +1,20 @@
+[
+  {
+    "decision_date": "2026-01-30",
+    "effective_date": "2026-02-02",
+    "label": "Junta BanRep - Enero 2026",
+    "rate_ea_percent": 10.25
+  },
+  {
+    "decision_date": "2026-03-31",
+    "effective_date": "2026-04-01",
+    "label": "Junta BanRep - Marzo 2026",
+    "rate_ea_percent": 11.25
+  },
+  {
+    "decision_date": "2026-04-30",
+    "effective_date": "2026-05-01",
+    "label": "Junta BanRep - Abril 2026",
+    "rate_ea_percent": 11.25
+  }
+]
