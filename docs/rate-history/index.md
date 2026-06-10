@@ -87,4 +87,6 @@ BanRep's MPC meets ~8 times per year, so this file needs a few manual additions 
 referenceLines?: { date: string; label: string; rate: number }[]
 ```
 
-Each entry renders as a Recharts `ReferenceLine` at `x={date}` — a dashed gray vertical line with the rate value anchored at the top, and a tooltip on hover showing `label` + `rate_ea_percent`. BanRep dates are **not** injected into the `ChartRow[]` timeline; `ReferenceLine` places itself at any X value without needing a corresponding data point.
+Each entry renders as a Recharts `ReferenceLine` at `x={date}` — a dashed gray vertical line with the rate value anchored at the top, and a native browser tooltip on hover (SVG `<title>`) showing the meeting name and rate.
+
+**Timeline injection:** Recharts positions `ReferenceLine` categorically — it only renders at X values that exist in the `data` array. Each section therefore merges filtered BanRep `effective_date` values into the `dates` array before calling `buildTimeline`. This adds extra rows at those dates, but since `buildTimeline` carries each series' last known value forward (step function), no false rate changes are introduced — the rows at BanRep dates simply reflect the rates already in effect.
