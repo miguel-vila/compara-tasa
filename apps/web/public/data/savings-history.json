@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T14:03:50.367Z",
+  "generated_at": "2026-06-11T14:03:21.927Z",
   "points": [
     {
       "date": "2026-01-21",
@@ -1055,6 +1055,30 @@
       "account_name": "Cuenta Especial Premium",
       "min_amount_cop": 500000000,
       "max_amount_cop": 999999999,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "min_amount_cop": 1,
+      "max_amount_cop": 10000000,
+      "rate": {
+        "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "bank_id": "ban100",
+      "bank_name": "Ban100",
+      "account_type": "high_yield",
+      "account_name": "Cuenta de Ahorro 100pre",
+      "min_amount_cop": 10000001,
+      "max_amount_cop": 30000000,
       "rate": {
         "ea_percent": 10
       }

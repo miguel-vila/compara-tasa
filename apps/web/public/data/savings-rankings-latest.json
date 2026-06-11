@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T14:03:50.376Z",
+  "generated_at": "2026-06-11T14:03:21.935Z",
   "scenarios": {
     "best_rate_under_10m": [
       {
@@ -9,6 +9,9 @@
           "value": 10
         },
         "entries": [
+          {
+            "offer_id": "55019d3362663fba"
+          },
           {
             "offer_id": "306a37384405ecb0"
           },
@@ -69,6 +72,9 @@
         },
         "entries": [
           {
+            "offer_id": "b83014881dba77ad"
+          },
+          {
             "offer_id": "11693522babf3a62"
           }
         ]
@@ -77,11 +83,11 @@
         "position": 3,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 9.5
+          "value": 9.25
         },
         "entries": [
           {
-            "offer_id": "75f42d2146224fdb"
+            "offer_id": "a59fd8d7a681d04d"
           }
         ]
       }
@@ -139,7 +145,7 @@
         },
         "entries": [
           {
-            "offer_id": "376a27306a1e91ea"
+            "offer_id": "55019d3362663fba"
           },
           {
             "offer_id": "11693522babf3a62"
