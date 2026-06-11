@@ -18,26 +18,47 @@ export type ChartLine = { key: string; label: string; color: string };
 export type ReferenceLineData = { date: string; label: string; rate: number };
 
 const REFERENCE_LINE_COLOR = "#6b7280";
+const BANREP_RATE_COLOR = "#92400e";
 
 function BanrepLabel({
   viewBox,
   rate,
-  label,
+  date,
 }: {
   viewBox?: { x: number; y: number };
   rate: number;
-  label: string;
+  date: string;
 }) {
   if (!viewBox) return null;
+  const x = viewBox.x + 3;
+  const y = viewBox.y + 2;
+  const w = 48;
+  const h = 30;
+  const cx = x + w / 2;
   return (
     <g>
-      <title>{`${label} · ${rate.toFixed(2)}%`}</title>
+      <title>{`${shortDate(date)} · ${rate.toFixed(2)}%`}</title>
+      <rect
+        x={x}
+        y={y}
+        width={w}
+        height={h}
+        rx={3}
+        fill="white"
+        stroke="#e5e7eb"
+        strokeWidth={0.5}
+        opacity={0.95}
+      />
+      <text x={cx} y={y + 12} fontSize={9} fill={REFERENCE_LINE_COLOR} textAnchor="middle">
+        {shortDate(date)}
+      </text>
       <text
-        x={viewBox.x + 3}
-        y={viewBox.y + 12}
-        fontSize={9}
-        fill={REFERENCE_LINE_COLOR}
-        fontWeight={500}
+        x={cx}
+        y={y + 25}
+        fontSize={11}
+        fill={BANREP_RATE_COLOR}
+        fontWeight={700}
+        textAnchor="middle"
       >
         {rate.toFixed(2)}%
       </text>
@@ -105,7 +126,7 @@ export function RateHistoryChart({
               stroke={REFERENCE_LINE_COLOR}
               strokeDasharray="4 2"
               label={(props: { viewBox?: { x: number; y: number } }) => (
-                <BanrepLabel viewBox={props.viewBox} rate={rl.rate} label={rl.label} />
+                <BanrepLabel viewBox={props.viewBox} rate={rl.rate} date={rl.date} />
               )}
             />
           ))}

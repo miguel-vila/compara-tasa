@@ -165,7 +165,7 @@ export function MortgageHistorySection() {
         rows={rows}
         lines={lines}
         formatValue={formatValue}
-        referenceLinesLabel="Tasa de intervención BanRep"
+        referenceLinesLabel="Cambio en tasa de intervención BanRep"
         referenceLines={banrepRates
           .filter(
             (r) =>

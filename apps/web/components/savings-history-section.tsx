@@ -125,7 +125,7 @@ export function SavingsHistorySection() {
         rows={rows}
         lines={lines}
         formatValue={(n) => `${n.toFixed(1)}%`}
-        referenceLinesLabel="Tasa de intervención BanRep"
+        referenceLinesLabel="Cambio en tasa de intervención BanRep"
         referenceLines={banrepRates
           .filter(
             (r) =>
