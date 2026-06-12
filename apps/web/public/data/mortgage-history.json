@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T14:02:53.711Z",
+  "generated_at": "2026-06-12T14:01:31.434Z",
   "points": [
     {
       "date": "2026-01-10",
@@ -2215,6 +2215,58 @@
       "rate": {
         "kind": "UVR_SPREAD",
         "spread_ea_from": 8.1
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "bank_id": "davivienda",
+      "bank_name": "Davibank (ex-Davivienda)",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.6
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "bank_id": "davivienda",
+      "bank_name": "Davibank (ex-Davivienda)",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.75
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "bank_id": "davivienda",
+      "bank_name": "Davibank (ex-Davivienda)",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.1
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "bank_id": "davivienda",
+      "bank_name": "Davibank (ex-Davivienda)",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.15
       }
     }
   ]
