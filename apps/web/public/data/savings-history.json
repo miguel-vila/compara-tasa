@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T14:01:31.509Z",
+  "generated_at": "2026-06-16T14:01:30.136Z",
   "points": [
     {
       "date": "2026-01-21",
@@ -1081,6 +1081,18 @@
       "max_amount_cop": 30000000,
       "rate": {
         "ea_percent": 10
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "account_type": "high_yield",
+      "account_name": "Cuenta Alcancía Digital (Tasa Premio)",
+      "min_amount_cop": 1,
+      "max_amount_cop": 40000000,
+      "rate": {
+        "ea_percent": 9.75
       }
     }
   ]
