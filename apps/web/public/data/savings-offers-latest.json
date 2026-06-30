@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T14:02:31.455Z",
+  "generated_at": "2026-06-30T14:02:21.421Z",
   "offers": [
     {
       "id": "a59fd8d7a681d04d",
@@ -13,7 +13,7 @@
       "min_amount_cop": 1,
       "source": {
         "kind": "manual",
-        "retrieved_at": "2026-06-29T14:02:31.452Z",
+        "retrieved_at": "2026-06-30T14:02:21.416Z",
         "observed_date": "2026-04-25",
         "reporter_note": "Checked in Nu app - Cajitas feature",
         "reference_url": "https://nu.com.co/"
