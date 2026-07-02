@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T14:01:23.967Z",
+  "generated_at": "2026-07-02T14:01:29.628Z",
   "offers": [
     {
       "id": "833c1d163a88bb45",
@@ -19,7 +19,7 @@
         "url": "https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas vigentes persona natural",
-        "retrieved_at": "2026-07-01T14:00:39.168Z",
+        "retrieved_at": "2026-07-02T14:00:39.268Z",
         "extracted_text_fingerprint": "57e75242a943df10f027d99900d333cfef00536caeb083448c5f45e551c51a3e",
         "extraction": {
           "method": "REGEX",
@@ -46,7 +46,7 @@
         "url": "https://banco.itau.co/web/personas/informacion-de-interes/tasas-y-tarifas",
         "source_type": "PDF",
         "document_label": "Tasas vigentes persona natural",
-        "retrieved_at": "2026-07-01T14:00:39.168Z",
+        "retrieved_at": "2026-07-02T14:00:39.268Z",
         "extracted_text_fingerprint": "57e75242a943df10f027d99900d333cfef00536caeb083448c5f45e551c51a3e",
         "extraction": {
           "method": "REGEX",
