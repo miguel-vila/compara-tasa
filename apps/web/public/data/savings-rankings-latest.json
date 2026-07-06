@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T14:02:42.630Z",
+  "generated_at": "2026-07-06T14:01:39.173Z",
   "scenarios": {
     "best_rate_under_10m": [
       {
@@ -14,6 +14,9 @@
           },
           {
             "offer_id": "306a37384405ecb0"
+          },
+          {
+            "offer_id": "11693522babf3a62"
           }
         ]
       },
@@ -64,6 +67,9 @@
         "entries": [
           {
             "offer_id": "b83014881dba77ad"
+          },
+          {
+            "offer_id": "11693522babf3a62"
           }
         ]
       },
@@ -102,6 +108,9 @@
         "entries": [
           {
             "offer_id": "376a27306a1e91ea"
+          },
+          {
+            "offer_id": "11693522babf3a62"
           }
         ]
       },
@@ -131,6 +140,9 @@
         "entries": [
           {
             "offer_id": "55019d3362663fba"
+          },
+          {
+            "offer_id": "11693522babf3a62"
           }
         ]
       },
