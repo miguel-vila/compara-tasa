@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T14:00:58.308Z",
+  "generated_at": "2026-07-06T14:01:10.754Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -18,11 +18,11 @@
         "position": 2,
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 7.5
+          "value": 7.55
         },
         "entries": [
           {
-            "offer_id": "4ffdcb36f61e576a"
+            "offer_id": "71eff68d24b3ef57"
           }
         ]
       },
@@ -30,11 +30,11 @@
         "position": 3,
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 7.55
+          "value": 8.1
         },
         "entries": [
           {
-            "offer_id": "71eff68d24b3ef57"
+            "offer_id": "e5920824ab95e131"
           }
         ]
       }
@@ -68,11 +68,11 @@
         "position": 3,
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 7.5
+          "value": 8.1
         },
         "entries": [
           {
-            "offer_id": "93d8e2c707453d39"
+            "offer_id": "b7ad94d5b1081e5f"
           }
         ]
       }
@@ -82,11 +82,11 @@
         "position": 1,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 13
+          "value": 12.4
         },
         "entries": [
           {
-            "offer_id": "73e25f0f5faac283"
+            "offer_id": "3e6d49d40997c125"
           }
         ]
       },
@@ -137,9 +137,6 @@
         "entries": [
           {
             "offer_id": "66dde23e8e235a44"
-          },
-          {
-            "offer_id": "229e4ab8106c4375"
           }
         ]
       },
@@ -217,40 +214,11 @@
         "position": 1,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 13
+          "value": 12.4
         },
         "entries": [
           {
-            "offer_id": "73e25f0f5faac283"
-          }
-        ]
-      },
-      {
-        "position": 2,
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 13.5
-        },
-        "entries": [
-          {
-            "offer_id": "229e4ab8106c4375"
-          }
-        ]
-      }
-    ],
-    "best_digital_uvr_hipotecario": [
-      {
-        "position": 1,
-        "metric": {
-          "kind": "UVR_SPREAD_EA",
-          "value": 7.5
-        },
-        "entries": [
-          {
-            "offer_id": "4ffdcb36f61e576a"
-          },
-          {
-            "offer_id": "93d8e2c707453d39"
+            "offer_id": "3e6d49d40997c125"
           }
         ]
       }
