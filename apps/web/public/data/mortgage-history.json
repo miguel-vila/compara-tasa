@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T14:00:50.712Z",
+  "generated_at": "2026-07-17T14:00:47.980Z",
   "points": [
     {
       "date": "2026-01-10",
@@ -2413,6 +2413,70 @@
       "rate": {
         "kind": "COP_FIXED",
         "ea_percent_from": 18.25
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.35,
+        "ea_percent_to": 17.8,
+        "mv_percent_from": 1.12,
+        "mv_percent_to": 1.37
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.75,
+        "ea_percent_to": 16.3,
+        "mv_percent_from": 1.08,
+        "mv_percent_to": 1.27
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.55,
+        "spread_ea_to": 10.35,
+        "spread_mv_from": 0.69,
+        "spread_mv_to": 0.82
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "bank_id": "banco_caja_social",
+      "bank_name": "Banco Caja Social",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 7.5,
+        "spread_ea_to": 10,
+        "spread_mv_from": 0.6,
+        "spread_mv_to": 0.8
       }
     }
   ]
