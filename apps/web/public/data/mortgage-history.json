@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T14:03:27.146Z",
+  "generated_at": "2026-08-10T14:01:01.698Z",
   "points": [
     {
       "date": "2026-01-10",
@@ -2477,6 +2477,58 @@
         "spread_ea_to": 10,
         "spread_mv_from": 0.6,
         "spread_mv_to": 0.8
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 15.2
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.7
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.3
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "bank_id": "banco_agrario",
+      "bank_name": "Banco Agrario",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 8.8
       }
     }
   ]
