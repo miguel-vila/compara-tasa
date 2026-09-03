@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T14:00:46.267Z",
+  "generated_at": "2026-09-03T14:00:47.972Z",
   "points": [
     {
       "date": "2026-01-10",
@@ -2529,6 +2529,45 @@
       "rate": {
         "kind": "UVR_SPREAD",
         "spread_ea_from": 8.8
+      }
+    },
+    {
+      "date": "2026-09-03",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 18.13
+      }
+    },
+    {
+      "date": "2026-09-03",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 16.43
+      }
+    },
+    {
+      "date": "2026-09-03",
+      "bank_id": "banco_de_bogota",
+      "bank_name": "Banco de Bogotá",
+      "product_type": "leasing",
+      "currency_index": "COP",
+      "segment": "UNKNOWN",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 18.13
       }
     }
   ]
