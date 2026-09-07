@@ -41,7 +41,7 @@ Some banks offer preferential rates to customers who receive their salary throug
 
 ## Ranking Scenarios
 
-The system precomputes top-3 rankings for 10 scenarios. For mortgage rankings, **lower rates are better**. Digital channel rankings are split by currency because UVR spreads and COP rates use different metrics and can't be ranked together:
+The system precomputes top-3 rankings for 9 scenarios. For mortgage rankings, **lower rates are better**. Digital channel rankings are split by currency because UVR spreads and COP rates use different metrics and can't be ranked together:
 
 | Scenario                       | Product     | Currency | Segment | Payroll | Channel |
 | ------------------------------ | ----------- | -------- | ------- | ------- | ------- |
@@ -54,7 +54,6 @@ The system precomputes top-3 rankings for 10 scenarios. For mortgage rankings, *
 | `best_cop_vis_payroll`         | Hipotecario | COP      | VIS     | Yes     | Any     |
 | `best_cop_no_vis_payroll`      | Hipotecario | COP      | NO_VIS  | Yes     | Any     |
 | `best_digital_cop_hipotecario` | Hipotecario | COP      | Any     | Any     | Digital |
-| `best_digital_uvr_hipotecario` | Hipotecario | UVR      | Any     | Any     | Digital |
 
 ## Bank Parsers
 
@@ -114,7 +113,7 @@ All parsers implement the `BankMortgageParser` interface, which requires a `bank
   1. **Standard Hipotecario**: VIS UVR, NO_VIS UVR, NO_VIS COP (no VIS COP in standard).
   2. **Leasing Habitacional**: A single UVR rate for all segments.
   3. **Hipotecarios-Digital**: VIS COP, NO_VIS COP, and a shared VIS/NO_VIS UVR rate.
-- **Products extracted**: ~8 offers covering hipotecario, leasing, and digital channels.
+- **Products extracted**: Up to 5 offers currently extracted: standard hipotecario (VIS/NO_VIS UVR, NO_VIS COP), leasing (UVR), and digital hipotecario (VIS COP). Digital UVR rates (VIS/NO_VIS) and NO_VIS COP digital are not currently being extracted due to PDF structure variations.
 - **Payroll**: No payroll discount modeled.
 - **Fetching**: Two-step fetch -- landing page HTML (to discover PDF URL) then the PDF itself. Both via `fetchWithRetry`.
 - **Notable**: Only bank with explicit **digital channel** rates, which are typically substantially lower than branch rates.
@@ -175,7 +174,7 @@ All parsers implement the `BankMortgageParser` interface, which requires a `bank
 - **Products extracted**: Hipotecario COP + Leasing COP = 2 offers. Only COP rates, segment = UNKNOWN (no VIS/NO_VIS distinction). Rates expressed as from/to ranges.
 - **Payroll**: No payroll discount modeled.
 - **Fetching**: Uses **Playwright with stealth plugin** (`playwright-extra` + `puppeteer-extra-plugin-stealth`) to bypass CloudFront bot protection. Visits the bank's main page first to establish a valid session/cookies, then navigates to the PDF URL. Handles both inline PDFs and download-triggered PDFs.
-- **Notable**: One of two parsers requiring a full browser (Playwright) to bypass bot protection.
+- **Notable**: The only mortgage parser requiring a full browser (Playwright) to bypass bot protection.
 
 ---
 
