@@ -36,7 +36,7 @@ Banks are classified into two categories:
 
 | Type                       | Banks                                                       |
 | -------------------------- | ----------------------------------------------------------- |
-| **Neobank** (digital-only) | Ban100, Lulo Bank, RappiPay, Pibank, Ualá, Nu Colombia      |
+| **Neobank** (digital-only) | Ban100, Lulo Bank, RappiPay, Pibank, Nu Colombia            |
 | **Traditional**            | AV Villas, Banco Popular, BBVA, Banco Caja Social, Bancamía |
 
 Two ranking scenarios find the best rate among neobanks and traditional banks respectively, without filtering by balance amount.
