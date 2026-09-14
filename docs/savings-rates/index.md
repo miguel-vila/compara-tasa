@@ -126,7 +126,7 @@ Each offer is tagged with an account type, used for display but not for ranking 
 - **Extraction**: Custom `fetchPibankPdf()` utility to resolve the current PDF URL, then `pdfjs-dist` + regex
 - **Products**: 1 product
   - **Cuenta Pibank** (high yield) -- Single flat rate for all balances (min $1, no maximum).
-- **Notes**: The PDF URL changes monthly, so a custom fetcher first visits the landing page to discover the current document link. The parser also handles a PDF text-extraction quirk where digits in the rate may be space-separated (e.g., "1 1 %" instead of "11%").
+- **Notes**: The PDF URL changes monthly, so a custom fetcher constructs URLs based on the current date (`PIBANK_BASE_URL/{year}/{month}/Tarifas_{month}{year}.pdf`) and tries the current month first, falling back to the previous month if a 403/404 error occurs. The parser also handles a PDF text-extraction quirk where digits in the rate may be space-separated (e.g., "1 1 %" instead of "11%").
 
 ### RappiPay
 
