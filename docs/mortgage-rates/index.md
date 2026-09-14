@@ -84,7 +84,7 @@ All parsers implement the `BankMortgageParser` interface, which requires a `bank
 
 ---
 
-### Scotiabank Colpatria
+### Davibank (ex-Scotiabank Colpatria)
 
 - **Source**: PDF document
 - **URL**: Direct link to "Tasas y productos de credito" PDF hosted on their CDN.
@@ -179,7 +179,7 @@ All parsers implement the `BankMortgageParser` interface, which requires a `bank
 
 ---
 
-### Davivienda
+### Davibank (ex-Davivienda)
 
 - **Source**: PDF document
 - **URL**: Stable URL at `davivienda.com/documents/d/guest/tasas-tarifas-davivienda` that always points to the latest rates PDF.
@@ -232,7 +232,7 @@ The pipeline writes three files to `apps/web/public/data/`:
 | -------------------- | ----------------- | ----------------------- | ------------------------------- | --------------------------- | ----------------- |
 | Bancolombia          | HTML              | HTTP                    | Hipotecario                     | VIS, NO_VIS                 | Yes (1% off)      |
 | BBVA                 | PDF               | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | Yes (150-250 bps) |
-| Scotiabank Colpatria | PDF               | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
+| Davibank (ex-Scotiabank Colpatria) | PDF               | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
 | Caja Social          | PDF               | HTTP                    | Hipotecario                     | VIS, NO_VIS                 | No                |
 | AV Villas            | PDF (discovered)  | HTTP (2-step)           | Hipotecario + Leasing + Digital | VIS, NO_VIS                 | No                |
 | Itau                 | PDF (fixture)     | Manual download         | Hipotecario + Leasing           | UNKNOWN                     | No                |
@@ -240,6 +240,6 @@ The pipeline writes three files to `apps/web/public/data/`:
 | Banco Popular        | HTML              | HTTP                    | Hipotecario + Leasing           | UNKNOWN                     | No                |
 | Banco de Bogota      | PDF (dynamic URL) | HTTP (month-based)      | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
 | Banco de Occidente   | PDF               | Playwright (stealth)    | Hipotecario + Leasing           | UNKNOWN                     | No                |
-| Davivienda           | PDF (stable URL)  | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
+| Davibank (ex-Davivienda) | PDF (stable URL)  | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
 | Banco Agrario        | PDF (weekly URL)  | HTTP                    | Hipotecario + Leasing           | VIS, NO_VIS                 | No                |
 | Bancoomeva           | PDF (discovered)  | HTTP (2-step, skip SSL) | Hipotecario                     | VIS, NO_VIS                 | No                |
