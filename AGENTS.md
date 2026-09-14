@@ -51,14 +51,14 @@ Both updaters also maintain `*-history.json` files of rate change-points over ti
 
 ## Error Handling Philosophy
 
-**Fail fast and loud.** Do not implement error handling that falls back to empty data.
+**Graceful degradation with diagnostics.** Parsers return whatever data they can extract, with warnings for issues.
 
-- If a parser cannot extract rates, throw an error - do not return an empty array
-- If a required field is missing, throw an error - do not use default values
-- If a fetch fails, propagate the error - do not silently continue
-- Warnings are for recoverable issues (e.g., unexpected extra data); errors are for failures
+- If a parser cannot extract rates, return an empty array with a warning
+- If a required field is missing, skip that offer and log a warning
+- If a fetch fails, the exception is caught and logged; the updater continues with other parsers
+- Warnings document what went wrong; the dataset is built from all successfully extracted offers
 
-This approach ensures we detect broken parsers immediately rather than silently serving stale or incomplete data.
+This approach allows partial datasets to be published even when some parsers encounter issues, while diagnostic warnings help identify which banks or fields may need parser updates.
 
 ## Testing
 
