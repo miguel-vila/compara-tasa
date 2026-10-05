@@ -8,6 +8,14 @@
       "observed_date": "2026-04-25",
       "reporter_note": "Checked in Nu app - Cajitas feature",
       "reference_url": "https://nu.com.co/"
+    },
+    {
+      "account_name": "Cajitas",
+      "account_type": "high_yield",
+      "ea_percent": 9.30,
+      "observed_date": "2026-10-04",
+      "reporter_note": "Checked in Nu app - Cajitas feature",
+      "reference_url": "https://nu.com.co/"
     }
   ]
 }
