@@ -1,4 +1,5 @@
 import { readFile } from "fs/promises";
+import * as cheerio from "cheerio";
 import {
   BankId,
   BankNames,
@@ -8,8 +9,24 @@ import {
   type BankSavingsParseResult,
   type ScrappedSavingsSource,
 } from "@compara-tasa/core";
-import { fetchPibankPdf, sha256, generateSavingsOfferId } from "../../utils/index.js";
+import { fetchWithRetry, sha256, generateSavingsOfferId } from "../../utils/index.js";
 import type { BankSavingsParser, SavingsParserConfig } from "./types.js";
+
+export function resolvePibankPdfUrl(html: string, baseUrl: string): string {
+  const $ = cheerio.load(html);
+  const urls = new Set(
+    $('a[href$=".pdf"]')
+      .filter((_, anchor) => $(anchor).text().trim() === "Tasas y tarifas")
+      .map((_, anchor) => new URL($(anchor).attr("href")!, baseUrl).href)
+      .get()
+  );
+
+  if (urls.size !== 1) {
+    throw new Error(`Expected one Pibank rates PDF URL, found ${urls.size}`);
+  }
+
+  return urls.values().next().value!;
+}
 
 /**
  * Extracts text content from a PDF buffer using pdfjs-dist
@@ -42,7 +59,7 @@ async function extractPdfText(pdfBuffer: Uint8Array): Promise<string[]> {
  */
 export class PibankParser implements BankSavingsParser {
   bankId = BankId.PIBANK;
-  sourceUrl = "https://www.pibank.co/tasas-y-tarifas"; // Landing page; actual PDF URL resolved dynamically
+  sourceUrl = "https://www.pibank.co/";
 
   constructor(private config: SavingsParserConfig = {}) {}
 
@@ -58,9 +75,10 @@ export class PibankParser implements BankSavingsParser {
       pdfBuffer = await readFile(this.config.fixturesPath);
       resolvedUrl = this.sourceUrl;
     } else {
-      const result = await fetchPibankPdf();
-      pdfBuffer = result.content;
-      resolvedUrl = result.resolvedUrl;
+      const home = await fetchWithRetry(this.sourceUrl, { useBrowserUserAgent: true });
+      resolvedUrl = resolvePibankPdfUrl(home.content.toString("utf-8"), this.sourceUrl);
+      const pdf = await fetchWithRetry(resolvedUrl, { useBrowserUserAgent: true });
+      pdfBuffer = pdf.content;
     }
 
     const rawTextHash = sha256(pdfBuffer.toString("base64"));

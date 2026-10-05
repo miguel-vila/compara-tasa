@@ -122,11 +122,11 @@ Each offer is tagged with an account type, used for display but not for ranking 
 
 ### Pibank
 
-- **Source**: PDF with a dynamically changing URL, resolved from `pibank.co/tasas-y-tarifas`
-- **Extraction**: Custom `fetchPibankPdf()` utility to resolve the current PDF URL, then `pdfjs-dist` + regex
+- **Source**: PDF linked as "Tasas y tarifas" in the footer of `https://www.pibank.co/`
+- **Extraction**: `cheerio` resolves the PDF URL from the home page, then `pdfjs-dist` + regex
 - **Products**: 1 product
   - **Cuenta Pibank** (high yield) -- Single flat rate for all balances (min $1, no maximum).
-- **Notes**: The PDF URL changes monthly, so a custom fetcher first visits the landing page to discover the current document link. The parser also handles a PDF text-extraction quirk where digits in the rate may be space-separated (e.g., "1 1 %" instead of "11%").
+- **Notes**: The PDF URL changes, so the parser discovers the current link from the home page. It also handles a PDF text-extraction quirk where digits in the rate may be space-separated (e.g., "1 1 %" instead of "11%").
 
 ### RappiPay
 
