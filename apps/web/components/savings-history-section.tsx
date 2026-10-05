@@ -124,7 +124,7 @@ export function SavingsHistorySection() {
       <RateHistoryChart
         rows={rows}
         lines={lines}
-        formatValue={(n) => `${n.toFixed(1)}%`}
+        formatValue={(n) => `${n.toFixed(2)}%`}
         referenceLinesLabel="Cambio en tasa de intervención BanRep"
         referenceLines={banrepRates
           .filter(

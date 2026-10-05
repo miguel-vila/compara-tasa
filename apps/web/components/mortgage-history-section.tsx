@@ -100,7 +100,7 @@ export function MortgageHistorySection() {
 
   const unit = view.currency === "UVR" ? "UVR + tasa" : "tasa fija";
   const formatValue = (n: number) =>
-    view.currency === "UVR" ? `+${n.toFixed(1)}%` : `${n.toFixed(1)}%`;
+    view.currency === "UVR" ? `+${n.toFixed(2)}%` : `${n.toFixed(2)}%`;
 
   const toggle = (bankId: string) =>
     setSelected((prev) => {
