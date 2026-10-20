@@ -570,14 +570,14 @@ Some banks publish rates in PDFs with date-based URLs that change each month. Th
 
 **Banks with date-based URLs:**
 
-| Bank         | URL Pattern                                   | Resolution Strategy                                                     |
-| ------------ | --------------------------------------------- | ----------------------------------------------------------------------- |
-| **Pibank**   | `/uploads/{year}/{month}/Tasas{MM}{YYYY}.pdf` | Predictable - use `fetchPibankPdf()`                                    |
-| **Bancamía** | Unpredictable date ranges in filename         | Cannot be automated - requires manual updates or scraping an index page |
+| Bank         | URL Pattern                           | Resolution Strategy                                                     |
+| ------------ | ------------------------------------- | ----------------------------------------------------------------------- |
+| **Pibank**   | Changing filename under `/uploads/`   | Discover the "Tasas y tarifas" PDF link on the home page                |
+| **Bancamía** | Unpredictable date ranges in filename | Cannot be automated - requires manual updates or scraping an index page |
 
 **For predictable patterns:**
 
-1. Create a dedicated fetch helper in `packages/updater/src/utils/fetch.ts` (follow the pattern of `fetchPibankPdf` or `fetchBancoDeBogotaPdf`)
+1. Create a dedicated fetch helper in `packages/updater/src/utils/fetch.ts` (follow the pattern of `fetchBancoDeBogotaPdf`)
 2. The helper should calculate the expected URL from the current date
 3. Try current month first, fall back to previous month if 404/403
 4. Return both the content and the resolved URL
@@ -587,7 +587,7 @@ Some banks publish rates in PDFs with date-based URLs that change each month. Th
 
 If the URL pattern cannot be predicted (e.g., Bancamía uses arbitrary date ranges), options are:
 
-- Scrape an index/landing page to discover the current PDF link
+- Scrape an index/landing page to discover the current PDF link (see `PibankParser`)
 - Accept that the parser will break periodically and require manual URL updates
 
-**Reference implementations:** `fetchPibankPdf()` and `fetchBancoDeBogotaPdf()` in `packages/updater/src/utils/fetch.ts`
+**Reference implementation for a predictable URL:** `fetchBancoDeBogotaPdf()` in `packages/updater/src/utils/fetch.ts`
