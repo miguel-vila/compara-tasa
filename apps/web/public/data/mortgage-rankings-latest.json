@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T14:01:45.700Z",
+  "generated_at": "2026-10-20T03:59:44.299Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -30,11 +30,11 @@
         "position": 3,
         "metric": {
           "kind": "UVR_SPREAD_EA",
-          "value": 8.8
+          "value": 10.6
         },
         "entries": [
           {
-            "offer_id": "2436942be5ed2990"
+            "offer_id": "a753ce9b8a688079"
           }
         ]
       }
@@ -106,11 +106,11 @@
         "position": 3,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 14.7
+          "value": 16.64
         },
         "entries": [
           {
-            "offer_id": "7550a0e60f3bb073"
+            "offer_id": "02fba416c57ca3e9"
           }
         ]
       }
@@ -144,11 +144,11 @@
         "position": 3,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 15.2
+          "value": 15.5
         },
         "entries": [
           {
-            "offer_id": "6d4adffdf571234b"
+            "offer_id": "cbaf71cfb252527b"
           }
         ]
       }

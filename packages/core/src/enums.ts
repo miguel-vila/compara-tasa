@@ -83,7 +83,7 @@ export const BankSavingsUrls: Partial<Record<BankId, string>> = {
   bbva: "https://www.bbva.com.co/content/dam/public-web/colombia/documents/personas/cuentas/ahorro/DO-01-Tasas-cuenta-ahorro.pdf",
   lulo: "https://ayuda.lulobank.com/hc/es/articles/28625884138772--Cu%C3%A1les-son-las-caracter%C3%ADsticas-de-los-bolsillos-y-su-rendimiento",
   rappipay: "https://www.rappipay.co/tasas-y-tarifas/",
-  pibank: "https://www.pibank.co/uploads/2025/12/Tasas012026.pdf",
+  pibank: "https://www.pibank.co/",
   uala: "https://www.uala.com.co/prensa",
   bancamia:
     "https://www.bancamia.com.co/wp-content/uploads/2025/01/TASAS-Y-TARIFAS-AHORRO-DEL-17-DE-ENERO-AL-2-DE-FEBRERO-2025.pdf",
