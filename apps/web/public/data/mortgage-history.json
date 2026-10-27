@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T14:00:53.718Z",
+  "generated_at": "2026-10-27T14:00:48.890Z",
   "points": [
     {
       "date": "2026-01-10",
@@ -2607,6 +2607,61 @@
       "rate": {
         "kind": "COP_FIXED",
         "ea_percent_from": 18.34
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 14.5,
+        "ea_percent_to": 14.5
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "COP",
+      "segment": "VIS",
+      "channel": "DIGITAL",
+      "rate": {
+        "kind": "COP_FIXED",
+        "ea_percent_from": 13.4
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "NO_VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.55,
+        "spread_ea_to": 9.95
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "bank_id": "avvillas",
+      "bank_name": "Banco AV Villas",
+      "product_type": "hipotecario",
+      "currency_index": "UVR",
+      "segment": "VIS",
+      "channel": "UNSPECIFIED",
+      "rate": {
+        "kind": "UVR_SPREAD",
+        "spread_ea_from": 9.7,
+        "spread_ea_to": 10.55
       }
     }
   ]
