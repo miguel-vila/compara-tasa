@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T14:00:51.142Z",
+  "generated_at": "2026-11-04T14:00:48.059Z",
   "mortgageScenarios": {
     "best_uvr_vis_hipotecario": [
       {
@@ -106,11 +106,11 @@
         "position": 3,
         "metric": {
           "kind": "EA_PERCENT",
-          "value": 16.64
+          "value": 16.7
         },
         "entries": [
           {
-            "offer_id": "02fba416c57ca3e9"
+            "offer_id": "1d0fc8c1cbefeccb"
           }
         ]
       }
