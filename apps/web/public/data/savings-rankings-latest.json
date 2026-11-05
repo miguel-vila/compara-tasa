@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T14:01:40.554Z",
+  "generated_at": "2026-11-05T14:01:50.946Z",
   "scenarios": {
     "best_rate_under_10m": [
       {
@@ -166,18 +166,6 @@
         "entries": [
           {
             "offer_id": "718503f75038dd53"
-          }
-        ]
-      },
-      {
-        "position": 3,
-        "metric": {
-          "kind": "EA_PERCENT",
-          "value": 9
-        },
-        "entries": [
-          {
-            "offer_id": "74d4b6f79bad6a47"
           }
         ]
       }
