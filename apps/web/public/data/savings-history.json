@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:01:44.231Z",
+  "generated_at": "2026-11-09T14:01:46.867Z",
   "points": [
     {
       "date": "2026-01-21",
@@ -1251,6 +1251,17 @@
     },
     {
       "date": "2026-11-06",
+      "bank_id": "nu",
+      "bank_name": "Nu Colombia",
+      "account_type": "high_yield",
+      "account_name": "Cajitas",
+      "min_amount_cop": 1,
+      "rate": {
+        "ea_percent": 9.35
+      }
+    },
+    {
+      "date": "2026-11-09",
       "bank_id": "nu",
       "bank_name": "Nu Colombia",
       "account_type": "high_yield",
